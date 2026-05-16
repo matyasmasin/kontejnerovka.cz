@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kontejnerovka.cz/sitemap.xml
+Sitemap: https://matyasmasin.github.io/kontejnerovka.cz/sitemap.xml
