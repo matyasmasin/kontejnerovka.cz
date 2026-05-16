@@ -3,6 +3,13 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
 const form = document.querySelector("[data-inquiry-form]");
 const formNote = document.querySelector("[data-form-note]");
+const copyInquiryButton = document.querySelector("[data-copy-inquiry]");
+
+const track = (eventName, eventParams = {}) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, eventParams);
+  }
+};
 
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -25,11 +32,8 @@ nav?.addEventListener("click", (event) => {
   }
 });
 
-form?.addEventListener("submit", (event) => {
-  event.preventDefault();
-
+const getInquiryText = () => {
   const data = new FormData(form);
-  const subject = "Poptávka z webu Kontejnerovka.cz";
   const lines = [
     "Dobrý den,",
     "",
@@ -40,6 +44,8 @@ form?.addEventListener("submit", (event) => {
     `Lokalita: ${data.get("location") || ""}`,
     `Termín: ${data.get("date") || ""}`,
     `Služba: ${data.get("service") || ""}`,
+    `Množství: ${data.get("amount") || ""}`,
+    `Přístup: ${data.get("access") || ""}`,
     "",
     "Poznámka:",
     `${data.get("message") || ""}`,
@@ -47,15 +53,48 @@ form?.addEventListener("submit", (event) => {
     "Prosím o cenu a možný termín.",
   ];
 
+  return lines.join("\n");
+};
+
+form?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const subject = "Poptávka z webu Kontejnerovka.cz";
   const mailto = new URL("mailto:info@kontejnerovka.cz");
   mailto.searchParams.set("subject", subject);
-  mailto.searchParams.set("body", lines.join("\n"));
+  mailto.searchParams.set("body", getInquiryText());
+
+  track("inquiry_mailto_submit", { form_name: "main_inquiry" });
 
   window.location.href = mailto.toString();
 
   if (formNote) {
     formNote.textContent = "E-mail s poptávkou je připravený k odeslání ve vašem poštovním programu.";
   }
+});
+
+copyInquiryButton?.addEventListener("click", async () => {
+  if (!form?.reportValidity()) return;
+
+  try {
+    await navigator.clipboard.writeText(getInquiryText());
+    track("inquiry_copy", { form_name: "main_inquiry" });
+    if (formNote) {
+      formNote.textContent = "Údaje poptávky jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.";
+    }
+  } catch {
+    if (formNote) {
+      formNote.textContent = "Kopírování se nepovedlo. Pošlete poptávku e-mailem nebo zavolejte.";
+    }
+  }
+});
+
+document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+  link.addEventListener("click", () => track("click_phone", { link_url: link.href }));
+});
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+  link.addEventListener("click", () => track("click_email", { link_url: link.href }));
 });
 
 window.addEventListener("DOMContentLoaded", () => {
