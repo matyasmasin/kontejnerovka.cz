@@ -57,15 +57,20 @@ const getInquiryText = () => {
 };
 
 form?.addEventListener("submit", (event) => {
+  track("inquiry_form_submit", { form_name: "main_inquiry" });
+
+  if (form.action.includes("formsubmit.co")) {
+    if (formNote) {
+      formNote.textContent = "Odesílám poptávku. Pokud se zobrazí potvrzení služby FormSubmit, stačí ho jednou potvrdit v e-mailu.";
+    }
+    return;
+  }
+
   event.preventDefault();
 
-  const subject = "Poptávka z webu Kontejnerovka.cz";
   const mailto = new URL("mailto:info@kontejnerovka.cz");
-  mailto.searchParams.set("subject", subject);
+  mailto.searchParams.set("subject", "Poptávka z webu Kontejnerovka.cz");
   mailto.searchParams.set("body", getInquiryText());
-
-  track("inquiry_mailto_submit", { form_name: "main_inquiry" });
-
   window.location.href = mailto.toString();
 
   if (formNote) {

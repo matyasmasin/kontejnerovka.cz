@@ -1,0 +1,15 @@
+{
+  "name": "Kontejnerovka.cz",
+  "short_name": "Kontejnerovka",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fbfaf5",
+  "theme_color": "#18211d",
+  "icons": [
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

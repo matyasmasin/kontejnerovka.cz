@@ -24,10 +24,12 @@
     <meta property="og:image" content="https://matyasmasin.github.io/kontejnerovka.cz/assets/hero-truck.jpg">
     <meta name="theme-color" content="#18211d">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preload" as="image" href="assets/hero-truck.jpg">
-    <link rel="stylesheet" href="styles.css?v=20260516b">
-    <script src="https://unpkg.com/lucide@1.16.0/dist/umd/lucide.min.js" defer></script>
-    <script src="script.js?v=20260516" defer></script>
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preload" as="image" href="assets/hero-truck.webp" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=20260517">
+    <script src="assets/lucide.min.js" defer></script>
+    <script src="script.js?v=20260517" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -106,7 +108,7 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Kontejnerovka.cz domů">
+      <a class="brand" href="#top">
         <span class="brand-mark">K</span>
         <span>
           <strong>Kontejnerovka.cz</strong>
@@ -255,14 +257,43 @@
         <a class="section-link" href="cenik.html">Jak cenu počítáme</a>
       </section>
 
+      <section class="section container-sizes" aria-labelledby="sizes-title">
+        <div class="section-head">
+          <p class="eyebrow">Kontejnery</p>
+          <h2 id="sizes-title">Velikost kontejneru doporučíme podle odpadu a přístupu</h2>
+          <p>
+            U suti, betonu a zeminy je důležitá hmotnost. U dřeva, bioodpadu nebo vyklízení rozhoduje spíš objem.
+            Při nacenění proto vybíráme rozumnou variantu podle materiálu, místa přistavení a nosnosti.
+          </p>
+        </div>
+        <div class="size-table">
+          <article>
+            <strong>Menší kontejner</strong>
+            <span>Pro menší rekonstrukce, úklid sklepa, větve, dřevo nebo menší množství stavebního odpadu.</span>
+          </article>
+          <article>
+            <strong>Střední kontejner</strong>
+            <span>Nejčastější volba pro rekonstrukce bytů, běžnou suť, směsný stavební odpad a úklid pozemku.</span>
+          </article>
+          <article>
+            <strong>Těžký materiál</strong>
+            <span>U betonu, zeminy a čisté suti řešíme hlavně váhu. Často je lepší menší, bezpečně naložený kontejner.</span>
+          </article>
+        </div>
+        <a class="section-link" href="sluzby.html#velikosti-kontejneru">Více k velikostem kontejnerů</a>
+      </section>
+
       <section class="section split" id="materialy" aria-labelledby="materials-title">
-        <div class="split-image">
+        <picture class="split-image">
+          <source srcset="assets/material-load.webp" type="image/webp">
           <img
             src="assets/material-load.jpg"
             alt="Nakládka sypkého stavebního materiálu"
+            width="1200"
+            height="901"
             loading="lazy"
           >
-        </div>
+        </picture>
         <div class="split-content">
           <p class="eyebrow">Co vozíme</p>
           <h2 id="materials-title">Odpad pryč, materiál zpátky na stavbu</h2>
@@ -466,13 +497,16 @@
       </section>
 
       <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
-        <div class="contact-media">
+        <picture class="contact-media">
+          <source srcset="assets/site-machine.webp" type="image/webp">
           <img
             src="assets/site-machine.jpg"
             alt="Stavební technika na stavbě"
+            width="1200"
+            height="704"
             loading="lazy"
           >
-        </div>
+        </picture>
         <div class="contact-content">
           <div class="contact-copy">
             <p class="eyebrow">Kontakt</p>
@@ -499,7 +533,11 @@
             </div>
           </div>
 
-          <form class="inquiry-form" data-inquiry-form>
+          <form class="inquiry-form" action="https://formsubmit.co/info@kontejnerovka.cz" method="POST" data-inquiry-form>
+            <input type="hidden" name="_subject" value="Poptávka z webu Kontejnerovka.cz">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://matyasmasin.github.io/kontejnerovka.cz/dekujeme.html">
             <div class="form-row">
               <label>
                 Jméno
@@ -547,14 +585,14 @@
             </label>
             <button class="btn btn-primary form-button" type="submit">
               <i data-lucide="send" aria-hidden="true"></i>
-              Odeslat poptávku e-mailem
+              Odeslat poptávku
             </button>
             <button class="btn btn-copy form-button" type="button" data-copy-inquiry>
               <i data-lucide="copy" aria-hidden="true"></i>
               Zkopírovat údaje poptávky
             </button>
             <p class="form-note" data-form-note>
-              Pro nejrychlejší domluvu volejte 738&nbsp;505&nbsp;028.
+              Formulář odešle poptávku na info@kontejnerovka.cz. Při prvním použití může být potřeba potvrdit službu FormSubmit v e-mailu.
             </p>
           </form>
         </div>

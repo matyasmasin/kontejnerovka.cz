@@ -8,13 +8,33 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://matyasmasin.github.io/kontejnerovka.cz/sluzby.html">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css?v=20260516b">
-    <script src="https://unpkg.com/lucide@1.16.0/dist/umd/lucide.min.js" defer></script>
-    <script src="script.js?v=20260516" defer></script>
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css?v=20260517">
+    <script src="assets/lucide.min.js" defer></script>
+    <script src="script.js?v=20260517" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Kontejnerová doprava, odvoz odpadu a dovoz materiálu",
+        "provider": {"@type": "LocalBusiness", "name": "Kontejnerovka.cz", "telephone": "+420738505028"},
+        "areaServed": ["Praha", "Beroun", "Kladno", "Rakovník", "Středočeský kraj"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Služby Kontejnerovka.cz",
+          "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Přistavení kontejneru"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Odvoz suti a zeminy"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dovoz písku, štěrku a recyklátu"}}
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
-      <a class="brand" href="index.html" aria-label="Kontejnerovka.cz domů">
+      <a class="brand" href="index.html">
         <span class="brand-mark">K</span>
         <span><strong>Kontejnerovka.cz</strong><small>Praha a Středočeský kraj</small></span>
       </a>
@@ -56,6 +76,17 @@
         </div>
       </section>
 
+      <section class="section service-note" id="velikosti-kontejneru">
+        <p class="eyebrow">Velikosti</p>
+        <h2>Jak vybrat velikost kontejneru</h2>
+        <p>
+          U lehčího odpadu rozhoduje objem, u těžké suti, betonu a zeminy hlavně hmotnost. Proto nejde vždy říct,
+          že větší kontejner je automaticky výhodnější. Při domluvě se ptáme na typ materiálu, přibližné množství,
+          místo přistavení a přístup pro auto. Podle toho doporučíme bezpečnou variantu, aby šel náklad odvézt bez překládání
+          a bez zbytečných nákladů.
+        </p>
+      </section>
+
       <section class="section service-detail" id="odvoz-suti">
         <div class="section-head">
           <p class="eyebrow">Odvoz</p>
@@ -68,6 +99,17 @@
           <div><strong><a href="odvoz-zeminy.html">Zemina</a></strong><span>výkopový materiál, hlína, zásypy</span></div>
           <div><strong>Směs</strong><span>jen po domluvě podle složení</span></div>
         </div>
+      </section>
+
+      <section class="section content-blocks">
+        <article>
+          <h2>Co do kontejneru nemíchat</h2>
+          <p>Čistá suť, beton, zemina, dřevo a bioodpad mají jiný způsob likvidace. Když se smíchají dohromady, může se zakázka prodražit. Nebezpečný odpad, azbest, barvy, chemie, oleje, baterie a tlakové nádoby je potřeba řešit předem.</p>
+        </article>
+        <article>
+          <h2>Co pomůže při objednávce</h2>
+          <p>Nejrychlejší je poslat adresu, fotku místa, druh odpadu nebo materiálu, odhad množství, požadovaný termín a informaci, zda bude kontejner stát na vlastním pozemku nebo na veřejném místě.</p>
+        </article>
       </section>
 
       <section class="section service-detail" id="bioodpad">

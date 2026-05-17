@@ -21,3 +21,14 @@ python3 -m http.server 4173
 Potom otevřít `http://127.0.0.1:4173/`.
 
 Měření je připravené přes event hooky v `script.js`. Po vytvoření Google Analytics stačí doplnit standardní `gtag.js` snippet do hlavičky.
+
+Před ostrým spuštěním na `kontejnerovka.cz`:
+
+- přepsat canonical URL, OpenGraph URL, sitemap, robots a FormSubmit `_next` na ostrou doménu
+- přidat GitHub Pages custom domain a až potom `CNAME`
+- ověřit HTTPS certifikát a přesměrování `www`
+- založit Google Search Console a odeslat sitemapu
+- založit Google Business Profile
+- ověřit MX záznamy pro `info@kontejnerovka.cz`
+- potvrdit první e-mail od FormSubmit, aby formulář posílal poptávky přímo
+- nahradit ilustrační fotky reálnými fotkami auta, kontejnerů a realizací
