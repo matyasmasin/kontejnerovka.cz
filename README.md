@@ -9,8 +9,10 @@ Stránky:
 - `lokality.html` lokální landing page pro Prahu a Středočeský kraj
 - `cenik.html` vysvětlení nacenění
 - `poradna.html` praktická poradna
-- `odvoz-suti.html`, `odvoz-zeminy.html`, `dovoz-pisku-sterku.html` službové landing pages
-- `kontejnery-praha.html`, `kontejnery-beroun.html`, `kontejnery-kladno.html`, `kontejnery-rakovnik.html` lokální landing pages
+- `o-nas.html` důvěryhodnost, provozovatel a vozový park
+- `reference.html` připravená stránka pro reálné realizace a recenze
+- `pristaveni-kontejneru.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `odvoz-odpadu.html`, `odvoz-dreva-bioodpadu.html`, `dovoz-pisku-sterku.html`, `dovoz-recyklatu.html`, `dovoz-betonu.html` službové landing pages
+- `kontejnery-praha.html`, `kontejnery-praha-5.html`, `kontejnery-praha-zapad.html`, `kontejnery-praha-vychod.html`, `kontejnery-beroun.html`, `kontejnery-horovice.html`, `kontejnery-kladno.html`, `kontejnery-slany.html`, `kontejnery-rakovnik.html` lokální landing pages
 
 Lokální náhled:
 

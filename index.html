@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kontejnerovka.cz | Kontejnerová doprava Praha a Středočeský kraj</title>
+    <title>Kontejnerová doprava Praha a Středočeský kraj | Kontejnerovka.cz</title>
     <meta
       name="description"
-      content="Kontejnerová doprava, odvoz suti, zeminy, odpadu, dřeva a bioodpadu. Dovoz písku, štěrku, kačírku, recyklátu, zeminy a betonu po Praze a Středočeském kraji."
+      content="Kontejnerová doprava Praha a Středočeský kraj. Přistavení kontejneru, odvoz suti, zeminy, odpadu, dřeva i dovoz písku, štěrku, recyklátu a betonu."
     >
     <meta
       name="keywords"
@@ -27,9 +27,9 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" as="image" href="assets/hero-truck.webp" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260517">
+    <link rel="stylesheet" href="styles.css?v=20260519b">
     <script src="assets/lucide.min.js" defer></script>
-    <script src="script.js?v=20260517" defer></script>
+    <script src="script.js?v=20260519b" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -41,6 +41,7 @@
         "telephone": "+420738505028",
         "vatID": "CZ9211070033",
         "taxID": "01379178",
+        "image": "https://kontejnerovka.cz/assets/hero-truck.jpg",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Holýšovská 2923/4",
@@ -51,12 +52,23 @@
         "areaServed": [
           "Praha",
           "Středočeský kraj",
+          "Praha 5",
+          "Praha-západ",
+          "Praha-východ",
           "Beroun",
           "Kladno",
-          "Rakovník"
+          "Rakovník",
+          "Hořovice",
+          "Slaný"
         ],
         "priceRange": "Dle lokality, materiálu a typu odpadu",
-        "description": "Kontejnerová doprava, odvoz stavební suti, zeminy, odpadu, dřeva a bioodpadu, dovoz písku, štěrku, kačírku, recyklátu, zeminy a betonu."
+        "description": "Kontejnerová doprava, odvoz stavební suti, zeminy, odpadu, dřeva a bioodpadu, dovoz písku, štěrku, kačírku, recyklátu, zeminy a betonu.",
+        "makesOffer": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Přistavení kontejneru"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Odvoz suti"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Odvoz zeminy"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dovoz písku, štěrku a recyklátu"}}
+        ]
       }
     </script>
     <script type="application/ld+json">
@@ -70,8 +82,8 @@
               "@type": "LocalBusiness",
               "name": "Kontejnerovka.cz"
             },
-            "areaServed": ["Praha", "Beroun", "Kladno", "Rakovník", "Středočeský kraj"],
-            "serviceType": ["Přistavení kontejneru", "Odvoz suti", "Odvoz zeminy", "Dovoz písku a štěrku"]
+            "areaServed": ["Praha", "Praha-západ", "Praha-východ", "Beroun", "Kladno", "Rakovník", "Středočeský kraj"],
+            "serviceType": ["Přistavení kontejneru", "Odvoz suti", "Odvoz zeminy", "Odvoz odpadu", "Odvoz dřeva a bioodpadu", "Dovoz písku a štěrku", "Dovoz recyklátu", "Dovoz betonu"]
           },
           {
             "@type": "FAQPage",
@@ -99,6 +111,14 @@
                   "@type": "Answer",
                   "text": "Ideálně na vlastní pozemek, dvůr nebo stavbu. Stání na veřejné komunikaci může vyžadovat povolení."
                 }
+              },
+              {
+                "@type": "Question",
+                "name": "Jste plátce DPH?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ano, provozovatel je plátce DPH a vystavuje doklady. Při nacenění se potvrzuje, zda je cena uvedena s DPH."
+                }
               }
             ]
           }
@@ -125,6 +145,8 @@
         <a href="sluzby.html">Služby</a>
         <a href="cenik.html">Ceník</a>
         <a href="lokality.html">Lokality</a>
+        <a href="reference.html">Reference</a>
+        <a href="o-nas.html">O nás</a>
         <a href="poradna.html">Poradna</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -141,7 +163,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-inner">
           <p class="eyebrow">Kontejnerová doprava bez zbytečných řečí</p>
-          <h1 id="hero-title">Kontejnerovka.cz</h1>
+          <h1 id="hero-title">Kontejnerová doprava Praha a Středočeský kraj</h1>
           <p class="hero-lead">
             Přistavení a odvoz kontejnerů, likvidace suti, zeminy, odpadu, dřeva a bioodpadu.
             Dovoz písku, štěrku, kačírku, recyklátu, zeminy a betonu po Praze a Středočeském kraji.
@@ -149,7 +171,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:+420738505028">
               <i data-lucide="phone-call" aria-hidden="true"></i>
-              Zavolat
+              Zavolat&nbsp;a&nbsp;domluvit&nbsp;cenu
             </a>
             <a class="btn btn-secondary" href="#kontakt">
               <i data-lucide="clipboard-list" aria-hidden="true"></i>
@@ -167,7 +189,7 @@
             </div>
             <div>
               <dt>Doklady</dt>
-              <dd>Plátce DPH, fakturace pro firmy</dd>
+              <dd>Plátce DPH, fakturace a doklad</dd>
             </div>
           </dl>
         </div>
@@ -190,6 +212,57 @@
         </div>
       </section>
 
+      <section class="section proof-strip" aria-label="Důvěryhodnost">
+        <article>
+          <i data-lucide="badge-check" aria-hidden="true"></i>
+          <strong>Ověřitelný provozovatel</strong>
+          <span>Matyáš Mašín, IČO 01379178</span>
+        </article>
+        <article>
+          <i data-lucide="receipt" aria-hidden="true"></i>
+          <strong>Plátce DPH</strong>
+          <span>DIČ CZ9211070033, fakturace pro firmy i domácnosti</span>
+        </article>
+        <article>
+          <i data-lucide="map-pin" aria-hidden="true"></i>
+          <strong>Lokální provoz</strong>
+          <span>Praha 5, Praha, Beroun, Kladno, Rakovník a okolí</span>
+        </article>
+      </section>
+
+      <section class="section why-us" aria-labelledby="why-title">
+        <div class="section-head">
+          <p class="eyebrow">Proč objednat</p>
+          <h2 id="why-title">Rychlá domluva, jasné nacenění a služba podle konkrétní adresy</h2>
+          <p>
+            U kontejnerové dopravy rozhoduje místo, přístup, odpad a množství. Proto raději potvrdíme cenu podle reálné zakázky,
+            než abychom slibovali univerzální částku, která pak nesedí.
+          </p>
+        </div>
+        <div class="why-grid">
+          <article>
+            <i data-lucide="phone-call" aria-hidden="true"></i>
+            <h3>Cenu domluvíte rychle</h3>
+            <p>Po telefonu stačí adresa, druh odpadu nebo materiálu, množství a termín. Detaily doladíme jednoduše.</p>
+          </article>
+          <article>
+            <i data-lucide="clipboard-check" aria-hidden="true"></i>
+            <h3>Předem víte, co se řeší</h3>
+            <p>Potvrdíme přístup, dobu přistavení, typ odpadu, dopravu, skládkovné nebo cenu dováženého materiálu.</p>
+          </article>
+          <article>
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            <h3>Bez míchání problémových odpadů</h3>
+            <p>Upozorníme na azbest, chemii, elektroodpad, pneumatiky a další věci, které je potřeba řešit zvlášť.</p>
+          </article>
+          <article>
+            <i data-lucide="file-text" aria-hidden="true"></i>
+            <h3>Doklady a DPH</h3>
+            <p>Jsem plátce DPH. U zakázky si potvrdíme, zda je cena uvedena s DPH a jak bude vystaven doklad.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section services" id="sluzby" aria-labelledby="services-title">
         <div class="section-head">
           <p class="eyebrow">Služby</p>
@@ -205,19 +278,19 @@
             <div class="icon-box"><i data-lucide="truck" aria-hidden="true"></i></div>
             <h3>Přistavení kontejneru</h3>
             <p>Domluvíme termín, přistavíme kontejner na stavbu, dvůr nebo k objektu a po naplnění ho odvezeme.</p>
-            <a class="text-link" href="sluzby.html#pristaveni-kontejneru">Detail služby</a>
+            <a class="text-link" href="pristaveni-kontejneru.html">Detail služby</a>
           </article>
           <article class="service-card">
             <div class="icon-box"><i data-lucide="hard-hat" aria-hidden="true"></i></div>
             <h3>Odvoz suti a zeminy</h3>
             <p>Stavební suť, beton, zemina, výkopový materiál a směsný stavební odpad z rekonstrukcí i výkopů.</p>
-            <a class="text-link" href="odvoz-suti.html">Odvoz suti</a>
+            <a class="text-link" href="kontejner-na-sut.html">Kontejner na suť</a>
           </article>
           <article class="service-card">
             <div class="icon-box"><i data-lucide="leaf" aria-hidden="true"></i></div>
             <h3>Dřevo a bioodpad</h3>
             <p>Odvoz větví, zeleně, dřeva a zahradního odpadu. Vhodné pro úklid pozemků a sezónní práce.</p>
-            <a class="text-link" href="sluzby.html#bioodpad">Detail služby</a>
+            <a class="text-link" href="odvoz-dreva-bioodpadu.html">Detail služby</a>
           </article>
           <article class="service-card">
             <div class="icon-box"><i data-lucide="mountain" aria-hidden="true"></i></div>
@@ -255,6 +328,32 @@
           </article>
         </div>
         <a class="section-link" href="cenik.html">Jak cenu počítáme</a>
+      </section>
+
+      <section class="section price-examples" aria-labelledby="price-examples-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Příklady nacenění</p>
+          <h2 id="price-examples-title">Typické situace, které cenu nejvíc ovlivní</h2>
+        </div>
+        <div class="scenario-list">
+          <article>
+            <h3>Odvoz suti z bytu v Praze</h3>
+            <p>Řeší se městská část, možnost zastavení, čistota suti, patro, manipulace a případný zábor komunikace.</p>
+          </article>
+          <article>
+            <h3>Zemina z výkopu na Berounsku</h3>
+            <p>U zeminy rozhoduje hlavně hmotnost, vlhkost, objem a vzdálenost na místo vyložení nebo likvidace.</p>
+          </article>
+          <article>
+            <h3>Dovoz recyklátu na Kladensko</h3>
+            <p>Pomůže znát frakci, množství, účel použití a místo složení. Podle toho se volí vhodný materiál.</p>
+          </article>
+          <article>
+            <h3>Odvoz dřeva a bioodpadu</h3>
+            <p>Nejdůležitější je, zda jde o čistý bioodpad, větve a dřevo, nebo směs s plasty, kovem a dalším odpadem.</p>
+          </article>
+        </div>
+        <a class="section-link" href="cenik.html">Podrobně k ceně a DPH</a>
       </section>
 
       <section class="section container-sizes" aria-labelledby="sizes-title">
@@ -375,18 +474,18 @@
             <a class="text-link light" href="lokality.html">Přehled lokalit</a>
           </div>
           <ul class="area-tags">
-            <li>Praha</li>
-            <li>Beroun</li>
-            <li>Kladno</li>
-            <li>Rakovník</li>
-            <li>Praha-západ</li>
-            <li>Praha-východ</li>
+            <li><a href="kontejnery-praha.html">Praha</a></li>
+            <li><a href="kontejnery-praha-5.html">Praha 5</a></li>
+            <li><a href="kontejnery-praha-zapad.html">Praha-západ</a></li>
+            <li><a href="kontejnery-praha-vychod.html">Praha-východ</a></li>
+            <li><a href="kontejnery-beroun.html">Beroun</a></li>
+            <li><a href="kontejnery-kladno.html">Kladno</a></li>
+            <li><a href="kontejnery-rakovnik.html">Rakovník</a></li>
+            <li><a href="kontejnery-horovice.html">Hořovice</a></li>
+            <li><a href="kontejnery-slany.html">Slaný</a></li>
             <li>Hostivice</li>
             <li>Rudná</li>
             <li>Unhošť</li>
-            <li>Zdice</li>
-            <li>Hořovice</li>
-            <li>Slaný</li>
           </ul>
         </div>
       </section>
@@ -448,6 +547,39 @@
         </div>
       </section>
 
+      <section class="section prep" aria-labelledby="prep-title">
+        <div class="section-head">
+          <p class="eyebrow">Co připravit</p>
+          <h2 id="prep-title">Pro rychlou cenu stačí pět informací</h2>
+          <p>Když je pošlete hned, zvládneme odhadnout vhodný postup, kontejner, dopravu i případná omezení bez zdlouhavého dopisování.</p>
+        </div>
+        <ol class="prep-list">
+          <li><strong>Adresa</strong><span>místo přistavení, nakládky nebo složení materiálu</span></li>
+          <li><strong>Druh materiálu</strong><span>suť, zemina, dřevo, bioodpad, směs, písek, štěrk nebo recyklát</span></li>
+          <li><strong>Množství</strong><span>odhad v m³, tunách, počet koleček, fotka hromady nebo velikost kontejneru</span></li>
+          <li><strong>Přístup</strong><span>dvůr, stavba, ulice, úzký vjezd, možnost otočení, stání na komunikaci</span></li>
+          <li><strong>Termín</strong><span>kdy má být kontejner přistavený nebo materiál dovezený</span></li>
+        </ol>
+      </section>
+
+      <section class="section owner-preview" aria-labelledby="owner-title">
+        <div>
+          <p class="eyebrow">O provozovateli</p>
+          <h2 id="owner-title">Za webem je konkrétní provozovatel, ne anonymní katalog</h2>
+          <p>
+            Službu provozuje Matyáš Mašín, IČO 01379178, DIČ CZ9211070033, plátce DPH.
+            Působíme v Praze a Středočeském kraji, hlavně směrem Beroun, Kladno a Rakovník.
+          </p>
+          <a class="section-link" href="o-nas.html">Více o nás a vozovém parku</a>
+        </div>
+        <div class="owner-card">
+          <strong>Kontejnerovka.cz</strong>
+          <span>Holýšovská 2923/4, Stodůlky, 155 00 Praha 5</span>
+          <span>Telefon: 738&nbsp;505&nbsp;028</span>
+          <span>E-mail: info@kontejnerovka.cz</span>
+        </div>
+      </section>
+
       <section class="section audience" aria-labelledby="audience-title">
         <div class="section-head compact">
           <p class="eyebrow">Pro koho</p>
@@ -491,9 +623,10 @@
           <article>
             <i data-lucide="camera" aria-hidden="true"></i>
             <h3>Fotky realizací</h3>
-            <p>Po prvních zakázkách doplníme reálné fotky auta, kontejnerů a materiálů místo ilustračních snímků.</p>
+            <p>Na webu je připravená stránka pro reálné fotky zakázek, auta, kontejnerů a materiálů.</p>
           </article>
         </div>
+        <a class="section-link" href="reference.html">Realizace a reference</a>
       </section>
 
       <section class="contact-section" id="kontakt" aria-labelledby="contact-title">

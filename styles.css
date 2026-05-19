@@ -351,6 +351,43 @@ textarea {
   min-height: 38px;
 }
 
+.section.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.proof-strip article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  row-gap: 2px;
+  align-items: center;
+  min-height: 98px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.proof-strip i {
+  grid-row: span 2;
+  width: 34px;
+  height: 34px;
+  color: var(--green);
+}
+
+.proof-strip strong {
+  line-height: 1.18;
+}
+
+.proof-strip span {
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+}
+
 .section,
 .contact-section {
   width: min(1180px, calc(100% - 36px));
@@ -457,7 +494,8 @@ textarea {
 .local-grid,
 .trust-grid,
 .guide-grid,
-.size-table {
+.size-table,
+.why-grid {
   display: grid;
   gap: 16px;
 }
@@ -472,6 +510,7 @@ textarea {
 .info-grid article,
 .local-grid article,
 .trust-grid article,
+.why-grid article,
 .guide-grid a,
 .rules-grid article,
 .size-table article {
@@ -482,7 +521,8 @@ textarea {
 }
 
 .info-grid i,
-.trust-grid i {
+.trust-grid i,
+.why-grid i {
   width: 34px;
   height: 34px;
   margin-bottom: 24px;
@@ -492,6 +532,7 @@ textarea {
 .info-grid h3,
 .local-grid h3,
 .trust-grid h3,
+.why-grid h3,
 .guide-grid h3,
 .rules-grid h3,
 .size-table strong {
@@ -502,11 +543,25 @@ textarea {
 
 .pricing-preview,
 .container-sizes,
+.price-examples,
 .rules,
 .local-proof,
 .trust,
 .guide-preview {
   padding-top: 0;
+}
+
+.why-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.why-grid article {
+  min-height: 250px;
+}
+
+.why-grid p {
+  margin: 0;
+  color: var(--ink-soft);
 }
 
 .rules-grid {
@@ -661,6 +716,16 @@ textarea {
   text-align: center;
 }
 
+.area-tags a {
+  display: grid;
+  width: 100%;
+  min-height: 44px;
+  place-items: center;
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -687,6 +752,97 @@ textarea {
 
 .audience {
   padding-top: 0;
+}
+
+.prep {
+  padding-top: 0;
+}
+
+.prep-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: prep;
+}
+
+.prep-list li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-height: 188px;
+  padding: 56px 20px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.prep-list li::before {
+  counter-increment: prep;
+  content: counter(prep);
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--safety);
+  font-weight: 900;
+}
+
+.prep-list strong {
+  margin-bottom: 8px;
+  line-height: 1.18;
+}
+
+.prep-list span {
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+}
+
+.owner-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  gap: 20px;
+  align-items: stretch;
+  padding-top: 0;
+}
+
+.owner-preview h2 {
+  max-width: 820px;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+}
+
+.owner-preview p:not(.eyebrow) {
+  max-width: 760px;
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+}
+
+.owner-card {
+  display: grid;
+  align-content: center;
+  gap: 9px;
+  padding: 26px;
+  border-radius: 8px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.owner-card strong {
+  color: var(--safety);
+  font-size: 1.3rem;
+}
+
+.owner-card span {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .audience-grid {
@@ -1071,6 +1227,24 @@ svg {
   stroke-width: 2.2;
 }
 
+@media (max-width: 1180px) {
+  .site-header {
+    gap: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .site-nav {
+    gap: 2px;
+  }
+
+  .site-nav a {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 1040px) {
   .site-header {
     grid-template-columns: auto auto auto;
@@ -1090,6 +1264,10 @@ svg {
   .detail-grid,
   .price-grid,
   .material-table,
+  .section.proof-strip,
+  .why-grid,
+  .prep-list,
+  .owner-preview,
   .scenario-list,
   .content-blocks,
   .area-layout {
@@ -1174,8 +1352,8 @@ svg {
 
   .hero h1 {
     font-size: clamp(2.45rem, 10.2vw, 3.05rem);
-    overflow-wrap: normal;
-    white-space: nowrap;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
   .hero-actions {
@@ -1189,6 +1367,7 @@ svg {
   .rules-grid,
   .local-grid,
   .trust-grid,
+  .why-grid,
   .guide-grid,
   .size-table,
   .steps,
