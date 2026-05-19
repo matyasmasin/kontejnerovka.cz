@@ -41,6 +41,7 @@ const getInquiryText = () => {
     "",
     `Jméno: ${data.get("name") || ""}`,
     `Telefon: ${data.get("phone") || ""}`,
+    `E-mail: ${data.get("email") || ""}`,
     `Lokalita: ${data.get("location") || ""}`,
     `Termín: ${data.get("date") || ""}`,
     `Služba: ${data.get("service") || ""}`,
@@ -59,9 +60,9 @@ const getInquiryText = () => {
 form?.addEventListener("submit", (event) => {
   track("inquiry_form_submit", { form_name: "main_inquiry" });
 
-  if (form.action.includes("formsubmit.co")) {
+  if (form.action.includes("api.web3forms.com")) {
     if (formNote) {
-      formNote.textContent = "Odesílám poptávku. Pokud se zobrazí potvrzení služby FormSubmit, stačí ho jednou potvrdit v e-mailu.";
+      formNote.textContent = "Odesílám poptávku. Během chvíle by měla dorazit do e-mailu.";
     }
     return;
   }

@@ -533,11 +533,12 @@
             </div>
           </div>
 
-          <form class="inquiry-form" action="https://formsubmit.co/info@kontejnerovka.cz" method="POST" data-inquiry-form>
-            <input type="hidden" name="_subject" value="Poptávka z webu Kontejnerovka.cz">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://kontejnerovka.cz/dekujeme.html">
+          <form class="inquiry-form" action="https://api.web3forms.com/submit" method="POST" data-inquiry-form>
+            <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
+            <input type="hidden" name="subject" value="Poptávka z webu Kontejnerovka.cz">
+            <input type="hidden" name="from_name" value="Kontejnerovka.cz">
+            <input type="hidden" name="redirect" value="http://kontejnerovka.cz/dekujeme.html">
+            <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
             <div class="form-row">
               <label>
                 Jméno
@@ -550,12 +551,22 @@
             </div>
             <div class="form-row">
               <label>
+                E-mail
+                <input type="email" name="email" autocomplete="email" placeholder="Volitelné">
+              </label>
+              <label>
                 Lokalita
                 <input type="text" name="location" placeholder="Např. Beroun, Kladno, Praha 6" required>
               </label>
+            </div>
+            <div class="form-row">
               <label>
                 Termín
                 <input type="text" name="date" placeholder="Např. tento týden">
+              </label>
+              <label>
+                Přibližné množství
+                <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner">
               </label>
             </div>
             <label>
@@ -569,16 +580,10 @@
                 <option>Jiná domluva</option>
               </select>
             </label>
-            <div class="form-row">
-              <label>
-                Přibližné množství
-                <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner">
-              </label>
-              <label>
-                Přístup na místo
-                <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd">
-              </label>
-            </div>
+            <label>
+              Přístup na místo
+              <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd">
+            </label>
             <label>
               Poznámka
               <textarea name="message" rows="4" placeholder="Typ odpadu nebo materiálu, přibližné množství, přístup na místo..."></textarea>
@@ -592,7 +597,7 @@
               Zkopírovat údaje poptávky
             </button>
             <p class="form-note" data-form-note>
-              Formulář odešle poptávku na info@kontejnerovka.cz. Při prvním použití může být potřeba potvrdit službu FormSubmit v e-mailu.
+              Formulář odešle poptávku na info@kontejnerovka.cz. Nejrychlejší domluva je stále po telefonu.
             </p>
           </form>
         </div>
