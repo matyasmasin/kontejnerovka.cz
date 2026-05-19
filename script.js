@@ -93,8 +93,10 @@ const track = (eventName, eventParams = {}) => {
   return false;
 };
 
+const pageHasImageHero = Boolean(document.querySelector(".hero"));
+
 const setHeaderState = () => {
-  header?.classList.toggle("is-scrolled", window.scrollY > 12);
+  header?.classList.toggle("is-scrolled", !pageHasImageHero || window.scrollY > 12);
 };
 
 setHeaderState();
