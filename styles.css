@@ -1176,7 +1176,9 @@ textarea:focus {
 
 .scenario-list article,
 .content-blocks article,
-.service-note {
+.service-note,
+.seo-panel,
+.mobile-action-box {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
@@ -1185,20 +1187,89 @@ textarea:focus {
 
 .scenario-list h2,
 .content-blocks h2,
-.service-note h2 {
+.service-note h2,
+.seo-panel h2,
+.mobile-action-box h2 {
   margin: 0 0 10px;
   line-height: 1.18;
 }
 
 .scenario-list p,
 .content-blocks p,
-.service-note p {
+.service-note p,
+.seo-panel p,
+.mobile-action-box p {
   margin: 0;
   color: var(--ink-soft);
 }
 
 .service-note {
   max-width: 860px;
+}
+
+.seo-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.seo-panel ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.seo-panel li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--ink-soft);
+}
+
+.seo-panel li::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--safety);
+}
+
+.link-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 18px 0 0;
+  list-style: none;
+}
+
+.link-cloud a {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--green);
+  font-weight: 850;
+}
+
+.mobile-action-box {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  margin-top: 18px;
+  border-color: rgba(244, 178, 60, 0.42);
+  background: #fff8e8;
+}
+
+.mobile-action-box .hero-actions {
+  margin-top: 0;
 }
 
 .cta-band {
@@ -1270,6 +1341,7 @@ svg {
   .owner-preview,
   .scenario-list,
   .content-blocks,
+  .seo-panel ul,
   .area-layout {
     grid-template-columns: 1fr;
   }

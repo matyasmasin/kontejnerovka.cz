@@ -11,8 +11,8 @@ Stránky:
 - `poradna.html` praktická poradna
 - `o-nas.html` důvěryhodnost, provozovatel a vozový park
 - `reference.html` připravená stránka pro reálné realizace a recenze
-- `pristaveni-kontejneru.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `odvoz-odpadu.html`, `odvoz-dreva-bioodpadu.html`, `dovoz-pisku-sterku.html`, `dovoz-recyklatu.html`, `dovoz-betonu.html` službové landing pages
-- `kontejnery-praha.html`, `kontejnery-praha-5.html`, `kontejnery-praha-zapad.html`, `kontejnery-praha-vychod.html`, `kontejnery-beroun.html`, `kontejnery-horovice.html`, `kontejnery-kladno.html`, `kontejnery-slany.html`, `kontejnery-rakovnik.html` lokální landing pages
+- `pristaveni-kontejneru.html`, `velkoobjemovy-kontejner.html`, `kontejner-na-sut.html`, `kontejner-na-stavebni-odpad.html`, `odvoz-suti.html`, `odvoz-betonu.html`, `odvoz-zeminy.html`, `odvoz-odpadu.html`, `odvoz-dreva-bioodpadu.html`, `dovoz-pisku-sterku.html`, `dovoz-pisku.html`, `dovoz-sterku.html`, `dovoz-kacirku.html`, `dovoz-recyklatu.html`, `dovoz-betonu.html` službové landing pages
+- `kontejnery-praha.html`, `kontejnery-praha-5.html`, `kontejnery-praha-6.html`, `kontejnery-praha-13.html`, `kontejnery-praha-17.html`, `kontejnery-praha-zapad.html`, `kontejnery-praha-vychod.html`, `kontejnery-beroun.html`, `kontejnery-horovice.html`, `kontejnery-zdice.html`, `kontejnery-kraluv-dvur.html`, `kontejnery-kladno.html`, `kontejnery-slany.html`, `kontejnery-rakovnik.html`, `kontejnery-rudna.html`, `kontejnery-hostivice.html`, `kontejnery-unhost.html` lokální landing pages
 
 Lokální náhled:
 
