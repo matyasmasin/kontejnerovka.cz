@@ -58,6 +58,70 @@ textarea {
   border: 0;
 }
 
+.cookie-banner {
+  position: fixed;
+  z-index: 80;
+  right: clamp(14px, 3vw, 28px);
+  bottom: clamp(14px, 3vw, 28px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  width: min(760px, calc(100% - 28px));
+  padding: 18px;
+  border: 1px solid rgba(222, 216, 202, 0.9);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(251, 250, 245, 0.98);
+  box-shadow: 0 24px 70px rgba(24, 33, 29, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.cookie-banner strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.cookie-banner p {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.cookie-banner a {
+  color: var(--green);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cookie-actions .btn {
+  min-height: 46px;
+  white-space: nowrap;
+}
+
+.footer-privacy-button {
+  border: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.footer-privacy-button:hover,
+.footer-privacy-button:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .site-header {
   position: fixed;
   z-index: 20;
@@ -1549,6 +1613,20 @@ svg {
   .mobile-cta a:last-child {
     color: var(--white);
     background: var(--green);
+  }
+
+  .cookie-banner {
+    left: 10px;
+    right: 10px;
+    bottom: 84px;
+    grid-template-columns: 1fr;
+    width: auto;
+    padding: 14px;
+  }
+
+  .cookie-actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
