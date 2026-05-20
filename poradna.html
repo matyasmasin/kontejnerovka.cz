@@ -13,7 +13,62 @@
     <link rel="stylesheet" href="styles.css?v=20260521">
     <script src="assets/lucide.min.js" defer></script>
     <script src="script.js?v=20260522" defer></script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Co poslat pro rychlé nacenění?","acceptedAnswer":{"@type":"Answer","text":"Nejrychlejší je poslat adresu, druh odpadu nebo materiálu, přibližné množství, termín a fotku místa, pokud je horší přístup."}},{"@type":"Question","name":"Jste plátce DPH?","acceptedAnswer":{"@type":"Answer","text":"Ano, provozovatel je plátce DPH a vystavuje doklady. Při nacenění se potvrzuje, zda je cena uvedena s DPH."}}]}</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Co je čistá suť?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Čistá suť jsou hlavně cihly, beton, omítka, dlažba nebo keramika bez dřeva, plastů, izolace, sádrokartonu a komunálního odpadu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co je směsný stavební odpad?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Směsný stavební odpad vzniká, když se suť míchá s dalšími materiály, například dřevem, plasty, izolací, sádrokartonem nebo vybavením bytu."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Můžu míchat zeminu a suť?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bez domluvy to nedoporučujeme. Čistá zemina, čistá suť a směs se mohou řešit jinak a míchání může změnit cenu i způsob likvidace."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co nesmí do běžného kontejneru?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bez předchozí domluvy do běžného kontejneru nepatří azbest, eternit, chemie, barvy, oleje, baterie, elektroodpad, pneumatiky, tlakové nádoby a jiný nebezpečný odpad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co rozhoduje o ceně kontejneru?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O ceně rozhoduje lokalita, trasa, typ odpadu nebo materiálu, množství, hmotnost, skládkovné, přístup pro auto, doba stání a případná manipulace."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co poslat pro rychlé nacenění?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nejrychlejší je poslat adresu, druh odpadu nebo materiálu, přibližné množství, termín, přístup na místo a fotku odpadu nebo místa přistavení."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
@@ -57,6 +112,51 @@
           <h2>Na co si dát pozor u nebezpečného odpadu</h2>
           <p>Azbest, eternit, barvy, chemie, oleje, baterie, pneumatiky, elektroodpad nebo tlakové nádoby nepatří do běžného kontejneru bez předchozí domluvy. Pokud něco takového v odpadu je, řekněte to předem.</p>
         </article>
+      </section>
+
+      <section class="section faq" id="nejcastejsi-dotazy" aria-labelledby="poradna-faq-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Praktické odpovědi</p>
+          <h2 id="poradna-faq-title">Otázky, které nejvíc ovlivní cenu a správný postup</h2>
+        </div>
+        <div class="faq-list">
+          <details id="cista-sut">
+            <summary>Co je čistá suť?</summary>
+            <p>Čistá suť jsou hlavně cihly, beton, omítka, dlažba nebo keramika bez dřeva, plastů, izolace, sádrokartonu a komunálního odpadu. Když je odpad opravdu čistý, dá se obvykle naceňovat jednodušeji než směs.</p>
+          </details>
+          <details id="smesny-stavebni-odpad">
+            <summary>Co je směsný stavební odpad?</summary>
+            <p>Je to odpad z rekonstrukce nebo bourání, kde se míchá suť s dalšími materiály, například dřevem, plasty, izolací, sádrokartonem nebo vybavením bytu. U směsi je důležité popsat složení předem.</p>
+          </details>
+          <details id="michani-zeminy-a-suti">
+            <summary>Můžu míchat zeminu a suť?</summary>
+            <p>Bez domluvy to nedoporučujeme. Čistá zemina, čistá suť a směs se mohou řešit jinak a míchání může změnit cenu i způsob likvidace. Pokud už je materiál promíchaný, pošlete fotku.</p>
+          </details>
+          <details id="co-nesmi-do-kontejneru">
+            <summary>Co nesmí do běžného kontejneru?</summary>
+            <p>Bez předchozí domluvy do běžného kontejneru nepatří azbest, eternit, chemie, barvy, oleje, baterie, elektroodpad, pneumatiky, tlakové nádoby a jiný nebezpečný odpad.</p>
+          </details>
+          <details id="povoleni-na-ulici">
+            <summary>Kdy potřebuji povolení na kontejner?</summary>
+            <p>Když kontejner stojí na ulici, chodníku nebo jiném veřejném místě, může být potřeba povolení k záboru podle pravidel obce nebo městské části. Na vlastním pozemku, dvoře nebo stavbě bývá postup jednodušší.</p>
+          </details>
+          <details id="co-rozhoduje-o-cene">
+            <summary>Co rozhoduje o ceně?</summary>
+            <p>O ceně rozhoduje lokalita, trasa, typ odpadu nebo materiálu, množství, hmotnost, skládkovné, přístup pro auto, doba stání a případná manipulace. Proto je lepší nacenit konkrétní zakázku než slíbit univerzální cenu.</p>
+          </details>
+          <details id="rychlost-pristaveni">
+            <summary>Jak rychle lze kontejner přistavit?</summary>
+            <p>Záleží na trase, dostupnosti auta, typu odpadu, lokalitě a přístupu na místo. Nejrychlejší je zavolat, říct adresu a popsat, co se bude odvážet nebo dovážet.</p>
+          </details>
+          <details id="co-poslat-do-poptavky">
+            <summary>Co poslat do poptávky?</summary>
+            <p>Pošlete adresu, druh odpadu nebo materiálu, přibližné množství, termín, přístup na místo a ideálně fotku. U dovozu materiálu doplňte, k čemu má písek, štěrk, kačírek nebo recyklát sloužit.</p>
+          </details>
+          <details id="kdy-volat">
+            <summary>Kdy je lepší rovnou zavolat?</summary>
+            <p>Volejte, pokud potřebujete rychlý termín, nejste si jistí složením odpadu, řešíte stání na ulici, horší přístup nebo kombinaci odvozu a dovozu materiálu v jedné zakázce.</p>
+          </details>
+        </div>
       </section>
 
 

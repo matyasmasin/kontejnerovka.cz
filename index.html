@@ -42,6 +42,14 @@
         "vatID": "CZ9211070033",
         "taxID": "01379178",
         "image": "https://kontejnerovka.cz/assets/hero-truck.jpg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+420738505028",
+          "email": "info@kontejnerovka.cz",
+          "contactType": "customer service",
+          "areaServed": "CZ",
+          "availableLanguage": "cs"
+        },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Holýšovská 2923/4",
@@ -53,13 +61,21 @@
           "Praha",
           "Středočeský kraj",
           "Praha 5",
+          "Praha 6",
+          "Praha 13",
+          "Praha 17",
           "Praha-západ",
           "Praha-východ",
           "Beroun",
           "Kladno",
           "Rakovník",
           "Hořovice",
-          "Slaný"
+          "Slaný",
+          "Rudná",
+          "Hostivice",
+          "Unhošť",
+          "Zdice",
+          "Králův Dvůr"
         ],
         "priceRange": "Dle lokality, materiálu a typu odpadu",
         "description": "Kontejnerová doprava, odvoz stavební suti, zeminy, odpadu, dřeva a bioodpadu, dovoz písku, štěrku, kačírku, recyklátu, zeminy a betonu.",
@@ -82,7 +98,7 @@
               "@type": "LocalBusiness",
               "name": "Kontejnerovka.cz"
             },
-            "areaServed": ["Praha", "Praha-západ", "Praha-východ", "Beroun", "Kladno", "Rakovník", "Středočeský kraj"],
+            "areaServed": ["Praha", "Praha 5", "Praha 6", "Praha 13", "Praha 17", "Praha-západ", "Praha-východ", "Beroun", "Kladno", "Rakovník", "Hořovice", "Slaný", "Rudná", "Hostivice", "Unhošť", "Zdice", "Králův Dvůr", "Středočeský kraj"],
             "serviceType": ["Přistavení kontejneru", "Odvoz suti", "Odvoz zeminy", "Odvoz odpadu", "Odvoz dřeva a bioodpadu", "Dovoz písku a štěrku", "Dovoz recyklátu", "Dovoz betonu"]
           },
           {
@@ -93,7 +109,7 @@
                 "name": "Kolik bude stát přistavení kontejneru?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Cena záleží na lokalitě, vzdálenosti, typu odpadu, množství a skládkovném."
+                  "text": "Cena záleží na lokalitě, vzdálenosti, typu odpadu nebo materiálu, množství, skládkovném, době stání a přístupu pro auto. Při nacenění si potvrzujeme také DPH."
                 }
               },
               {
@@ -106,18 +122,26 @@
               },
               {
                 "@type": "Question",
-                "name": "Kam lze kontejner postavit?",
+                "name": "Co poslat do poptávky pro rychlou cenu?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ideálně na vlastní pozemek, dvůr nebo stavbu. Stání na veřejné komunikaci může vyžadovat povolení."
+                  "text": "Pošlete adresu, druh odpadu nebo materiálu, přibližné množství, termín, informaci o přístupu a ideálně fotku odpadu nebo místa přistavení."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Jste plátce DPH?",
+                "name": "Můžu míchat suť, zeminu, dřevo a bioodpad?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ano, provozovatel je plátce DPH a vystavuje doklady. Při nacenění se potvrzuje, zda je cena uvedena s DPH."
+                  "text": "Bez domluvy raději ne. Čistá suť, zemina, dřevo, bioodpad a směsný stavební odpad se mohou likvidovat jinak a míchání může změnit cenu."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kdy je potřeba povolení na kontejner?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Když kontejner stojí na ulici, chodníku nebo jiném veřejném místě, může být potřeba povolení k záboru podle obce nebo městské části. Na vlastním pozemku bývá domluva jednodušší."
                 }
               }
             ]
@@ -159,7 +183,7 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" role="img" aria-label="Nákladní vůz na stavbě"></div>
+        <div class="hero-bg" role="img" aria-label="Ilustrační nákladní vůz převážející materiál na stavbě"></div>
         <div class="hero-overlay"></div>
         <div class="hero-inner">
           <p class="eyebrow">Kontejnerová doprava bez zbytečných řečí</p>
@@ -228,6 +252,51 @@
           <strong>Lokální provoz</strong>
           <span>Praha 5, Praha, Beroun, Kladno, Rakovník a okolí</span>
         </article>
+      </section>
+
+      <section class="section" aria-labelledby="quick-answers-title" data-seo-expansion="ai-answers">
+        <div class="section-head compact">
+          <p class="eyebrow">Rychlé odpovědi</p>
+          <h2 id="quick-answers-title">Nejčastější otázky před objednáním kontejneru</h2>
+          <p>
+            Tohle jsou dotazy, které lidé řeší přímo při rekonstrukci, výkopu nebo úklidu pozemku.
+            Když některou informaci nevíte, stačí zavolat a upřesníme ji spolu.
+          </p>
+        </div>
+        <div class="content-blocks">
+          <article>
+            <h2>Kolik stojí odvoz suti po rekonstrukci koupelny?</h2>
+            <p>Cenu určuje hlavně adresa, množství, čistota suti, možnost přistavení a případné skládkovné. Pošlete fotku hromady nebo řekněte, zda jde o čisté cihly, omítku, dlažbu a beton, nebo směs s dalším odpadem.</p>
+          </article>
+          <article>
+            <h2>Jaký kontejner potřebuji na zeminu z výkopu?</h2>
+            <p>Zemina je těžká, zvlášť když je mokrá. Proto je lepší určit postup podle množství, přístupu k výkopu a možnosti nakládky. U zeminy často pomůže fotka hromady a informace, zda je v ní kámen, kořeny nebo suť.</p>
+          </article>
+          <article>
+            <h2>Můžu dát suť, dřevo a bioodpad do jednoho kontejneru?</h2>
+            <p>Bez předchozí domluvy ne. Čistá suť, dřevo, bioodpad a směsný stavební odpad se mohou likvidovat jinak. Když složení odpadu popíšete předem, dá se navrhnout levnější a praktičtější řešení.</p>
+          </article>
+          <article>
+            <h2>Kdy je potřeba povolení na kontejner na ulici?</h2>
+            <p>Pokud kontejner stojí na vlastním pozemku nebo na stavbě, bývá domluva jednodušší. U stání na ulici, chodníku nebo jiném veřejném místě může být potřeba zábor podle pravidel obce nebo městské části.</p>
+          </article>
+          <article>
+            <h2>Co poslat do poptávky, abych rychle dostal cenu?</h2>
+            <p>Nejvíc pomůže adresa, druh odpadu nebo materiálu, odhad množství, termín, přístup na místo a fotka. U mobilu stačí poslat stručný popis a zavolat, pokud potřebujete cenu rychle.</p>
+          </article>
+          <article>
+            <h2>Lze spojit odvoz zeminy a dovoz recyklátu?</h2>
+            <p>Ano, často to dává smysl u výkopů, drenáží, příjezdových cest a úprav pozemku. Do jedné poptávky napište, co se má odvézt, co přivézt a kam lze materiál bezpečně složit.</p>
+          </article>
+        </div>
+        <ul class="link-cloud">
+          <li><a href="cenik.html">Jak počítáme cenu</a></li>
+          <li><a href="poradna.html">Poradna k odpadu</a></li>
+          <li><a href="odvoz-suti.html">Odvoz suti</a></li>
+          <li><a href="odvoz-zeminy.html">Odvoz zeminy</a></li>
+          <li><a href="pristaveni-kontejneru.html">Přistavení kontejneru</a></li>
+          <li><a href="dovoz-recyklatu.html">Dovoz recyklátu</a></li>
+        </ul>
       </section>
 
       <section class="section why-us" aria-labelledby="why-title">
@@ -416,7 +485,7 @@
           <source srcset="assets/material-load.webp" type="image/webp">
           <img
             src="assets/material-load.jpg"
-            alt="Nakládka sypkého stavebního materiálu"
+            alt="Ilustrační nakládka sypkého stavebního materiálu"
             width="1200"
             height="901"
             loading="lazy"
@@ -668,7 +737,7 @@
           <source srcset="assets/site-machine.webp" type="image/webp">
           <img
             src="assets/site-machine.jpg"
-            alt="Stavební technika na stavbě"
+            alt="Ilustrační stavební technika na stavbě s prostorem pro odvoz materiálu"
             width="1200"
             height="704"
             loading="lazy"
