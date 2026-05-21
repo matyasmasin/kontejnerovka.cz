@@ -131,6 +131,7 @@ const getInquiryText = () => {
     `Služba: ${data.get("service") || ""}`,
     `Množství: ${data.get("amount") || ""}`,
     `Přístup: ${data.get("access") || ""}`,
+    `Fotka: ${data.get("photo") || ""}`,
     "",
     "Poznámka:",
     `${data.get("message") || ""}`,

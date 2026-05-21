@@ -12,7 +12,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css?v=20260521">
     <script src="assets/lucide.min.js" defer></script>
-    <script src="script.js?v=20260522" defer></script>
+    <script src="script.js?v=20260523" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -65,10 +65,27 @@
               "@type": "Answer",
               "text": "Nejrychlejší je poslat adresu, druh odpadu nebo materiálu, přibližné množství, termín, přístup na místo a fotku odpadu nebo místa přistavení."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Kolik místa potřebuje auto s kontejnerem?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Je potřeba bezpečný příjezd, prostor pro manipulaci a pevný podklad. Pokud je vjezd úzký, nízké větve, kabely nebo málo místa na otočení, pošlete fotku předem."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Co když kontejner přeplním?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Přeplněný nebo příliš těžký kontejner může být nebezpečný a nemusí jít bezpečně odvézt. U suti, betonu a zeminy se hlídá hlavně hmotnost."
+            }
           }
         ]
       }
     </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Úvod","item":"https://kontejnerovka.cz/"},{"@type":"ListItem","position":2,"name":"Co vědět před objednáním kontejneru","item":"https://kontejnerovka.cz/poradna.html"}]}</script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
@@ -155,6 +172,18 @@
           <details id="kdy-volat">
             <summary>Kdy je lepší rovnou zavolat?</summary>
             <p>Volejte, pokud potřebujete rychlý termín, nejste si jistí složením odpadu, řešíte stání na ulici, horší přístup nebo kombinaci odvozu a dovozu materiálu v jedné zakázce.</p>
+          </details>
+          <details id="kolik-mista">
+            <summary>Kolik místa potřebuje auto s kontejnerem?</summary>
+            <p>Je potřeba bezpečný příjezd, prostor pro manipulaci a pevný podklad. Pokud je vjezd úzký, jsou nad místem větve nebo kabely, nebo není jasné, kde se auto otočí, pošlete fotku předem.</p>
+          </details>
+          <details id="preplneny-kontejner">
+            <summary>Co když kontejner přeplním?</summary>
+            <p>Přeplněný nebo příliš těžký kontejner může být nebezpečný a nemusí jít bezpečně odvézt. U suti, betonu a zeminy se hlídá hlavně hmotnost, u lehčího odpadu zase objem a výška naložení.</p>
+          </details>
+          <details id="kdy-objednat">
+            <summary>Jak dlouho dopředu objednat kontejner?</summary>
+            <p>U běžné zakázky je nejlepší řešit termín co nejdříve, jakmile znáte adresu a typ odpadu. Pokud spěcháte, zavolejte; podle trasy a vytížení se někdy dá najít rychlejší řešení.</p>
           </details>
         </div>
       </section>
