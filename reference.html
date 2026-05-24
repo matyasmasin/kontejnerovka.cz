@@ -16,10 +16,25 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "Úvod", "item": "https://kontejnerovka.cz/"},
-          {"@type": "ListItem", "position": 2, "name": "Reference", "item": "https://kontejnerovka.cz/reference.html"}
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "name": "Reference a realizace Kontejnerovka.cz",
+            "url": "https://kontejnerovka.cz/reference.html",
+            "description": "Stránka pro reálné ukázky zakázek, fotky odvozu suti, zeminy a dovozu materiálu. Recenze a realizace se doplňují pouze z ověřených podkladů.",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "Kontejnerovka.cz",
+              "url": "https://kontejnerovka.cz/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Úvod", "item": "https://kontejnerovka.cz/"},
+              {"@type": "ListItem", "position": 2, "name": "Reference", "item": "https://kontejnerovka.cz/reference.html"}
+            ]
+          }
         ]
       }
     </script>
@@ -98,7 +113,7 @@
         </article>
       </section>
 
-      <section class="section">
+      <section class="section" id="konkretni-dukazy">
         <div class="section-head compact">
           <p class="eyebrow">Důkazy z praxe</p>
           <h2>Co na stránku doplníme po prvních zakázkách</h2>
@@ -142,7 +157,7 @@
       <section class="section seo-panel" data-seo-expansion="support-panel">
         <h2>Jak budou reference pomáhat důvěře a lokálnímu SEO</h2>
         <p>U lokální služby jsou reference jedním z nejsilnějších prvků důvěry. Zákazník chce vidět, že firma reálně jezdí v jeho oblasti, řeší podobné zakázky a umí jasně komunikovat cenu i termín.</p>
-        <ul class="link-cloud"><li><a href="o-nas.html">O nás</a></li><li><a href="lokality.html">Lokality</a></li><li><a href="reference.html">Google recenze</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul>
+        <ul class="link-cloud"><li><a href="o-nas.html">O nás</a></li><li><a href="lokality.html">Lokality</a></li><li><a href="#konkretni-dukazy">Jak budeme sbírat recenze</a></li><li><a href="index.html#kontakt">Kontakt</a></li></ul>
       </section>
       <section class="cta-band">
         <h2>Chcete být mezi prvními realizacemi na webu?</h2>

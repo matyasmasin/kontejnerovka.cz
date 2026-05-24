@@ -1265,6 +1265,7 @@ textarea:focus {
 
 .scenario-list h2,
 .content-blocks h2,
+.content-blocks h3,
 .service-note h2,
 .seo-panel h2,
 .mobile-action-box h2 {
@@ -1639,7 +1640,19 @@ svg {
     bottom: 84px;
     grid-template-columns: 1fr;
     width: auto;
-    padding: 14px;
+    gap: 10px;
+    max-height: calc(100dvh - 118px);
+    overflow: auto;
+    padding: 12px;
+  }
+
+  .cookie-banner strong {
+    font-size: 0.95rem;
+  }
+
+  .cookie-banner p {
+    margin-bottom: 6px;
+    font-size: 0.86rem;
   }
 
   .cookie-actions {
