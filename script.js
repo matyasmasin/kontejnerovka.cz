@@ -93,6 +93,68 @@ const track = (eventName, eventParams = {}) => {
   return false;
 };
 
+const servicePages = new Set([
+  "pristaveni-kontejneru.html",
+  "kontejner-na-sut.html",
+  "kontejner-na-stavebni-odpad.html",
+  "velkoobjemovy-kontejner.html",
+  "odvoz-suti.html",
+  "odvoz-zeminy.html",
+  "odvoz-odpadu.html",
+  "odvoz-dreva-bioodpadu.html",
+  "odvoz-betonu.html",
+  "dovoz-pisku.html",
+  "dovoz-sterku.html",
+  "dovoz-kacirku.html",
+  "dovoz-pisku-sterku.html",
+  "dovoz-recyklatu.html",
+  "dovoz-betonu.html",
+]);
+
+const getPageSlug = () => {
+  const path = window.location.pathname.split("/").pop();
+  return path || "index.html";
+};
+
+const getPageType = () => {
+  const slug = getPageSlug();
+  if (slug === "index.html") return "home";
+  if (slug.startsWith("kontejnery-")) return "local_landing";
+  if (servicePages.has(slug)) return "service_landing";
+  if (["cenik.html", "poradna.html", "lokality.html", "reference.html", "o-nas.html"].includes(slug)) return "support";
+  if (slug === "dekujeme.html") return "thank_you";
+  return "other";
+};
+
+const cleanAnalyticsValue = (value, maxLength = 90) =>
+  String(value || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
+
+const getLinkType = (href) => {
+  if (href.startsWith("tel:")) return "phone";
+  if (href.startsWith("mailto:")) return "email";
+  if (href.includes("#kontakt")) return "form_anchor";
+  if (href.startsWith("#")) return "anchor";
+  if (href.startsWith("http") && !href.includes(window.location.hostname)) return "external";
+  return "internal";
+};
+
+const ensurePageUrlField = () => {
+  if (!form) return;
+
+  let pageUrlField = form.querySelector('input[name="page_url"]');
+  if (!(pageUrlField instanceof HTMLInputElement)) {
+    pageUrlField = document.createElement("input");
+    pageUrlField.type = "hidden";
+    pageUrlField.name = "page_url";
+    form.appendChild(pageUrlField);
+  }
+
+  pageUrlField.value = window.location.href;
+};
+
 const pageHasImageHero = Boolean(document.querySelector(".hero"));
 
 const setHeaderState = () => {
@@ -143,9 +205,18 @@ const getInquiryText = () => {
 };
 
 form?.addEventListener("submit", (event) => {
+  ensurePageUrlField();
+  const submittedData = new FormData(form);
+
   track("lead_form_submit", {
     form_name: "main_inquiry",
     method: "web_form",
+    page_type: getPageType(),
+    page_path: window.location.pathname,
+    selected_service: cleanAnalyticsValue(submittedData.get("service")),
+    has_email: submittedData.get("email") ? "yes" : "no",
+    has_amount: submittedData.get("amount") ? "yes" : "no",
+    has_photo_note: submittedData.get("photo") ? "yes" : "no",
   });
 
   if (form.action.includes("api.web3forms.com")) {
@@ -169,12 +240,15 @@ form?.addEventListener("submit", (event) => {
 
 copyInquiryButton?.addEventListener("click", async () => {
   if (!form?.reportValidity()) return;
+  const copiedData = new FormData(form);
 
   try {
     await navigator.clipboard.writeText(getInquiryText());
     track("inquiry_copy", {
       form_name: "main_inquiry",
       method: "copy_inquiry",
+      page_type: getPageType(),
+      selected_service: cleanAnalyticsValue(copiedData.get("service")),
     });
     if (formNote) {
       formNote.textContent = "Údaje poptávky jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.";
@@ -191,6 +265,8 @@ document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
     track("click_phone", {
       link_url: link.href,
       method: "phone",
+      page_type: getPageType(),
+      page_path: window.location.pathname,
     });
     track("generate_lead", {
       currency: "CZK",
@@ -204,6 +280,8 @@ document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
     track("click_email", {
       link_url: link.href,
       method: "email",
+      page_type: getPageType(),
+      page_path: window.location.pathname,
     });
     track("generate_lead", {
       currency: "CZK",
@@ -211,6 +289,32 @@ document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
     });
   });
 });
+
+let formStartTracked = false;
+form?.addEventListener("focusin", () => {
+  if (formStartTracked) return;
+  formStartTracked = true;
+
+  track("form_start", {
+    form_name: "main_inquiry",
+    page_type: getPageType(),
+    page_path: window.location.pathname,
+  });
+});
+
+document
+  .querySelectorAll(".btn[href], .section-link[href], .text-link[href], .mobile-cta a[href], .header-call[href], .contact-cards a[href], .quick-contact a[href]")
+  .forEach((link) => {
+    link.addEventListener("click", () => {
+      const href = link.getAttribute("href") || "";
+      track("cta_click", {
+        page_type: getPageType(),
+        page_path: window.location.pathname,
+        link_type: getLinkType(href),
+        link_text: cleanAnalyticsValue(link.textContent),
+      });
+    });
+  });
 
 const trackThankYouPage = () => {
   if (!window.location.pathname.endsWith("/dekujeme.html")) return;
@@ -224,6 +328,7 @@ const trackThankYouPage = () => {
   const tracked = track("generate_lead", {
     currency: "CZK",
     method: "web_form",
+    page_type: getPageType(),
   });
 
   if (tracked) {
@@ -302,6 +407,7 @@ if (hasAnalyticsConsent()) {
 
 window.addEventListener("DOMContentLoaded", () => {
   window.lucide?.createIcons();
+  ensurePageUrlField();
   addPrivacyControls();
   createCookieBanner();
   trackThankYouPage();
