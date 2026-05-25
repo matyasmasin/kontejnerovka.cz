@@ -11,6 +11,9 @@
   --brick: #a44732;
   --white: #ffffff;
   --shadow: 0 20px 60px rgba(24, 33, 29, 0.16);
+  --shadow-soft: 0 12px 32px rgba(24, 33, 29, 0.1);
+  --shadow-card: 0 18px 44px rgba(24, 33, 29, 0.14);
+  --ring: 0 0 0 3px rgba(244, 178, 60, 0.28);
 }
 
 * {
@@ -46,6 +49,16 @@ textarea {
   font: inherit;
 }
 
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(244, 178, 60, 0.55);
+  outline-offset: 3px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -65,14 +78,14 @@ textarea {
   bottom: clamp(14px, 3vw, 28px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
-  width: min(760px, calc(100% - 28px));
-  padding: 18px;
+  gap: 14px;
+  width: min(640px, calc(100% - 28px));
+  padding: 16px;
   border: 1px solid rgba(222, 216, 202, 0.9);
   border-radius: 8px;
   color: var(--ink);
   background: rgba(251, 250, 245, 0.98);
-  box-shadow: 0 24px 70px rgba(24, 33, 29, 0.22);
+  box-shadow: var(--shadow-card);
   backdrop-filter: blur(16px);
 }
 
@@ -98,11 +111,13 @@ textarea {
 .cookie-actions {
   display: flex;
   align-items: center;
+  align-self: center;
   gap: 10px;
 }
 
 .cookie-actions .btn {
-  min-height: 46px;
+  min-height: 44px;
+  padding: 0 16px;
   white-space: nowrap;
 }
 
@@ -191,6 +206,7 @@ textarea {
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 700;
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .site-nav a:hover,
@@ -217,6 +233,13 @@ textarea {
   background: var(--safety);
   font-weight: 900;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.header-call:hover,
+.header-call:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
 }
 
 .nav-toggle {
@@ -253,13 +276,15 @@ textarea {
 
 .hero-bg {
   background:
-    linear-gradient(90deg, rgba(24, 33, 29, 0.92), rgba(24, 33, 29, 0.6) 45%, rgba(24, 33, 29, 0.22)),
+    linear-gradient(90deg, rgba(24, 33, 29, 0.94), rgba(24, 33, 29, 0.64) 45%, rgba(24, 33, 29, 0.18)),
     url("assets/hero-truck.webp") center / cover;
   transform: scale(1.02);
 }
 
 .hero-overlay {
-  background: linear-gradient(0deg, rgba(24, 33, 29, 0.78), rgba(24, 33, 29, 0) 38%);
+  background:
+    linear-gradient(0deg, rgba(24, 33, 29, 0.82), rgba(24, 33, 29, 0) 38%),
+    linear-gradient(135deg, rgba(244, 178, 60, 0.14), rgba(244, 178, 60, 0) 34%);
 }
 
 .hero-inner {
@@ -308,24 +333,45 @@ textarea {
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
   min-height: 52px;
   padding: 0 22px;
   border: 0;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 900;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 
 .btn:hover,
 .btn:focus-visible {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn i,
+.section-link i,
+.text-link i {
+  transition: transform 160ms ease;
+}
+
+.btn:hover i,
+.btn:focus-visible i,
+.section-link:hover i,
+.section-link:focus-visible i,
+.text-link:hover i,
+.text-link:focus-visible i {
+  transform: translateX(2px);
 }
 
 .btn-primary {
   color: var(--ink);
   background: var(--safety);
-  box-shadow: 0 18px 38px rgba(244, 178, 60, 0.26);
+  box-shadow: 0 18px 38px rgba(244, 178, 60, 0.3);
 }
 
 .btn-primary:hover,
@@ -340,10 +386,22 @@ textarea {
   backdrop-filter: blur(12px);
 }
 
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .btn-copy {
   color: var(--ink);
   border: 1px solid var(--line);
   background: var(--paper-strong);
+}
+
+.btn-copy:hover,
+.btn-copy:focus-visible {
+  border-color: rgba(33, 100, 82, 0.26);
+  background: #fff8e8;
 }
 
 .text-link,
@@ -356,6 +414,15 @@ textarea {
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 4px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.text-link:hover,
+.text-link:focus-visible,
+.section-link:hover,
+.section-link:focus-visible {
+  color: var(--safety-dark);
+  text-decoration-color: currentColor;
 }
 
 .text-link.light {
@@ -368,8 +435,9 @@ textarea {
   gap: 1px;
   margin: 56px 0 0;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.2);
   box-shadow: var(--shadow);
 }
 
@@ -378,6 +446,7 @@ textarea {
   padding: 22px;
   background: rgba(24, 33, 29, 0.74);
   backdrop-filter: blur(14px);
+  transition: background 180ms ease;
 }
 
 .hero-facts dt {
@@ -415,6 +484,15 @@ textarea {
   min-height: 38px;
 }
 
+.quick-contact a {
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.quick-contact a:hover,
+.quick-contact a:focus-visible {
+  color: var(--safety);
+}
+
 .section.proof-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -434,12 +512,16 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
+  box-shadow: 0 1px 0 rgba(24, 33, 29, 0.04);
 }
 
 .proof-strip i {
   grid-row: span 2;
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  border-radius: 8px;
+  background: rgba(33, 100, 82, 0.1);
   color: var(--green);
 }
 
@@ -503,6 +585,32 @@ textarea {
   background: var(--white);
 }
 
+.service-card,
+.audience-grid article,
+.steps article,
+.info-grid article,
+.local-grid article,
+.trust-grid article,
+.why-grid article,
+.guide-grid a,
+.rules-grid article,
+.size-table article,
+.detail-grid article,
+.price-grid article,
+.material-table > div,
+.article-list article,
+.scenario-list article,
+.content-blocks article,
+.service-note,
+.seo-panel,
+.mobile-action-box,
+.proof-strip article,
+.prep-list li,
+.location-sections article,
+.link-cloud a {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
 .service-card {
   min-height: 280px;
   padding: 24px;
@@ -517,6 +625,7 @@ textarea {
   border-radius: 8px;
   color: var(--white);
   background: var(--green);
+  transition: transform 180ms ease;
 }
 
 .service-card:nth-child(2) .icon-box {
@@ -648,10 +757,6 @@ textarea {
   grid-template-columns: repeat(4, 1fr);
 }
 
-.guide-grid a {
-  transition: transform 160ms ease, box-shadow 160ms ease;
-}
-
 .guide-grid a:hover,
 .guide-grid a:focus-visible {
   transform: translateY(-2px);
@@ -778,6 +883,7 @@ textarea {
   color: var(--ink);
   font-weight: 850;
   text-align: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .area-tags a {
@@ -974,6 +1080,14 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.contact-cards a:hover,
+.contact-cards a:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(244, 178, 60, 0.34);
+  background: rgba(255, 255, 255, 0.13);
 }
 
 .contact-cards strong {
@@ -987,9 +1101,30 @@ textarea {
   display: grid;
   gap: 14px;
   padding: 22px;
+  border: 1px solid rgba(222, 216, 202, 0.9);
+  border-top: 4px solid var(--safety);
   border-radius: 8px;
   color: var(--ink);
   background: var(--white);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+}
+
+.form-intro {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid rgba(244, 178, 60, 0.34);
+  border-radius: 8px;
+  background: #fff8e8;
+}
+
+.form-intro strong {
+  line-height: 1.25;
+}
+
+.form-intro span {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
 }
 
 .form-row {
@@ -1015,6 +1150,7 @@ textarea {
   background: #fffefa;
   color: var(--ink);
   outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
 input,
@@ -1033,7 +1169,8 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--safety-dark);
-  box-shadow: 0 0 0 3px rgba(244, 178, 60, 0.22);
+  background: var(--white);
+  box-shadow: var(--ring);
 }
 
 .form-button {
@@ -1074,12 +1211,29 @@ textarea:focus {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.faq-list details[open] {
+  border-color: rgba(33, 100, 82, 0.28);
+  box-shadow: var(--shadow-soft);
 }
 
 .faq-list summary {
   cursor: pointer;
   padding: 20px;
   font-weight: 900;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.faq-list summary:hover,
+.faq-list summary:focus-visible {
+  color: var(--green);
+  background: rgba(33, 100, 82, 0.06);
+}
+
+.faq-list summary::marker {
+  color: var(--green);
 }
 
 .faq-list p {
@@ -1340,6 +1494,79 @@ textarea:focus {
   background: var(--white);
   color: var(--green);
   font-weight: 850;
+}
+
+@media (hover: hover) {
+  .hero-facts div:hover {
+    background: rgba(24, 33, 29, 0.82);
+  }
+
+  .service-card:hover,
+  .audience-grid article:hover,
+  .steps article:hover,
+  .info-grid article:hover,
+  .local-grid article:hover,
+  .trust-grid article:hover,
+  .why-grid article:hover,
+  .rules-grid article:hover,
+  .size-table article:hover,
+  .detail-grid article:hover,
+  .price-grid article:hover,
+  .material-table > div:hover,
+  .article-list article:hover,
+  .scenario-list article:hover,
+  .content-blocks article:hover,
+  .service-note:hover,
+  .seo-panel:hover,
+  .mobile-action-box:hover,
+  .proof-strip article:hover,
+  .prep-list li:hover,
+  .location-sections article:hover,
+  .link-cloud a:hover,
+  .link-cloud a:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(33, 100, 82, 0.24);
+    box-shadow: var(--shadow-card);
+  }
+
+  .service-card:hover .icon-box,
+  .service-card:focus-within .icon-box {
+    transform: scale(1.05);
+  }
+
+  .area-tags li:hover {
+    transform: translateY(-2px);
+    border-color: rgba(33, 100, 82, 0.24);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 520ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .mobile-action-box {
@@ -1618,6 +1845,7 @@ svg {
     gap: 8px;
     background: rgba(251, 250, 245, 0.96);
     border-top: 1px solid var(--line);
+    box-shadow: 0 -14px 34px rgba(24, 33, 29, 0.14);
     backdrop-filter: blur(12px);
   }
 
@@ -1634,16 +1862,20 @@ svg {
     background: var(--green);
   }
 
+  .mobile-cta a:active {
+    transform: translateY(1px);
+  }
+
   .cookie-banner {
     left: 10px;
     right: 10px;
     bottom: 84px;
     grid-template-columns: 1fr;
     width: auto;
-    gap: 10px;
+    gap: 8px;
     max-height: calc(100dvh - 118px);
     overflow: auto;
-    padding: 12px;
+    padding: 11px;
   }
 
   .cookie-banner strong {
@@ -1661,7 +1893,7 @@ svg {
   }
 
   .cookie-actions .btn {
-    min-height: 46px;
+    min-height: 44px;
     padding: 0 10px;
     font-size: 0.86rem;
   }

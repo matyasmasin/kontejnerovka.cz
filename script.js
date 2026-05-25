@@ -340,6 +340,39 @@ const trackThankYouPage = () => {
   }
 };
 
+const setupRevealAnimations = () => {
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  const revealTargets = document.querySelectorAll(".section, .contact-section, .cta-band, .subpage-hero");
+  if (!revealTargets.length) return;
+
+  revealTargets.forEach((target) => {
+    target.setAttribute("data-reveal", "");
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealTargets.forEach((target) => target.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.12,
+    },
+  );
+
+  revealTargets.forEach((target) => observer.observe(target));
+};
+
 const hideCookieBanner = () => {
   document.querySelector("[data-cookie-banner]")?.remove();
 };
@@ -354,7 +387,7 @@ const createCookieBanner = () => {
   banner.innerHTML = `
     <div>
       <strong>Pomůžete nám zlepšit web?</strong>
-      <p>Používáme volitelné analytické cookies Google Analytics, abychom viděli, které stránky a kontaktní tlačítka fungují. Bez souhlasu poběží jen nezbytné funkce webu.</p>
+      <p>Volitelné analytické cookies pomáhají zlepšovat web a měřit kontakty. Bez souhlasu poběží jen nezbytné funkce.</p>
       <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
     </div>
     <div class="cookie-actions">
@@ -407,6 +440,7 @@ if (hasAnalyticsConsent()) {
 
 window.addEventListener("DOMContentLoaded", () => {
   window.lucide?.createIcons();
+  setupRevealAnimations();
   ensurePageUrlField();
   addPrivacyControls();
   createCookieBanner();
