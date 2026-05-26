@@ -45,6 +45,24 @@ Jednou tydne doplnit do `docs/seo-data/kpi-leads-template.csv`:
 
 Bez teto rucni evidence lze hodnotit SEO a konverzni signaly, ale nelze tvrdit, ze konkretni uprava vydelava.
 
+## Automaticky import GSC a GA4
+
+Pro plne automaticke vyhodnocovani je pripraveny API import:
+
+```sh
+node scripts/fetch-google-data.mjs
+```
+
+Podrobny navod je v `docs/seo-data/google-api-setup.md`.
+
+Dokud neni nastaveny service account a `GA4_PROPERTY_ID`, reporty musi psat `data nejsou dostupna` a nesmi si domyslet kliky, CTR, pozice ani konverze.
+
+Surova GSC/GA4 data a obchodni data se maji ukládat mimo verejny web do privatni slozky:
+
+```sh
+/Users/claude/Documents/Claude/kontejnerovka-private-growth/data
+```
+
 ## Minimalni UTM a kampanove pravidlo
 
 Pokud se spusti reklama nebo se web sdili v kampani, pouzit UTM parametry:
@@ -54,4 +72,3 @@ Pokud se spusti reklama nebo se web sdili v kampani, pouzit UTM parametry:
 - `utm_campaign`
 
 Priklad: `https://kontejnerovka.cz/?utm_source=letak&utm_medium=offline&utm_campaign=jaro-2026`
-

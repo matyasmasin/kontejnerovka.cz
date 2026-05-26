@@ -19,7 +19,9 @@ Jednoduse: staci jednou tydne doplnit, kolik bylo telefonatu/poptavek a odkud pr
 
 ## Jednou mesicne - Google Search Console
 
-Pokud mas pristup do Google Search Console:
+Preferovana cesta je automaticky API import podle `google-api-setup.md`.
+
+Pokud API jeste neni nastavene a mas pristup do Google Search Console:
 
 1. Otevri vykon ve vysledcich vyhledavani.
 2. Nastav obdobi za poslednich 28 dni.
@@ -30,7 +32,9 @@ Automatizace pak z techto dat muze lepe poznat, ktere stranky rozsirit a kde se 
 
 ## Jednou mesicne - GA4
 
-Pokud mas pristup do Google Analytics:
+Preferovana cesta je automaticky API import podle `google-api-setup.md`.
+
+Pokud API jeste neni nastavene a mas pristup do Google Analytics:
 
 1. Zkontroluj udalosti: kliknuti na telefon, odeslani formulare, kliknuti na e-mail.
 2. Exportuj nebo opis hlavni cisla do mesicni scorecard.
@@ -42,4 +46,4 @@ Pokud export nejde, staci do scorecard dopsat cisla rucne.
 - Nevymyslet cisla.
 - Kdyz data nejsou, napsat `nelze overit`.
 - U realnych zakazek staci orientacni hodnota, neni potreba presna ucetni evidence.
-
+- Necommitovat citliva GSC/GA4 data, poptavky ani obchodni vysledky do verejneho webu.

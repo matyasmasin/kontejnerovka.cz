@@ -30,6 +30,7 @@ Kazda automatizace musi:
 
 - overit spravny web `https://kontejnerovka.cz`,
 - overit spravny workspace,
+- pokud vyhodnocuje SEO, mereni nebo konverze, nejdrive zkusit spustit `node scripts/fetch-google-data.mjs`,
 - precist posledni relevantni dokumenty,
 - navazat na predchozi doporuceni,
 - jasne oddelit fakta, hypotezy a doporuceni,
@@ -45,6 +46,20 @@ Kazda automatizace musi:
 - Obsahove a SEO refresh automatizace mohou provest male bezpecne upravy, pokud maji jasny duvod.
 - Vetsi zmeny se zapisuji do `docs/seo-opportunities.md` a cekaji na schvaleni.
 - Po uprave webu musi probehnout quality checklist, commit a push.
+
+## Automaticky import Google dat
+
+API import je pripraveny ve skriptech:
+
+- `scripts/fetch-gsc.mjs`
+- `scripts/fetch-ga4.mjs`
+- `scripts/fetch-google-data.mjs`
+
+Nastaveni je popsane v `docs/seo-data/google-api-setup.md`. Dokud chybi service account a ciselne GA4 Property ID, automatizace musi oznacit datove vyhodnoceni jako omezene.
+
+Citliva data se neukladaji do verejneho webu. Vychozi privatni slozka je:
+
+`/Users/claude/Documents/Claude/kontejnerovka-private-growth/data`
 
 ## Hlavni rizika, kterym se system vyhyba
 

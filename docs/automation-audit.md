@@ -22,6 +22,7 @@ Pri master kontrole ale byly nalezeny tyto mezery:
 - Monitoringove automatizace maji byt striktne bez zasahu do webu.
 - Denni technicka kontrola nema vyrabet zbytecny zapis a commit kazdy den, pokud je vse beze zmeny; zapisuje hlavne P0/P1 problem, zmenu stavu nebo tydenni souhrn.
 - Byla doplnena samostatna mesicni automatizace pro mereni a konverze.
+- Byl doplnen API import GSC/GA4 pres oficialni Google API a privatni datova slozka mimo verejny web.
 - Vystupy maji byt pro majitele jednoduche: co se stalo, jestli je to problem, co udelat, proc, dopad a jeden nejlepsi dalsi krok.
 
 ## Co system pokryva
@@ -35,6 +36,7 @@ Pri master kontrole ale byly nalezeny tyto mezery:
 | Google Business Profile | ano | Mesicni checklist dava konkretni ukoly pro recenze, fotky a prispevky. |
 | Konkurence | ano | Mesicni kontrola hleda mezery, ne kopirovani. |
 | Konverze a mereni | doplneno | Samostatny mesicni audit mereni je potreba pro realne rozhodovani podle dat. |
+| Automaticky import dat | doplneno | Skripty `scripts/fetch-google-data.mjs`, `scripts/fetch-gsc.mjs` a `scripts/fetch-ga4.mjs` pripravuji automaticky import po dodani pristupu. |
 | Owner-friendly vystup | ano | Scorecard a formaty jsou psane pro cloveka bez SEO/IT znalosti. |
 | Ochrana proti SEO spamu | ano | Stop pravidla, backlog a quality checklist brani zbytecnym strankam a duplicitam. |
 | 3/6mesicni strategie | ano | Kvartalni strategicky audit porovnava stav proti baseline. |
@@ -45,6 +47,7 @@ Automatizace samy o sobe nezaruci rust, pokud nebudou dostupna data:
 
 - exporty nebo pristup do Google Search Console,
 - GA4 konverzni data,
+- service account a ciselne GA4 Property ID pro automaticky import,
 - rucne doplnene poptavky a zakazky,
 - stav Google Business Profile,
 - realne fotky a recenze.
