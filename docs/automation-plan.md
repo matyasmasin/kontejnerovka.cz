@@ -20,6 +20,7 @@ Tento dokument popisuje automatizace, jejich smysl a pravidla. Cilem neni mnoho 
 | Mesicni owner scorecard | `kontejnerovka-mesicni-owner-scorecard` | mesicne, 6 behu | Jednoduse rict majiteli, jestli web roste a co udelat tento mesic. | aktivni |
 | Mesicni lokalni SEO audit | `kontejnerovka-mesicni-lokalni-seo-audit` | mesicne, 6 behu | Hlidat lokality, duplicitu, doorway-page riziko a lokalni obchodni smysl. | aktivni |
 | Google Business Profile checklist | `kontejnerovka-google-business-profile-checklist` | mesicne, 6 behu | Dat majiteli konkretni ukoly k recenzim, fotkam, sluzbam a GBP prispevkum. | aktivni |
+| Mesicni audit mereni a konverzi | `kontejnerovka-mesicni-mereni-a-konverze` | mesicne, 6 behu | Overit GA4, Web3Forms, kliky na telefon/e-mail, cookie souhlas a rucni evidenci poptavek. | aktivni |
 | Mesicni konkurencni kontrola | `kontejnerovka-mesicni-konkurencni-kontrola` | mesicne, 6 behu | Najit konkretni mezery oproti konkurenci bez kopirovani. | aktivni |
 | Kvartalni strategicky audit | `kontejnerovka-kvartalni-strategicky-audit` | 2 behy po 3 mesicich | Vyhodnotit 3 a 6 mesicu rustu a navrhnout dalsi obdobi. | aktivni |
 
@@ -53,3 +54,7 @@ Kazda automatizace musi:
 - Hodnoceni uspechu po par dnech.
 - Vymyslene recenze nebo nepravdive fotky.
 - Spousteni reklam bez mereni konverzi.
+
+## Master audit automatizaci
+
+Detailni kontrola automatizaci je zapsana v `docs/automation-audit.md`. Pokud se automatizace budou menit, musi se audit aktualizovat.
