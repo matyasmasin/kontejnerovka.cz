@@ -33,12 +33,12 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ### 2026-05-26 - oprava GitHub Pages nasazeni
 
-- Co se zmenilo: pridan vlastni workflow `.github/workflows/pages.yml` pro build a deploy statickeho webu.
+- Co se zmenilo: pridan vlastni workflow `.github/workflows/pages.yml` pro build a deploy statickeho webu, GitHub Pages byl prepnut z `legacy` na `workflow` rezim a `actions/checkout` byl aktualizovan na `v6`.
 - Proc se to zmenilo: defaultni GitHub Pages legacy build selhal pri stahovani akce `actions/upload-pages-artifact@v3`, jeste pred samotnym buildem webu.
 - Ocekavany dopad: stabilnejsi nasazeni a mensi riziko, ze se do verejneho webu dostanou interni `docs/` nebo `scripts/`.
 - Navrhla: reakce na GitHub e-mail `Run failed: pages build and deployment`.
-- Nasazeno: po commitu a pushi overit v GitHub Actions.
-- Co sledovat po zmene: posledni workflow run musi byt zeleny a produkcni web musi zustat dostupny.
+- Nasazeno: ano, posledni GitHub Actions deploy probehl uspesne a produkcni web vraci HTTP 200.
+- Co sledovat po zmene: dalsi push musi spustit pouze workflow deploy bez legacy Pages chyboveho e-mailu.
 
 ## Sablona dalsiho zapisu
 
