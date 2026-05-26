@@ -386,8 +386,8 @@ const createCookieBanner = () => {
   banner.setAttribute("aria-label", "Nastavení analytických cookies");
   banner.innerHTML = `
     <div>
-      <strong>Pomůžete nám zlepšit web?</strong>
-      <p>Volitelné analytické cookies pomáhají zlepšovat web a měřit kontakty. Bez souhlasu poběží jen nezbytné funkce.</p>
+      <strong>Měření webu</strong>
+      <p>Volitelné cookies pomáhají měřit kontakty a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.</p>
       <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
     </div>
     <div class="cookie-actions">
