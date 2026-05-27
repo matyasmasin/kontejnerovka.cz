@@ -85,6 +85,26 @@ Web ma pripravenou strukturu, lokality, sitemapu, Google Search Console a zaklad
 
 Doplnit jednou tydne do `docs/seo-data/kpi-leads-template.csv`, kolik bylo telefonatu/poptavek, odkud byly a jestli z nich vznikla zakazka.
 
+## Strategicky zapis - 2026-05-27 - zmena rytmu automatizaci
+
+### Stav
+
+Strategie automatizaci byla zjednodusena. Denni technicka kontrola byla vyhodnocena jako zbytecna a system je nove postaveny na pravidelnem rustovem rytmu 4x za mesic plus kvartalni revize.
+
+### Shrnutí pro majitele
+
+Pro tento typ webu nema smysl, aby Codex chodil na web kazdy den a hledal technicke drobnosti. Vetsi hodnotu ma, kdyz se nekolikrat za mesic podiva na web, historii zmen a dostupna data a z toho navrhne jednu rozumnou akci nebo udela jednu malou bezpecnou upravu. Tato zmena ma vest k tomu, aby z automatizaci nevznikal sum, ale postupny posun.
+
+### Semafor
+
+- Zelena: zmenou se zjednodusil provozni system a zlepsila se srozumitelnost pro majitele.
+- Oranzova: skutecny prinos noveho rytmu se ukaze az po nekolika tydnech.
+- Cervena: bez GSC, GA4 a rucni evidence poptavek zustane cast rozhodnuti porad omezena.
+
+### Nejlepsi dalsi krok
+
+Drzet novy rytmus aspon 4-8 tydnu a sledovat, jestli kazdy mesic vznika jasny seznam akci, log zmen a jednoducha scorecard bez zbytecnych kontrol.
+
 ## Format dalsich zapisu
 
 Kazdy dalsi zapis ma pouzit tuto strukturu:
@@ -103,4 +123,3 @@ Kazdy dalsi zapis ma pouzit tuto strukturu:
 12. Co muze pockat
 13. Co potrebuji od majitele
 14. Nejlepsi dalsi krok
-

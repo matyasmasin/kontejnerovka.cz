@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-05-27 - zjednoduseni SEO automatizaci na rustovy rytmus
+
+- Co se zmenilo: denni technicka kontrola byla zrusena jako samostatny provozni format a plan automatizaci byl prestaven na jednodussi rytmus 4x za mesic plus kvartalni strategicky audit.
+- Proc se to zmenilo: denni kontrola neprinasela pro maly lokalni web dost nove hodnoty a hrozilo, ze system bude vyrabet vice sumu nez rozhodnuti.
+- Ocekavany dopad: mene zbytecnych kontrol, lepsi navaznost na historii, srozumitelnejsi doporuceni pro majitele a vice realnych malych kroku, ktere mohou web posouvat.
+- Zdroj dat nebo duvod: master revize provozniho systemu podle aktualniho stavu webu, dokumentace a potreb majitele.
+- Kdo/automatizace zmenu navrhla: master navrh provozniho SEO systemu.
+- Nasazeno: ano, v dokumentaci a provoznim planu.
+- Commit:
+- Co sledovat po zmene: jestli master SEO kontrola prinasi lepsi doporuceni nez puvodni denni monitoring a jestli se pravidelne zapisuje historie zmen a doporuceni.
+- Minimalni doba vyhodnoceni: 4-8 tydnu, aby bylo videt, jestli novy rytmus vede k lepsim rozhodnutim a mensimu sumu.
+
 ### 2026-05-27 - vizualni master polish a social preview
 
 - Co se zmenilo: posilena vizualni identita homepage, doplnen blok pro rychle naceneni v hero sekci, rozsireny duveryhodnostni pruh, pridana sekce pro realne vizualni dukazy a vytvoren OG obrazek `assets/og-kontejnerovka.png`.
