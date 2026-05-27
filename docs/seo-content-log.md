@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-05-27 - vizualni master polish a social preview
+
+- Co se zmenilo: posilena vizualni identita homepage, doplnen blok pro rychle naceneni v hero sekci, rozsireny duveryhodnostni pruh, pridana sekce pro realne vizualni dukazy a vytvoren OG obrazek `assets/og-kontejnerovka.png`.
+- Proc se to zmenilo: web mel silny obsah a SEO zaklad, ale nejvetsi rezerva byla v brandingu, art direction, premium dojmu a priprave na realne fotky.
+- Ocekavany dopad: lepsi prvni dojem, vetsi duvera pred telefonatem/poptavkou a profesionalnejsi vzhled pri sdileni webu.
+- Zdroj dat nebo duvod: manualni master audit podle aktualniho stavu webu a zpetne vazby k vizualni identite.
+- Kdo/automatizace zmenu navrhla: manualni master visual/CRO polish.
+- Nasazeno: ano, po commitu/pushi a overeni produkce.
+- Commit:
+- Co sledovat po zmene: mobilni hero, kliknuti na telefon, odeslani formulare, zobrazeni homepage a budouci doplneni realnych fotek.
+- Minimalni doba vyhodnoceni: 14-28 dni pro konverzni signal, fotky doplnovat prubezne po realnych zakazkach.
+
 ### 2026-05-26 - zalozeni systemu rustu
 
 - Co se zmenilo: zalozena dokumentace pro 6mesicni system rustu webu.
