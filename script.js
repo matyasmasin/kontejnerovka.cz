@@ -8,6 +8,7 @@ const copyInquiryButton = document.querySelector("[data-copy-inquiry]");
 const GA_MEASUREMENT_ID = "G-BCXFMBWZJ4";
 const ANALYTICS_CONSENT_KEY = "kontejnerovka_analytics_consent";
 const ANALYTICS_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
+const CALCULATOR_STORAGE_KEY = "kontejnerovka_calculator_inquiry";
 
 const getCookieConsent = () => {
   try {
@@ -260,6 +261,262 @@ copyInquiryButton?.addEventListener("click", async () => {
   }
 });
 
+const getCheckedCalculatorOption = (calculator, name) => {
+  const option = calculator.querySelector(`input[name="${name}"]:checked`);
+  if (!(option instanceof HTMLInputElement)) return null;
+
+  return {
+    label: option.dataset.label || option.value,
+    value: option.value,
+    score: Number.parseInt(option.dataset.score || "0", 10),
+    service: option.dataset.service || "",
+  };
+};
+
+const getCalculatorState = (calculator) => {
+  const fields = {
+    job: getCheckedCalculatorOption(calculator, "job"),
+    location: getCheckedCalculatorOption(calculator, "location"),
+    size: getCheckedCalculatorOption(calculator, "size"),
+    access: getCheckedCalculatorOption(calculator, "access"),
+    term: getCheckedCalculatorOption(calculator, "term"),
+  };
+
+  const score = Object.values(fields).reduce((total, field) => total + (field?.score || 0), 0);
+  const hasUnknown = Object.values(fields).some((field) => field?.value.includes("nevím") || field?.value.includes("poradit"));
+
+  let band = {
+    key: "middle",
+    title: "Orientačně: střední cenová hladina",
+    text: "Nejde o závaznou nabídku. Přesnou cenu potvrdíme podle adresy, druhu odpadu, množství, přístupu a termínu.",
+  };
+
+  if (score <= 6 && !hasUnknown) {
+    band = {
+      key: "lower",
+      title: "Orientačně: nižší až střední cenová hladina",
+      text: "Zakázka působí jednodušeji. Přesnou cenu ale potvrdíme až podle konkrétní adresy, odpadu, množství a přístupu.",
+    };
+  } else if (score >= 11 || hasUnknown) {
+    band = {
+      key: "higher",
+      title: "Orientačně: vyšší nebo nejasná cenová hladina",
+      text: "Zakázka potřebuje upřesnění. Nejde o závaznou nabídku, cenu potvrdíme podle odpadu, trasy, množství, přístupu a termínu.",
+    };
+  }
+
+  return { fields, score, band, hasUnknown };
+};
+
+const getCalculatorFactors = ({ fields, hasUnknown }) => {
+  const factors = [];
+
+  if (fields.job?.value.includes("zeminy")) {
+    factors.push("Zemina je těžká; cenu ovlivní objem, hmotnost, vlhkost a možnost naložení.");
+  } else if (fields.job?.value.includes("stavebního") || fields.job?.value.includes("objemného")) {
+    factors.push("Směsný nebo objemný odpad je nutné upřesnit, protože likvidace může být náročnější než čistá suť.");
+  } else if (fields.job?.value.includes("dovoz")) {
+    factors.push("U dovozu materiálu rozhoduje množství, frakce, dostupnost a místo složení.");
+  } else {
+    factors.push("Nejvíc rozhodne typ odpadu nebo materiálu a jeho čistota.");
+  }
+
+  if ((fields.location?.score || 0) <= 1) {
+    factors.push("Blízká lokalita kolem Svárova, Unhoště, Nučic nebo Rudné může pomoct plánování trasy.");
+  } else {
+    factors.push("Vzdálenější lokalita nebo městské stání může zvýšit čas dopravy a domluvy.");
+  }
+
+  if (fields.access?.value.includes("ulici")) {
+    factors.push("Stání na ulici může vyžadovat povolení nebo přesnější domluvu místa.");
+  } else if (fields.access?.score >= 2) {
+    factors.push("Horší přístup může prodloužit manipulaci a změnit vhodný postup.");
+  } else if (hasUnknown) {
+    factors.push("Nejasnou velikost nebo přístup nejrychleji vyřeší telefonát a fotka místa.");
+  } else {
+    factors.push("Fotka odpadu nebo místa pomůže rychleji potvrdit přesnou cenu.");
+  }
+
+  return factors.slice(0, 3);
+};
+
+const getCalculatorSummary = ({ fields, band }) =>
+  [
+    `Poptávám: ${fields.job?.label || "kontejnerovou dopravu"}.`,
+    `Lokalita: ${fields.location?.label || "doplním"}.`,
+    `Velikost: ${fields.size?.label || "doplním"}.`,
+    `Přístup: ${fields.access?.label || "doplním"}.`,
+    `Termín: ${fields.term?.label || "doplním"}.`,
+    `${band.title}.`,
+    "Beru na vědomí, že jde jen o orientační odhad a cenu potvrdíte podle konkrétní zakázky.",
+  ].join(" ");
+
+const setFormValue = (selector, value) => {
+  const field = form?.querySelector(selector);
+  if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement)) return;
+  field.value = value;
+  field.dispatchEvent(new Event("input", { bubbles: true }));
+  field.dispatchEvent(new Event("change", { bubbles: true }));
+};
+
+const fillInquiryFormFromCalculator = (payload) => {
+  if (!form) return false;
+
+  setFormValue('input[name="location"]', payload.fields.location?.label || "");
+  setFormValue('input[name="date"]', payload.fields.term?.label || "");
+  setFormValue('input[name="amount"]', payload.fields.size?.label || "");
+  setFormValue('input[name="access"]', payload.fields.access?.label || "");
+  setFormValue('input[name="photo"]', "Ideálně pošlu fotku odpadu nebo místa");
+
+  const serviceValue = payload.fields.job?.service;
+  if (serviceValue) {
+    setFormValue('select[name="service"]', serviceValue);
+  }
+
+  const messageField = form.querySelector('textarea[name="message"]');
+  if (messageField instanceof HTMLTextAreaElement) {
+    const existingMessage = messageField.value.trim();
+    const calculatorMessage = [
+      "Orientační odhad z kalkulačky:",
+      payload.summary,
+      "",
+      "Pro přesné nacenění doplním obec, typ odpadu nebo materiálu a případně fotku místa.",
+    ].join("\n");
+
+    messageField.value = existingMessage
+      ? `${calculatorMessage}\n\nDalší poznámka:\n${existingMessage}`
+      : calculatorMessage;
+  }
+
+  if (formNote) {
+    formNote.textContent = "Odhad z kalkulačky je vložený do poptávky. Doplňte kontakt a odešlete, případně zavolejte pro rychlé potvrzení.";
+  }
+
+  form.scrollIntoView({ behavior: "smooth", block: "start" });
+  track("calculator_use_in_form", {
+    page_type: getPageType(),
+    estimate_level: payload.band.key,
+    selected_service: cleanAnalyticsValue(payload.fields.job?.label),
+    selected_location: cleanAnalyticsValue(payload.fields.location?.label),
+  });
+  return true;
+};
+
+const storeCalculatorInquiry = (payload) => {
+  try {
+    window.sessionStorage.setItem(CALCULATOR_STORAGE_KEY, JSON.stringify(payload));
+  } catch {
+    // If sessionStorage is unavailable, the target form still works without prefill.
+  }
+};
+
+const readPendingCalculatorInquiry = () => {
+  try {
+    const rawPayload = window.sessionStorage.getItem(CALCULATOR_STORAGE_KEY);
+    if (!rawPayload) return null;
+    window.sessionStorage.removeItem(CALCULATOR_STORAGE_KEY);
+    return JSON.parse(rawPayload);
+  } catch {
+    return null;
+  }
+};
+
+const setupPriceCalculator = () => {
+  document.querySelectorAll("[data-price-calculator]").forEach((calculator) => {
+    const resultTitle = calculator.querySelector("[data-calculator-result-title]");
+    const resultText = calculator.querySelector("[data-calculator-result-text]");
+    const factorsList = calculator.querySelector("[data-calculator-factors]");
+    const summaryBox = calculator.querySelector("[data-calculator-summary]");
+    const useButton = calculator.querySelector("[data-calculator-use]");
+
+    const updateCalculator = (trigger = "initial", changedField = "") => {
+      const state = getCalculatorState(calculator);
+      const summary = getCalculatorSummary(state);
+      const factors = getCalculatorFactors(state);
+      const payload = { ...state, summary };
+
+      if (resultTitle) resultTitle.textContent = state.band.title;
+      if (resultText) resultText.textContent = state.band.text;
+      if (summaryBox) summaryBox.textContent = summary;
+      if (factorsList) {
+        factorsList.innerHTML = factors.map((factor) => `<li>${factor}</li>`).join("");
+      }
+
+      calculator.__calculatorPayload = payload;
+
+      if (trigger === "change") {
+        if (!calculator.dataset.calculatorStarted) {
+          calculator.dataset.calculatorStarted = "true";
+          track("calculator_start", {
+            page_type: getPageType(),
+            page_path: window.location.pathname,
+          });
+        }
+
+        track("calculator_step_change", {
+          page_type: getPageType(),
+          changed_field: changedField,
+          estimate_level: state.band.key,
+          selected_service: cleanAnalyticsValue(state.fields.job?.label),
+          selected_location: cleanAnalyticsValue(state.fields.location?.label),
+        });
+
+        if (!calculator.dataset.calculatorCompleted) {
+          calculator.dataset.calculatorCompleted = "true";
+          track("calculator_complete", {
+            page_type: getPageType(),
+            estimate_level: state.band.key,
+            selected_service: cleanAnalyticsValue(state.fields.job?.label),
+            selected_location: cleanAnalyticsValue(state.fields.location?.label),
+          });
+        }
+      }
+    };
+
+    calculator.addEventListener("change", (event) => {
+      if (!(event.target instanceof HTMLInputElement)) return;
+      updateCalculator("change", event.target.name);
+    });
+
+    calculator.querySelectorAll("[data-calculator-call], [data-calculator-advice]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const payload = calculator.__calculatorPayload || { fields: {}, band: { key: "unknown" } };
+        track("calculator_call_click", {
+          page_type: getPageType(),
+          estimate_level: payload.band.key,
+          selected_service: cleanAnalyticsValue(payload.fields.job?.label),
+          selected_location: cleanAnalyticsValue(payload.fields.location?.label),
+        });
+      });
+    });
+
+    useButton?.addEventListener("click", () => {
+      const payload = calculator.__calculatorPayload || getCalculatorState(calculator);
+      const completePayload = payload.summary ? payload : { ...payload, summary: getCalculatorSummary(payload) };
+
+      track("calculator_inquiry_click", {
+        page_type: getPageType(),
+        estimate_level: completePayload.band.key,
+        selected_service: cleanAnalyticsValue(completePayload.fields.job?.label),
+        selected_location: cleanAnalyticsValue(completePayload.fields.location?.label),
+      });
+
+      if (fillInquiryFormFromCalculator(completePayload)) return;
+
+      storeCalculatorInquiry(completePayload);
+      window.location.href = "/#kontakt";
+    });
+
+    updateCalculator();
+  });
+};
+
+const applyPendingCalculatorInquiry = () => {
+  const payload = readPendingCalculatorInquiry();
+  if (!payload) return;
+  fillInquiryFormFromCalculator(payload);
+};
+
 document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
   link.addEventListener("click", () => {
     track("click_phone", {
@@ -441,7 +698,9 @@ if (hasAnalyticsConsent()) {
 window.addEventListener("DOMContentLoaded", () => {
   window.lucide?.createIcons();
   setupRevealAnimations();
+  setupPriceCalculator();
   ensurePageUrlField();
+  applyPendingCalculatorInquiry();
   addPrivacyControls();
   createCookieBanner();
   trackThankYouPage();

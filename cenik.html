@@ -10,9 +10,9 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260527a">
+    <link rel="stylesheet" href="styles.css?v=20260527b">
     <script src="assets/lucide.min.js" defer></script>
-    <script src="script.js?v=20260526e" defer></script>
+    <script src="script.js?v=20260527b" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -63,6 +63,118 @@
         <p class="eyebrow">Ceník</p>
         <h1>Cena kontejneru: co ji nejvíc ovlivní</h1>
         <p>Nechceme slibovat univerzální částku, která pak nemusí platit. Cena se potvrzuje podle adresy, odpadu nebo materiálu, množství, přístupu, termínu a skládkovného.</p>
+      </section>
+
+      <section class="section price-calculator-section" id="orientacni-kalkulacka" aria-labelledby="calculator-title">
+        <div class="section-head">
+          <p class="eyebrow">Orientační kalkulačka</p>
+          <h2 id="calculator-title">Rychlý odhad náročnosti před poptávkou</h2>
+          <p>
+            Kalkulačka nepočítá závaznou cenu. Pomůže ale rychle odhadnout, jestli jde spíš o jednoduchou, střední
+            nebo náročnější zakázku a co bude potřeba upřesnit.
+          </p>
+        </div>
+
+        <div class="price-calculator" data-price-calculator>
+          <form class="calculator-panel" data-calculator-form>
+            <div class="calculator-header">
+              <span>Orientační odhad</span>
+              <strong>Materiál × objem × lokalita × přístup</strong>
+            </div>
+
+            <fieldset class="calculator-step">
+              <legend>Typ zakázky</legend>
+              <div class="calculator-options">
+                <label><input type="radio" name="job" value="odvoz suti" data-label="Odvoz suti" data-score="2" data-service="Odvoz suti / odpadu" checked><span>Odvoz suti</span></label>
+                <label><input type="radio" name="job" value="odvoz zeminy" data-label="Odvoz zeminy" data-score="3" data-service="Odvoz zeminy"><span>Odvoz zeminy</span></label>
+                <label><input type="radio" name="job" value="odvoz stavebního odpadu" data-label="Odvoz stavebního odpadu" data-score="4" data-service="Odvoz suti / odpadu"><span>Stavební odpad</span></label>
+                <label><input type="radio" name="job" value="odvoz dřeva / bioodpadu" data-label="Odvoz dřeva / bioodpadu" data-score="2" data-service="Odvoz dřeva / bioodpadu"><span>Dřevo / bioodpad</span></label>
+                <label><input type="radio" name="job" value="odvoz objemného odpadu" data-label="Odvoz objemného odpadu" data-score="4" data-service="Odvoz suti / odpadu"><span>Objemný odpad</span></label>
+                <label><input type="radio" name="job" value="dovoz písku" data-label="Dovoz písku" data-score="2" data-service="Dovoz písku, štěrku, kačírku"><span>Dovoz písku</span></label>
+                <label><input type="radio" name="job" value="dovoz štěrku" data-label="Dovoz štěrku" data-score="2" data-service="Dovoz písku, štěrku, kačírku"><span>Dovoz štěrku</span></label>
+                <label><input type="radio" name="job" value="dovoz recyklátu" data-label="Dovoz recyklátu" data-score="2" data-service="Dovoz recyklátu, zeminy nebo betonu"><span>Dovoz recyklátu</span></label>
+                <label><input type="radio" name="job" value="potřebuji poradit" data-label="Nevím / potřebuji poradit" data-score="3" data-service="Jiná domluva"><span>Nevím</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="calculator-step">
+              <legend>Lokalita</legend>
+              <div class="calculator-options compact">
+                <label><input type="radio" name="location" value="Svárov / Unhošť" data-label="Svárov / Unhošť" data-score="1" checked><span>Svárov / Unhošť</span></label>
+                <label><input type="radio" name="location" value="Nučice / Rudná" data-label="Nučice / Rudná" data-score="1"><span>Nučice / Rudná</span></label>
+                <label><input type="radio" name="location" value="Kladno a okolí" data-label="Kladno a okolí" data-score="2"><span>Kladno</span></label>
+                <label><input type="radio" name="location" value="Hostivice / Praha-západ" data-label="Hostivice / Praha-západ" data-score="2"><span>Praha-západ</span></label>
+                <label><input type="radio" name="location" value="Praha" data-label="Praha" data-score="3"><span>Praha</span></label>
+                <label><input type="radio" name="location" value="Beroun / Zdice / Králův Dvůr" data-label="Beroun / Zdice / Králův Dvůr" data-score="3"><span>Beroun</span></label>
+                <label><input type="radio" name="location" value="jiná lokalita" data-label="Jiná lokalita" data-score="3"><span>Jiná</span></label>
+              </div>
+            </fieldset>
+
+            <div class="calculator-row">
+              <fieldset class="calculator-step">
+                <legend>Velikost / množství</legend>
+                <div class="calculator-options stack">
+                  <label><input type="radio" name="size" value="malý kontejner" data-label="Malý kontejner" data-score="1"><span>Malý</span></label>
+                  <label><input type="radio" name="size" value="střední kontejner" data-label="Střední kontejner" data-score="2" checked><span>Střední</span></label>
+                  <label><input type="radio" name="size" value="velký kontejner" data-label="Velký kontejner" data-score="4"><span>Velký</span></label>
+                  <label><input type="radio" name="size" value="nevím velikost" data-label="Nevím velikost" data-score="2"><span>Nevím</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="calculator-step">
+                <legend>Přístup</legend>
+                <div class="calculator-options stack">
+                  <label><input type="radio" name="access" value="dobrý přístup" data-label="Dobrý přístup" data-score="0" checked><span>Dobrý</span></label>
+                  <label><input type="radio" name="access" value="horší přístup" data-label="Horší přístup" data-score="2"><span>Horší</span></label>
+                  <label><input type="radio" name="access" value="stání na ulici" data-label="Stání na ulici" data-score="2"><span>Ulice</span></label>
+                  <label><input type="radio" name="access" value="nevím přístup" data-label="Nevím" data-score="1"><span>Nevím</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="calculator-step">
+                <legend>Termín</legend>
+                <div class="calculator-options stack">
+                  <label><input type="radio" name="term" value="co nejdříve" data-label="Co nejdříve" data-score="2"><span>Co nejdříve</span></label>
+                  <label><input type="radio" name="term" value="tento týden" data-label="Tento týden" data-score="1" checked><span>Tento týden</span></label>
+                  <label><input type="radio" name="term" value="později" data-label="Později" data-score="0"><span>Později</span></label>
+                  <label><input type="radio" name="term" value="jen orientačně" data-label="Jen orientačně" data-score="0"><span>Jen orientačně</span></label>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+
+          <aside class="calculator-result" aria-live="polite">
+            <p class="eyebrow">Výsledek</p>
+            <h3 data-calculator-result-title>Orientačně: střední cenová hladina</h3>
+            <p data-calculator-result-text>
+              Nejde o závaznou nabídku. Přesnou cenu potvrdíme podle adresy, druhu odpadu, množství, přístupu a termínu.
+            </p>
+            <ul class="calculator-factors" data-calculator-factors>
+              <li>Nejvíc rozhodne typ odpadu nebo materiálu.</li>
+              <li>Blízká lokalita může pomoct plánování trasy.</li>
+              <li>Fotka místa zrychlí přesné nacenění.</li>
+            </ul>
+            <div class="calculator-summary" data-calculator-summary>
+              Poptávám odvoz suti. Lokalita: Svárov / Unhošť. Velikost: střední kontejner. Přístup: dobrý. Termín: tento týden.
+            </div>
+            <div class="calculator-actions">
+              <a class="btn btn-primary" href="tel:+420738505028" data-calculator-call>
+                <i data-lucide="phone-call" aria-hidden="true"></i>Zavolat a potvrdit cenu
+              </a>
+              <button class="btn btn-secondary" type="button" data-calculator-use>
+                <i data-lucide="send" aria-hidden="true"></i>Poslat poptávku s odhadem
+              </button>
+              <a class="calculator-help-link" href="tel:+420738505028" data-calculator-advice>Nevím velikost, chci poradit po telefonu</a>
+            </div>
+          </aside>
+        </div>
+
+        <noscript>
+          <div class="calculator-noscript">
+            Pro orientační cenu zavolejte 738 505 028 nebo pošlete obec, typ odpadu, množství a fotku místa.
+            Cenu potvrdíme podle konkrétní zakázky.
+          </div>
+        </noscript>
       </section>
 
       <section class="section">

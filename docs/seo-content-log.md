@@ -76,6 +76,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Nasazeno: ano, posledni GitHub Actions deploy probehl uspesne a produkcni web vraci HTTP 200.
 - Co sledovat po zmene: dalsi push musi spustit pouze workflow deploy bez legacy Pages chyboveho e-mailu.
 
+### 2026-05-27 - orientacni kalkulacka ceny
+
+- Co se zmenilo: na homepage a stranku `cenik.html` byla pridana orientacni kalkulacka narocnosti/ceny podle typu zakazky, lokality, velikosti, pristupu a terminu. Kalkulacka umi vlozit shrnuti do hlavniho poptavkoveho formulare.
+- Proc se to zmenilo: navstevnik casto nechce hned posilat dlouhy formular, ale potrebuje rychle pochopit rad narocnosti a dalsi krok. Kalkulacka snizuje nejistotu z ceny a vede k telefonu nebo poptavce.
+- Ocekavany dopad: vice prokliku na telefon/poptavku, lepsi pochopeni faktoru ceny a vyssi kvalita poptavek diky predvyplnenemu shrnuti.
+- Zdroj dat nebo duvod: master CRO/UX navrh podle pozadavku na rychly orientacni odhad `material x objem x km` bez falesne presneho ceniku.
+- Kdo/automatizace zmenu navrhla: manualni master CRO uprava.
+- Nasazeno: ano, po commitu/pushi a produkcnim overeni v tomto behu.
+- Commit:
+- Co sledovat po zmene: eventy `calculator_start`, `calculator_complete`, `calculator_call_click`, `calculator_inquiry_click`, `calculator_use_in_form`, kliknuti na telefon, odeslane formulare a kvalitu poptavek.
+- Minimalni doba vyhodnoceni: 14-28 dni pro prvni konverzni signal, presnost odhadu upravit az podle realnych zakazek.
+
 ## Sablona dalsiho zapisu
 
 ### RRRR-MM-DD - nazev upravy
