@@ -183,12 +183,12 @@ const getInquiryText = () => {
   const lines = [
     "Dobrý den,",
     "",
-    "mám zájem o službu Kontejnerovka.cz.",
+    "mám zájem o nacenění služby Kontejnerovka.cz.",
     "",
     `Jméno: ${data.get("name") || ""}`,
     `Telefon: ${data.get("phone") || ""}`,
     `E-mail: ${data.get("email") || ""}`,
-    `Lokalita: ${data.get("location") || ""}`,
+    `Obec / adresa: ${data.get("location") || ""}`,
     `Termín: ${data.get("date") || ""}`,
     `Služba: ${data.get("service") || ""}`,
     `Množství: ${data.get("amount") || ""}`,
@@ -198,7 +198,7 @@ const getInquiryText = () => {
     "Poznámka:",
     `${data.get("message") || ""}`,
     "",
-    "Prosím o cenu a možný termín.",
+    "Prosím o cenu, možný termín a případně doporučení vhodné velikosti kontejneru.",
   ];
 
   return lines.join("\n");
@@ -221,7 +221,7 @@ form?.addEventListener("submit", (event) => {
 
   if (form.action.includes("api.web3forms.com")) {
     if (formNote) {
-      formNote.textContent = "Odesílám poptávku. Během chvíle by měla dorazit do e-mailu.";
+      formNote.textContent = "Odesílám údaje k nacenění. Pokud bude něco chybět, ozvu se pro doplnění.";
     }
     return;
   }
@@ -234,7 +234,7 @@ form?.addEventListener("submit", (event) => {
   window.location.href = mailto.toString();
 
   if (formNote) {
-    formNote.textContent = "E-mail s poptávkou je připravený k odeslání ve vašem poštovním programu.";
+    formNote.textContent = "E-mail s údaji k nacenění je připravený k odeslání ve vašem poštovním programu.";
   }
 });
 
@@ -251,7 +251,7 @@ copyInquiryButton?.addEventListener("click", async () => {
       selected_service: cleanAnalyticsValue(copiedData.get("service")),
     });
     if (formNote) {
-      formNote.textContent = "Údaje poptávky jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.";
+      formNote.textContent = "Údaje k nacenění jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.";
     }
   } catch {
     if (formNote) {
