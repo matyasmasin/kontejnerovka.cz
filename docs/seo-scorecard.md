@@ -2,6 +2,8 @@
 
 Tento dokument je mesicni prehled pro majitele. Ma byt jednoduchy, srozumitelny a prakticky. Neslouzi jako akademicky SEO report, ale jako odpoved na otazku: roste web a co mame udelat dalsi mesic?
 
+Neni to hlavni provozni log automatizaci. Ten je nove soustredeny v `docs/reports/YYYY-MM.md`, aby se dalo zpetne vyhodnotit, co Codex doporucoval, co se opravdu zmenilo a co se opakovane ukazovalo jako priorita.
+
 ## Baseline k 2026-05-26
 
 | Oblast | Stav | Zdroj | Poznamka |
@@ -64,4 +66,3 @@ Maximalne 5 bodu:
 #### Nejlepsi dalsi krok
 
 DOPLNIT jednu vetu.
-

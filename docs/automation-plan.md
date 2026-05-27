@@ -46,6 +46,7 @@ Kazda automatizace musi:
 - dat maximalne 3 hlavni doporuceni,
 - vybrat jednu nejlepsi dalsi akci,
 - zapsat vysledek do urceneho dokumentu,
+- zapsat kratky souhrn behu do centralniho mesicniho reportu v `docs/reports/YYYY-MM.md`,
 - nehalucinovat recenze, fotky, vysledky ani data.
 
 ## Mesicni kalendar a typy behu
@@ -123,6 +124,10 @@ Pokud chybi GSC, GA4 nebo rucni evidence, musi to byt napsane otevrene a bez dom
 
 ## Kam se co zapisuje
 
+- `docs/reports/YYYY-MM.md`
+  - centralni mesicni report pro vsechny automatizace,
+  - kazdy beh sem prida kratky zapis: co zjistil, co doporucil, co udelal a co je dalsi krok,
+  - je to hlavni misto pro pozdejsi vyhodnoceni, jestli system opravdu pomaha.
 - `docs/kontejnerovka-rust-webu.md`
   - hlavni denik rustu,
   - zmena smeru, nove zjisteni, nove priority, mesicni nebo kvartalni shrnuti,
@@ -138,6 +143,19 @@ Pokud chybi GSC, GA4 nebo rucni evidence, musi to byt napsane otevrene a bez dom
   - jednoducha rec: roste to, nebo ne.
 - `docs/seo-data/kpi-leads-template.csv`
   - rucni evidence poptavek a zakazek.
+
+## Jak ma vypadat zapis do centralniho reportu
+
+Kazdy beh ma do `docs/reports/YYYY-MM.md` pridat kratky blok:
+
+- datum,
+- nazev automatizace,
+- stav: `bez zmeny`, `doporuceno`, `upraveno`, `blokovano`,
+- co je hlavni zjisteni,
+- co je nejlepsi dalsi krok,
+- na ktere dokumenty nebo stranky se navazuje.
+
+Smysl je jednoduchy: kdyz se nekdo za 2 nebo 6 mesicu podiva zpet, musi rychle videt posloupnost rozhodnuti, ne jen izolovane logy.
 
 ## Doporucovaci logika pro Codex
 
@@ -183,3 +201,5 @@ Citliva data se neukladaji do verejneho webu. Vychozi privatni slozka je:
 ## Master audit automatizaci
 
 Detailni kontrola automatizaci je zapsana v `docs/automation-audit.md`. Pokud se automatizace budou menit, musi se audit aktualizovat.
+
+Hotove promptove specifikace pro nastavovani v Codex app jsou v `docs/automation-prompts.md`.

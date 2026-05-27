@@ -16,6 +16,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Co sledovat po zmene: jestli master SEO kontrola prinasi lepsi doporuceni nez puvodni denni monitoring a jestli se pravidelne zapisuje historie zmen a doporuceni.
 - Minimalni doba vyhodnoceni: 4-8 tydnu, aby bylo videt, jestli novy rytmus vede k lepsim rozhodnutim a mensimu sumu.
 
+### 2026-05-27 - centralni reporty automatizaci
+
+- Co se zmenilo: byla zalozena slozka `docs/reports/` a mesicni centralni report `docs/reports/2026-05.md`, kam se maji zapisovat kratke vystupy vsech SEO automatizaci.
+- Proc se to zmenilo: bez jednoho centralniho mista se hure vyhodnocuje, co automatizace doporucovaly, co se opakovalo a co skutecne vedlo ke zmene.
+- Ocekavany dopad: lepsi orientace v historii rozhodnuti, jednodussi vyhodnoceni po 2, 3 a 6 mesicich a mensi riziko, ze se doporuceni ztrati mezi vice dokumenty.
+- Zdroj dat nebo duvod: master uprava provozniho systemu.
+- Kdo/automatizace zmenu navrhla: master navrh automatizacniho reportingu.
+- Nasazeno: ano, v dokumentaci a reportovaci strukture.
+- Commit:
+- Co sledovat po zmene: jestli vsechny dalsi automatizace opravdu zapisují kratky souhrn do mesicniho reportu a jestli se z reportu da rychle poznat priorita a dalsi krok.
+- Minimalni doba vyhodnoceni: 1-2 mesice, aby vzniklo dost zaznamu pro porovnani.
+
 ### 2026-05-27 - vizualni master polish a social preview
 
 - Co se zmenilo: posilena vizualni identita homepage, doplnen blok pro rychle naceneni v hero sekci, rozsireny duveryhodnostni pruh, pridana sekce pro realne vizualni dukazy a vytvoren OG obrazek `assets/og-kontejnerovka.png`.

@@ -28,6 +28,7 @@ Pri master kontrole ale byly nalezeny tyto mezery:
 - Byl doplnen API import GSC/GA4 pres oficialni Google API a privatni datova slozka mimo verejny web.
 - Vystupy maji byt pro majitele jednoduche: co se stalo, jestli je to problem, co udelat, proc, dopad a jeden nejlepsi dalsi krok.
 - Byl dopsan explicitni system, kam se zapisuje rustovy denik, log zmen, backlog prilezitosti a scorecard.
+- Byl doplnen centralni mesicni report v `docs/reports/YYYY-MM.md`, aby slo vyhodnocovat automatizace na jednom miste.
 
 ## Co system pokryva
 
@@ -42,6 +43,7 @@ Pri master kontrole ale byly nalezeny tyto mezery:
 | Konverze a mereni | doplneno | Samostatny mesicni audit mereni je potreba pro realne rozhodovani podle dat. |
 | Automaticky import dat | doplneno | Skripty `scripts/fetch-google-data.mjs`, `scripts/fetch-gsc.mjs` a `scripts/fetch-ga4.mjs` pripravuji automaticky import po dodani pristupu. |
 | Owner-friendly vystup | ano | Scorecard a formaty jsou psane pro cloveka bez SEO/IT znalosti. |
+| Centralni reportovani | ano | Kazdy beh ma zapisovat kratky souhrn do `docs/reports/YYYY-MM.md`. |
 | Ochrana proti SEO spamu | ano | Stop pravidla, backlog a quality checklist brani zbytecnym strankam a duplicitam. |
 | 3/6mesicni strategie | ano | Kvartalni strategicky audit porovnava stav proti baseline. |
 

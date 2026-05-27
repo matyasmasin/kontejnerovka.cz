@@ -105,6 +105,10 @@ Pro tento typ webu nema smysl, aby Codex chodil na web kazdy den a hledal techni
 
 Drzet novy rytmus aspon 4-8 tydnu a sledovat, jestli kazdy mesic vznika jasny seznam akci, log zmen a jednoducha scorecard bez zbytecnych kontrol.
 
+### Zapis do dokumentu
+
+Od teto zmeny se ma kratky vystup kazde automatizace zapisovat take do centralniho mesicniho reportu v `docs/reports/YYYY-MM.md`, aby slo po case vyhodnotit, co system doporucoval a co se opravdu menilo.
+
 ## Format dalsich zapisu
 
 Kazdy dalsi zapis ma pouzit tuto strukturu:
