@@ -1754,6 +1754,21 @@ textarea:focus-visible {
   color: rgba(255, 255, 255, 0.82);
 }
 
+.owner-card a {
+  width: max-content;
+  color: var(--safety);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.proof-strip a {
+  color: inherit;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .audience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
