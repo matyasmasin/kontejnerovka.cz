@@ -181,6 +181,8 @@ nav?.addEventListener("click", (event) => {
 
 const getInquiryText = () => {
   const data = new FormData(form);
+  const attachment = data.get("attachment");
+  const attachmentName = typeof File !== "undefined" && attachment instanceof File && attachment.name ? attachment.name : "";
   const lines = [
     "Dobrý den,",
     "",
@@ -191,10 +193,14 @@ const getInquiryText = () => {
     `E-mail: ${data.get("email") || ""}`,
     `Obec / adresa: ${data.get("location") || ""}`,
     `Termín: ${data.get("date") || ""}`,
+    `Naléhavost: ${data.get("urgency") || ""}`,
     `Služba: ${data.get("service") || ""}`,
     `Množství: ${data.get("amount") || ""}`,
+    `Velikost kontejneru: ${data.get("container_size") || ""}`,
     `Přístup: ${data.get("access") || ""}`,
-    `Fotka: ${data.get("photo") || ""}`,
+    `Stání: ${data.get("standing") || ""}`,
+    `Čistota odpadu: ${data.get("waste_type") || ""}`,
+    `Fotka / příloha: ${attachmentName || data.get("photo") || ""}`,
     "",
     "Poznámka:",
     `${data.get("message") || ""}`,
@@ -205,9 +211,193 @@ const getInquiryText = () => {
   return lines.join("\n");
 };
 
+const copyTextToClipboard = async (text) => {
+  if (navigator.clipboard?.writeText && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand("copy");
+  textarea.remove();
+
+  if (!copied) {
+    throw new Error("Clipboard copy failed");
+  }
+};
+
+let validateInquiryForm = () => form?.reportValidity() ?? false;
+
+const setupInquiryFormSteps = () => {
+  if (!form) return;
+
+  const steps = Array.from(form.querySelectorAll(".form-step"));
+  if (!steps.length) return;
+
+  const progress = Array.from(form.querySelectorAll(".form-progress span"));
+  const nextButton = form.querySelector("[data-next]");
+  const prevButton = form.querySelector("[data-prev]");
+  const submitButton = form.querySelector("[data-submit]");
+  const fileInput = form.querySelector('input[type="file"]');
+  const fileName = form.querySelector("[data-file-name]");
+  let currentStep = 0;
+
+  const canValidate = (field, { includeConsent = true } = {}) => {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return false;
+    if (field.disabled) return false;
+    if (field instanceof HTMLInputElement && ["hidden", "button", "submit"].includes(field.type)) return false;
+    if (field.name === "botcheck" || field.classList.contains("hp-field")) return false;
+    if (!includeConsent && field.name === "souhlas") return false;
+    return true;
+  };
+
+  const setStep = (index, shouldTrack = true) => {
+    currentStep = Math.max(0, Math.min(index, steps.length - 1));
+
+    steps.forEach((step, stepIndex) => {
+      const isActive = stepIndex === currentStep;
+      step.classList.toggle("is-active", isActive);
+      step.hidden = !isActive;
+    });
+
+    progress.forEach((item, itemIndex) => {
+      item.classList.toggle("is-active", itemIndex <= currentStep);
+      if (itemIndex === currentStep) {
+        item.setAttribute("aria-current", "step");
+      } else {
+        item.removeAttribute("aria-current");
+      }
+    });
+
+    if (prevButton instanceof HTMLElement) prevButton.hidden = currentStep === 0;
+    if (nextButton instanceof HTMLElement) nextButton.hidden = currentStep === steps.length - 1;
+    if (submitButton instanceof HTMLElement) submitButton.hidden = currentStep !== steps.length - 1;
+    if (copyInquiryButton instanceof HTMLElement) copyInquiryButton.hidden = currentStep !== steps.length - 1;
+    if (formNote) formNote.textContent = "";
+
+    if (shouldTrack) {
+      track("form_step_view", {
+        form_name: "main_inquiry",
+        step_index: String(currentStep + 1),
+        step_label: cleanAnalyticsValue(progress[currentStep]?.textContent || ""),
+        page_type: getPageType(),
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
+  const validateFields = (fields, targetStep = currentStep, options = {}) => {
+    const candidates = fields.filter((field) => canValidate(field, options));
+    candidates.forEach((field) => field.classList.remove("is-invalid"));
+    const invalid = candidates.find((field) => !field.checkValidity());
+
+    if (!invalid) return true;
+
+    setStep(targetStep, false);
+    invalid.classList.add("is-invalid");
+    if (formNote) formNote.textContent = "Zkontrolujte prosím zvýrazněné pole.";
+    invalid.reportValidity();
+    return false;
+  };
+
+  const validateCurrentStep = () => {
+    const fields = Array.from(steps[currentStep].querySelectorAll("input, select, textarea"));
+    return validateFields(fields, currentStep);
+  };
+
+  validateInquiryForm = (options = {}) => {
+    for (let index = 0; index < steps.length; index += 1) {
+      const fields = Array.from(steps[index].querySelectorAll("input, select, textarea"));
+      if (!validateFields(fields, index, options)) return false;
+    }
+    return true;
+  };
+
+  nextButton?.addEventListener("click", () => {
+    if (!validateCurrentStep()) {
+      track("form_error", {
+        form_name: "main_inquiry",
+        reason: "invalid_step",
+        step_index: String(currentStep + 1),
+      });
+      return;
+    }
+    setStep(currentStep + 1);
+  });
+
+  prevButton?.addEventListener("click", () => {
+    setStep(currentStep - 1);
+  });
+
+  const clearInvalid = (event) => {
+    const field = event.target;
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
+    field.classList.remove("is-invalid");
+    if (formNote && !form.querySelector(".is-invalid")) formNote.textContent = "";
+  };
+
+  form.addEventListener("input", clearInvalid);
+  form.addEventListener("change", clearInvalid);
+
+  if (fileInput instanceof HTMLInputElement && fileName) {
+    const defaultFileText = fileInput.getAttribute("data-default-file") || fileName.textContent || "";
+    fileInput.addEventListener("change", () => {
+      const selectedFile = fileInput.files && fileInput.files[0];
+      fileName.textContent = selectedFile ? selectedFile.name : defaultFileText;
+      if (selectedFile) {
+        track("file_upload_used", {
+          form_name: "main_inquiry",
+          file_type: selectedFile.type || "unknown",
+          page_type: getPageType(),
+        });
+      }
+    });
+  }
+
+  setStep(0, false);
+};
+
+setupInquiryFormSteps();
+
 form?.addEventListener("submit", (event) => {
   ensurePageUrlField();
   const submittedData = new FormData(form);
+
+  if (!validateInquiryForm()) {
+    track("form_error", {
+      form_name: "main_inquiry",
+      reason: "invalid_form",
+      page_type: getPageType(),
+      page_path: window.location.pathname,
+    });
+    event.preventDefault();
+    return;
+  }
+
+  const honeypot = form.querySelector('input[name="botcheck"], .hp-field');
+  if (honeypot instanceof HTMLInputElement && honeypot.value) {
+    track("form_error", {
+      form_name: "main_inquiry",
+      reason: "honeypot",
+      page_type: getPageType(),
+      page_path: window.location.pathname,
+    });
+    event.preventDefault();
+    return;
+  }
+
+  const submittedAttachment = submittedData.get("attachment");
+  const hasAttachment =
+    typeof File !== "undefined" &&
+    submittedAttachment instanceof File &&
+    Boolean(submittedAttachment.name);
 
   track("lead_form_submit", {
     form_name: "main_inquiry",
@@ -217,7 +407,7 @@ form?.addEventListener("submit", (event) => {
     selected_service: cleanAnalyticsValue(submittedData.get("service")),
     has_email: submittedData.get("email") ? "yes" : "no",
     has_amount: submittedData.get("amount") ? "yes" : "no",
-    has_photo_note: submittedData.get("photo") ? "yes" : "no",
+    has_photo_note: submittedData.get("photo") || hasAttachment ? "yes" : "no",
   });
 
   if (form.action.includes("api.web3forms.com")) {
@@ -240,11 +430,11 @@ form?.addEventListener("submit", (event) => {
 });
 
 copyInquiryButton?.addEventListener("click", async () => {
-  if (!form?.reportValidity()) return;
+  if (!validateInquiryForm({ includeConsent: false })) return;
   const copiedData = new FormData(form);
 
   try {
-    await navigator.clipboard.writeText(getInquiryText());
+    await copyTextToClipboard(getInquiryText());
     track("inquiry_copy", {
       form_name: "main_inquiry",
       method: "copy_inquiry",

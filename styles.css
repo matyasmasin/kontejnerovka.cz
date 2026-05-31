@@ -1872,6 +1872,69 @@ textarea:focus-visible {
   gap: 12px;
 }
 
+.form-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.form-progress span {
+  display: grid;
+  min-height: 38px;
+  place-items: center;
+  padding: 7px 9px;
+  border: 1px solid #ded6c6;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  background: #f5efe2;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.form-progress span.is-active {
+  border-color: rgba(255, 106, 0, 0.58);
+  color: var(--carbon);
+  background: rgba(255, 106, 0, 0.16);
+}
+
+.form-step {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-step[hidden] {
+  display: none;
+}
+
+.form-step legend {
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 950;
+}
+
+.field-note,
+.legend-note {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.form-example {
+  margin: 0;
+  padding: 11px 12px;
+  border-left: 4px solid var(--safety);
+  border-radius: 8px;
+  color: var(--ink-soft);
+  background: #fff8e8;
+  font-size: 0.86rem;
+}
+
 label {
   display: grid;
   gap: 7px;
@@ -1910,6 +1973,73 @@ textarea:focus {
   border-color: var(--safety-dark);
   background: var(--white);
   box-shadow: var(--ring);
+}
+
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: #b42318;
+  background: #fff5f5;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.16);
+}
+
+.file-input input {
+  padding-top: 10px;
+}
+
+.file-input span {
+  display: block;
+  min-height: 44px;
+  padding: 12px;
+  border: 1px dashed #c9bfae;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  background: #fff8e8;
+  font-weight: 800;
+}
+
+.consent {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+
+.consent a {
+  color: var(--safety-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.form-actions .btn,
+.inquiry-form .btn {
+  width: 100%;
+}
+
+.inquiry-form .btn-secondary {
+  color: var(--ink);
+  border: 1px solid #d3cbbd;
+  background: var(--paper-strong);
+  backdrop-filter: none;
+}
+
+.inquiry-form .btn-secondary:hover,
+.inquiry-form .btn-secondary:focus-visible {
+  border-color: rgba(255, 106, 0, 0.42);
+  background: #fff8e8;
 }
 
 .form-button {

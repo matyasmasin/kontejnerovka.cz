@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <noscript><style>.inquiry-form .form-step[hidden],.inquiry-form [data-submit][hidden]{display:block!important}.inquiry-form [data-next],.inquiry-form [data-prev],.inquiry-form .form-progress{display:none!important}</style></noscript>
     <title>Přistavení kontejneru do 24 h Praha | Kontejnerovka.cz</title>
     <meta
       name="description"
@@ -28,9 +29,9 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" as="image" href="assets/hero-truck.webp" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260531b">
+    <link rel="stylesheet" href="styles.css?v=20260531c">
     <script src="assets/lucide.min.js" defer></script>
-    <script src="script.js?v=20260527b" defer></script>
+    <script src="script.js?v=20260531c" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1051,74 +1052,149 @@
             </div>
           </div>
 
-          <form class="inquiry-form" action="https://api.web3forms.com/submit" method="POST" data-inquiry-form>
+          <form class="inquiry-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-inquiry-form>
             <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
             <input type="hidden" name="subject" value="Poptávka z webu Kontejnerovka.cz">
             <input type="hidden" name="from_name" value="Kontejnerovka.cz">
             <input type="hidden" name="redirect" value="https://kontejnerovka.cz/dekujeme.html">
             <input type="hidden" name="page_url" value="https://kontejnerovka.cz/">
             <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
+            <input type="hidden" name="photo" value="">
             <div class="form-intro">
-              <strong>Pro nacenění stačí obec, typ odpadu, množství a přístup.</strong>
-              <span>Fotku odpadu nebo místa pošlete následně e-mailem, případně rovnou zavolejte.</span>
+              <strong>Formulář je rozdělený do 3 krátkých kroků.</strong>
+              <span>Stačí kontakt, obec, typ odpadu nebo materiálu a stručný popis. Fotka místa výrazně urychlí nacenění.</span>
             </div>
-            <div class="form-row">
-              <label>
-                Jméno
-                <input type="text" name="name" autocomplete="name" required>
-              </label>
-              <label>
-                Telefon
-                <input type="tel" name="phone" autocomplete="tel" required>
-              </label>
+
+            <div class="form-progress" aria-label="Postup poptávky">
+              <span class="is-active">Kontakt</span>
+              <span>Zakázka</span>
+              <span>Termín</span>
             </div>
-            <div class="form-row">
+
+            <fieldset class="form-step is-active" data-step="0">
+              <legend>Kontakt a základ zakázky</legend>
+              <div class="form-row">
+                <label>
+                  Jméno
+                  <input type="text" name="name" autocomplete="name" required>
+                </label>
+                <label>
+                  Telefon
+                  <input type="tel" name="phone" autocomplete="tel" required>
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
+                  E-mail <span class="field-note">volitelné</span>
+                  <input type="email" name="email" autocomplete="email" placeholder="Volitelné">
+                </label>
+                <label>
+                  Obec / adresa
+                  <input type="text" name="location" placeholder="Např. Nučice, Rudná, Svárov, Unhošť" required>
+                </label>
+              </div>
               <label>
-                E-mail
-                <input type="email" name="email" autocomplete="email" placeholder="Volitelné">
+                Služba / materiál
+                <select name="service" required>
+                  <option value="">Vyberte službu</option>
+                  <option>Odvoz suti / odpadu</option>
+                  <option>Odvoz zeminy</option>
+                  <option>Odvoz dřeva / bioodpadu</option>
+                  <option>Dovoz písku, štěrku, kačírku</option>
+                  <option>Dovoz recyklátu, zeminy nebo betonu</option>
+                  <option>Jiná domluva</option>
+                </select>
               </label>
               <label>
-                Obec / adresa
-                <input type="text" name="location" placeholder="Např. Nučice, Rudná, Svárov, Unhošť" required>
+                Stručný popis
+                <textarea name="message" rows="4" required placeholder="Např. čistá suť z koupelny, zemina z výkopu, směsný odpad z vyklízení, místo na dvoře..."></textarea>
               </label>
+              <p class="form-example">Nemusíte znát přesný název odpadu. Napište jednoduše, co se má odvézt nebo dovézt a odkud.</p>
+            </fieldset>
+
+            <fieldset class="form-step" data-step="1" hidden>
+              <legend>Odpad, množství a přístup</legend>
+              <div class="form-row">
+                <label>
+                  Množství odhadem
+                  <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner nebo nevím" required>
+                </label>
+                <label>
+                  Velikost kontejneru <span class="field-note">pokud víte</span>
+                  <select name="container_size">
+                    <option>Nevím, doporučit</option>
+                    <option>Malý kontejner</option>
+                    <option>Střední kontejner</option>
+                    <option>Velký kontejner</option>
+                  </select>
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
+                  Kde může stát kontejner nebo auto
+                  <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd" required>
+                </label>
+                <label>
+                  Stání
+                  <select name="standing">
+                    <option>Vlastní pozemek / dvůr</option>
+                    <option>Ulice nebo veřejné místo</option>
+                    <option>Stavba / areál</option>
+                    <option>Nevím, potřebuji poradit</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Čistota odpadu
+                <select name="waste_type">
+                  <option>Nevím, potřebuji poradit</option>
+                  <option>Čistá suť</option>
+                  <option>Zemina / výkop</option>
+                  <option>Směsný stavební odpad</option>
+                  <option>Dřevo / bioodpad</option>
+                  <option>Dovoz materiálu</option>
+                </select>
+              </label>
+              <p class="form-example">Čistá suť, zemina a směsný stavební odpad se naceňují jinak. Když si nejste jistí, stačí napsat „nevím“.</p>
+            </fieldset>
+
+            <fieldset class="form-step" data-step="2" hidden>
+              <legend>Termín, fotka a odeslání</legend>
+              <div class="form-row">
+                <label>
+                  Termín
+                  <input type="text" name="date" placeholder="Např. tento týden">
+                </label>
+                <label>
+                  Naléhavost
+                  <select name="urgency">
+                    <option>Běžná domluva</option>
+                    <option>Co nejdříve</option>
+                    <option>Tento týden</option>
+                    <option>Jen orientační cena</option>
+                  </select>
+                </label>
+              </div>
+              <label class="file-input">
+                Fotka odpadu nebo místa <span class="field-note">volitelné</span>
+                <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC nebo PDF">
+                <span data-file-name>JPG, PNG, WEBP, HEIC nebo PDF</span>
+              </label>
+              <p class="form-note">Fotka vjezdu, místa přistavení nebo odpadu často urychlí nacenění. Přesnou cenu potvrdíme až po kontrole údajů.</p>
+              <label class="consent">
+                <input type="checkbox" name="souhlas" required>
+                <span>Souhlasím se zpracováním osobních údajů pro vyřízení poptávky. <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>.</span>
+              </label>
+            </fieldset>
+
+            <div class="form-actions">
+              <button class="btn btn-secondary" type="button" data-prev hidden>Zpět</button>
+              <button class="btn btn-primary" type="button" data-next>Pokračovat</button>
+              <button class="btn btn-primary" type="submit" data-submit hidden>
+                <i data-lucide="send" aria-hidden="true"></i>
+                Odeslat poptávku
+              </button>
             </div>
-            <div class="form-row">
-              <label>
-                Termín
-                <input type="text" name="date" placeholder="Např. tento týden">
-              </label>
-              <label>
-                Množství odhadem
-                <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner">
-              </label>
-            </div>
-            <label>
-              Služba / materiál
-              <select name="service">
-                <option>Odvoz suti / odpadu</option>
-                <option>Odvoz zeminy</option>
-                <option>Odvoz dřeva / bioodpadu</option>
-                <option>Dovoz písku, štěrku, kačírku</option>
-                <option>Dovoz recyklátu, zeminy nebo betonu</option>
-                <option>Jiná domluva</option>
-              </select>
-            </label>
-            <label>
-              Kde může stát kontejner nebo auto
-              <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd">
-            </label>
-            <label>
-              Fotka odpadu / místa
-              <input type="text" name="photo" placeholder="Mám fotku / pošlu e-mailem / nemám">
-            </label>
-            <label>
-              Poznámka
-              <textarea name="message" rows="4" placeholder="Např. čistá suť z koupelny, zemina z výkopu, směsný odpad z vyklízení, místo na dvoře..."></textarea>
-            </label>
-            <button class="btn btn-primary form-button" type="submit">
-              <i data-lucide="send" aria-hidden="true"></i>
-              Poslat k nacenění
-            </button>
             <button class="btn btn-copy form-button" type="button" data-copy-inquiry>
               <i data-lucide="copy" aria-hidden="true"></i>
               Zkopírovat pro SMS/e-mail
