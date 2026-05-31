@@ -2147,6 +2147,7 @@ textarea.is-invalid {
 
 .subpage-hero {
   position: relative;
+  isolation: isolate;
   width: min(1180px, calc(100% - 36px));
   margin: 0 auto;
   padding: clamp(58px, 8vw, 110px) 0 clamp(38px, 6vw, 70px);
@@ -2159,8 +2160,15 @@ textarea.is-invalid {
   clip-path: inset(0 -100vmax);
 }
 
+.subpage-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
 .subpage-hero::before {
   content: "";
+  position: relative;
+  z-index: 2;
   display: block;
   width: 86px;
   height: 6px;
@@ -2168,6 +2176,28 @@ textarea.is-invalid {
   border-radius: 999px;
   background: var(--safety);
   box-shadow: 0 0 28px rgba(255, 106, 0, 0.38);
+}
+
+.subpage-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: min(-18px, -1.6vw);
+  bottom: 0;
+  width: min(58vw, 690px);
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 42%, rgba(13, 18, 15, 0.08) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.18) 48%, rgba(13, 18, 15, 0.76)),
+    url("assets/hero-truck.webp") center 64% / cover no-repeat;
+  opacity: 0.58;
+  mix-blend-mode: screen;
+  transform: skewX(-7deg) translateX(8%);
+  transform-origin: right center;
+  filter: saturate(0.95) contrast(1.08);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
 }
 
 .subpage-hero h1 {
@@ -2774,6 +2804,14 @@ svg {
 
   .subpage-hero {
     padding-top: 42px;
+  }
+
+  .subpage-hero::after {
+    right: -120px;
+    width: min(96vw, 520px);
+    opacity: 0.26;
+    transform: skewX(-5deg) translateX(18%);
+    background-position: 58% 64%;
   }
 
   .split-image img {
