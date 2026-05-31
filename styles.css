@@ -631,6 +631,7 @@ textarea:focus-visible {
   column-gap: 14px;
   row-gap: 2px;
   align-items: center;
+  justify-items: start;
   min-height: 98px;
   padding: 20px;
   border: 1px solid var(--line);
@@ -658,10 +659,14 @@ textarea:focus-visible {
 }
 
 .proof-strip strong {
+  justify-self: start;
+  text-align: left;
   line-height: 1.18;
 }
 
 .proof-strip span {
+  grid-column: 2;
+  text-align: left;
   color: var(--ink-soft);
   font-size: 0.93rem;
 }
