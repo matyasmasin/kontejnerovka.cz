@@ -19,6 +19,16 @@ Tento dokument je pripraveny jako zdroj pravdy pro nastaveni automatizaci v Code
 - Kdyz chybi data, napsat `nelze overit`
 - Po kazdem behu zapsat kratky souhrn do `docs/reports/YYYY-MM.md`
 
+## Aktualni operacni stav k 2026-06-07
+
+- GA4 property pro `Kontejnerovka.cz` je potvrzena jako `538305751`.
+- Google Business Profile `kontejnerovka.cz` existuje a je overeny.
+- Ve WEDOS DNS byl 2026-05-28 pridan TXT zaznam pro Search Console overeni domeny `kontejnerovka.cz`.
+- Google pristup je funkcni pres lokalni OAuth credential `.secrets/google-gsc-ga4-oauth.json`, ulozeny mimo git.
+- `node scripts/check-google-config.mjs` i `node scripts/fetch-google-data.mjs` byly 2026-06-07 overene.
+- GSC a GA4 data se ukladaji mimo verejny web do `/Users/claude/Documents/Claude/kontejnerovka-private-growth/data`.
+- Pokud dalsi beh resi mereni, SEO nebo lokalni duveru, ma nejdriv zkusit `node scripts/fetch-google-data.mjs` a pri uspechu pouzit aktualni data.
+
 ## 1. Master SEO kontrola
 
 - ID: `kontejnerovka-master-seo-kontrola`

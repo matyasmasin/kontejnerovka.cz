@@ -1,4 +1,5 @@
 import path from "node:path";
+import "./load-env.mjs";
 import { getAccessToken } from "./google-auth.mjs";
 import { ensureOutputDir, getCompleteDateRange, getPreviousDateRange, writeCsv, writeMarkdown } from "./google-data-utils.mjs";
 
@@ -7,7 +8,7 @@ const API_ROOT = "https://analyticsdata.googleapis.com/v1beta";
 const SCOPE = "https://www.googleapis.com/auth/analytics.readonly";
 
 if (!PROPERTY_ID) {
-  console.error("GA4_PROPERTY_ID is missing. Use the numeric GA4 property ID, not the G- measurement ID.");
+  console.error("GA4_PROPERTY_ID is missing. Use the numeric GA4 property ID, not the G- measurement ID. Run node scripts/check-google-config.mjs.");
   process.exit(1);
 }
 

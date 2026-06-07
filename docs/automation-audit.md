@@ -53,7 +53,7 @@ Automatizace samy o sobe nezaruci rust, pokud nebudou dostupna data:
 
 - exporty nebo pristup do Google Search Console,
 - GA4 konverzni data,
-- service account a ciselne GA4 Property ID pro automaticky import,
+- Google credential pristup pro automaticky import; ciselne GA4 Property ID je lokalne nastavene jako `538305751` a import GSC/GA4 byl 2026-06-07 overen,
 - rucne doplnene poptavky a zakazky,
 - stav Google Business Profile,
 - realne fotky a recenze.

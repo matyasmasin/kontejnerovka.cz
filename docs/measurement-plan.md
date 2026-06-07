@@ -50,12 +50,13 @@ Bez teto rucni evidence lze hodnotit SEO a konverzni signaly, ale nelze tvrdit, 
 Pro plne automaticke vyhodnocovani je pripraveny API import:
 
 ```sh
+node scripts/check-google-config.mjs
 node scripts/fetch-google-data.mjs
 ```
 
 Podrobny navod je v `docs/seo-data/google-api-setup.md`.
 
-Dokud neni nastaveny service account a `GA4_PROPERTY_ID`, reporty musi psat `data nejsou dostupna` a nesmi si domyslet kliky, CTR, pozice ani konverze.
+`GA4_PROPERTY_ID` je lokalne nastavene na potvrzenou hodnotu `538305751`. Google credential je ulozeny mimo git v `.secrets/google-gsc-ga4-oauth.json` a import GSC/GA4 byl 2026-06-07 uspesne overen prikazem `node scripts/fetch-google-data.mjs`. Pokud credential expiruje nebo ztrati opravneni, reporty musi psat `data nejsou dostupna` a nesmi si domyslet kliky, CTR, pozice ani konverze.
 
 Surova GSC/GA4 data a obchodni data se maji ukládat mimo verejny web do privatni slozky:
 

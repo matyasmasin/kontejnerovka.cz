@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import "./load-env.mjs";
 
 const scripts = ["scripts/fetch-gsc.mjs", "scripts/fetch-ga4.mjs"];
 let failed = false;
@@ -17,7 +18,7 @@ for (const script of scripts) {
 }
 
 if (failed) {
-  console.error("\nSome Google data imports failed. This is expected until API credentials and GA4_PROPERTY_ID are configured.");
+  console.error("\nSome Google data imports failed. Run node scripts/check-google-config.mjs and verify Google credential access to GSC and GA4.");
   process.exit(1);
 }
 

@@ -24,7 +24,7 @@ Potom otevřít `http://127.0.0.1:4173/`.
 
 Měření je připravené přes event hooky v `script.js`. Po vytvoření Google Analytics stačí doplnit standardní `gtag.js` snippet do hlavičky.
 
-Automaticky import dat z Google Search Console a GA4 je připravený přes skripty v `scripts/`. Nastavení přístupů je popsané v `docs/seo-data/google-api-setup.md`; surová analytická data se ukládají mimo veřejný web do privátní složky.
+Automaticky import dat z Google Search Console a GA4 je připravený přes skripty v `scripts/`. Nastavení přístupů je popsané v `docs/seo-data/google-api-setup.md`; surová analytická data se ukládají mimo veřejný web do privátní složky. Lokální konfiguraci lze ověřit příkazem `node scripts/check-google-config.mjs`.
 
 Před a po ostrém spuštění na `kontejnerovka.cz`:
 

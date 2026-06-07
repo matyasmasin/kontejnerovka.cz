@@ -1,5 +1,6 @@
 import path from "node:path";
 import { writeFile } from "node:fs/promises";
+import "./load-env.mjs";
 import { getAccessToken } from "./google-auth.mjs";
 import {
   ensureOutputDir,

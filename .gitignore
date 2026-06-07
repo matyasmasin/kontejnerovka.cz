@@ -2,5 +2,8 @@ konkurence.md
 .DS_Store
 node_modules/
 *.log
+.env
+.env.*
+!.env.example
 .secrets/
 kontejnerovka-private-growth/

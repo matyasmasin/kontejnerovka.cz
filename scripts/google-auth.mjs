@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { readFile } from "node:fs/promises";
+import "./load-env.mjs";
 
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 
@@ -10,19 +11,20 @@ export const getServiceAccountPath = () =>
   process.env.GOOGLE_SERVICE_ACCOUNT_FILE ||
   ".secrets/google-service-account.json";
 
-export async function getAccessToken(scopes) {
+async function readCredentials() {
   const credentialsPath = getServiceAccountPath();
-  let credentials;
 
   try {
-    credentials = JSON.parse(await readFile(credentialsPath, "utf8"));
+    return { credentials: JSON.parse(await readFile(credentialsPath, "utf8")), credentialsPath };
   } catch (error) {
     throw new Error(
-      `Google service account key was not found or is invalid at ${credentialsPath}. ` +
+      `Google credentials file was not found or is invalid at ${credentialsPath}. ` +
         "Create it once and keep it outside git, then set GOOGLE_APPLICATION_CREDENTIALS."
     );
   }
+}
 
+async function getServiceAccountAccessToken(credentials, scopes) {
   if (!credentials.client_email || !credentials.private_key) {
     throw new Error("Google service account key is missing client_email or private_key.");
   }
@@ -57,4 +59,47 @@ export async function getAccessToken(scopes) {
 
   const token = await response.json();
   return token.access_token;
+}
+
+async function getAuthorizedUserAccessToken(credentials, scopes) {
+  if (!credentials.client_id || !credentials.client_secret || !credentials.refresh_token) {
+    throw new Error("Google authorized_user credentials are missing client_id, client_secret or refresh_token.");
+  }
+
+  const body = new URLSearchParams({
+    grant_type: "refresh_token",
+    refresh_token: credentials.refresh_token,
+    client_id: credentials.client_id,
+    client_secret: credentials.client_secret,
+  });
+
+  if (scopes.length) body.set("scope", scopes.join(" "));
+
+  const response = await fetch(credentials.token_uri || TOKEN_URL, {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body,
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Google OAuth refresh failed: ${response.status} ${text}`);
+  }
+
+  const token = await response.json();
+  return token.access_token;
+}
+
+export async function getAccessToken(scopes) {
+  const { credentials } = await readCredentials();
+
+  if (credentials.type === "service_account") {
+    return getServiceAccountAccessToken(credentials, scopes);
+  }
+
+  if (credentials.type === "authorized_user") {
+    return getAuthorizedUserAccessToken(credentials, scopes);
+  }
+
+  throw new Error(`Unsupported Google credentials type: ${credentials.type || "(missing)"}.`);
 }

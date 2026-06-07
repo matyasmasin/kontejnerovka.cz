@@ -182,7 +182,7 @@ API import je pripraveny ve skriptech:
 - `scripts/fetch-ga4.mjs`
 - `scripts/fetch-google-data.mjs`
 
-Nastaveni je popsane v `docs/seo-data/google-api-setup.md`. Dokud chybi service account a ciselne GA4 Property ID, automatizace musi oznacit datove vyhodnoceni jako omezene.
+Nastaveni je popsane v `docs/seo-data/google-api-setup.md`. `GA4_PROPERTY_ID=538305751` je lokalne nastavene a Google credential `.secrets/google-gsc-ga4-oauth.json` byl 2026-06-07 overeny pro GSC i GA4. Pokud import selze kvuli credentialu nebo opravnenim, automatizace musi oznacit datove vyhodnoceni jako omezene.
 
 Citliva data se neukladaji do verejneho webu. Vychozi privatni slozka je:
 
