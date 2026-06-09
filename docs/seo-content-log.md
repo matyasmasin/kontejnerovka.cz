@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-09 - Unhošť near-win CTR a relevance uprava
+
+- Co se zmenilo: na strance `kontejnery-unhost.html` byl zpresnen title, meta description, H1, breadcrumb a FAQ tak, aby stranka explicitneji odpovidala na dotazy kolem `kontejnery Unhost` a `odvoz suti Unhost`.
+- Proc se to zmenilo: GSC za obdobi 2026-05-12 az 2026-06-08 ukazuje pro `https://kontejnerovka.cz/kontejnery-unhost.html` 18 impresi, 0 kliku a prumernou pozici 8.72; mezi dotazy je i `odvoz suti unhost` s pozici 9. Tohle je bezpecny near-win na existujici URL bez potreby tvorit novou stranku.
+- Ocekavany dopad: lepsi relevance a CTR na lokalni dotazy kolem Unhoste a Svárova, hlavne pro zamer odvozu suti a rychleho pristaveni kontejneru.
+- Zdroj dat nebo duvod: Search Console API export `2026-05-12` az `2026-06-08`, soubor `gsc-pages-last-28-days.csv` a `gsc-queries-last-28-days.csv`.
+- Kdo/automatizace zmenu navrhla: automatizace `Kontejnerovka obsahovy SEO tah`.
+- Nasazeno: ano, po commitu a pushi na `main` v tomto behu.
+- Commit:
+- Co sledovat po zmene: GSC pro URL `https://kontejnerovka.cz/kontejnery-unhost.html` a dotazy `kontejnery unhost`, `odvoz suti unhost`, impresni CTR a pozici; v GA4 pak `cta_click`, `form_start`, `generate_lead` a pripadne `click_phone` z teto landing page.
+- Minimalni doba vyhodnoceni: 14-28 dni, prvni kontrola 2026-06-30.
+
 ### 2026-06-09 - Mobile-first jazykovy prepinac CZ/EN
 
 - Co se zmenilo: do vsech CZ i EN stranek byl pridan viditelny segmentovy prepinac `CZ / EN` v hlavicce, stary textovy jazykovy odkaz byl odstranen z menu, mobilni header byl upraven na rozlozeni brand + jazyk + hamburger a CSS dostalo cache-bust `styles.css?v=20260609a`.
