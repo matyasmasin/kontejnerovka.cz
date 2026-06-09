@@ -4,6 +4,114 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-09 - EN expat lokalizace ceskych realii
+
+- Co se zmenilo: do EN generatoru a pregenerovanych `/en/` stranek byly doplneny prakticke vysvetlivky pro anglicky mluvici zakazniky v Cesku: mapa/adresa jako validni vstup, rozdil mezi Prague-West/Prague-East a mestskymi castmi Prahy, soukromy pozemek vs ulice/chodnik, slovnik pojmu `zabor`, `skladka`, `ICO`, `DIC`, `DPH`, lokalni poznamky na lokalitnich strankach a jasnejsi formulare pro poptavku.
+- Proc se to zmenilo: EN zakaznik nebo expat casto nezna ceske odpadove, adresni a administrativni pojmy; web musi pusobit jako lokalni sluzba napsana primo pro nej, ne jako preklad ceskeho katalogu.
+- Ocekavany dopad: mene nejistoty pred odeslanim poptavky, lepsi kvalita EN formularu, vice poptavek s map pinem/fotkou, silnejsi duvera diky vysvetleni ceskych firemnich a cenovych realii bez prehnanych slibu.
+- Zdroj dat nebo duvod: vlozeny master prompt k EN lokalizaci a manualni audit specifik anglicky mluvicich zakazniku v Praze a Stredoceskem kraji.
+- Kdo/automatizace zmenu navrhla: manualni senior English copywriter, localization specialist, expat UX strateg, CRO expert a local SEO/GEO specialista.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: EN `click_phone`, `form_start`, `lead_form_submit`, `generate_lead`, kvalitu EN poptavek, podil poptavek s fotkou/map pinem, GSC dotazy pro `/en/`, lokality Prague/Prague-West/Prague-East a realne dotazy kolem permits, VAT a waste terms.
+- Minimalni doba vyhodnoceni: 14-28 dni pro prvni konverzni signal, 4-8 tydnu pro organicky a GEO signal.
+
+### 2026-06-09 - CRO uprava pro ceskeho zakaznika a EN expaty
+
+- Co se zmenilo: upravena CZ homepage prvni obrazovka, hlavni CTA, hero facts, duveryhodnostni texty, novy rozhodovaci blok `Proc by zakaznik mel vybrat prave Kontejnerovka.cz`, sekce `Proc objednat`, formulářová mikrocopy a FAQ odpoved k cene; stejna logika byla propsana do EN generatoru a pregenerovanych `/en/` stranek vcetne EN homepage a kontaktniho formulare.
+- Proc se to zmenilo: cesky zakaznik nejvic resi rychlou orientacni cenu, termin, skryte priplatky, spravny typ odpadu, jednoduchy telefon a lokalni ferovost; EN/expat zakaznik navic potrebuje proces bez znalosti ceskych pojmu jako sut, zemina nebo smesny stavebni odpad.
+- Ocekavany dopad: silnejsi duvod zavolat nebo poslat poptavku behem prvnich 30-60 sekund, mene nejistoty kolem ceny a odpadu, lepsi srozumitelnost formulare a vyssi sance, ze zakaznik posle fotku/adresu/mnozstvi hned v prvni zprave.
+- Zdroj dat nebo duvod: manualni CRO/copy/UX audit a cerstvy import GSC/GA4 z 2026-06-09; GA4 zatim ukazuje `form_start` 3, `cta_click` 3, `generate_lead` 1 a `click_phone` 0, GSC 16 impressions a 0 clicks za poslednich 28 dni.
+- Kdo/automatizace zmenu navrhla: manualni senior lokalni marketing strateg, CRO specialista, copywriter, SEO/GEO expert a UX auditor.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: `click_phone`, `cta_click`, `form_start`, `lead_form_submit`, `generate_lead`, kvalitu textu ve formularich, pocet poptavek s fotkou, GSC dotazy kolem kontejneru/ceny/lokalit a chovani EN stranek.
+- Minimalni doba vyhodnoceni: 14-28 dni pro prvni konverzni signal, 4-8 tydnu pro SEO/GEO signal.
+
+### 2026-06-07 - GSC a GA4 import odblokovan
+
+- Co se zmenilo: vytvoren funkcni OAuth credential `.secrets/google-gsc-ga4-oauth.json` se scopes pro Search Console a GA4, `.env.local` prepnut na tento credential, zapnuto Google Analytics Data API pro OAuth projekt a uspesne spusten `node scripts/fetch-google-data.mjs`.
+- Proc se to zmenilo: majitel chtel vyresit blokaci `Google service account` a `GA4_PROPERTY_ID`; service account nebyl na disku k dispozici, proto byl prakticky problem vyresen bezpecnym OAuth credentialem mimo git.
+- Ocekavany dopad: automatizace uz mohou pracovat s realnymi GSC a GA4 daty misto oznacovani vystupu jako datove omezeny.
+- Zdroj dat nebo duvod: overeny import 2026-06-07 ulozil GSC data do `/Users/claude/Documents/Claude/kontejnerovka-private-growth/data/gsc` a GA4 data do `/Users/claude/Documents/Claude/kontejnerovka-private-growth/data/ga4`.
+- Kdo/automatizace zmenu navrhla: manualni oprava mereni a Google API pristupu.
+- Nasazeno: lokalne ano; credential je mimo git a necommituje se.
+- Commit:
+- Co sledovat po zmene: pravidelny beh `node scripts/fetch-google-data.mjs`, platnost OAuth credentialu, GSC impressions/clicks, GA4 eventy `form_start`, `cta_click`, `generate_lead`, `click_phone` a `lead_form_submit`.
+- Minimalni doba vyhodnoceni: import je funkcni hned; SEO/konverzni trendy vyhodnocovat po 4-8 tydnech.
+
+### 2026-06-07 - lokalni konfigurace Google API pro GSC a GA4
+
+- Co se zmenilo: doplnen `.env.example`, lokalni ignorovany `.env.local`, automaticke nacitani env promennych pres `scripts/load-env.mjs`, preflight kontrola `scripts/check-google-config.mjs` a aktualizovane Google import skripty; `GA4_PROPERTY_ID` je nastavene na potvrzenou hodnotu `538305751`.
+- Proc se to zmenilo: drive automatizace hlasily dve blokace najednou - chybejici service account a chybejici `GA4_PROPERTY_ID`; cilem bylo odstranit vse, co lze vyresit lokalne bez tajnych udaju v gitu.
+- Ocekavany dopad: jednodussi a bezpecnejsi spousteni GSC/GA4 importu, mene falesnych blokaci v reportech a jasny dalsi krok pro majitele nebo spravce pristupu.
+- Zdroj dat nebo duvod: reporty a dokumentace uz drive potvrzovaly GA4 property `538305751`; service account JSON na disku nalezen nebyl.
+- Kdo/automatizace zmenu navrhla: manualni uprava mereni a SEO infrastruktury.
+- Nasazeno: ne, lokalni konfigurace pripravena v pracovnim stromu; realny service account klic se necommituje.
+- Commit:
+- Co sledovat po zmene: vystup `node scripts/check-google-config.mjs`, uspesnost `node scripts/fetch-google-data.mjs`, pristup service accountu do Search Console a GA4, a pravidelne plneni privatni datove slozky.
+- Minimalni doba vyhodnoceni: ihned po vlozeni realneho JSON klice a pridani opravneni v GSC/GA4.
+
+### 2026-06-07 - GEO 10/10 pripravenost webu
+
+- Co se zmenilo: doplneny viditelne GEO/AI summary bloky na hlavni ceske a anglicke stranky, sjednocena schema identita pres `https://kontejnerovka.cz/#localbusiness`, rozsirena `LocalBusiness`, `Service`, `FAQPage`, `BreadcrumbList`, `CollectionPage`, `ContactPage` a `WebSite` JSON-LD data, doplneny lokalni FAQ bloky u anglickych lokalit, expat slovnicek v anglicke poradne, schema/canonical u utility stranek a zkraceny posledni dlouhy EN meta description.
+- Proc se to zmenilo: cilem bylo dotahnout web na GEO pripravenost ve dvou smyslech - Generative Engine Optimization pro AI odpovedi a local/geographic readiness pro Prahu, Stredocesky kraj a konkretni obce.
+- Ocekavany dopad: lepsi citelnost entity Kontejnerovka.cz pro AI systemy, stabilnejsi lokalni kontext pro Prahu, Prague-West, Prague-East, Unhost, Nucice, Rudna, Kladno, Hostivice a Beroun, prirozenejsi odpovedi na otazky zakazniku a jasnejsi cesta k telefonu nebo poptavce.
+- Zdroj dat nebo duvod: manualni master GEO audit a pozadavek dotahnout vsechny doporucene upravy na produkcni standard 10/10.
+- Kdo/automatizace zmenu navrhla: manualni senior GEO strateg, SEO specialista, lokalni SEO expert, copywriter, technicky auditor a AI search specialista.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: GSC dotazy s lokalitami a sluzbami, indexaci `/en/`, zobrazeni a CTR lokalitnich stranek, kliknuti na telefon, odeslane formulare, kvalitu EN poptavek, AI citace/odpovedi rucnim monitoringem v ChatGPT, Perplexity a Google AI Overviews, a jestli realne poptavky odpovidaji posilenym lokalitam.
+- Minimalni doba vyhodnoceni: 4-8 tydnu pro organicky a AI signal, 14-28 dni pro prvni konverzni signal po nasazeni.
+
+### 2026-06-05 - GSC near-win SEO uprava podle exportu
+
+- Co se zmenilo: podle exportu Google Search Console byly zpresneny titulky, meta descriptions, H1 a lokální copy u stranek `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `dovoz-kacirku.html` a `kontejnery-praha-zapad.html`; doplneny prirozene interni odkazy pro dotazy zemina Praha-zapad, kontejner na zeminu a kacirek Praha.
+- Proc se to zmenilo: export z 2026-06-05 ukazal velmi rany, ale uzitecny signal: homepage mela 3 prokliky / 47 zobrazeni, lokalni a servisni stranky se zacinaji zobrazovat kolem pozic 4-10, zatimco dotazy `odvoz zeminy praha zapad` a `kontejner na zeminu` jsou jeste dal a potrebuji silnejsi on-page kontext.
+- Ocekavany dopad: lepsi relevance pro konkretni lokalni a materialove dotazy, vetsi sance na posun near-win stranek a prirozenejsi cesta z lokalni stranky na konkretni sluzbu.
+- Zdroj dat nebo duvod: `/Users/claude/Downloads/https___kontejnerovka.cz_-Performance-on-Search-2026-06-05.zip`, typ vyhledavani Web, filtr Posledni 3 mesice.
+- Kdo/automatizace zmenu navrhla: manualni GSC SEO/CRO interpretace.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: dotazy `odvoz zeminy praha zapad`, `kontejner na zeminu`, `dovoz kacirku`, `kacirek praha`; dale stranky `/odvoz-zeminy.html`, `/kontejner-na-zeminu.html`, `/dovoz-kacirku.html`, `/kontejnery-praha-zapad.html`.
+- Minimalni doba vyhodnoceni: 4-8 tydnu, protoze aktualni export ma zatim jen desitky zobrazeni a jednotky kliknuti.
+
+### 2026-06-04 - anglicka verze webu `/en/`
+
+- Co se zmenilo: vytvorena samostatna anglicka verze indexovatelnych stranek v adresari `/en/`, vcetne homepage, sluzeb, ceniku, lokalit, poradny, kontaktu, privacy, thank-you a 404; doplneny anglicke meta titles, meta descriptions, CTA, formularove texty, FAQ/poradenske texty, JSON-LD, canonical a hreflang.
+- Proc se to zmenilo: cilem je prirozena anglicka lokalizace pro anglicky mluvici zakazniky v Praze a Stredoceskem kraji, ne doslovny preklad ceskeho webu.
+- Ocekavany dopad: lepsi srozumitelnost pro expaty a anglicky mluvici zakazniky, jasnejsi cesta k telefonu/poptavce a technicky cista mezinarodni struktura bez strojoveho prekladu.
+- Zdroj dat nebo duvod: manualni lokalizacni/copy/SEO zadani podle aktualnich ceskych stranek a pozadavku na produkcni vystup 10/10.
+- Kdo/automatizace zmenu navrhla: manualni master copywriter, SEO strateg, lokalizacni specialista a webovy editor.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: indexaci `/en/`, hreflang pary v Google Search Console, kliknuti na telefon z anglickych stranek, odeslane anglicke formulare a dotazy z lokalit Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno, Hostivice a Beroun.
+- Minimalni doba vyhodnoceni: 4-8 tydnu pro prvni organicky signal, 14-28 dni pro konverzni signal po nasazeni.
+
+### 2026-06-04 - finalni 10/10 polish anglicke verze
+
+- Co se zmenilo: anglicka homepage a pricing dostaly plne lokalizovanou orientacni kalkulacku; `script.js` byl doplnen o anglicke vysledky, faktory, shrnuti a vlozeni odhadu do formulare; servisni stranky byly zjemneny, aby neopakovaly duplicitni sablonovy blok.
+- Proc se to zmenilo: prvni anglicka verze byla produkcne silna, ale pro standard 10/10 bylo potreba dotahnout interaktivni konverzni cestu a odstranit posledni sablonovitost.
+- Ocekavany dopad: vyssi duvera u anglicky mluvicich zakazniku, lepsi kvalita poptavek, jasnejsi cesta z nejistoty ohledne ceny do formulare nebo telefonu.
+- Zdroj dat nebo duvod: rucni finalni QA po lokalizaci a pozadavek majitele dotahnout anglickou verzi na 10/10.
+- Kdo/automatizace zmenu navrhla: manualni master CRO/copy/localization polish.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: `calculator_start`, `calculator_inquiry_click`, `calculator_use_in_form`, kliknuti na telefon, odeslane EN formulare a kvalitu textu poptavek z kalkulacky.
+- Minimalni doba vyhodnoceni: 14-28 dni pro konverzni signal, 4-8 tydnu pro SEO signal.
+
+### 2026-06-04 - master copy polish webu na 10/10 smer
+
+- Co se zmenilo: prepsana hlavni obchodni sdeleni na homepage, ceníku, referencich, o nas a vybranych lokalnich strankach; odstranena viditelna interni SEO rec, zmirnen slabsi "budeme doplnovat" ton a rozbita sablonovitost lokalnich CTA.
+- Proc se to zmenilo: texty byly vecne silne, ale misty prilis dlouhe, opakovane a znejici jako SEO strategie misto prime komunikace se zakaznikem.
+- Ocekavany dopad: lepsi prvni dojem, jasnejsi cesta k telefonu/poptavce, vetsi duvera u referenci a prirozenejsi lokalni stranky bez umele duplicity.
+- Zdroj dat nebo duvod: manualni master copy/CRO audit podle aktualniho obsahu webu a pozadavku majitele na vystup 10/10.
+- Kdo/automatizace zmenu navrhla: manualni master copy polish.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: kliknuti na telefon, odeslane formulare, chovani na homepage, ceníku a referencich, dotazy na cenu a zda lokalni stranky neprichazeji o organicky vykon.
+- Minimalni doba vyhodnoceni: 14-28 dni pro prvni konverzni signal, 4-8 tydnu pro organicky dopad.
+
 ### 2026-05-27 - zjednoduseni SEO automatizaci na rustovy rytmus
 
 - Co se zmenilo: denni technicka kontrola byla zrusena jako samostatny provozni format a plan automatizaci byl prestaven na jednodussi rytmus 4x za mesic plus kvartalni strategicky audit.

@@ -9,6 +9,136 @@ const GA_MEASUREMENT_ID = "G-BCXFMBWZJ4";
 const ANALYTICS_CONSENT_KEY = "kontejnerovka_analytics_consent";
 const ANALYTICS_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 const CALCULATOR_STORAGE_KEY = "kontejnerovka_calculator_inquiry";
+const pageLocale = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "cs";
+const copy = {
+  cs: {
+    invalidField: "Zkontrolujte prosím zvýrazněné pole.",
+    submitting: "Odesílám údaje k nacenění. Pokud bude něco chybět, ozvu se pro doplnění.",
+    mailtoSubject: "Poptávka z webu Kontejnerovka.cz",
+    mailtoReady: "E-mail s údaji k nacenění je připravený k odeslání ve vašem poštovním programu.",
+    copied: "Údaje k nacenění jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.",
+    copyFailed: "Kopírování se nepovedlo. Pošlete poptávku e-mailem nebo zavolejte.",
+    inquiryGreeting: "Dobrý den,",
+    inquiryIntro: "mám zájem o nacenění služby Kontejnerovka.cz.",
+    name: "Jméno",
+    phone: "Telefon",
+    email: "E-mail",
+    location: "Obec / adresa",
+    date: "Termín",
+    urgency: "Naléhavost",
+    service: "Služba",
+    amount: "Množství",
+    containerSize: "Velikost kontejneru",
+    access: "Přístup",
+    standing: "Stání",
+    wasteType: "Čistota odpadu",
+    attachment: "Fotka / příloha",
+    note: "Poznámka:",
+    inquiryOutro: "Prosím o cenu, možný termín a případně doporučení vhodné velikosti kontejneru.",
+    photoPlaceholder: "Ideálně pošlu fotku odpadu nebo místa",
+    calculatorInserted: "Odhad z kalkulačky je vložený do poptávky. Doplňte kontakt a odešlete, případně zavolejte pro rychlé potvrzení.",
+    calculatorMessageTitle: "Orientační odhad z kalkulačky:",
+    calculatorMessageOutro: "Pro přesné nacenění doplním obec, typ odpadu nebo materiálu a případně fotku místa.",
+    calculatorMessageExtra: "Další poznámka:",
+    formAnchor: "/#kontakt",
+    privacyHref: "ochrana-osobnich-udaju.html",
+    privacyLink: "Ochrana osobních údajů",
+    cookieSettings: "Nastavení cookies",
+    cookieLabel: "Nastavení analytických cookies",
+    cookieTitle: "Měření webu",
+    cookieText: "Volitelné cookies pomáhají měřit kontakty a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.",
+    cookieDecline: "Pouze nezbytné",
+    cookieAccept: "Povolit měření",
+    calculatorBandMiddleTitle: "Orientačně: střední cenová hladina",
+    calculatorBandMiddleText: "Nejde o závaznou nabídku. Přesnou cenu potvrdíme podle adresy, druhu odpadu, množství, přístupu a termínu.",
+    calculatorBandLowerTitle: "Orientačně: nižší až střední cenová hladina",
+    calculatorBandLowerText: "Zakázka působí jednodušeji. Přesnou cenu ale potvrdíme až podle konkrétní adresy, odpadu, množství a přístupu.",
+    calculatorBandHigherTitle: "Orientačně: vyšší nebo nejasná cenová hladina",
+    calculatorBandHigherText: "Zakázka potřebuje upřesnění. Nejde o závaznou nabídku, cenu potvrdíme podle odpadu, trasy, množství, přístupu a termínu.",
+    calculatorFactorSoil: "Zemina je těžká; cenu ovlivní objem, hmotnost, vlhkost a možnost naložení.",
+    calculatorFactorMixed: "Směsný nebo objemný odpad je nutné upřesnit, protože likvidace může být náročnější než čistá suť.",
+    calculatorFactorDelivery: "U dovozu materiálu rozhoduje množství, frakce, dostupnost a místo složení.",
+    calculatorFactorClean: "Nejvíc rozhodne typ odpadu nebo materiálu a jeho čistota.",
+    calculatorFactorNear: "Blízká lokalita kolem Svárova, Unhoště, Nučic nebo Rudné může pomoct plánování trasy.",
+    calculatorFactorFar: "Vzdálenější lokalita nebo městské stání může zvýšit čas dopravy a domluvy.",
+    calculatorFactorStreet: "Stání na ulici může vyžadovat povolení nebo přesnější domluvu místa.",
+    calculatorFactorDifficultAccess: "Horší přístup může prodloužit manipulaci a změnit vhodný postup.",
+    calculatorFactorUnknownAccess: "Nejasnou velikost nebo přístup nejrychleji vyřeší telefonát a fotka místa.",
+    calculatorFactorPhoto: "Fotka odpadu nebo místa pomůže rychleji potvrdit přesnou cenu.",
+    calculatorSummaryJob: "Poptávám",
+    calculatorSummaryLocation: "Lokalita",
+    calculatorSummarySize: "Velikost",
+    calculatorSummaryAccess: "Přístup",
+    calculatorSummaryTerm: "Termín",
+    calculatorDefaultJob: "kontejnerovou dopravu",
+    calculatorDefaultValue: "doplním",
+    calculatorAcknowledgement: "Beru na vědomí, že jde jen o orientační odhad a cenu potvrdíte podle konkrétní zakázky.",
+  },
+  en: {
+    invalidField: "Please check the highlighted field.",
+    submitting: "Sending your quote request. If anything is missing, we will contact you for the details.",
+    mailtoSubject: "Quote request from Kontejnerovka.cz",
+    mailtoReady: "Your email request is ready to send in your mail app.",
+    copied: "The quote request details have been copied. You can paste them into an SMS, email or chat.",
+    copyFailed: "Copying did not work. Please send the request by email or call us.",
+    inquiryGreeting: "Hello,",
+    inquiryIntro: "I would like a quote from Kontejnerovka.cz.",
+    name: "Name",
+    phone: "Phone",
+    email: "Email",
+    location: "Town / address",
+    date: "Preferred date",
+    urgency: "Urgency",
+    service: "Service",
+    amount: "Estimated amount",
+    containerSize: "Container size",
+    access: "Access",
+    standing: "Where the container can stand",
+    wasteType: "Waste type",
+    attachment: "Photo / attachment",
+    note: "Note:",
+    inquiryOutro: "Please confirm the price, possible date and recommended container size if needed.",
+    photoPlaceholder: "I can send a photo of the waste or the access point",
+    calculatorInserted: "The calculator estimate has been added to the request. Add your contact details and submit it, or call for quick confirmation.",
+    calculatorMessageTitle: "Indicative estimate from the calculator:",
+    calculatorMessageOutro: "For an accurate quote I will add the town, waste or material type and, if possible, a photo of the place.",
+    calculatorMessageExtra: "Additional note:",
+    formAnchor: "/en/contact.html#form",
+    privacyHref: "privacy.html",
+    privacyLink: "Privacy policy",
+    cookieSettings: "Cookie settings",
+    cookieLabel: "Analytics cookie settings",
+    cookieTitle: "Website analytics",
+    cookieText: "Optional cookies help us measure enquiries and improve the website. Without consent, only essential functions run.",
+    cookieDecline: "Essential only",
+    cookieAccept: "Allow analytics",
+    calculatorBandMiddleTitle: "Indicative level: standard quote complexity",
+    calculatorBandMiddleText: "This is not a binding quote. We confirm the exact price after checking the address, material, amount, access and timing.",
+    calculatorBandLowerTitle: "Indicative level: lower to standard complexity",
+    calculatorBandLowerText: "The job looks relatively straightforward, but the price still needs to be confirmed for the exact address, load, amount and access.",
+    calculatorBandHigherTitle: "Indicative level: higher or unclear complexity",
+    calculatorBandHigherText: "The job needs more detail before pricing. We will confirm the route, material, amount, access and timing before dispatch.",
+    calculatorFactorSoil: "Soil is heavy; volume, weight, moisture and loading access can all change the quote.",
+    calculatorFactorMixed: "Mixed or bulky waste needs clarification because disposal can be more complex than clean rubble.",
+    calculatorFactorDelivery: "For material delivery, amount, fraction, availability and safe tipping point matter most.",
+    calculatorFactorClean: "The biggest factor is the material type and whether it is clean or mixed.",
+    calculatorFactorNear: "Close routes around Svárov, Unhošť, Nučice or Rudná can help with practical scheduling.",
+    calculatorFactorFar: "A longer route or city placement may add transport time and coordination.",
+    calculatorFactorStreet: "Street or public-space placement may need a permit or a more precise standing-place agreement.",
+    calculatorFactorDifficultAccess: "Difficult access can increase handling time and change the best approach.",
+    calculatorFactorUnknownAccess: "If size or access is unclear, a quick call and a photo are usually fastest.",
+    calculatorFactorPhoto: "A photo of the material or standing place helps confirm the quote faster.",
+    calculatorSummaryJob: "Request",
+    calculatorSummaryLocation: "Area",
+    calculatorSummarySize: "Size",
+    calculatorSummaryAccess: "Access",
+    calculatorSummaryTerm: "Timing",
+    calculatorDefaultJob: "container transport",
+    calculatorDefaultValue: "to be confirmed",
+    calculatorAcknowledgement: "I understand this is only an indicative estimate and the price will be confirmed for the specific job.",
+  },
+};
+const t = (key) => copy[pageLocale][key] || copy.cs[key] || key;
 
 const getCookieConsent = () => {
   try {
@@ -110,6 +240,21 @@ const servicePages = new Set([
   "dovoz-pisku-sterku.html",
   "dovoz-recyklatu.html",
   "dovoz-betonu.html",
+  "container-delivery.html",
+  "rubble-container.html",
+  "construction-waste-container.html",
+  "large-container.html",
+  "rubble-removal.html",
+  "soil-removal.html",
+  "waste-removal.html",
+  "wood-green-waste-removal.html",
+  "concrete-removal.html",
+  "sand-delivery.html",
+  "gravel-delivery.html",
+  "pebble-delivery.html",
+  "sand-gravel-delivery.html",
+  "recycled-aggregate-delivery.html",
+  "concrete-delivery.html",
 ]);
 
 const getPageSlug = () => {
@@ -120,10 +265,10 @@ const getPageSlug = () => {
 const getPageType = () => {
   const slug = getPageSlug();
   if (slug === "index.html") return "home";
-  if (slug.startsWith("kontejnery-")) return "local_landing";
+  if (slug.startsWith("kontejnery-") || slug.startsWith("containers-")) return "local_landing";
   if (servicePages.has(slug)) return "service_landing";
-  if (["cenik.html", "poradna.html", "lokality.html", "reference.html", "o-nas.html"].includes(slug)) return "support";
-  if (slug === "dekujeme.html") return "thank_you";
+  if (["cenik.html", "poradna.html", "lokality.html", "reference.html", "o-nas.html", "pricing.html", "guide.html", "areas.html", "references.html", "about.html", "equipment.html"].includes(slug)) return "support";
+  if (slug === "dekujeme.html" || slug === "thank-you.html") return "thank_you";
   return "other";
 };
 
@@ -136,7 +281,7 @@ const cleanAnalyticsValue = (value, maxLength = 90) =>
 const getLinkType = (href) => {
   if (href.startsWith("tel:")) return "phone";
   if (href.startsWith("mailto:")) return "email";
-  if (href.includes("#kontakt")) return "form_anchor";
+  if (href.includes("#kontakt") || href.includes("#form")) return "form_anchor";
   if (href.startsWith("#")) return "anchor";
   if (href.startsWith("http") && !href.includes(window.location.hostname)) return "external";
   return "internal";
@@ -184,28 +329,28 @@ const getInquiryText = () => {
   const attachment = data.get("attachment");
   const attachmentName = typeof File !== "undefined" && attachment instanceof File && attachment.name ? attachment.name : "";
   const lines = [
-    "Dobrý den,",
+    t("inquiryGreeting"),
     "",
-    "mám zájem o nacenění služby Kontejnerovka.cz.",
+    t("inquiryIntro"),
     "",
-    `Jméno: ${data.get("name") || ""}`,
-    `Telefon: ${data.get("phone") || ""}`,
-    `E-mail: ${data.get("email") || ""}`,
-    `Obec / adresa: ${data.get("location") || ""}`,
-    `Termín: ${data.get("date") || ""}`,
-    `Naléhavost: ${data.get("urgency") || ""}`,
-    `Služba: ${data.get("service") || ""}`,
-    `Množství: ${data.get("amount") || ""}`,
-    `Velikost kontejneru: ${data.get("container_size") || ""}`,
-    `Přístup: ${data.get("access") || ""}`,
-    `Stání: ${data.get("standing") || ""}`,
-    `Čistota odpadu: ${data.get("waste_type") || ""}`,
-    `Fotka / příloha: ${attachmentName || data.get("photo") || ""}`,
+    `${t("name")}: ${data.get("name") || ""}`,
+    `${t("phone")}: ${data.get("phone") || ""}`,
+    `${t("email")}: ${data.get("email") || ""}`,
+    `${t("location")}: ${data.get("location") || ""}`,
+    `${t("date")}: ${data.get("date") || ""}`,
+    `${t("urgency")}: ${data.get("urgency") || ""}`,
+    `${t("service")}: ${data.get("service") || ""}`,
+    `${t("amount")}: ${data.get("amount") || ""}`,
+    `${t("containerSize")}: ${data.get("container_size") || ""}`,
+    `${t("access")}: ${data.get("access") || ""}`,
+    `${t("standing")}: ${data.get("standing") || ""}`,
+    `${t("wasteType")}: ${data.get("waste_type") || ""}`,
+    `${t("attachment")}: ${attachmentName || data.get("photo") || ""}`,
     "",
-    "Poznámka:",
+    t("note"),
     `${data.get("message") || ""}`,
     "",
-    "Prosím o cenu, možný termín a případně doporučení vhodné velikosti kontejneru.",
+    t("inquiryOutro"),
   ];
 
   return lines.join("\n");
@@ -302,7 +447,7 @@ const setupInquiryFormSteps = () => {
 
     setStep(targetStep, false);
     invalid.classList.add("is-invalid");
-    if (formNote) formNote.textContent = "Zkontrolujte prosím zvýrazněné pole.";
+    if (formNote) formNote.textContent = t("invalidField");
     invalid.reportValidity();
     return false;
   };
@@ -412,7 +557,7 @@ form?.addEventListener("submit", (event) => {
 
   if (form.action.includes("api.web3forms.com")) {
     if (formNote) {
-      formNote.textContent = "Odesílám údaje k nacenění. Pokud bude něco chybět, ozvu se pro doplnění.";
+      formNote.textContent = t("submitting");
     }
     return;
   }
@@ -420,12 +565,12 @@ form?.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const mailto = new URL("mailto:info@kontejnerovka.cz");
-  mailto.searchParams.set("subject", "Poptávka z webu Kontejnerovka.cz");
+  mailto.searchParams.set("subject", t("mailtoSubject"));
   mailto.searchParams.set("body", getInquiryText());
   window.location.href = mailto.toString();
 
   if (formNote) {
-    formNote.textContent = "E-mail s údaji k nacenění je připravený k odeslání ve vašem poštovním programu.";
+    formNote.textContent = t("mailtoReady");
   }
 });
 
@@ -442,11 +587,11 @@ copyInquiryButton?.addEventListener("click", async () => {
       selected_service: cleanAnalyticsValue(copiedData.get("service")),
     });
     if (formNote) {
-      formNote.textContent = "Údaje k nacenění jsou zkopírované. Můžete je vložit do SMS, e-mailu nebo chatu.";
+      formNote.textContent = t("copied");
     }
   } catch {
     if (formNote) {
-      formNote.textContent = "Kopírování se nepovedlo. Pošlete poptávku e-mailem nebo zavolejte.";
+      formNote.textContent = t("copyFailed");
     }
   }
 });
@@ -460,7 +605,13 @@ const getCheckedCalculatorOption = (calculator, name) => {
     value: option.value,
     score: Number.parseInt(option.dataset.score || "0", 10),
     service: option.dataset.service || "",
+    kind: option.dataset.kind || "",
   };
+};
+
+const calculatorFieldMatches = (field, patterns) => {
+  const value = `${field?.value || ""} ${field?.label || ""} ${field?.kind || ""}`.toLowerCase();
+  return patterns.some((pattern) => value.includes(pattern));
 };
 
 const getCalculatorState = (calculator) => {
@@ -473,25 +624,27 @@ const getCalculatorState = (calculator) => {
   };
 
   const score = Object.values(fields).reduce((total, field) => total + (field?.score || 0), 0);
-  const hasUnknown = Object.values(fields).some((field) => field?.value.includes("nevím") || field?.value.includes("poradit"));
+  const hasUnknown = Object.values(fields).some((field) =>
+    calculatorFieldMatches(field, ["nevím", "poradit", "not sure", "advise", "unknown"]),
+  );
 
   let band = {
     key: "middle",
-    title: "Orientačně: střední cenová hladina",
-    text: "Nejde o závaznou nabídku. Přesnou cenu potvrdíme podle adresy, druhu odpadu, množství, přístupu a termínu.",
+    title: t("calculatorBandMiddleTitle"),
+    text: t("calculatorBandMiddleText"),
   };
 
   if (score <= 6 && !hasUnknown) {
     band = {
       key: "lower",
-      title: "Orientačně: nižší až střední cenová hladina",
-      text: "Zakázka působí jednodušeji. Přesnou cenu ale potvrdíme až podle konkrétní adresy, odpadu, množství a přístupu.",
+      title: t("calculatorBandLowerTitle"),
+      text: t("calculatorBandLowerText"),
     };
   } else if (score >= 11 || hasUnknown) {
     band = {
       key: "higher",
-      title: "Orientačně: vyšší nebo nejasná cenová hladina",
-      text: "Zakázka potřebuje upřesnění. Nejde o závaznou nabídku, cenu potvrdíme podle odpadu, trasy, množství, přístupu a termínu.",
+      title: t("calculatorBandHigherTitle"),
+      text: t("calculatorBandHigherText"),
     };
   }
 
@@ -501,30 +654,30 @@ const getCalculatorState = (calculator) => {
 const getCalculatorFactors = ({ fields, hasUnknown }) => {
   const factors = [];
 
-  if (fields.job?.value.includes("zeminy")) {
-    factors.push("Zemina je těžká; cenu ovlivní objem, hmotnost, vlhkost a možnost naložení.");
-  } else if (fields.job?.value.includes("stavebního") || fields.job?.value.includes("objemného")) {
-    factors.push("Směsný nebo objemný odpad je nutné upřesnit, protože likvidace může být náročnější než čistá suť.");
-  } else if (fields.job?.value.includes("dovoz")) {
-    factors.push("U dovozu materiálu rozhoduje množství, frakce, dostupnost a místo složení.");
+  if (calculatorFieldMatches(fields.job, ["zeminy", "soil"])) {
+    factors.push(t("calculatorFactorSoil"));
+  } else if (calculatorFieldMatches(fields.job, ["stavebního", "objemného", "mixed", "bulky"])) {
+    factors.push(t("calculatorFactorMixed"));
+  } else if (calculatorFieldMatches(fields.job, ["dovoz", "delivery"])) {
+    factors.push(t("calculatorFactorDelivery"));
   } else {
-    factors.push("Nejvíc rozhodne typ odpadu nebo materiálu a jeho čistota.");
+    factors.push(t("calculatorFactorClean"));
   }
 
   if ((fields.location?.score || 0) <= 1) {
-    factors.push("Blízká lokalita kolem Svárova, Unhoště, Nučic nebo Rudné může pomoct plánování trasy.");
+    factors.push(t("calculatorFactorNear"));
   } else {
-    factors.push("Vzdálenější lokalita nebo městské stání může zvýšit čas dopravy a domluvy.");
+    factors.push(t("calculatorFactorFar"));
   }
 
-  if (fields.access?.value.includes("ulici")) {
-    factors.push("Stání na ulici může vyžadovat povolení nebo přesnější domluvu místa.");
+  if (calculatorFieldMatches(fields.access, ["ulici", "street", "public"])) {
+    factors.push(t("calculatorFactorStreet"));
   } else if (fields.access?.score >= 2) {
-    factors.push("Horší přístup může prodloužit manipulaci a změnit vhodný postup.");
+    factors.push(t("calculatorFactorDifficultAccess"));
   } else if (hasUnknown) {
-    factors.push("Nejasnou velikost nebo přístup nejrychleji vyřeší telefonát a fotka místa.");
+    factors.push(t("calculatorFactorUnknownAccess"));
   } else {
-    factors.push("Fotka odpadu nebo místa pomůže rychleji potvrdit přesnou cenu.");
+    factors.push(t("calculatorFactorPhoto"));
   }
 
   return factors.slice(0, 3);
@@ -532,13 +685,13 @@ const getCalculatorFactors = ({ fields, hasUnknown }) => {
 
 const getCalculatorSummary = ({ fields, band }) =>
   [
-    `Poptávám: ${fields.job?.label || "kontejnerovou dopravu"}.`,
-    `Lokalita: ${fields.location?.label || "doplním"}.`,
-    `Velikost: ${fields.size?.label || "doplním"}.`,
-    `Přístup: ${fields.access?.label || "doplním"}.`,
-    `Termín: ${fields.term?.label || "doplním"}.`,
+    `${t("calculatorSummaryJob")}: ${fields.job?.label || t("calculatorDefaultJob")}.`,
+    `${t("calculatorSummaryLocation")}: ${fields.location?.label || t("calculatorDefaultValue")}.`,
+    `${t("calculatorSummarySize")}: ${fields.size?.label || t("calculatorDefaultValue")}.`,
+    `${t("calculatorSummaryAccess")}: ${fields.access?.label || t("calculatorDefaultValue")}.`,
+    `${t("calculatorSummaryTerm")}: ${fields.term?.label || t("calculatorDefaultValue")}.`,
     `${band.title}.`,
-    "Beru na vědomí, že jde jen o orientační odhad a cenu potvrdíte podle konkrétní zakázky.",
+    t("calculatorAcknowledgement"),
   ].join(" ");
 
 const setFormValue = (selector, value) => {
@@ -556,7 +709,7 @@ const fillInquiryFormFromCalculator = (payload) => {
   setFormValue('input[name="date"]', payload.fields.term?.label || "");
   setFormValue('input[name="amount"]', payload.fields.size?.label || "");
   setFormValue('input[name="access"]', payload.fields.access?.label || "");
-  setFormValue('input[name="photo"]', "Ideálně pošlu fotku odpadu nebo místa");
+  setFormValue('input[name="photo"]', t("photoPlaceholder"));
 
   const serviceValue = payload.fields.job?.service;
   if (serviceValue) {
@@ -567,19 +720,19 @@ const fillInquiryFormFromCalculator = (payload) => {
   if (messageField instanceof HTMLTextAreaElement) {
     const existingMessage = messageField.value.trim();
     const calculatorMessage = [
-      "Orientační odhad z kalkulačky:",
+      t("calculatorMessageTitle"),
       payload.summary,
       "",
-      "Pro přesné nacenění doplním obec, typ odpadu nebo materiálu a případně fotku místa.",
+      t("calculatorMessageOutro"),
     ].join("\n");
 
     messageField.value = existingMessage
-      ? `${calculatorMessage}\n\nDalší poznámka:\n${existingMessage}`
+      ? `${calculatorMessage}\n\n${t("calculatorMessageExtra")}\n${existingMessage}`
       : calculatorMessage;
   }
 
   if (formNote) {
-    formNote.textContent = "Odhad z kalkulačky je vložený do poptávky. Doplňte kontakt a odešlete, případně zavolejte pro rychlé potvrzení.";
+    formNote.textContent = t("calculatorInserted");
   }
 
   form.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -694,7 +847,7 @@ const setupPriceCalculator = () => {
       if (fillInquiryFormFromCalculator(completePayload)) return;
 
       storeCalculatorInquiry(completePayload);
-      window.location.href = "/#kontakt";
+      window.location.href = t("formAnchor");
     });
 
     updateCalculator();
@@ -764,7 +917,7 @@ document
   });
 
 const trackThankYouPage = () => {
-  if (!window.location.pathname.endsWith("/dekujeme.html")) return;
+  if (!window.location.pathname.endsWith("/dekujeme.html") && !window.location.pathname.endsWith("/en/thank-you.html")) return;
 
   try {
     if (window.sessionStorage.getItem("kontejnerovka_thank_you_tracked") === "1") return;
@@ -830,16 +983,16 @@ const createCookieBanner = () => {
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
   banner.setAttribute("data-cookie-banner", "");
-  banner.setAttribute("aria-label", "Nastavení analytických cookies");
+  banner.setAttribute("aria-label", t("cookieLabel"));
   banner.innerHTML = `
     <div>
-      <strong>Měření webu</strong>
-      <p>Volitelné cookies pomáhají měřit kontakty a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.</p>
-      <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
+      <strong>${t("cookieTitle")}</strong>
+      <p>${t("cookieText")}</p>
+      <a href="${t("privacyHref")}">${t("privacyLink")}</a>
     </div>
     <div class="cookie-actions">
-      <button class="btn btn-dark" type="button" data-cookie-decline>Pouze nezbytné</button>
-      <button class="btn btn-primary" type="button" data-cookie-accept>Povolit měření</button>
+      <button class="btn btn-dark" type="button" data-cookie-decline>${t("cookieDecline")}</button>
+      <button class="btn btn-primary" type="button" data-cookie-accept>${t("cookieAccept")}</button>
     </div>
   `;
 
@@ -864,15 +1017,15 @@ const addPrivacyControls = () => {
   if (!footerLinks || footerLinks.querySelector("[data-cookie-settings]")) return;
 
   const privacyLink = document.createElement("a");
-  privacyLink.href = "ochrana-osobnich-udaju.html";
-  privacyLink.textContent = "Ochrana osobních údajů";
+  privacyLink.href = t("privacyHref");
+  privacyLink.textContent = t("privacyLink");
   footerLinks.appendChild(privacyLink);
 
   const settingsButton = document.createElement("button");
   settingsButton.className = "footer-privacy-button";
   settingsButton.type = "button";
   settingsButton.setAttribute("data-cookie-settings", "");
-  settingsButton.textContent = "Nastavení cookies";
+  settingsButton.textContent = t("cookieSettings");
   settingsButton.addEventListener("click", () => {
     clearAnalyticsConsent();
     hideCookieBanner();

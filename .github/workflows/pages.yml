@@ -41,6 +41,9 @@ jobs:
           \) -exec cp {} _site/ \;
 
           cp -R assets _site/assets
+          if [ -d en ]; then
+            cp -R en _site/en
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

@@ -109,6 +109,79 @@ Drzet novy rytmus aspon 4-8 tydnu a sledovat, jestli kazdy mesic vznika jasny se
 
 Od teto zmeny se ma kratky vystup kazde automatizace zapisovat take do centralniho mesicniho reportu v `docs/reports/YYYY-MM.md`, aby slo po case vyhodnotit, co system doporucoval a co se opravdu menilo.
 
+## Operacni zapis - 2026-05-28 - Google napojeni a lokalni duvera
+
+### Stav
+
+Castecne odblokovano. Google podklady pro automatizace uz nejsou jen predpoklad: GA4 property je potvrzena, Google Business Profile je potvrzeny a Search Console ma pripraveny DNS TXT zaznam, ale overeni domeny se muze jeste propisovat.
+
+### Shrnutí pro majitele
+
+Nejvetsi posun je, ze uz vime, ze `kontejnerovka.cz` ma skutecne GA4 property a overeny Google Business Profile. To znamena, ze lokalni duvera uz neni jen plan na webu. Zbyvajici technicky krok je dokoncit overeni Search Console v tomto uctu a pak pridat service account, aby automatizace mohly tahat GSC a GA4 data bez rucniho exportu.
+
+### Semafor
+
+- Zelena: GA4 property potvrzena, GBP profil potvrzen a overen, DNS TXT pro GSC vlozen do WEDOS.
+- Oranzova: Search Console overeni muze cekat na DNS propagaci do 60 minut nebo dele.
+- Cervena: bez dokonceneho GSC overeni a bez service accountu zustavaji SEO a mereni stale castecne omezena.
+
+### Co je dobra zprava
+
+- GA4 property ID pro web je potvrzene jako `538305751`.
+- Google Business Profile `kontejnerovka.cz` existuje a ma stav `Overeno`.
+- DNS pro domenu spravuje WEDOS a TXT zaznam pro Search Console byl pridan bez zasahu do GitHub Pages hostingu.
+
+### Co je problem
+
+- Search Console v tomto uctu zatim neukazuje potvrzene vlastnictvi domeny, jen cekajici DNS overeni.
+- Zatim neni vytvoreny ani pridan service account pro API import.
+- U GBP stale nejsou v dokumentaci potvrzene recenze, fotky a hlavni kategorie.
+
+### Co se zmenilo od minula
+
+- Drive byl GBP stav `nelze overit`; nyni je potvrzeno, ze profil existuje a je overeny.
+- Drive bylo GA4 v dokumentaci jen jako `G-BCXFMBWZJ4` v kodu; nyni je potvrzeno i ciselne property ID `538305751`.
+- Search Console uz neni cista neznama: DNS TXT zaznam pro overeni domeny byl vlozen 2026-05-28 do WEDOS.
+
+### Fakta
+
+- GA4 property pro `Kontejnerovka.cz` ma ID `538305751`.
+- V GA4 je potvrzeny admin pristup ke sluzbe.
+- GBP seznam firem ukazuje profil `kontejnerovka.cz` se stavem `Overeno`.
+- Ve WEDOS DNS je pridan TXT zaznam `google-site-verification=...` pro root domeny.
+
+### Hypotezy
+
+- Po propagaci DNS pujde Search Console overit bez dalsiho technickeho zasahu.
+- Jakmile bude GSC overena a service account pridan, mesicni scorecard bude umet pracovat s realnymi daty misto odhadu.
+
+### Co chybi k jistote
+
+- Potvrzeni, ze Search Console overeni uz proslo.
+- Service account e-mail a JSON klic ulozeny mimo git.
+- Stav recenzi, fotek a kategorie v detailu GBP profilu.
+
+### Co doporucuji udelat ted
+
+- Znovu zkusit overeni domeny v Search Console po propagaci DNS.
+- Po potvrzeni vytvorit service account a pridat ho do GSC a GA4.
+- V GBP zkontrolovat recenze, fotky a hlavni kategorii a zapsat to pri dalsim behu lokalni duvery.
+
+### Co muze pockat
+
+- Mesicni GBP prispevky.
+- Slozitejsi rozsireni obsahu podle GSC dat, dokud data nejsou tahana automaticky.
+
+### Co potrebuji od majitele
+
+- Potvrdit, az Search Console ukaze uspesne overeni.
+- Dodat nebo schvalit service account pristup pro GSC a GA4.
+- Dodat par vlastnich fotek a prvni recenze pro dalsi lokalni trust beh.
+
+### Nejlepsi dalsi krok
+
+Dokoncit Search Console overeni v tomto uctu a hned potom pripravit service account pro GSC a GA4 API.
+
 ## Format dalsich zapisu
 
 Kazdy dalsi zapis ma pouzit tuto strukturu:
@@ -127,3 +200,63 @@ Kazdy dalsi zapis ma pouzit tuto strukturu:
 12. Co muze pockat
 13. Co potrebuji od majitele
 14. Nejlepsi dalsi krok
+
+## Strategicky zapis - 2026-06-01 - master SEO kontrola bez zmen na webu
+
+### Stav
+
+Omezeny vystup. Technicky a obsahovy zaklad webu vypada konzistentne, ale GSC a GA4 data stale nejdou automaticky stahnout. Nejvetsi viditelna mezera pro dalsi rust uz ted neni v title, canonical nebo formulari, ale v chybejicich realnych dukazech z provozu.
+
+### Shrnutí pro majitele
+
+Web je po technicke strance pripraveny lepe, nez byvalo u podobnych lokalnich webu zvykem: hlavni i prioritni stranky maji title, meta description, canonical, schema, interni prolinkovani, telefon, formular a dekovaci stranku. Soucasne je ale na homepage i v sekci realizaci otevrene videt, ze skutecne fotky a reference se teprve maji doplnit. To je ted nejvetsi brzda duvery a pravdepodobne i dalsiho lokalniho rustu.
+
+### Semafor
+
+- Zelena: hlavni stranky, prioritni lokality, formular, dekovaci stranka a zakladni schema jsou pritomne a konzistentni.
+- Oranzova: automaticke GSC a GA4 vyhodnoceni bylo 2026-06-01 blokovane chybejicim service account JSON a `GA4_PROPERTY_ID`; od 2026-06-07 je import odblokovany pres OAuth credential `.secrets/google-gsc-ga4-oauth.json` a `GA4_PROPERTY_ID=538305751`.
+- Cervena: web i verejne indexovatelny obsah stale komunikuji, ze realne fotky a dukazy budou doplneny az pozdeji.
+
+### Fakta
+
+- `node scripts/fetch-google-data.mjs` 2026-06-01 selhal: chybi `.secrets/google-service-account.json` a chybi ciselne `GA4_PROPERTY_ID`.
+- Homepage ma canonical, LocalBusiness schema, CTA na telefon a formular a sekci vizualni duvery pripravenou na realne fotky.
+- Formular na homepage i na `kontakt.html` je funkcni pres Web3Forms, ma 3 kroky, upload fotky a redirect na `dekujeme.html`.
+- `script.js` meri `click_phone`, `click_email`, `form_start`, `lead_form_submit`, `cta_click`, kalkulacku a dekovaci stranku.
+- Prioritni lokality `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html`, `kontejnery-hostivice.html`, `kontejnery-kladno.html` a `kontejnery-praha-zapad.html` jsou navazane z homepage, `lokality.html`, `sluzby.html` a `cenik.html`.
+- Homepage stale obsahuje texty typu `Fotky techniky, kontejneru a zakazek budeme doplnovat z provozu` a `Prvni priorita po spusteni: doplnovat vlastni fotky auta, kontejneru, nakladky a hotovych zakazek`.
+- Stranka `reference.html` je poctive pripravena jako plan duvery, ale zatim jeste nefunguje jako silny dukaz realnych realizaci.
+
+### Hypotezy
+
+- Nejvetsi dalsi rust muze prinest prvni sada realnych fotek a 2-3 kratkych anonymnich mini-realizaci z prioritnich lokalit, protoze to posili duveru navstevnika i lokalni signal pro Google Business Profile.
+- Bez GSC a GA4 importu nelze potvrdit, jestli uz nejaka konkretni lokalita nebo sluzba tahne vic nez ostatni.
+- Dalsi nove SEO stranky by ted mely mensi prinos nez dukazy, ze sluzba opravdu jezdi v deklarovanych lokalitach.
+
+### Co chybi k jistote
+
+- Realna GSC data pro dotazy, kliky a zobrazeni podle stranek a lokalit.
+- Realna GA4 data pro telefon, formular a kalkulacku.
+- Overitelny stav poctu recenzi v Google Business Profile.
+- Potvrzeni, kolik pouzitelnych vlastnich fotek a realizaci ma majitel uz ted k dispozici.
+
+### Co doporucuji udelat ted
+
+- Pripravit prvni balicek 5-10 vlastnich fotek auta, kontejneru, pristaveni a hotove zakazky z okoli Svarova, Unhoste, Nucic, Rudne nebo Kladenska.
+- Ke 2-3 fotkam dopsat kratky anonymni kontext: lokalita, typ odpadu nebo materialu a co ovlivnilo cenu nebo pristup.
+- Soubzne dokoncit API pristup pro GSC a GA4, aby dalsi master kontrola uz nebyla slepa na data.
+
+### Co muze pockat
+
+- Dalsi nove lokalitni nebo obsahove stranky bez datoveho duvodu.
+- Jemne prepisy title a meta na strankach, ktere uz dnes maji zakladni SEO prvky vyresene.
+
+### Co potrebuji od majitele
+
+- 5-10 realnych fotek z provozu, idealne z prioritnich lokalit.
+- Informaci, zda lze pouzit anonymni popis 2-3 hotovych zakazek bez adresy a bez osobnich udaju.
+- Aktualni Google credential mimo git je pripraveny a overeny; ciselne `GA4_PROPERTY_ID=538305751` je lokalne nastavene.
+
+### Nejlepsi dalsi krok
+
+Misto dalsi SEO stranky ted pripravit prvni sadu realnych fotek a 2-3 kratkych anonymnich realizaci z prioritnich lokalit; to je momentalne nejpravdepodobnejsi dalsi rustovy krok pro duveru i konverze.
