@@ -572,7 +572,7 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260531d">
+    <link rel="stylesheet" href="../styles.css?v=20260609a">
     <script src="../assets/lucide.min.js" defer></script>
     <script src="../script.js?v=20260531d" defer></script>
     ${schema}
@@ -581,14 +581,18 @@ const head = (page) => {
 
 const header = (page, home = false) => {
   const pair = currentPairForEn(page.en);
-  const czHref = pair ? czPath(pair.cz) : "/";
+  const czHref = page.cz ? czPath(page.cz) : pair ? czPath(pair.cz) : "/";
+  const enHref = enPath(page.en);
   return `<header class="site-header${home ? "" : " is-scrolled"}" data-header>
       <a class="brand" href="/en/"><span class="brand-mark">K</span><span><strong>Kontejnerovka.cz</strong><small>Prague and Central Bohemia</small></span></a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Open menu</span></button>
       <nav class="site-nav" id="site-nav" data-nav>
-        ${nav.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}<a href="${czHref}" hreflang="cs" lang="cs">Česky</a>
+        ${nav.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}
       </nav>
-      <a class="header-call" href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>+420&nbsp;738&nbsp;505&nbsp;028</a>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Website language"><a href="${czHref}" hreflang="cs" lang="cs">CZ</a><a class="is-active" href="${enHref}" lang="en" aria-current="page">EN</a></div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Open menu</span></button>
+        <a class="header-call" href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>+420&nbsp;738&nbsp;505&nbsp;028</a>
+      </div>
     </header>`;
 };
 
@@ -1464,6 +1468,7 @@ const utilityPages = {
   "thank-you.html": () => {
     const page = {
       en: "thank-you.html",
+      cz: "dekujeme.html",
       noindex: true,
       eyebrow: "Quote request",
       title: "Thank you, your request has been sent",
@@ -1478,6 +1483,7 @@ const utilityPages = {
   "privacy.html": () => {
     const page = {
       en: "privacy.html",
+      cz: "ochrana-osobnich-udaju.html",
       noindex: true,
       eyebrow: "Privacy",
       title: "Privacy policy and cookies",
@@ -1502,6 +1508,7 @@ const utilityPages = {
   "404.html": () => {
     const page = {
       en: "404.html",
+      cz: "404.html",
       noindex: true,
       eyebrow: "404",
       title: "Page not found",
@@ -1546,6 +1553,34 @@ const hreflangBlock = (pair) => `<link rel="alternate" hreflang="cs" href="${czU
     <link rel="alternate" hreflang="en" href="${enUrl(pair.en)}">
     <link rel="alternate" hreflang="x-default" href="${czUrl(pair.cz)}">`;
 
+const czechLanguageSwitcher = (enSlug, czSlug = pairByEn.get(enSlug)?.cz || "") =>
+  `<div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="${czPath(czSlug)}" lang="cs" aria-current="page">CZ</a><a href="${enPath(enSlug)}" hreflang="en" lang="en">EN</a></div>`;
+
+const applyCzechHeaderSwitcher = (html, enSlug, czSlug) => {
+  const switcher = czechLanguageSwitcher(enSlug, czSlug);
+  let next = html
+    .replace(/\s*<a href="\/en\/[^"]*" hreflang="en" lang="en">English<\/a>/g, "")
+    .replace(/\s*<a href="\/en\/[^"]*" hreflang="en" lang="en">EN<\/a>/g, "");
+
+  if (next.includes('class="language-switcher"')) {
+    next = next.replace(/<div class="language-switcher"[\s\S]*?<\/div>/, switcher);
+    return next;
+  }
+
+  const fullHeaderControls = /(\s*)<button class="nav-toggle"[\s\S]*?<\/button>(\s*)<nav class="site-nav" id="site-nav" data-nav>[\s\S]*?<\/nav>(\s*)<a class="header-call"[\s\S]*?<\/a>/;
+  if (fullHeaderControls.test(next)) {
+    next = next.replace(fullHeaderControls, (match, indent) => {
+      const button = match.match(/<button class="nav-toggle"[\s\S]*?<\/button>/)?.[0] || "";
+      const nav = match.match(/<nav class="site-nav" id="site-nav" data-nav>[\s\S]*?<\/nav>/)?.[0] || "";
+      const call = match.match(/<a class="header-call"[\s\S]*?<\/a>/)?.[0] || "";
+      return `${indent}${nav}${indent}<div class="header-actions">${switcher}${button}${call}</div>`;
+    });
+    return next;
+  }
+
+  return next.replace(/(\s*)<a class="header-call"[\s\S]*?<\/a>/, (match, indent) => `${indent}<div class="header-actions">${switcher}${match.trim()}</div>`);
+};
+
 const injectCzechHreflangAndNav = () => {
   for (const pair of pairs) {
     const file = path.join(rootDir, pair.cz || "index.html");
@@ -1557,10 +1592,19 @@ const injectCzechHreflangAndNav = () => {
       html = html.replace(/(<link rel="canonical" href="[^"]+">)/, `$1\n    ${block}`);
     }
 
-    if (html.includes("<nav") && !html.includes('hreflang="en" lang="en"')) {
-      html = html.replace(/(\s*)<\/nav>/, `$1<a href="${enPath(pair.en)}" hreflang="en" lang="en">English</a>$1</nav>`);
-    }
+    html = applyCzechHeaderSwitcher(html, pair.en, pair.cz);
 
+    writeFileSync(file, html, "utf8");
+  }
+
+  for (const [czFile, enSlug] of [
+    ["404.html", "404.html"],
+    ["dekujeme.html", "thank-you.html"],
+    ["ochrana-osobnich-udaju.html", "privacy.html"],
+  ]) {
+    const file = path.join(rootDir, czFile);
+    if (!readFileSync(file, "utf8")) continue;
+    const html = applyCzechHeaderSwitcher(readFileSync(file, "utf8"), enSlug, czFile);
     writeFileSync(file, html, "utf8");
   }
 };

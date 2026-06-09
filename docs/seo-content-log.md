@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-09 - Mobile-first jazykovy prepinac CZ/EN
+
+- Co se zmenilo: do vsech CZ i EN stranek byl pridan viditelny segmentovy prepinac `CZ / EN` v hlavicce, stary textovy jazykovy odkaz byl odstranen z menu, mobilni header byl upraven na rozlozeni brand + jazyk + hamburger a CSS dostalo cache-bust `styles.css?v=20260609a`.
+- Proc se to zmenilo: EN verze byla technicky dostupna, ale jazykovy prechod nebyl na mobilu dost viditelny. Cilem bylo, aby cesky i anglicky mluvici navstevnik okamzite poznal, ze web ma druhou jazykovou verzi.
+- Ocekavany dopad: lepsi pruchod mezi CZ/EN strankami, vetsi duvera u expatu, mene ztracenych EN navstevniku a stabilnejsi mobilni navigace bez pretecu.
+- Zdroj dat nebo duvod: zadani majitele pridat prepinac CZ/EN a zkontrolovat cely web mobile-first.
+- Kdo/automatizace zmenu navrhla: manualni UX/CRO/mobile QA uprava.
+- Nasazeno: ne, pripraveno v pracovnim stromu.
+- Commit:
+- Co sledovat po zmene: kliky na jazykovy prepinac, EN landing page views, EN formulare, mobilni kliky na telefon/poptavku, GSC hreflang signaly a pripadne chovani uzivatelu na mobilu.
+- Minimalni doba vyhodnoceni: 14-28 dni pro konverzni signal, 4-8 tydnu pro SEO/hreflang signal.
+
 ### 2026-06-09 - EN expat lokalizace ceskych realii
 
 - Co se zmenilo: do EN generatoru a pregenerovanych `/en/` stranek byly doplneny prakticke vysvetlivky pro anglicky mluvici zakazniky v Cesku: mapa/adresa jako validni vstup, rozdil mezi Prague-West/Prague-East a mestskymi castmi Prahy, soukromy pozemek vs ulice/chodnik, slovnik pojmu `zabor`, `skladka`, `ICO`, `DIC`, `DPH`, lokalni poznamky na lokalitnich strankach a jasnejsi formulare pro poptavku.

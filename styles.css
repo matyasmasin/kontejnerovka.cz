@@ -156,7 +156,7 @@ textarea:focus-visible {
   left: 0;
   right: 0;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
   min-height: 74px;
@@ -242,6 +242,9 @@ textarea:focus-visible {
 }
 
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 12px;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -252,6 +255,48 @@ textarea:focus-visible {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   background: rgba(244, 178, 60, 0.18);
+}
+
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-switcher {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(38px, 1fr));
+  align-items: center;
+  min-height: 44px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.language-switcher a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: currentColor;
+  font-size: 0.8rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.language-switcher .is-active {
+  color: var(--carbon);
+  background: var(--safety);
 }
 
 .header-call,
@@ -2575,15 +2620,27 @@ svg {
     padding-right: 8px;
     font-size: 0.9rem;
   }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .language-switcher {
+    grid-template-columns: repeat(2, minmax(34px, 1fr));
+  }
+
+  .language-switcher a {
+    padding: 0 8px;
+  }
 }
 
 @media (max-width: 1040px) {
   .site-header {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
   }
 
   .site-nav {
-    justify-self: end;
+    justify-self: center;
   }
 
   .service-grid {
@@ -2663,10 +2720,21 @@ svg {
 
   .site-nav a {
     min-height: 44px;
+    justify-content: flex-start;
+    padding: 12px 14px;
+    overflow-wrap: anywhere;
   }
 
   .header-call {
     display: none;
+  }
+
+  .header-actions {
+    grid-column: 2;
+  }
+
+  .language-switcher {
+    min-height: 42px;
   }
 }
 
@@ -2679,8 +2747,16 @@ svg {
     display: none;
   }
 
+  .brand {
+    gap: 9px;
+  }
+
+  .brand strong {
+    line-height: 1.05;
+  }
+
   .hero {
-    min-height: 720px;
+    min-height: auto;
   }
 
   .hero-bg {
@@ -2692,6 +2768,7 @@ svg {
   .hero-inner {
     width: min(100% - 32px, 620px);
     padding-top: 92px;
+    padding-bottom: 34px;
   }
 
   .hero h1 {
@@ -2703,6 +2780,11 @@ svg {
   .hero-actions {
     display: grid;
     margin-top: 28px;
+  }
+
+  .hero-actions .btn,
+  .cta-band .btn {
+    width: 100%;
   }
 
   .hero-command {
@@ -2924,16 +3006,37 @@ svg {
 }
 
 @media (max-width: 390px) {
+  .site-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   .brand strong {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .brand-mark {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .language-switcher {
+    grid-template-columns: repeat(2, 32px);
+    min-height: 40px;
+  }
+
+  .language-switcher a {
+    min-height: 32px;
+    padding: 0 6px;
+    font-size: 0.74rem;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
   }
 
   .hero {
-    min-height: 720px;
+    min-height: auto;
   }
 }
