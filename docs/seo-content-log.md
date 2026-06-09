@@ -208,6 +208,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Co sledovat po zmene: eventy `calculator_start`, `calculator_complete`, `calculator_call_click`, `calculator_inquiry_click`, `calculator_use_in_form`, kliknuti na telefon, odeslane formulare a kvalitu poptavek.
 - Minimalni doba vyhodnoceni: 14-28 dni pro prvni konverzni signal, presnost odhadu upravit az podle realnych zakazek.
 
+### 2026-06-09 - mobile-first audit a vykonnostni uprava
+
+- Co se zmenilo: zkontrolovan cely web na mobilnich sirkach 360, 390 a 430 px; zvetseny tap targety v headeru a jazykovem prepinaci, upraven sticky mobilni CTA text na `Ziskat cenu` / `Get quote`, zkracena cookie lista, zjednoduseny mobilni hero efekt, zmenseny mobilni hero lead a odlozeno nacitani `lucide.min.js` az po prvnim loadu.
+- Proc se to zmenilo: mobilni navstevnik musi rychle pochopit cenu, zavolat nebo poslat poptavku bez zbytecneho prekryvani, malych dotykovych ploch a tezkych prvku v prvni obrazovce.
+- Ocekavany dopad: pohodlnejsi ovladani na telefonu, mene friction v prvni obrazovce, lepsi mobilni konverzni cesta, mensi blokovani uvodniho vykresleni a lepsi dostupnost telefonu/poptavky.
+- Zdroj dat nebo duvod: manualni master mobile-first audit, Browser kontrola, automaticky scan 100 HTML stranek na 360/390/430 px, Lighthouse mobile a realna kontrola menu, CZ/EN prepinace a formulare.
+- Kdo/automatizace zmenu navrhla: manualni senior UX/CRO/frontend audit podle pozadavku na mobile-first web.
+- Nasazeno: pripraveno k nasazeni v tomto commitu.
+- Commit:
+- Co sledovat po zmene: mobilni kliknuti na telefon, kliknuti na `Ziskat cenu` / `Get quote`, start a dokonceni formulare, bounce rate z mobilu, Core Web Vitals v GSC a realne poptavky z telefonu.
+- Minimalni doba vyhodnoceni: 14-28 dni pro konverzni signaly a 28+ dni pro stabilnejsi GSC/Core Web Vitals data.
+
 ## Sablona dalsiho zapisu
 
 ### RRRR-MM-DD - nazev upravy

@@ -10,6 +10,8 @@ const ANALYTICS_CONSENT_KEY = "kontejnerovka_analytics_consent";
 const ANALYTICS_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
 const CALCULATOR_STORAGE_KEY = "kontejnerovka_calculator_inquiry";
 const pageLocale = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "cs";
+const siteScript = document.querySelector('script[src*="script.js"]');
+const assetUrl = (assetPath) => new URL(assetPath, siteScript?.src || `${window.location.origin}/`).href;
 const copy = {
   cs: {
     invalidField: "Zkontrolujte prosím zvýrazněné pole.",
@@ -46,7 +48,7 @@ const copy = {
     cookieSettings: "Nastavení cookies",
     cookieLabel: "Nastavení analytických cookies",
     cookieTitle: "Měření webu",
-    cookieText: "Volitelné cookies pomáhají měřit kontakty a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.",
+    cookieText: "Pomáhají měřit poptávky a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.",
     cookieDecline: "Pouze nezbytné",
     cookieAccept: "Povolit měření",
     calculatorBandMiddleTitle: "Orientačně: střední cenová hladina",
@@ -109,7 +111,7 @@ const copy = {
     cookieSettings: "Cookie settings",
     cookieLabel: "Analytics cookie settings",
     cookieTitle: "Website analytics",
-    cookieText: "Optional cookies help us measure enquiries and improve the website. Without consent, only essential functions run.",
+    cookieText: "They help measure enquiries and improve the website. Without consent, only essential functions run.",
     cookieDecline: "Essential only",
     cookieAccept: "Allow analytics",
     calculatorBandMiddleTitle: "Indicative level: standard quote complexity",
@@ -940,6 +942,45 @@ const trackThankYouPage = () => {
   }
 };
 
+let iconsRequested = false;
+
+const createLucideIcons = () => {
+  window.lucide?.createIcons?.();
+};
+
+const loadLucideIcons = () => {
+  if (iconsRequested) return;
+  iconsRequested = true;
+
+  if (window.lucide?.createIcons) {
+    createLucideIcons();
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.src = assetUrl("assets/lucide.min.js");
+  script.async = true;
+  script.onload = createLucideIcons;
+  document.head.appendChild(script);
+};
+
+const scheduleIconLoad = () => {
+  const start = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadLucideIcons, { timeout: 1800 });
+      return;
+    }
+
+    window.setTimeout(loadLucideIcons, 800);
+  };
+
+  if (document.readyState === "complete") {
+    start();
+  } else {
+    window.addEventListener("load", start, { once: true });
+  }
+};
+
 const setupRevealAnimations = () => {
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
@@ -1039,7 +1080,7 @@ if (hasAnalyticsConsent()) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  window.lucide?.createIcons();
+  scheduleIconLoad();
   setupRevealAnimations();
   setupPriceCalculator();
   ensurePageUrlField();
