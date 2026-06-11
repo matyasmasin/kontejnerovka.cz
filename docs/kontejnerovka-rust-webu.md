@@ -260,3 +260,101 @@ Web je po technicke strance pripraveny lepe, nez byvalo u podobnych lokalnich we
 ### Nejlepsi dalsi krok
 
 Misto dalsi SEO stranky ted pripravit prvni sadu realnych fotek a 2-3 kratkych anonymnich realizaci z prioritnich lokalit; to je momentalne nejpravdepodobnejsi dalsi rustovy krok pro duveru i konverze.
+
+## Kvartalni strategicky audit - 2026-06-11
+
+### Stav
+
+Omezeny kvartalni vystup.
+
+- Analyzovane obdobi: 2026-03-11 az 2026-06-11.
+- Realne hodnotitelne obdobi webu a commitu: 2026-05-16 az 2026-06-11.
+- Cerstvost produkce: live web overen 2026-06-11, homepage vraci HTTP 200 a `Last-Modified: Tue, 09 Jun 2026 13:41:48 GMT`.
+- Cerstvost dat: posledni uspesny GSC a GA4 import probehl 2026-06-09 a pokryva 2026-05-12 az 2026-06-08.
+- Omezeni dat: opakovany beh `node scripts/fetch-google-data.mjs` 2026-06-11 selhal, `docs/seo-data/kpi-leads-template.csv` je prazdny a chybi cerstve GBP metriky, recenze i fotky.
+
+### Kvartalni verdikt pro majitele
+
+Za prvni kvartal se povedlo dostat web z technickeho zakladu do stavu, kdy uz ma sirsi lokalni a obsahovy zaber a prvni organickou viditelnost. Nepovedlo se ale jeste prevest tento rust do silne duvery a do prokazatelnych poptavek. Nejvetsi brzda uz neni dalsi nova stranka, ale chybejici realne dukazy z provozu a nestabilni cerstvost dat.
+
+### Semafor
+
+- Zelena: web je pushnuty a live, ma 94 URL v sitemap, CZ i EN verze, schema, hreflang, formulare, kalkulacku a jasnou entitu provozovatele.
+- Oranzova: prvni GSC a GA4 signal uz existuje, ale je maly a cast GA4 provozu je zjevne QA nebo direct test traffic.
+- Cervena: chybi manualni evidence poptavek, potvrzene GBP metriky, skutecne recenze a skutecne fotky; bez toho nelze tvrdit obchodni dopad ani silnou lokalni autoritu.
+
+### Co se realne zmenilo
+
+- Pushnuto a nasazeno live mezi 2026-05-16 a 2026-06-09: hlavni CZ struktura, lokalitni a servisni landing pages, kalkulacka, Web3Forms formular, trust bloky, `o-nas.html`, `reference.html`, `technika.html`, Google profil link, anglicka `/en/` verze, jazykovy prepinac, mobile-first upravy a Unhost near-win uprava.
+- Zmereno: GSC page export za 2026-05-12 az 2026-06-08 ukazuje 149 impresi a 5 kliku napric 10 URL; GA4 za stejne obdobi ukazuje 48 sessions, z toho jen 3 organic sessions, 3 `form_start`, 3 `cta_click`, 1 `generate_lead`, 0 `click_phone` a 0 `lead_form_submit`.
+- Jen lokalne upraveno v tomto behu: strategicke dokumenty `docs/kontejnerovka-rust-webu.md`, `docs/seo-opportunities.md`, `docs/reports/2026-06.md` a `docs/owner-action-list.md`.
+
+### Co fungovalo
+
+- Technicky zaklad a publikacni rytmus: web je dostupny, roboty a sitemap jsou konzistentni a hlavni zmeny se dostaly live.
+- Prvni lokalni viditelnost na existujicich CZ URL: `kontejnery-unhost.html`, `kontejnery-rudna.html`, `kontejnery-nucice.html`, `sluzby.html` a `poradna.html` uz sbiraji imprese kolem prumerne pozice 6 az 9.
+- Entita a AI-readiness na webu: homepage, `o-nas.html`, `reference.html` a `technika.html` konzistentne uvadeji provozovatele, telefon, ICO, DIC, `LocalBusiness` schema, `sameAs` a `hasMap`.
+
+### Co nefungovalo nebo se neprokazalo
+
+- Dalsi rust se zatim neoprel o realne dukazy z provozu. `reference.html` i homepage stale spis vysvetluji, proc reference teprve vzniknou, nez aby je skutecne ukazovaly.
+- Konverzni signal je slaby a obchodni dopad neprokazany. Bez rucni evidence a pri 0 `click_phone` a 0 `lead_form_submit` nelze tvrdit, ze posledni vlna zmen uz prinasi vice poptavek.
+- Cerstvost mereni je krehka. Local config je pripraveny, ale novy import 2026-06-11 selhal, takze scorecard neni zatim spolehlivy provozni zdroj.
+
+### AI a lokalni duvera
+
+Hodnoceni: `castecna`
+
+- Silne: jasna entita, NAP, schema, Google profil v `sameAs` a `hasMap`, lokalni texty, FAQ, reference proces, technicka crawlability.
+- Slabe: chybi aktualni GBP metriky, potvrzeny pocet recenzi, potvrzeny pocet fotek, verejne mini-realizace a seznam dalsich verejnych profilu nebo prirozenych zminek.
+- Nelze urcit s jistotou: jestli Google Business Profile uz sbira hovory, trasy, mapove prokliky nebo jestli AI odpovedi web skutecne preferuji oproti konkurenci.
+
+### Fakta
+
+- Live homepage 2026-06-11 ukazuje CZ/EN prepinac, CTA na telefon a formulare, Google profil link a aktualni asset cache `styles.css?v=20260609c`.
+- Lokalni sitemap vyrostla z baseline 45 URL na 94 URL, hlavne kvuli EN zrcadlu a novym trust / service / locality strankam.
+- GSC page-level export za 2026-05-12 az 2026-06-08: homepage 67 impresi / 4 kliky / pozice 13.30; `dovoz-kacirku.html` 15 impresi / 1 klik / pozice 8.93; `kontejnery-unhost.html` 18 impresi / 0 kliku / pozice 8.72; `kontejnery-rudna.html` 12 impresi / 0 kliku / pozice 6.42; `kontejnery-nucice.html` 7 impresi / 0 kliku / pozice 6.29.
+- GSC query-level export za stejne obdobi ukazuje jen 16 impresi a 0 kliku; to je v konfliktu s page-level souctem a signal je treba brat jako omezeny.
+- GSC sitemap snapshot ulozeny 2026-06-09 hlasi `submitted: 47` a `indexed: 0`, i kdyz jednotlive URL uz sbiraji imprese; stav indexace je potreba znovu rucne overit.
+- GA4 last-28 ukazuje 48 sessions a 26 users, ale landing page dataset obsahuje vice QA parametru jako `?audit-mobile=1`, `?browser-check=...` nebo `?qa=...`, takze cast provozu neni obchodni.
+- `docs/seo-data/kpi-leads-template.csv` je stale prazdny.
+
+### Hypotezy
+
+- Nejrychlejsi rust v dalsim kvartalu neprijde z dalsiho rozsireni sitemap, ale z prvniho trust balicku: realne fotky, 2-3 mini-realizace a prvni Google recenze.
+- Unhost, Rudna a Nucice jsou realisticke near-win lokality, kde muze maly trust signal a dalsi CTR prace prineset prvni organicke kliky.
+- EN verze muze do budoucna pomoct expatum, ale v tomto kvartalu jeste nema meritelny dukaz, ze by sama otevirala novou poptavku.
+
+### Co chybi k jistote
+
+- Cerstvy uspesny GSC a GA4 import po 2026-06-09.
+- Rucni evidence telefonatu, formularu, e-mailu a zakazek.
+- GBP detail: kategorie, recenze, fotky, hovory, prokliky, trasy.
+- Potvrzeni, zda jsou k dispozici 5-10 pouzitelnych vlastnich fotek a 2-3 anonymni realizace.
+
+### Konkurencni mezery a rizika kanibalizace
+
+- Nejvetsi konkurencni mezera neni v poctu temat, ale v dukazech. Web ma uz dost sirokou tematickou stopu, ale porad slabsi verejnou duveru nez weby nebo profily, ktere maji skutecne fotky, recenze a provozni historii.
+- Riziko kanibalizace je nejvyssi kolem zameru `odvoz zeminy`, `kontejner na zeminu` a lokalnich variant Praha-zapad / Unhost / Rudna / Nucice. Pro dalsi kvartal nema smysl tvorit dalsi podobne URL, dokud se nezmeri vykon stavajicich stranek.
+- Dalsi EN nebo lokalitni expanze bez dat by zvysila sitemapu, ale ne nutne poptavky.
+
+### Co zastavit
+
+- Zastavit dalsi tvorbu novych lokalitnich, EN a servisnich stranek bez datoveho duvodu.
+- Zastavit hodnoceni uspechu podle poctu URL nebo podle samotne pripravenosti schemat bez recenzi, fotek a lead dat.
+
+### Co posilit
+
+- Posilit realne dukazy z provozu na webu i v GBP.
+- Posilit disciplinu mereni: uspesny import, cista GA4 data a rucni lead sheet.
+- Posilit optimalizaci pouze na existujicich near-win URL, ne na dalsi obsahovou expanzi.
+
+### Strategicke priority pro dalsi kvartal
+
+1. Publikovat prvni trust balicek z realnych zakazek pro homepage, `reference.html` a Google Business Profile.
+2. Stabilizovat mereni a oddelit QA provoz od realnych navstev a leadu.
+3. Pracovat jen s existujicimi near-win CZ URL a neotvirat dalsi obsah, dokud se nezmeri dopad.
+
+### Nejlepsi dalsi krok
+
+Do 2026-06-30 pripravit a schvalit prvni trust balicek: 5-10 vlastnich fotek, 2-3 anonymni mini-realizace z prioritnich lokalit a prosbu o prvni 3 Google recenze.

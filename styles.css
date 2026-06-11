@@ -337,6 +337,11 @@ textarea:focus-visible {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
 }
 
+.header-call svg,
+.header-call i {
+  flex: 0 0 auto;
+}
+
 .nav-toggle {
   display: none;
   width: 44px;
@@ -2743,7 +2748,11 @@ i[data-lucide] {
   }
 
   .header-call {
-    display: none;
+    width: 46px;
+    min-width: 46px;
+    padding: 0;
+    gap: 0;
+    font-size: 0;
   }
 
   .header-actions {
@@ -2762,7 +2771,7 @@ i[data-lucide] {
 
 @media (max-width: 780px) {
   body {
-    padding-bottom: 68px;
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
   }
 
   .brand small {
@@ -2984,7 +2993,7 @@ i[data-lucide] {
     bottom: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 8px;
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
     gap: 8px;
     background: rgba(11, 15, 13, 0.96);
     border-top: 1px solid rgba(255, 106, 0, 0.26);
@@ -3016,7 +3025,7 @@ i[data-lucide] {
   .cookie-banner {
     left: 10px;
     right: 10px;
-    bottom: 84px;
+    bottom: calc(84px + env(safe-area-inset-bottom));
     grid-template-columns: 1fr;
     width: auto;
     gap: 7px;
@@ -3088,7 +3097,7 @@ i[data-lucide] {
   }
 
   .language-switcher {
-    grid-template-columns: repeat(2, 40px);
+    grid-template-columns: repeat(2, 34px);
     min-height: 46px;
   }
 
@@ -3111,5 +3120,18 @@ i[data-lucide] {
 
   .hero {
     min-height: auto;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand strong {
+    display: none;
+  }
+
+  .header-call,
+  .nav-toggle {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
   }
 }

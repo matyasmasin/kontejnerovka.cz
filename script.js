@@ -199,6 +199,14 @@ const loadAnalytics = () => {
   window.gtag = function gtag() {
     window.dataLayer.push(arguments);
   };
+  // Consent Mode v2: bez souhlasu posílá GA4 jen anonymní cookieless pingy,
+  // se souhlasem plné měření. Default musí být nastaven před "config".
+  window.gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: hasAnalyticsConsent() ? "granted" : "denied",
+  });
   window.gtag("js", new Date());
   window.gtag("config", GA_MEASUREMENT_ID, {
     anonymize_ip: true,
@@ -212,7 +220,6 @@ const loadAnalytics = () => {
 };
 
 const track = (eventName, eventParams = {}) => {
-  if (!hasAnalyticsConsent()) return false;
   loadAnalytics();
 
   if (typeof window.gtag === "function") {
@@ -958,7 +965,7 @@ const loadLucideIcons = () => {
   }
 
   const script = document.createElement("script");
-  script.src = assetUrl("assets/lucide.min.js");
+  script.src = assetUrl("assets/icons.js");
   script.async = true;
   script.onload = createLucideIcons;
   document.head.appendChild(script);
@@ -1042,6 +1049,7 @@ const createCookieBanner = () => {
   banner.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
     setAnalyticsConsent("granted");
     loadAnalytics();
+    window.gtag?.("consent", "update", { analytics_storage: "granted" });
     hideCookieBanner();
     track("analytics_consent_granted");
     trackThankYouPage();
@@ -1049,6 +1057,7 @@ const createCookieBanner = () => {
 
   banner.querySelector("[data-cookie-decline]")?.addEventListener("click", () => {
     setAnalyticsConsent("denied");
+    window.gtag?.("consent", "update", { analytics_storage: "denied" });
     hideCookieBanner();
   });
 };
@@ -1075,9 +1084,7 @@ const addPrivacyControls = () => {
   footerLinks.appendChild(settingsButton);
 };
 
-if (hasAnalyticsConsent()) {
-  loadAnalytics();
-}
+loadAnalytics();
 
 window.addEventListener("DOMContentLoaded", () => {
   scheduleIconLoad();

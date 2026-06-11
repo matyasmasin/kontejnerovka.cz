@@ -1,11 +1,25 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const enDir = path.join(rootDir, "en");
 const baseUrl = "https://kontejnerovka.cz";
-const today = "2026-06-04";
+const todayDate = new Date().toISOString().slice(0, 10);
+
+// lastmod per soubor: necommitnuté změny = dnešek, jinak datum posledního commitu
+const fileLastmod = (relPath) => {
+  try {
+    const dirty = execSync(`git status --porcelain -- "${relPath}"`, { cwd: rootDir }).toString().trim();
+    if (dirty) return todayDate;
+    const committed = execSync(`git log -1 --format=%cs -- "${relPath}"`, { cwd: rootDir }).toString().trim();
+    if (committed) return committed;
+  } catch {
+    // mimo git repo spadneme na dnešní datum
+  }
+  return todayDate;
+};
 
 const pairs = [
   { cz: "", en: "", priority: "1.0", changefreq: "weekly" },
@@ -470,6 +484,11 @@ const provider = {
     postalCode: "15500",
     addressCountry: "CZ",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 50.04112,
+    longitude: 14.31985,
+  },
   sameAs: ["https://share.google/3gRahFm7A2awhEeJJ"],
   hasMap: "https://share.google/3gRahFm7A2awhEeJJ",
 };
@@ -554,7 +573,7 @@ const head = (page) => {
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">${noscript}
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">${noscript}
     <title>${esc(page.metaTitle || page.title)}</title>
     <meta name="description" content="${esc(page.description)}">
     <meta name="robots" content="${page.noindex ? "noindex, follow" : "index, follow"}">
@@ -572,8 +591,8 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260609c">
-    <script src="../script.js?v=20260609c" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260611a">
+    <script src="../script.js?v=20260611a" defer></script>
     ${schema}
   </head>`;
 };
@@ -682,7 +701,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
               <legend>Contact and basic job details</legend>
               <div class="form-row">
                 <label>Name<input type="text" name="name" autocomplete="name" required></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required></label>
               </div>
               <div class="form-row">
                 <label>Email <span class="field-note">optional</span><input type="email" name="email" autocomplete="email" placeholder="Optional"></label>
@@ -1414,7 +1433,7 @@ const corePages = {
       en: "contact.html",
       eyebrow: "Contact",
       title: "Call or send details for a container quote",
-      metaTitle: "Contact | Kontejnerovka.cz",
+      metaTitle: "Contact &amp; Container Ordering | Prague Area | Kontejnerovka.cz",
       description: "Contact Kontejnerovka.cz for container hire, rubble removal, soil removal, waste removal or material delivery in Prague and Central Bohemia.",
       intro: "Calling is fastest. For a more accurate quote, send the town, material, amount, date, access and ideally a photo.",
       hasForm: true,
@@ -1608,18 +1627,18 @@ const injectCzechHreflangAndNav = () => {
   }
 };
 
-const sitemapEntry = (loc, pair) => `  <url>
+const sitemapEntry = (loc, pair, relFile) => `  <url>
     <loc>${loc}</loc>
     <xhtml:link rel="alternate" hreflang="cs" href="${czUrl(pair.cz)}" />
     <xhtml:link rel="alternate" hreflang="en" href="${enUrl(pair.en)}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${czUrl(pair.cz)}" />
-    <lastmod>${today}</lastmod>
+    <lastmod>${fileLastmod(relFile)}</lastmod>
     <changefreq>${pair.changefreq}</changefreq>
     <priority>${pair.priority}</priority>
   </url>`;
 
 const writeSitemap = () => {
-  const entries = pairs.flatMap((pair) => [sitemapEntry(czUrl(pair.cz), pair), sitemapEntry(enUrl(pair.en), pair)]).join("\n");
+  const entries = pairs.flatMap((pair) => [sitemapEntry(czUrl(pair.cz), pair, pair.cz || "index.html"), sitemapEntry(enUrl(pair.en), pair, `en/${pair.en || "index.html"}`)]).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries}
