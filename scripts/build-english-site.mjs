@@ -591,8 +591,8 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260611a">
-    <script src="../script.js?v=20260611a" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260611b">
+    <script src="../script.js?v=20260611b" defer></script>
     ${schema}
   </head>`;
 };
@@ -614,33 +614,33 @@ const header = (page, home = false) => {
     </header>`;
 };
 
-const footer = () => `<footer class="site-footer">
+const footer = (formHref = "contact.html#form") => `<footer class="site-footer">
       <div><strong>Kontejnerovka.cz</strong><p>Waste container hire, waste removal and building material delivery.</p></div>
       <div><p>Operator: Matyáš Mašín</p><p>Company ID (IČO): 01379178 · VAT ID (DIČ): CZ9211070033 · VAT payer</p><p>Holýšovská 2923/4, Stodůlky, 155 00 Prague 5</p></div>
       <div><a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profile</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a></div>
     </footer>
 
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>`;
+    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="${formHref}"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>`;
 
 const pageShell = (page, body, options = {}) => `${head(page)}
   <body>
     ${header(page, options.home)}
 ${body}
-    ${footer()}
+    ${footer(options.formHref)}
   </body>
 </html>
 `;
 
-const btns = (primaryText = "Call for a quote", secondaryText = "Send a request") => `<div class="hero-actions">
+const btns = (primaryText = "Call for a quote", secondaryText = "Send a request", secondaryHref = "contact.html#form") => `<div class="hero-actions">
           <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>${primaryText}</a>
-          <a class="btn btn-dark" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>${secondaryText}</a>
+          <a class="btn btn-dark" href="${secondaryHref}"><i data-lucide="send" aria-hidden="true"></i>${secondaryText}</a>
         </div>`;
 
-const subHero = (page, primaryText, secondaryText) => `<section class="subpage-hero">
+const subHero = (page, primaryText, secondaryText, secondaryHref) => `<section class="subpage-hero">
         <p class="eyebrow">${esc(page.eyebrow)}</p>
         <h1>${esc(page.title)}</h1>
         <p>${esc(page.intro)}</p>
-        ${btns(primaryText, secondaryText)}
+        ${btns(primaryText, secondaryText, secondaryHref)}
       </section>`;
 
 const geoSummary = ({ heading = "Kontejnerovka.cz at a glance", text, facts = [] }) => `<section class="section service-note geo-summary" aria-label="Short AI-readable summary">
@@ -701,7 +701,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
               <legend>Contact and basic job details</legend>
               <div class="form-row">
                 <label>Name<input type="text" name="name" autocomplete="name" required></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required></label>
               </div>
               <div class="form-row">
                 <label>Email <span class="field-note">optional</span><input type="email" name="email" autocomplete="email" placeholder="Optional"></label>
@@ -929,6 +929,47 @@ const englishPriceCalculator = () => `<section class="section price-calculator-s
         </noscript>
       </section>`;
 
+const miniInquiryForm = (page) => `<section class="section mini-inquiry" id="inquiry" aria-labelledby="mini-inquiry-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Quick quote request</p>
+          <h2 id="mini-inquiry-title">Send a quote request from this page</h2>
+          <p>Phone number, town and what should be removed or delivered are enough. A photo of the place or the material speeds up the quote. We reply with the price or a short follow-up question.</p>
+        </div>
+        <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
+          <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
+          <input type="hidden" name="subject" value="Quick quote request from the English Kontejnerovka.cz website">
+          <input type="hidden" name="from_name" value="Kontejnerovka.cz">
+          <input type="hidden" name="redirect" value="https://kontejnerovka.cz/en/thank-you.html">
+          <input type="hidden" name="page_url" value="${enUrl(page.en)}">
+          <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
+          <div class="form-row">
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required>
+            </label>
+            <label>
+              Town / address
+              <input type="text" name="location" placeholder="E.g. Prague 5, Rudná, Unhošť" required>
+            </label>
+          </div>
+          <label>
+            What should be removed or delivered
+            <textarea name="message" rows="3" required placeholder="E.g. bathroom rubble, soil from digging, mixed waste after a clear-out..."></textarea>
+          </label>
+          <label class="file-input">
+            Photo of the waste or the place <span class="field-note">optional</span>
+            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC or PDF">
+            <span data-file-name>JPG, PNG, WEBP, HEIC or PDF</span>
+          </label>
+          <button class="btn btn-primary" type="submit">
+            <i data-lucide="send" aria-hidden="true"></i>
+            Send quote request
+          </button>
+          <p class="form-note" data-mini-form-note></p>
+          <p class="form-privacy">By sending the form you share the details needed to quote and arrange the job. See the <a href="privacy.html">privacy policy</a>. In a hurry? Call <a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a>.</p>
+        </form>
+      </section>`;
+
 const renderServicePage = (data) => {
   const page = {
     ...data,
@@ -936,7 +977,7 @@ const renderServicePage = (data) => {
     schema: [localBusinessSchema(), serviceSchema({ ...data, en: hrefForCz(data.cz) }), breadcrumb({ ...data, en: hrefForCz(data.cz), breadcrumb: data.eyebrow })],
   };
   const body = `<main class="page-main">
-      ${subHero(page, "Call and confirm details", "Send job details")}
+      ${subHero(page, "Call and confirm details", "Send job details", "#inquiry")}
       ${serviceDefinition(data.eyebrow, `${data.eyebrow} is a local container transport service for Prague and Central Bohemia, operated by Kontejnerovka.cz.`, data.intro)}
       <section class="section proof-strip" aria-label="Service essentials">
         <article><i data-lucide="map-pin" aria-hidden="true"></i><strong>Local route</strong><span>Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno and nearby areas</span></article>
@@ -977,10 +1018,12 @@ const renderServicePage = (data) => {
 
       <section class="cta-band">
         <h2>Need to quote this job?</h2>
-        <a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
+        <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
       </section>
+
+      ${miniInquiryForm(page)}
     </main>`;
-  return pageShell(page, body);
+  return pageShell(page, body, { formHref: "#inquiry" });
 };
 
 const renderAdvicePage = (data) => {
@@ -990,7 +1033,7 @@ const renderAdvicePage = (data) => {
     schema: [localBusinessSchema(), breadcrumb({ ...data, en: hrefForCz(data.cz), breadcrumb: data.eyebrow }), faqSchema(data)],
   };
   const body = `<main class="page-main">
-      ${subHero(page, "Call for advice", "Send photos and details")}
+      ${subHero(page, "Call for advice", "Send photos and details", "#inquiry")}
       ${geoSummary({
         heading: `${data.title}: short answer`,
         text: `${data.title} is handled by Kontejnerovka.cz as a practical local container job in Prague and Central Bohemia. The quote starts with the address, material, amount, access and a photo when useful.`,
@@ -1026,10 +1069,12 @@ const renderAdvicePage = (data) => {
 
       <section class="cta-band">
         <h2>Not sure how to describe the job?</h2>
-        <a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send a photo and short note</a>
+        <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send a photo and short note</a>
       </section>
+
+      ${miniInquiryForm(page)}
     </main>`;
-  return pageShell(page, body);
+  return pageShell(page, body, { formHref: "#inquiry" });
 };
 
 const locationFaq = (data) => [
@@ -1066,7 +1111,7 @@ const renderLocationPage = (data) => {
   };
 
   const body = `<main class="page-main">
-      ${subHero(page, "Call for a local quote", "Send address and photos")}
+      ${subHero(page, "Call for a local quote", "Send address and photos", "#inquiry")}
       ${geoSummary({
         heading: `Container hire in ${data.name}: short answer`,
         text: `Kontejnerovka.cz provides container delivery, rubble removal, soil removal, waste removal and bulk material delivery in ${data.name} and nearby Central Bohemia routes. The quote depends on the exact address, load, amount and access.`,
@@ -1114,10 +1159,12 @@ const renderLocationPage = (data) => {
 
       <section class="cta-band">
         <h2>Need a container in ${esc(data.name)}?</h2>
-        <a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send address and job details</a>
+        <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send address and job details</a>
       </section>
+
+      ${miniInquiryForm(page)}
     </main>`;
-  return pageShell(page, body);
+  return pageShell(page, body, { formHref: "#inquiry" });
 };
 
 const corePages = {
@@ -1433,7 +1480,7 @@ const corePages = {
       en: "contact.html",
       eyebrow: "Contact",
       title: "Call or send details for a container quote",
-      metaTitle: "Contact &amp; Container Ordering | Prague Area | Kontejnerovka.cz",
+      metaTitle: "Contact & Container Ordering | Prague Area | Kontejnerovka.cz",
       description: "Contact Kontejnerovka.cz for container hire, rubble removal, soil removal, waste removal or material delivery in Prague and Central Bohemia.",
       intro: "Calling is fastest. For a more accurate quote, send the town, material, amount, date, access and ideally a photo.",
       hasForm: true,
