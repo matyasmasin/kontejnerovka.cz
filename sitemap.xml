@@ -74,54 +74,18 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/o-nas.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/o-nas.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/about.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/o-nas.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/about.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/o-nas.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/about.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/o-nas.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/reference.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/reference.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/references.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/reference.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/references.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/reference.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/references.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/reference.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/technika.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/technika.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/equipment.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/technika.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/equipment.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/technika.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/equipment.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/technika.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
@@ -164,36 +128,12 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/bathroom-renovation-rubble-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/bathroom-renovation-rubble-removal.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/bathroom-renovation-rubble-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejner-na-zeminu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejner-na-zeminu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/soil-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejner-na-zeminu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/soil-container.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejner-na-zeminu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/soil-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejner-na-zeminu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
@@ -218,162 +158,54 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/vyklizeni-odpad.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/vyklizeni-odpad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/clearance-waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/vyklizeni-odpad.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.76</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/clearance-waste-removal.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/vyklizeni-odpad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/clearance-waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/vyklizeni-odpad.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/recyklat-prijezdova-cesta.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/recyklat-prijezdova-cesta.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/recycled-aggregate-driveway.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/recyklat-prijezdova-cesta.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.76</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/recycled-aggregate-driveway.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/recyklat-prijezdova-cesta.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/recycled-aggregate-driveway.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/recyklat-prijezdova-cesta.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-betonu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-betonu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/concrete-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-betonu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/concrete-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-betonu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/concrete-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-betonu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-kacirku.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-kacirku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/pebble-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-kacirku.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/pebble-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-kacirku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/pebble-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-kacirku.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-pisku-sterku.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-pisku-sterku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/sand-gravel-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-pisku-sterku.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/sand-gravel-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-pisku-sterku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/sand-gravel-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-pisku-sterku.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-pisku.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-pisku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/sand-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-pisku.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/sand-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-pisku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/sand-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-pisku.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-recyklatu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-recyklatu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/recycled-aggregate-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-recyklatu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/recycled-aggregate-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-recyklatu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/recycled-aggregate-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-recyklatu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/dovoz-sterku.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-sterku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/gravel-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-sterku.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/gravel-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/dovoz-sterku.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/gravel-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/dovoz-sterku.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/construction-waste-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/construction-waste-container.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/construction-waste-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -398,180 +230,48 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-beroun.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-beroun.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-beroun.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-beroun.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-beroun.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-beroun.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-beroun.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-beroun.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/kontejnery-horovice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-horovice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-horovice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-horovice.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-horovice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-horovice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-horovice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-horovice.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-hostivice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-hostivice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-hostivice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-hostivice.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-hostivice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-hostivice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-hostivice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-hostivice.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-kladno.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-kladno.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-kladno.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-kladno.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-kladno.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-kladno.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-kladno.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-kladno.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/kontejnery-kraluv-dvur.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-kraluv-dvur.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-kraluv-dvur.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-kraluv-dvur.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-kraluv-dvur.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-kraluv-dvur.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-kraluv-dvur.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-kraluv-dvur.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-13.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-13.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-13.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-13.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-prague-13.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-13.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-13.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-13.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-17.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-17.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-17.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-17.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-prague-17.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-17.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-17.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-17.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-5.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-5.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-5.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-5.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-prague-5.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-5.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-5.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-5.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-6.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-6.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-6.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-6.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-prague-6.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-6.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-6.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-6.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-vychod.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-vychod.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-east.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-vychod.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-prague-east.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-vychod.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-east.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-vychod.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -614,162 +314,48 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-rakovnik.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-rakovnik.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-rakovnik.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-rakovnik.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-rakovnik.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-rakovnik.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-rakovnik.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-rakovnik.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-rudna.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-rudna.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-rudna.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-rudna.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-rudna.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-rudna.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-rudna.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-rudna.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-nucice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-nucice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-nucice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-nucice.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-nucice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-nucice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-nucice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-nucice.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-slany.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-slany.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-slany.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-slany.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-slany.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-slany.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-slany.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-slany.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-unhost.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-unhost.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-unhost.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-unhost.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-unhost.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-unhost.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-unhost.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-unhost.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/kontejnery-zdice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-zdice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-zdice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-zdice.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/containers-zdice.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-zdice.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-zdice.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-zdice.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odvoz-betonu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-betonu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/concrete-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-betonu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/concrete-removal.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-betonu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/concrete-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-betonu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odvoz-dreva-bioodpadu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-dreva-bioodpadu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/wood-green-waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-dreva-bioodpadu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/wood-green-waste-removal.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-dreva-bioodpadu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/wood-green-waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-dreva-bioodpadu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odvoz-odpadu.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-odpadu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-odpadu.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/waste-removal.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-odpadu.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/waste-removal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-odpadu.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -812,36 +398,12 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/pristaveni-kontejneru.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/pristaveni-kontejneru.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/container-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/pristaveni-kontejneru.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/container-delivery.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/pristaveni-kontejneru.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/container-delivery.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/pristaveni-kontejneru.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/velkoobjemovy-kontejner.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/velkoobjemovy-kontejner.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/large-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/velkoobjemovy-kontejner.html" />
-    <lastmod>2026-06-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kontejnerovka.cz/en/large-container.html</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/velkoobjemovy-kontejner.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/large-container.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/velkoobjemovy-kontejner.html" />
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
