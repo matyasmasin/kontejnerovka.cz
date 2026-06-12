@@ -40,7 +40,12 @@ Králův Dvůr, Slaný, Rakovník, Hořovice.
 **Služby (přidat jako položky):** Kontejner na suť · Kontejner na zeminu ·
 Kontejner na stavební odpad · Velkoobjemový kontejner · Odvoz suti · Odvoz
 zeminy · Odvoz odpadu po vyklízení · Odvoz dřeva a bioodpadu · Dovoz písku
-a štěrku · Dovoz recyklátu · Dovoz kačírku
+a štěrku · Dovoz recyklátu · Dovoz kačírku · Zemní práce minibagrem ·
+Výkop základů · Výkop bazénu · Výkop jezírka · Odbahnění nádrží · Rovnání
+terénu
+
+**Kategorie navíc (od 2026-06):** „Zemní práce“ (Excavating contractor) jako
+sekundární kategorie GBP.
 
 ---
 
