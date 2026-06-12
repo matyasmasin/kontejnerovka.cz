@@ -124,7 +124,7 @@ const miniForm = (slug, subjectLabel) => {
             Odeslat poptávku
           </button>
           <p class="form-note" data-mini-form-note></p>
-          <p class="form-privacy">Odesláním posíláte údaje pro nacenění a vyřízení poptávky. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420738505028">738&nbsp;505&nbsp;028</a>.</p>
+          <p class="form-privacy">Vaše údaje použiju jen k odpovědi na poptávku. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420738505028">738&nbsp;505&nbsp;028</a>.</p>
         </form>
       </section>
       ${MARKER_END}
