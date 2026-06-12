@@ -1246,7 +1246,7 @@ const corePages = {
         <div class="hero-inner">
           <p class="eyebrow">${esc(page.eyebrow)}</p>
           <h1 id="hero-title">Container hire with the quote confirmed before dispatch</h1>
-          <p class="hero-lead">For rubble, soil, construction waste, wood, green waste or bulk material delivery, send the location, load, amount and access details. Simple English is fine; Czech waste terms are not required.</p>
+          <p class="hero-lead">For rubble, soil, construction waste, wood, green waste or bulk material delivery, send the location, load, amount and access details. <strong>We speak English</strong> — call or WhatsApp +420 738 505 028. Looking for skip hire or a dumpster rental? That is exactly what we do.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quick quote</a>
             <a class="btn btn-secondary" href="#quote-estimator"><i data-lucide="clipboard-list" aria-hidden="true"></i>Estimate the job</a>
