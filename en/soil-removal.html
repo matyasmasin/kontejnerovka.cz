@@ -23,8 +23,8 @@
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260611a">
-    <script src="../script.js?v=20260611a" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260611b">
+    <script src="../script.js?v=20260611b" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@id": "https://kontejnerovka.cz/#localbusiness",
@@ -153,7 +153,21 @@
         <p>Soil is heavy, especially when wet. We confirm the amount, access and possible impurities before agreeing the container and route.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call and confirm details</a>
-          <a class="btn btn-dark" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send job details</a>
+          <a class="btn btn-dark" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send job details</a>
+        </div>
+      </section>
+      <div class="subpage-trustbar" aria-label="Quote advantages"><div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Fast quote</strong><span>Town, load, amount and date are enough.</span></span></div><div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Photo helps</strong><span>Access and waste type are clearer immediately.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Confirmed before dispatch</strong><span>Price, VAT and route are agreed first.</span></span></div></div>
+      <section class="section visual-proof subpage-showcase" aria-labelledby="field-proof-title">
+        <div class="visual-proof-copy">
+          <p class="eyebrow">Field proof</p>
+          <h2 id="field-proof-title">Real equipment, clear quote, practical dispatch</h2>
+          <p>Container jobs are decided by access, load type and safe handling on site. The fastest way to get a useful quote is a town, a short description and a photo of the place.</p>
+          <a class="section-link light" href="contact.html#form">Send details for pricing</a>
+        </div>
+        <div class="visual-proof-grid">
+          <article class="visual-proof-card image-card"><picture><source srcset="../assets/hero-truck.webp" type="image/webp"><img src="../assets/hero-truck.jpg" alt="Container truck on a construction site" width="1200" height="800" loading="lazy"></picture><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
+          <article class="visual-proof-card image-card"><picture><source srcset="../assets/material-load.webp" type="image/webp"><img src="../assets/material-load.jpg" alt="Bulk material loaded for site delivery" width="1200" height="800" loading="lazy"></picture><div><span>Material and waste</span><strong>Rubble, soil and aggregates are priced by type, amount and route.</strong></div></article>
+          <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 details</span><h3>Town, load and photo usually shorten the quote.</h3><p>If access is narrow, the container stands in a street or the waste is mixed, a photo prevents back-and-forth and helps confirm the right option.</p></article>
         </div>
       </section>
       <section class="section service-note geo-summary" aria-label="Service definition">
@@ -200,7 +214,48 @@
 
       <section class="cta-band">
         <h2>Need to quote this job?</h2>
-        <a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
+        <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
+      </section>
+
+      <section class="section mini-inquiry" id="inquiry" aria-labelledby="mini-inquiry-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Quick quote request</p>
+          <h2 id="mini-inquiry-title">Send a quote request from this page</h2>
+          <p>Phone number, town and what should be removed or delivered are enough. A photo of the place or the material speeds up the quote. We reply with the price or a short follow-up question.</p>
+        </div>
+        <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
+          <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
+          <input type="hidden" name="subject" value="Quick quote request from the English Kontejnerovka.cz website">
+          <input type="hidden" name="from_name" value="Kontejnerovka.cz">
+          <input type="hidden" name="redirect" value="https://kontejnerovka.cz/en/thank-you.html">
+          <input type="hidden" name="page_url" value="https://kontejnerovka.cz/en/soil-removal.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
+          <div class="form-row">
+            <label>
+              Phone
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required>
+            </label>
+            <label>
+              Town / address
+              <input type="text" name="location" placeholder="E.g. Prague 5, Rudná, Unhošť" required>
+            </label>
+          </div>
+          <label>
+            What should be removed or delivered
+            <textarea name="message" rows="3" required placeholder="E.g. bathroom rubble, soil from digging, mixed waste after a clear-out..."></textarea>
+          </label>
+          <label class="file-input">
+            Photo of the waste or the place <span class="field-note">optional</span>
+            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC or PDF">
+            <span data-file-name>JPG, PNG, WEBP, HEIC or PDF</span>
+          </label>
+          <button class="btn btn-primary" type="submit">
+            <i data-lucide="send" aria-hidden="true"></i>
+            Send quote request
+          </button>
+          <p class="form-note" data-mini-form-note></p>
+          <p class="form-privacy">By sending the form you share the details needed to quote and arrange the job. See the <a href="privacy.html">privacy policy</a>. In a hurry? Call <a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a>.</p>
+        </form>
       </section>
     </main>
     <footer class="site-footer">
@@ -209,6 +264,6 @@
       <div><a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profile</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a></div>
     </footer>
 
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>
+    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>
   </body>
 </html>

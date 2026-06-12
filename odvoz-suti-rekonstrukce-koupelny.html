@@ -27,8 +27,8 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260611a">
-    <script src="script.js?v=20260611a" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260611b">
+    <script src="script.js?v=20260611b" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -131,8 +131,9 @@
         <p class="eyebrow">Rekonstrukce koupelny</p>
         <h1>Odvoz suti po rekonstrukci koupelny</h1>
         <p>Po bourání koupelny bývá největší rozdíl v tom, jestli jde o čistou suť, nebo směs s plastem, dřevem, obaly a vybavením. Blízké zakázky cílíme hlavně kolem Svárova, Unhoště, Kladna, Rudné, Hostivice a Prahy-západ.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Poslat fotku odpadu</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat fotku odpadu</a></div>
       </section>
+      <div class="subpage-trustbar" aria-label="Výhody rychlé poptávky"><div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Rychlé nacenění</strong><span>Stačí obec, náklad, množství a termín.</span></span></div><div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Fotka pomůže</strong><span>Přístup i odpad se rozhodnou rychleji.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Potvrzení před výjezdem</strong><span>Cena, DPH i trasa jsou domluvené předem.</span></span></div></div>
       <section class="section detail-grid">
         <article><h2>Co obvykle odvážíme</h2><p>Obklady, dlažbu, omítku, cihly, beton, zbytky lepidel a další stavební suť po bourání koupelny nebo bytového jádra.</p></article>
         <article><h2>Co cenu ovlivní</h2><p>Lokalita, patro nebo přístup, množství, čistota suti, možnost přistavení kontejneru, doba stání a případné skládkovné.</p></article>
@@ -177,11 +178,51 @@
       <section class="section mobile-action-box">
         <h2>Jste přímo na rekonstrukci?</h2>
         <p>Zavolejte a řekněte adresu, patro, co je v odpadu a kde může auto stát. Fotku můžete poslat přes formulář nebo e-mail.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
       </section>
-      <section class="cta-band"><h2>Potřebujete odvézt suť z koupelny?</h2><a class="btn btn-primary" href="kontakt.html#formular">Poslat údaje k nacenění</a></section>
+      <section class="cta-band"><h2>Potřebujete odvézt suť z koupelny?</h2><a class="btn btn-primary" href="#poptavka">Poslat údaje k nacenění</a></section>
+      <section class="section mini-inquiry" id="poptavka" aria-labelledby="mini-inquiry-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Rychlá poptávka</p>
+          <h2 id="mini-inquiry-title">Pošlete poptávku rovnou z této stránky</h2>
+          <p>Stačí telefon, obec a co se má odvézt nebo dovézt. Fotka místa nebo odpadu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem.</p>
+        </div>
+        <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
+          <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
+          <input type="hidden" name="subject" value="Rychlá poptávka z webu Kontejnerovka.cz">
+          <input type="hidden" name="from_name" value="Kontejnerovka.cz">
+          <input type="hidden" name="redirect" value="https://kontejnerovka.cz/dekujeme.html">
+          <input type="hidden" name="page_url" value="https://kontejnerovka.cz/odvoz-suti-rekonstrukce-koupelny.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
+          <div class="form-row">
+            <label>
+              Telefon
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 738 505 028 nebo +420 738 505 028." required>
+            </label>
+            <label>
+              Obec / adresa
+              <input type="text" name="location" placeholder="Např. Nučice, Rudná, Unhošť" required>
+            </label>
+          </div>
+          <label>
+            Co se poveze
+            <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
+          </label>
+          <label class="file-input">
+            Fotka odpadu nebo místa <span class="field-note">volitelné</span>
+            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC nebo PDF">
+            <span data-file-name>JPG, PNG, WEBP, HEIC nebo PDF</span>
+          </label>
+          <button class="btn btn-primary" type="submit">
+            <i data-lucide="send" aria-hidden="true"></i>
+            Odeslat poptávku
+          </button>
+          <p class="form-note" data-mini-form-note></p>
+          <p class="form-privacy">Odesláním posíláte údaje pro nacenění a vyřízení poptávky. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420738505028">738&nbsp;505&nbsp;028</a>.</p>
+        </form>
+      </section>
     </main>
     <footer class="site-footer"><div><strong>Kontejnerovka.cz</strong><p>Odvoz suti po rekonstrukci a přistavení kontejnerů.</p></div><div><p>Provozovatel: Matyáš Mašín</p><p>IČO: 01379178 · DIČ: CZ9211070033 · Plátce DPH</p><p>Holýšovská 2923/4, Stodůlky, 155 00 Praha 5</p></div><div><a href="tel:+420738505028">738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profil</a><a href="odvoz-suti.html">Odvoz suti</a><a href="cenik.html">Ceník</a></div></footer>
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
+    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
   </body>
 </html>

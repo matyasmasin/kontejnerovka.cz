@@ -27,8 +27,8 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260611a">
-    <script src="script.js?v=20260611a" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260611b">
+    <script src="script.js?v=20260611b" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -123,7 +123,21 @@
         <p class="eyebrow">Vyklízení a odpad</p>
         <h1>Odvoz starého nábytku a odpadu po vyklízení domu, bytu nebo pozemku</h1>
         <p>Vyklízení často znamená směs různých věcí: dřevo, staré vybavení, obaly, stavební zbytky, bioodpad nebo objemný odpad. Nejčastěji chceme cílit na blízké zakázky kolem Svárova, Unhoště, Kladna, Rudné, Hostivice a Prahy-západ.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Poslat fotku odpadu</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat fotku odpadu</a></div>
+      </section>
+      <div class="subpage-trustbar" aria-label="Výhody rychlé poptávky"><div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Rychlé nacenění</strong><span>Stačí obec, náklad, množství a termín.</span></span></div><div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Fotka pomůže</strong><span>Přístup i odpad se rozhodnou rychleji.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Potvrzení před výjezdem</strong><span>Cena, DPH i trasa jsou domluvené předem.</span></span></div></div>
+      <section class="section visual-proof subpage-showcase" aria-labelledby="field-proof-title">
+        <div class="visual-proof-copy">
+          <p class="eyebrow">Z terénu</p>
+          <h2 id="field-proof-title">Reálná technika, jasná cena, praktická domluva</h2>
+          <p>U kontejneru rozhoduje přístup, typ nákladu a bezpečná manipulace na místě. Nejrychleji pomůže obec, krátký popis a fotka místa.</p>
+          <a class="section-link light" href="kontakt.html#formular">Poslat údaje k nacenění</a>
+        </div>
+        <div class="visual-proof-grid">
+          <article class="visual-proof-card image-card"><picture><source srcset="assets/hero-truck.webp" type="image/webp"><img src="assets/hero-truck.jpg" alt="Kontejnerové auto na stavbě" width="1200" height="800" loading="lazy"></picture><div><span>Kontejnerová doprava</span><strong>Přistavení i odvoz se plánují podle reálného přístupu.</strong></div></article>
+          <article class="visual-proof-card image-card"><picture><source srcset="assets/material-load.webp" type="image/webp"><img src="assets/material-load.jpg" alt="Sypký stavební materiál připravený k dovozu" width="1200" height="800" loading="lazy"></picture><div><span>Materiál a odpad</span><strong>Suť, zemina i sypký materiál se řeší podle typu, množství a trasy.</strong></div></article>
+          <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 údaje</span><h3>Obec, náklad a fotka obvykle zkrátí nacenění.</h3><p>Když je horší přístup, stání na ulici nebo směsný odpad, fotka ušetří dopisování a pomůže vybrat správný postup.</p></article>
+        </div>
       </section>
       <section class="section detail-grid">
         <article><h2>Typické situace</h2><p>Vyklízení domu, bytu, sklepa, garáže, zahrady, dvora, pozemku nebo zbytků po menší rekonstrukci.</p></article>
@@ -175,11 +189,51 @@
       <section class="section mobile-action-box">
         <h2>Vyklízíte a nevíte, co s odpadem?</h2>
         <p>Zavolejte, popište odpad a pošlete fotku. Řekneme si, jaký postup dává smysl a co je potřeba oddělit.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
       </section>
-      <section class="cta-band"><h2>Potřebujete odvézt odpad po vyklízení?</h2><a class="btn btn-primary" href="kontakt.html#formular">Poslat údaje k nacenění</a></section>
+      <section class="cta-band"><h2>Potřebujete odvézt odpad po vyklízení?</h2><a class="btn btn-primary" href="#poptavka">Poslat údaje k nacenění</a></section>
+      <section class="section mini-inquiry" id="poptavka" aria-labelledby="mini-inquiry-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Rychlá poptávka</p>
+          <h2 id="mini-inquiry-title">Pošlete poptávku rovnou z této stránky</h2>
+          <p>Stačí telefon, obec a co se má odvézt nebo dovézt. Fotka místa nebo odpadu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem.</p>
+        </div>
+        <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
+          <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
+          <input type="hidden" name="subject" value="Rychlá poptávka z webu Kontejnerovka.cz">
+          <input type="hidden" name="from_name" value="Kontejnerovka.cz">
+          <input type="hidden" name="redirect" value="https://kontejnerovka.cz/dekujeme.html">
+          <input type="hidden" name="page_url" value="https://kontejnerovka.cz/vyklizeni-odpad.html">
+          <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
+          <div class="form-row">
+            <label>
+              Telefon
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 738 505 028 nebo +420 738 505 028." required>
+            </label>
+            <label>
+              Obec / adresa
+              <input type="text" name="location" placeholder="Např. Nučice, Rudná, Unhošť" required>
+            </label>
+          </div>
+          <label>
+            Co se poveze
+            <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
+          </label>
+          <label class="file-input">
+            Fotka odpadu nebo místa <span class="field-note">volitelné</span>
+            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC nebo PDF">
+            <span data-file-name>JPG, PNG, WEBP, HEIC nebo PDF</span>
+          </label>
+          <button class="btn btn-primary" type="submit">
+            <i data-lucide="send" aria-hidden="true"></i>
+            Odeslat poptávku
+          </button>
+          <p class="form-note" data-mini-form-note></p>
+          <p class="form-privacy">Odesláním posíláte údaje pro nacenění a vyřízení poptávky. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420738505028">738&nbsp;505&nbsp;028</a>.</p>
+        </form>
+      </section>
     </main>
     <footer class="site-footer"><div><strong>Kontejnerovka.cz</strong><p>Odvoz odpadu, vyklízení a velkoobjemové kontejnery.</p></div><div><p>Provozovatel: Matyáš Mašín</p><p>IČO: 01379178 · DIČ: CZ9211070033 · Plátce DPH</p><p>Holýšovská 2923/4, Stodůlky, 155 00 Praha 5</p></div><div><a href="tel:+420738505028">738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profil</a><a href="odvoz-odpadu.html">Odvoz odpadu</a><a href="velkoobjemovy-kontejner.html">Velkoobjemový kontejner</a></div></footer>
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="kontakt.html#formular"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
+    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
   </body>
 </html>

@@ -290,7 +290,7 @@ const cleanAnalyticsValue = (value, maxLength = 90) =>
 const getLinkType = (href) => {
   if (href.startsWith("tel:")) return "phone";
   if (href.startsWith("mailto:")) return "email";
-  if (href.includes("#kontakt") || href.includes("#form")) return "form_anchor";
+  if (href.includes("#kontakt") || href.includes("#form") || href.includes("#poptavka") || href.includes("#inquiry")) return "form_anchor";
   if (href.startsWith("#")) return "anchor";
   if (href.startsWith("http") && !href.includes(window.location.hostname)) return "external";
   return "internal";
@@ -536,7 +536,11 @@ form?.addEventListener("submit", (event) => {
   }
 
   const honeypot = form.querySelector('input[name="botcheck"], .hp-field');
-  if (honeypot instanceof HTMLInputElement && honeypot.value) {
+  // U checkboxu je .value vždy "on", i nezaškrtnutého — rozhoduje .checked.
+  const honeypotTriggered =
+    honeypot instanceof HTMLInputElement &&
+    (honeypot.type === "checkbox" ? honeypot.checked : Boolean(honeypot.value));
+  if (honeypotTriggered) {
     track("form_error", {
       form_name: "main_inquiry",
       reason: "honeypot",
@@ -604,6 +608,106 @@ copyInquiryButton?.addEventListener("click", async () => {
     }
   }
 });
+
+const setupMiniInquiryForms = () => {
+  document.querySelectorAll("[data-mini-form]").forEach((miniForm) => {
+    const miniFormNote = miniForm.querySelector("[data-mini-form-note]");
+    const miniFileInput = miniForm.querySelector('input[type="file"]');
+    const miniFileName = miniForm.querySelector("[data-file-name]");
+
+    if (miniFileInput instanceof HTMLInputElement && miniFileName) {
+      const defaultFileText = miniFileInput.getAttribute("data-default-file") || miniFileName.textContent || "";
+      miniFileInput.addEventListener("change", () => {
+        const selectedFile = miniFileInput.files && miniFileInput.files[0];
+        miniFileName.textContent = selectedFile ? selectedFile.name : defaultFileText;
+        if (selectedFile) {
+          track("file_upload_used", {
+            form_name: "mini_inquiry",
+            file_type: selectedFile.type || "unknown",
+            page_type: getPageType(),
+          });
+        }
+      });
+    }
+
+    const clearMiniInvalid = (event) => {
+      const field = event.target;
+      if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
+      field.classList.remove("is-invalid");
+      if (miniFormNote && !miniForm.querySelector(".is-invalid")) miniFormNote.textContent = "";
+    };
+
+    miniForm.addEventListener("input", clearMiniInvalid);
+    miniForm.addEventListener("change", clearMiniInvalid);
+
+    let miniFormStartTracked = false;
+    miniForm.addEventListener("focusin", () => {
+      if (miniFormStartTracked) return;
+      miniFormStartTracked = true;
+
+      track("form_start", {
+        form_name: "mini_inquiry",
+        page_type: getPageType(),
+        page_path: window.location.pathname,
+      });
+    });
+
+    miniForm.addEventListener("submit", (event) => {
+      const pageUrlField = miniForm.querySelector('input[name="page_url"]');
+      if (pageUrlField instanceof HTMLInputElement) pageUrlField.value = window.location.href;
+
+      if (!miniForm.checkValidity()) {
+        event.preventDefault();
+        const invalid = Array.from(miniForm.querySelectorAll("input, textarea, select")).find(
+          (field) =>
+            (field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) &&
+            !field.checkValidity()
+        );
+        if (invalid) {
+          invalid.classList.add("is-invalid");
+          invalid.reportValidity();
+        }
+        if (miniFormNote) miniFormNote.textContent = t("invalidField");
+        track("form_error", {
+          form_name: "mini_inquiry",
+          reason: "invalid_form",
+          page_type: getPageType(),
+          page_path: window.location.pathname,
+        });
+        return;
+      }
+
+      const honeypot = miniForm.querySelector('input[name="botcheck"]');
+      if (honeypot instanceof HTMLInputElement && honeypot.checked) {
+        event.preventDefault();
+        track("form_error", {
+          form_name: "mini_inquiry",
+          reason: "honeypot",
+          page_type: getPageType(),
+          page_path: window.location.pathname,
+        });
+        return;
+      }
+
+      const miniData = new FormData(miniForm);
+      const miniAttachment = miniData.get("attachment");
+      const hasMiniAttachment =
+        typeof File !== "undefined" && miniAttachment instanceof File && Boolean(miniAttachment.name);
+
+      track("lead_form_submit", {
+        form_name: "mini_inquiry",
+        method: "web_form",
+        page_type: getPageType(),
+        page_path: window.location.pathname,
+        has_photo_note: hasMiniAttachment ? "yes" : "no",
+      });
+
+      if (miniFormNote) miniFormNote.textContent = t("submitting");
+    });
+  });
+};
+
+setupMiniInquiryForms();
 
 const getCheckedCalculatorOption = (calculator, name) => {
   const option = calculator.querySelector(`input[name="${name}"]:checked`);
@@ -988,6 +1092,87 @@ const scheduleIconLoad = () => {
   }
 };
 
+const setupSubpagePolish = () => {
+  const hero = document.querySelector(".page-main .subpage-hero");
+  if (!hero || document.querySelector(".hero")) return;
+
+  const pageType = getPageType().replaceAll("_", "-");
+  document.body.classList.add(`page-type-${pageType}`);
+
+  const utilityPages = new Set([
+    "404.html",
+    "dekujeme.html",
+    "thank-you.html",
+    "ochrana-osobnich-udaju.html",
+    "privacy.html",
+  ]);
+  if (utilityPages.has(getPageSlug())) return;
+
+  const inquiryTarget = (() => {
+    if (document.getElementById("poptavka")) return "#poptavka";
+    if (document.getElementById("inquiry")) return "#inquiry";
+    if (document.getElementById("formular")) return "#formular";
+    if (document.getElementById("form")) return "#form";
+    return pageLocale === "en" ? "contact.html#form" : "kontakt.html#formular";
+  })();
+
+  if (!hero.querySelector(".hero-actions")) {
+    const actions = document.createElement("div");
+    actions.className = "hero-actions";
+    actions.innerHTML =
+      pageLocale === "en"
+        ? `<a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quote</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Send job details</a>`
+        : `<a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat kvůli ceně</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a>`;
+    hero.appendChild(actions);
+    actions.querySelectorAll("a[href]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href") || "";
+        const linkType = getLinkType(href);
+        track("cta_click", {
+          page_type: getPageType(),
+          page_path: window.location.pathname,
+          link_type: linkType,
+          link_text: cleanAnalyticsValue(link.textContent),
+        });
+
+        if (linkType === "phone") {
+          track("click_phone", {
+            link_url: link.href,
+            method: "phone",
+            page_type: getPageType(),
+            page_path: window.location.pathname,
+          });
+          track("generate_lead", {
+            currency: "CZK",
+            method: "phone_click",
+          });
+        }
+      });
+    });
+  }
+
+  if (!document.querySelector(".subpage-trustbar")) {
+    const trustbar = document.createElement("div");
+    trustbar.className = "subpage-trustbar";
+    trustbar.setAttribute("aria-label", pageLocale === "en" ? "Quote advantages" : "Výhody rychlé poptávky");
+    trustbar.innerHTML =
+      pageLocale === "en"
+        ? `
+          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Fast quote</strong><span>Town, load, amount and date are enough.</span></span></div>
+          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Photo helps</strong><span>Access and waste type are clearer immediately.</span></span></div>
+          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Confirmed before dispatch</strong><span>Price, VAT and route are agreed first.</span></span></div>
+        `
+        : `
+          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Rychlé nacenění</strong><span>Stačí obec, náklad, množství a termín.</span></span></div>
+          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Fotka pomůže</strong><span>Přístup i odpad se rozhodnou rychleji.</span></span></div>
+          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Potvrzení před výjezdem</strong><span>Cena, DPH i trasa jsou domluvené předem.</span></span></div>
+        `;
+    hero.insertAdjacentElement("afterend", trustbar);
+  }
+
+  createLucideIcons();
+};
+
 const setupRevealAnimations = () => {
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   if (reduceMotion) return;
@@ -1087,6 +1272,7 @@ const addPrivacyControls = () => {
 loadAnalytics();
 
 window.addEventListener("DOMContentLoaded", () => {
+  setupSubpagePolish();
   scheduleIconLoad();
   setupRevealAnimations();
   setupPriceCalculator();
