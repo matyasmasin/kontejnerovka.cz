@@ -189,7 +189,7 @@ const servicePages = [
     intro: "Construction waste is often more varied than clean rubble. We need to know what is in the load so the container, disposal route and price can be confirmed properly.",
     serviceType: "Construction waste container",
     bestFor: ["Renovation waste after flats and houses", "Mixed building debris by agreement", "Small sites with several material types", "Clear-outs linked to construction work"],
-    whatToSend: ["Photos of the waste", "Main material types in the load", "Estimated volume", "Town, access and standing place", "Any materials that may need special handling"],
+    whatToSend: ["Photos of the waste", "Main material types in the load", "Estimated volume", "Town, access and placement spot", "Any materials that may need special handling"],
     watch: "Hazardous waste, asbestos, oils, batteries, paint, chemicals, tyres and pressure vessels must be discussed before ordering.",
     related: [["Waste removal", "odvoz-odpadu.html"], ["Rubble container", "kontejner-na-sut.html"], ["Guide", "poradna.html"]],
   },
@@ -202,7 +202,7 @@ const servicePages = [
     intro: "A larger container can help when the load is bulky rather than very heavy. For heavy rubble, concrete and soil, safe weight usually matters more than maximum volume.",
     serviceType: "Large waste container",
     bestFor: ["Bulky waste from clear-outs", "Wood, branches and green waste", "Larger garden or property clean-ups", "Loads where volume is the main issue"],
-    whatToSend: ["Type of material", "Estimated volume or photos", "Whether the load is heavy or light", "Access and standing place", "Preferred loading or collection date"],
+    whatToSend: ["Type of material", "Estimated volume or photos", "Whether the load is heavy or light", "Access and placement spot", "Preferred loading or collection date"],
     watch: "Large does not automatically mean better for heavy materials. Rubble, concrete and soil must stay within a safe weight.",
     related: [["Waste removal", "odvoz-odpadu.html"], ["Wood and green waste", "odvoz-dreva-bioodpadu.html"], ["Equipment", "technika.html"]],
   },
@@ -254,7 +254,7 @@ const servicePages = [
     intro: "We help with seasonal garden clean-ups, branches, wood and green waste. The quote depends on volume, access and whether the material is clean or mixed with other waste.",
     serviceType: "Wood and green waste removal",
     bestFor: ["Branches and garden cuttings", "Seasonal plot clean-ups", "Wood waste by agreement", "Light bulky material where volume matters"],
-    whatToSend: ["Photo of the pile", "Whether it is clean green waste or mixed material", "Estimated volume", "Access and standing place", "Preferred date"],
+    whatToSend: ["Photo of the pile", "Whether it is clean green waste or mixed material", "Estimated volume", "Access and placement spot", "Preferred date"],
     watch: "If plastics, metal, soil, rubble or other waste are mixed in, say it before the quote.",
     related: [["Large container", "velkoobjemovy-kontejner.html"], ["Waste removal", "odvoz-odpadu.html"], ["Areas", "lokality.html"]],
   },
@@ -390,10 +390,10 @@ const advicePages = [
     description: "Practical information for placing a waste container on a street, pavement or public area in Prague and Czech towns. Check district rules before ordering.",
     intro: "When a container stands on private land, the arrangement is usually simpler. When it stands on a street, pavement or another public area, local occupation rules may apply.",
     problem: "Permit requirements differ by municipality and, in Prague, by city district. The website should help customers ask the right questions without pretending every case is the same.",
-    steps: ["Check whether the container can stand on your own land.", "If it must stand in the street, contact the relevant municipality or Prague district.", "Confirm dates, exact place and possible traffic restrictions.", "Send a photo of the planned standing place.", "Tell us what the authority requires before dispatch."],
+    steps: ["Check whether the container can stand on your own land.", "If it must stand in the street, contact the relevant municipality or Prague district.", "Confirm dates, exact place and possible traffic restrictions.", "Send a photo of the planned placement spot.", "Tell us what the authority requires before dispatch."],
     faq: [
       ["Does every street placement need a permit?", "Not every situation is identical. Public space rules depend on the municipality or city district."],
-      ["Can you quote before the permit is ready?", "We can discuss the job, but final timing may depend on the allowed standing place and date."],
+      ["Can you quote before the permit is ready?", "We can discuss the job, but final timing may depend on the allowed placement spot and date."],
     ],
     related: [["Container delivery", "pristaveni-kontejneru.html"], ["Rubble container", "kontejner-na-sut.html"], ["Prague containers", "kontejnery-praha.html"]],
   },
@@ -433,11 +433,11 @@ const locationPages = [
   { cz: "kontejnery-praha.html", name: "Prague", local: "Prague (Praha)", nearby: "Prague 5, Prague 6, Prague 13, Prague 17 and other districts", focus: "flat renovations, rubble removal, clearance waste, soil removal and material delivery", note: "In Prague, access and street placement often decide the practical route. If the container will stand on a street or pavement, check the district rules before ordering." },
   { cz: "kontejnery-praha-5.html", name: "Prague 5", local: "Smíchov, Košíře, Motol, Jinonice, Radlice, Hlubočepy and nearby Prague 5 streets", nearby: "Prague 13 / Stodůlky, Prague 17 / Zličín, Prague-West, Rudná, Nučice and Hostivice", focus: "rubble containers, bathroom renovation waste, garden work and deliveries of sand, gravel or recycled aggregate", note: "For Prague 5, tell us whether the container can stand in a yard, on a building site or in the street. If you mean Stodůlky or Zličín, the exact address or map pin helps assign the right Prague district." },
   { cz: "kontejnery-praha-6.html", name: "Prague 6", local: "Ruzyně, Břevnov, Dejvice, Veleslavín and nearby districts", nearby: "Hostivice, Jeneč, Unhošť and Prague-West", focus: "renovation rubble, bulky waste, garden waste and material delivery", note: "Access, parked cars and public street placement are often the main points to clarify in Prague 6." },
-  { cz: "kontejnery-praha-13.html", name: "Prague 13", local: "Stodůlky, Luka, Lužiny and surrounding areas", nearby: "Prague 5, Prague 17 / Zličín, Rudná and Nučice", focus: "flat renovation rubble, construction waste, soil removal and delivery of bulk materials", note: "A photo of the standing place helps quickly check access in residential streets and courtyards." },
+  { cz: "kontejnery-praha-13.html", name: "Prague 13", local: "Stodůlky, Luka, Lužiny and surrounding areas", nearby: "Prague 5, Prague 17 / Zličín, Rudná and Nučice", focus: "flat renovation rubble, construction waste, soil removal and delivery of bulk materials", note: "A photo of the placement spot helps quickly check access in residential streets and courtyards." },
   { cz: "kontejnery-praha-17.html", name: "Prague 17", local: "Řepy, Zličín and the western edge of Prague", nearby: "Hostivice, Jeneč, Prague 6 and Prague-West", focus: "renovations, garden waste, bulky waste and smaller construction jobs", note: "When the container must stand in a public area, confirm the local rules and exact place first." },
   { cz: "kontejnery-praha-zapad.html", name: "Prague-West", local: "Prague-West, including Unhošť, Hostivice, Rudná, Nučice, Jeneč, Chýně and nearby villages", nearby: "Svárov, Červený Újezd, Ptice, Tachlovice and Loděnice", focus: "rubble, soil, garden waste, recycled aggregate and gravel delivery", note: "This is one of the most practical areas for planning routes between Prague, Kladno and Beroun." },
   { cz: "kontejnery-praha-vychod.html", name: "Prague-East", local: "Prague-East by individual route", nearby: "Prague, Central Bohemia and surrounding municipalities", focus: "container delivery, waste removal and bulk material delivery by agreement", note: "For Prague-East, an exact address and photo of access are especially useful because the route and disposal point can vary." },
-  { cz: "kontejnery-unhost.html", name: "Unhošť and Svárov", local: "Unhošť, Svárov, Nouzov, Červený Újezd, Ptice, Pavlov, Kyšice, Malé and Velké Přítočno, Chyňava with Podkozí, Jeneč, Chýně and nearby villages", nearby: "Kladno, Rudná, Nučice and Prague-West", focus: "rubble removal, soil removal, garden waste and recycled aggregate delivery", note: "Svárov and Unhošť are among the closest service areas, which helps with practical route planning and quick communication." },
+  { cz: "kontejnery-unhost.html", name: "Unhošť and Svárov", local: "Unhošť, Svárov, Nouzov, Červený Újezd, Ptice, Pavlov, Kyšice, Malé and Velké Přítočno, Chyňava including Podkozí, Jeneč, Chýně and nearby villages", nearby: "Kladno, Rudná, Nučice and Prague-West", focus: "rubble removal, soil removal, garden waste and recycled aggregate delivery", note: "Svárov and Unhošť are among the closest service areas, which helps with practical route planning and quick communication." },
   { cz: "kontejnery-nucice.html", name: "Nučice", local: "Nučice, Rudná, Tachlovice, Mezouň, Vysoký Újezd, Dobříč, Chýnice, Loděnice and Chrustenice", nearby: "Drahelčice, Úhonice, Chýně, Jinočany, Zbuzany, Ořech, Choteč and Třebotov", focus: "soil from excavation, rubble removal, recycled aggregate and gravel for driveways", note: "Around Nučice, customers often combine soil removal with recycled aggregate or gravel delivery for the next stage of the work." },
   { cz: "kontejnery-rudna.html", name: "Rudná", local: "Rudná, Nučice, Chrášťany, Drahelčice, Chýně, Tachlovice and Úhonice", nearby: "Prague-West, Hostivice, Loděnice and Beroun direction", focus: "soil, rubble, construction waste and material delivery", note: "In Rudná and nearby villages, access to houses, gardens and driveways is usually the key detail for quoting." },
   { cz: "kontejnery-hostivice.html", name: "Hostivice", local: "Hostivice, Jeneč, Dobrovíz, Chýně and the area around Prague airport", nearby: "Prague 5, Prague 6, Unhošť and Prague-West", focus: "waste removal for homes and businesses, rubble containers and material delivery", note: "Hostivice is practical for routes between Prague, Unhošť and Kladno. Tell us if the job is near a narrow street, yard or business site." },
@@ -693,7 +693,7 @@ const geoSummary = ({ heading = "Kontejnerovka.cz at a glance", text, facts = []
 
 const serviceDefinition = (serviceName, definition, use) => `<section class="section service-note geo-summary" aria-label="Service definition">
         <p class="eyebrow">Definition</p>
-        <h2>What ${esc(serviceName)} means on Kontejnerovka.cz</h2>
+        <h2>What ${esc(serviceName.charAt(0).toUpperCase() + serviceName.slice(1).toLowerCase())} means on Kontejnerovka.cz</h2>
         <p>${esc(definition)} ${esc(use)}</p>
       </section>`;
 
@@ -724,7 +724,7 @@ const faqSection = (title, faq, eyebrow = "FAQ") =>
 const expatPracticalities = () => `<section class="section content-blocks" aria-labelledby="expat-practicalities-title">
         <article><h2 id="expat-practicalities-title">Czech address details that help</h2><p>For Prague, send the city district if you know it, for example Prague 5, Prague 6, Prague 13 or Prague 17. Outside Prague, send the town or village and the exact address when possible. A map pin is fine if the Czech address is hard to write.</p></article>
         <article><h2>Prague-West is not Prague 5</h2><p>Prague-West and Prague-East are Central Bohemian districts around Prague, not Prague city districts. Prague 5, Prague 6, Prague 13 and Prague 17 are city districts inside Prague. If you are unsure, the exact address or map pin is enough.</p></article>
-        <article><h2>Private land vs public street</h2><p>A private yard, driveway or construction site is usually simpler. A street, pavement or other public area may depend on municipality or Prague district rules. We confirm timing after the standing place is clear.</p></article>
+        <article><h2>Private land vs public street</h2><p>A private yard, driveway or construction site is usually simpler. A street, pavement or other public area may depend on municipality or Prague district rules. We confirm timing after the placement spot is clear.</p></article>
         <article><h2>Skip hire, dumpster rental, container hire</h2><p>English speakers may search for skip hire or dumpster rental. In Czech practice, the useful request is simply the address, material, amount, access and where the container can stand.</p></article>
       </section>`;
 
@@ -751,7 +751,6 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
             <input type="hidden" name="redirect" value="${baseUrl}/en/thank-you.html">
             <input type="hidden" name="page_url" value="${pageUrl}">
             <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
-            <input type="hidden" name="photo" value="">
             <div class="form-intro">
               <strong>3 short steps. No Czech waste terms required.</strong>
               <span>Write the town or map pin, what should be removed or delivered, approximate amount and access. A photo often replaces several follow-up questions.</span>
@@ -847,7 +846,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
                 </label>
               </div>
               <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420738505028">+420 738 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
-              <p class="form-note">A photo of the access, standing place or material usually makes the quote faster. The final price, VAT and any factor that could change it are confirmed after checking the details.</p>
+              <p class="form-note">A photo of the access, placement spot or material usually makes the quote faster. The final price, VAT and any factor that could change it are confirmed after checking the details.</p>
               <label class="consent">
                 <input type="checkbox" name="souhlas" required>
                 <span>I agree to the processing of my personal data for handling this quote request. <a href="privacy.html">Privacy policy</a>.</span>
@@ -970,7 +969,7 @@ const englishPriceCalculator = () => `<section class="section price-calculator-s
             <ul class="calculator-factors" data-calculator-factors>
               <li>The biggest factor is the material type and whether it is clean or mixed.</li>
               <li>Close routes around Svárov, Unhošť, Nučice or Rudná can help with practical scheduling.</li>
-              <li>A photo of the material or standing place helps confirm the quote faster.</li>
+              <li>A photo of the material or placement spot helps confirm the quote faster.</li>
             </ul>
             <div class="calculator-summary" data-calculator-summary>
               Request: rubble removal. Area: Svárov / Unhošť. Size: Medium container. Access: Good access. Timing: This week.
@@ -1039,11 +1038,11 @@ const renderServicePage = (data) => {
   };
   const body = `<main class="page-main">
       ${subHero(page, "Call and confirm details", "Send job details", "#inquiry")}
-      ${serviceDefinition(data.eyebrow, serviceDefinitionCopy(data), data.intro)}
+      ${serviceDefinition(data.serviceType || data.eyebrow, serviceDefinitionCopy(data), data.intro)}
       <section class="section proof-strip" aria-label="Service essentials">
         <article><i data-lucide="map-pin" aria-hidden="true"></i><strong>Local route</strong><span>Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno and nearby areas</span></article>
         <article><i data-lucide="receipt" aria-hidden="true"></i><strong>Clear quote basis</strong><span>Address, material, amount, access, disposal or delivery route and VAT</span></article>
-        <article><i data-lucide="camera" aria-hidden="true"></i><strong>Photo helps</strong><span>Waste, access and standing place are easier to quote when we can see them</span></article>
+        <article><i data-lucide="camera" aria-hidden="true"></i><strong>Photo helps</strong><span>Waste, access and placement spot are easier to quote when we can see them</span></article>
       </section>
 
       <section class="section service-detail">
@@ -1078,7 +1077,7 @@ const renderServicePage = (data) => {
       </section>
 
       <section class="cta-band">
-        <h2>Need to quote this job?</h2>
+        <h2>Need a quote for this job?</h2>
         <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
       </section>
 
@@ -1138,8 +1137,8 @@ const renderAdvicePage = (data) => {
 
 const locationFaq = (data) => [
   [`Do you serve ${data.name}?`, `Yes. Kontejnerovka.cz quotes container delivery, waste removal and material delivery in ${data.name} by exact address, load type, amount and truck access.`],
-  [`What should I send for a quote in ${data.name}?`, `Send the town or address, what should be removed or delivered, approximate amount, access details, preferred date and a photo of the material or standing place.`],
-  [`What local detail matters most in ${data.name}?`, `The exact address or map pin matters most. For Prague addresses, the city district and street or pavement placement can matter. Outside Prague, the town or village, access road and private or public standing place are usually the key details.`],
+  [`What should I send for a quote in ${data.name}?`, `Send the town or address, what should be removed or delivered, approximate amount, access details, preferred date and a photo of the material or placement spot.`],
+  [`What local detail matters most in ${data.name}?`, `The exact address or map pin matters most. For Prague addresses, the city district and street or pavement placement can matter. Outside Prague, the town or village, access road and private or public placement spot are usually the key details.`],
   [`Can removal and material delivery be combined in ${data.name}?`, `Often yes, especially for soil, rubble, recycled aggregate, gravel or sand. The route and timing must be confirmed for the specific job.`],
 ];
 
@@ -1179,7 +1178,7 @@ const renderLocationPage = (data) => {
       <section class="section proof-strip" aria-label="Local quote factors">
         <article><i data-lucide="map" aria-hidden="true"></i><strong>Area</strong><span>${esc(data.local)}</span></article>
         <article><i data-lucide="truck" aria-hidden="true"></i><strong>Common jobs</strong><span>${esc(data.focus)}</span></article>
-        <article><i data-lucide="clipboard-check" aria-hidden="true"></i><strong>Quote basis</strong><span>Route, material, amount, access and standing place</span></article>
+        <article><i data-lucide="clipboard-check" aria-hidden="true"></i><strong>Quote basis</strong><span>Route, material, amount, access and placement spot</span></article>
       </section>
 
       <section class="section content-blocks">
@@ -1286,7 +1285,7 @@ const corePages = {
         <article><i data-lucide="badge-check" aria-hidden="true"></i><strong>Verifiable operator</strong><span>Matyáš Mašín, company ID 01379178</span></article>
         <article><i data-lucide="receipt" aria-hidden="true"></i><strong>VAT payer</strong><span>VAT ID CZ9211070033, invoices for companies and private customers</span></article>
         <article><i data-lucide="map-pin" aria-hidden="true"></i><strong>Local service</strong><span>Svárov, Unhošť, Nučice, Rudná, Kladno, Hostivice and Prague-West</span></article>
-        <article><i data-lucide="camera" aria-hidden="true"></i><strong>Photos help</strong><span>Access, standing place and material photos usually make quoting faster</span></article>
+        <article><i data-lucide="camera" aria-hidden="true"></i><strong>Photos help</strong><span>Access, placement spot and material photos usually make quoting faster</span></article>
       </section>
 
       <section class="section content-blocks" aria-labelledby="english-decision-title">
@@ -1338,7 +1337,7 @@ const corePages = {
           <p>We also work in Prague and wider Central Bohemia. Close routes are easier to plan, especially when removal and material delivery can be connected sensibly.</p>
         </div>
         <div class="content-blocks">
-          <article><h2>Frequently served towns</h2><p>Svárov, Unhošť, Nouzov, Červený Újezd, Ptice, Pavlov, Kyšice, Malé and Velké Přítočno, Chyňava with Podkozí, Jeneč, Chýně, Rudná, Nučice, Hostivice, Braškov, Velká Dobrá and nearby Kladno areas.</p></article>
+          <article><h2>Frequently served towns</h2><p>Svárov, Unhošť, Nouzov, Červený Újezd, Ptice, Pavlov, Kyšice, Malé and Velké Přítočno, Chyňava including Podkozí, Jeneč, Chýně, Rudná, Nučice, Hostivice, Braškov, Velká Dobrá and nearby Kladno areas.</p></article>
           <article><h2>Prague and Central Bohemia</h2><p>Prague 5, Prague 6, Prague 13, Prague 17, Prague-West, Prague-East, Kladno, Beroun, Rakovník, Slaný, Hořovice, Zdice and Králův Dvůr by route.</p></article>
           <article><h2>What helps the quote</h2><p>Exact address, material type, approximate amount, access and a photo of the standing or tipping place.</p></article>
         </div>
@@ -1405,7 +1404,7 @@ const corePages = {
   "pricing.html": () => {
     const faq = [
       ["Why is there no fixed price list?", "Container transport depends on route, load, amount, disposal or material source, access and timing."],
-      ["What should I send for a fast quote?", "Address or map pin, material, estimated amount, preferred date, standing place and a photo if access is not obvious."],
+      ["What should I send for a fast quote?", "Address or map pin, material, estimated amount, preferred date, placement spot and a photo if access is not obvious."],
       ["Can similar jobs cost differently?", "Yes. The same volume can differ by weight, waste composition, route, permit needs or disposal point."],
       ["What do IČO, DIČ, DPH and VAT mean?", "IČO is Czech company ID, DIČ is a tax or VAT ID and DPH means VAT. VAT and documents are clarified before the job is confirmed."],
     ];
@@ -1457,11 +1456,11 @@ const corePages = {
       ${geoSummary({
         heading: "Service area in one answer",
         text: "Kontejnerovka.cz serves Prague and Central Bohemia, especially Prague-West, Unhošť, Svárov, Nučice, Rudná, Kladno, Hostivice and Beroun. Wider routes are quoted by exact address and job details.",
-        facts: ["Closest practical routes: Svárov, Unhošť, Nučice, Rudná and Hostivice", "Prague districts are quoted by access and standing place", "Further Central Bohemia is quoted by route and amount"],
+        facts: ["Closest practical routes: Svárov, Unhošť, Nučice, Rudná and Hostivice", "Prague districts are quoted by access and placement spot", "Further Central Bohemia is quoted by route and amount"],
       })}
       ${expatPracticalities()}
       <section class="section location-sections">
-        ${locationPages.map((item) => `<article><h2>${esc(item.name)}</h2><p>${esc(item.local)}. Common jobs: ${esc(item.focus)}. ${esc(item.note)}</p><a class="text-link" href="${hrefForCz(item.cz)}">Detail ${esc(item.name)}</a></article>`).join("")}
+        ${locationPages.map((item) => `<article><h2>${esc(item.name)}</h2><p>${esc(item.local)}. Common jobs: ${esc(item.focus)}. ${esc(item.note)}</p><a class="text-link" href="${hrefForCz(item.cz)}">View ${esc(item.name)}</a></article>`).join("")}
       </section>
       <section class="section content-blocks"><article><h2>Prague</h2><p>Access, street placement and district rules are often the key points. Send the district and whether the container can stand on private land, a street or a pavement.</p></article><article><h2>Prague-West and nearby towns</h2><p>Svárov, Unhošť, Nučice, Rudná, Hostivice and Kladno are practical for route planning and combined removal or delivery. Prague-West is a Central Bohemian district, not the same as Prague 5.</p></article><article><h2>Further Central Bohemia</h2><p>Beroun, Rakovník, Slaný, Hořovice, Zdice and Králův Dvůr are quoted by exact address, amount and route. A map pin is enough if local names are confusing.</p></article></section>
       <section class="cta-band"><h2>Not sure whether we serve your address?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send your town and job details</a></section>
@@ -1524,18 +1523,18 @@ const corePages = {
       eyebrow: "Equipment and access",
       title: "Hook-loader container truck for removal and material delivery",
       metaTitle: "Equipment and Container Access | Kontejnerovka.cz",
-      description: "Practical information about hook-loader container delivery, access, standing place, material weight and what to send before dispatch.",
-      intro: "Container transport depends on the truck, access, safe standing place, material type and weight. A photo of the place often answers more than a long description.",
+      description: "Practical information about hook-loader container delivery, access, placement spot, material weight and what to send before dispatch.",
+      intro: "Container transport depends on the truck, access, safe placement spot, material type and weight. A photo of the place often answers more than a long description.",
       schema: [localBusinessSchema(), { "@context": "https://schema.org", "@type": "WebPage", name: "Equipment and container access", url: enUrl("equipment.html"), isPartOf: { "@id": websiteId }, about: providerRef }, breadcrumb({ en: "equipment.html", title: "Equipment" })],
     };
     const body = `<main class="page-main">
       ${subHero(page, "Call about access", "Send a photo")}
       ${geoSummary({
         heading: "Equipment in one answer",
-        text: "Container delivery depends on truck access, safe standing place, material weight and whether the container can stand on private land or a public place. A photo of the access usually makes the quote faster.",
+        text: "Container delivery depends on truck access, safe placement spot, material weight and whether the container can stand on private land or a public place. A photo of the access usually makes the quote faster.",
         facts: ["Heavy materials: rubble, concrete and wet soil", "Access issues: narrow driveways, slope, parked cars, branches, cables and soft ground", "Public street placement may require local permission"],
       })}
-      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><source srcset="../assets/site-machine.webp" type="image/webp"><img src="../assets/site-machine.jpg" alt="Construction machinery and container access area" width="1200" height="704" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the standing place", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
+      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><source srcset="../assets/site-machine.webp" type="image/webp"><img src="../assets/site-machine.jpg" alt="Construction machinery and container access area" width="1200" height="704" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the placement spot", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
       <section class="section service-detail"><div class="section-head"><p class="eyebrow">Weight and volume</p><h2>Container size is chosen by material, not just volume</h2><p>Light bulky material is different from heavy rubble, concrete or wet soil. The safe solution depends on both volume and weight.</p></div><div class="detail-grid"><article><h3>Rubble and concrete</h3><p>Heavy material where clean sorting and safe weight matter.</p></article><article><h3>Soil</h3><p>Moisture, stones, roots and volume can change the job quickly.</p></article><article><h3>Wood and green waste</h3><p>Usually more volume-sensitive, but mixed material must be described.</p></article></div></section>
       <section class="section seo-panel"><h2>Related practical pages</h2><p>These pages help with access, permit and material decisions.</p>${linkCloud([["Container delivery", "pristaveni-kontejneru.html"], ["Permit in Prague", "povoleni-kontejner-praha.html"], ["Rubble container", "kontejner-na-sut.html"], ["Soil container", "kontejner-na-zeminu.html"]])}</section>
       <section class="cta-band"><h2>Unsure whether the truck can access the place?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send a photo of the access</a></section>
@@ -1556,7 +1555,7 @@ const corePages = {
     const body = `<main class="page-main">
       ${subHero(page, "Call +420 738 505 028", "Send a quote request")}
       <section class="section proof-strip" aria-label="Contact details"><article><i data-lucide="phone" aria-hidden="true"></i><strong>Phone</strong><span>+420 738 505 028</span></article><article><i data-lucide="mail" aria-hidden="true"></i><strong>Email</strong><span>info@kontejnerovka.cz</span></article><article><i data-lucide="receipt" aria-hidden="true"></i><strong>VAT payer</strong><span>ID 01379178, VAT ID CZ9211070033</span></article><article><i data-lucide="map" aria-hidden="true"></i><strong>Google profile</strong><span><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Verify the business</a></span></article></section>
-      <section class="section content-blocks"><article><h2>What to say by phone</h2><p>Town or map pin, material, approximate amount, date and access. If you do not know the container size, describe the job and we will discuss it.</p></article><article><h2>What to send in the form</h2><p>Address or map pin, material, amount, access, standing place and a photo. In Prague, add the city district and whether the container must stand in the street or on the pavement.</p></article><article><h2>Closest areas</h2><p>Svárov, Unhošť, Nučice, Rudná, Hostivice, Prague-West and Kladno are strong route areas. Prague and wider Central Bohemia are quoted by job.</p></article></section>
+      <section class="section content-blocks"><article><h2>What to say by phone</h2><p>Town or map pin, material, approximate amount, date and access. If you do not know the container size, describe the job and we will discuss it.</p></article><article><h2>What to send in the form</h2><p>Address or map pin, material, amount, access, placement spot and a photo. In Prague, add the city district and whether the container must stand in the street or on the pavement.</p></article><article><h2>Closest areas</h2><p>Svárov, Unhošť, Nučice, Rudná, Hostivice, Prague-West and Kladno are strong route areas. Prague and wider Central Bohemia are quoted by job.</p></article></section>
       ${expatPracticalities()}
       ${contactSection(page)}
       <section class="section service-note"><p class="eyebrow">Company details</p><h2>Contact and invoicing details are public</h2><p>Operator: Matyáš Mašín. Company ID 01379178, VAT ID CZ9211070033, VAT payer. Address: Holýšovská 2923/4, Stodůlky, 155 00 Prague 5. A <a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google Business Profile</a> is available for verification.</p></section>
@@ -1587,7 +1586,7 @@ const corePages = {
         text: "English-speaking customers can order a container without knowing Czech waste category names. Kontejnerovka.cz can start from a plain description, exact address, amount, access and a photo.",
         facts: ["Clean rubble, soil, wood, green waste and mixed waste are different categories", "Street placement may require local rules or permission", "A photo of waste and access reduces quoting errors"],
       })}
-      <section class="section content-blocks"><article><h2>Sort before mixing</h2><p>Clean rubble, soil, wood, green waste and mixed waste are not the same. Mixing can change the quote or make disposal harder.</p></article><article><h2>Photos are useful</h2><p>A photo of the pile, access and standing place makes the quote faster and reduces back-and-forth. A map pin is also useful if the address is hard to describe in Czech.</p></article><article><h2>Street placement</h2><p>If the container stands on a street, pavement or public area, local rules may apply before choosing the date. In Czech this is often connected with the word <strong>zábor</strong>.</p></article></section>
+      <section class="section content-blocks"><article><h2>Sort before mixing</h2><p>Clean rubble, soil, wood, green waste and mixed waste are not the same. Mixing can change the quote or make disposal harder.</p></article><article><h2>Photos are useful</h2><p>A photo of the pile, access and placement spot makes the quote faster and reduces back-and-forth. A map pin is also useful if the address is hard to describe in Czech.</p></article><article><h2>Street placement</h2><p>If the container stands on a street, pavement or public area, local rules may apply before choosing the date. In Czech this is often connected with the word <strong>zábor</strong>.</p></article></section>
       <section class="section service-note" aria-label="Glossary for English-speaking customers">
         <p class="eyebrow">Expat glossary</p>
         <h2>Useful Czech waste terms in plain English</h2>
@@ -1616,7 +1615,7 @@ const utilityPages = {
       intro: "We will reply with the quote or ask for missing details. If you need the container urgently, call +420 738 505 028.",
       schema: [{ "@context": "https://schema.org", "@type": "WebPage", name: "Thank you", url: enUrl("thank-you.html"), isPartOf: { "@id": websiteId }, about: providerRef }],
     };
-    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;738&nbsp;505&nbsp;028.</p><p>If you have not sent a photo of the waste, standing place or access yet, send it now by SMS, WhatsApp or email. It often speeds up the exact quote.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
+    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;738&nbsp;505&nbsp;028.</p><p>If you have not sent a photo of the waste, placement spot or access yet, send it now by SMS, WhatsApp or email. It often speeds up the exact quote.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
     return pageShell(page, body);
   },
   "privacy.html": () => {
