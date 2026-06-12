@@ -20,8 +20,17 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const MARKER_START = "<!-- mini-inquiry:start -->";
 const MARKER_END = "<!-- mini-inquiry:end -->";
 
+const ZEMNI = new Set([
+  "zemni-prace.html",
+  "vykop-zakladu.html",
+  "vykop-bazenu.html",
+  "vykop-jezirka.html",
+  "odbahneni-rybniku.html",
+  "rovnani-terenu.html",
+]);
+
 const pages = [
-  // služby
+  // zemní práce
   "zemni-prace.html",
   "vykop-zakladu.html",
   "vykop-bazenu.html",
@@ -69,12 +78,24 @@ const pages = [
 const escapeHtml = (value) =>
   value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
-const miniForm = (slug, subjectLabel) => `      ${MARKER_START}
+const miniForm = (slug, subjectLabel) => {
+  const zemni = ZEMNI.has(slug);
+  const intro = zemni
+    ? "Stačí telefon, obec a co se má vykopat nebo upravit. Fotka místa a vjezdu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem."
+    : "Stačí telefon, obec a co se má odvézt nebo dovézt. Fotka místa nebo odpadu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem.";
+  const messageLabel = zemni ? "Co se má vykopat nebo upravit" : "Co se poveze";
+  const messagePlaceholder = zemni
+    ? "Např. základy 10×8 m, jáma pro bazén, srovnání zahrady, odbahnění nádrže..."
+    : "Např. suť z koupelny, zemina z výkopu, směs po vyklízení...";
+  const photoNote = zemni
+    ? "Fotku místa a vjezdu na pozemek pošlete po odeslání poptávky na"
+    : "Fotku odpadu nebo místa pošlete po odeslání poptávky na";
+  return `      ${MARKER_START}
       <section class="section mini-inquiry" id="poptavka" aria-labelledby="mini-inquiry-title">
         <div class="section-head compact">
           <p class="eyebrow">Rychlá poptávka</p>
           <h2 id="mini-inquiry-title">Pošlete poptávku rovnou z této stránky</h2>
-          <p>Stačí telefon, obec a co se má odvézt nebo dovézt. Fotka místa nebo odpadu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem.</p>
+          <p>${intro}</p>
         </div>
         <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
           <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
@@ -94,10 +115,10 @@ const miniForm = (slug, subjectLabel) => `      ${MARKER_START}
             </label>
           </div>
           <label>
-            Co se poveze
-            <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
+            ${messageLabel}
+            <textarea name="message" rows="3" required placeholder="${messagePlaceholder}"></textarea>
           </label>
-          <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
+          <p class="field-note form-photo-note">${photoNote} <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku
@@ -108,6 +129,7 @@ const miniForm = (slug, subjectLabel) => `      ${MARKER_START}
       </section>
       ${MARKER_END}
 `;
+};
 
 const getSubjectLabel = (slug, html) => {
   const eyebrow = html.match(/<p class="eyebrow">([^<]+)<\/p>/);
