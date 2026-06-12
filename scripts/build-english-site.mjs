@@ -636,12 +636,51 @@ const btns = (primaryText = "Call for a quote", secondaryText = "Send a request"
           <a class="btn btn-dark" href="${secondaryHref}"><i data-lucide="send" aria-hidden="true"></i>${secondaryText}</a>
         </div>`;
 
+// Stránky, které pod trustbarem dostanou i sekci "Field proof" s fotkami techniky.
+const SHOWCASE_PAGES = new Set([
+  "services.html",
+  "pricing.html",
+  "areas.html",
+  "container-delivery.html",
+  "rubble-container.html",
+  "rubble-removal.html",
+  "soil-removal.html",
+  "soil-container.html",
+  "sand-gravel-delivery.html",
+  "containers-prague.html",
+  "containers-prague-west.html",
+  "containers-kladno.html",
+  "containers-nucice.html",
+  "containers-unhost.html",
+]);
+
+const subpageTrustbar = () => `<div class="subpage-trustbar" aria-label="Quote advantages"><div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Fast quote</strong><span>Town, load, amount and date are enough.</span></span></div><div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Photo helps</strong><span>Access and waste type are clearer immediately.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Confirmed before dispatch</strong><span>Price, VAT and route are agreed first.</span></span></div></div>`;
+
+const subpageShowcase = () => `<section class="section visual-proof subpage-showcase" aria-labelledby="field-proof-title">
+        <div class="visual-proof-copy">
+          <p class="eyebrow">Field proof</p>
+          <h2 id="field-proof-title">Real equipment, clear quote, practical dispatch</h2>
+          <p>Container jobs are decided by access, load type and safe handling on site. The fastest way to get a useful quote is a town, a short description and a photo of the place.</p>
+          <a class="section-link light" href="contact.html#form">Send details for pricing</a>
+        </div>
+        <div class="visual-proof-grid">
+          <article class="visual-proof-card image-card"><picture><source srcset="../assets/hero-truck.webp" type="image/webp"><img src="../assets/hero-truck.jpg" alt="Container truck on a construction site" width="1200" height="800" loading="lazy"></picture><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
+          <article class="visual-proof-card image-card"><picture><source srcset="../assets/material-load.webp" type="image/webp"><img src="../assets/material-load.jpg" alt="Bulk material loaded for site delivery" width="1200" height="800" loading="lazy"></picture><div><span>Material and waste</span><strong>Rubble, soil and aggregates are priced by type, amount and route.</strong></div></article>
+          <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 details</span><h3>Town, load and photo usually shorten the quote.</h3><p>If access is narrow, the container stands in a street or the waste is mixed, a photo prevents back-and-forth and helps confirm the right option.</p></article>
+        </div>
+      </section>`;
+
+// Trustbar (a u vybraných stránek showcase) dostává každá stránka se subHero —
+// tj. přesně službové, lokalitní, poradenské a core stránky; utility stránky
+// (index, 404, privacy, thank-you) subHero nepoužívají, takže zůstávají bez něj.
 const subHero = (page, primaryText, secondaryText, secondaryHref) => `<section class="subpage-hero">
         <p class="eyebrow">${esc(page.eyebrow)}</p>
         <h1>${esc(page.title)}</h1>
         <p>${esc(page.intro)}</p>
         ${btns(primaryText, secondaryText, secondaryHref)}
-      </section>`;
+      </section>
+      ${subpageTrustbar()}${SHOWCASE_PAGES.has(page.en) ? `
+      ${subpageShowcase()}` : ""}`;
 
 const geoSummary = ({ heading = "Kontejnerovka.cz at a glance", text, facts = [] }) => `<section class="section service-note geo-summary" aria-label="Short AI-readable summary">
         <p class="eyebrow">Quick facts</p>

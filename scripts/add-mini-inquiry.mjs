@@ -94,11 +94,7 @@ const miniForm = (slug, subjectLabel) => `      ${MARKER_START}
             Co se poveze
             <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
           </label>
-          <label class="file-input">
-            Fotka odpadu nebo místa <span class="field-note">volitelné</span>
-            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC nebo PDF">
-            <span data-file-name>JPG, PNG, WEBP, HEIC nebo PDF</span>
-          </label>
+          <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku
