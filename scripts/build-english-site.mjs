@@ -584,8 +584,8 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260611b">
-    <script src="../script.js?v=20260611b" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260612b">
+    <script src="../script.js?v=20260612b" defer></script>
     ${schema}
   </head>`;
 };
@@ -1750,6 +1750,15 @@ const sitemapEntry = (loc, pair, relFile) => `  <url>
     <priority>${pair.priority}</priority>
   </url>`;
 
+const czOnlyPages = [
+  { file: "zemni-prace.html", priority: "0.85", changefreq: "weekly" },
+  { file: "vykop-zakladu.html", priority: "0.8", changefreq: "monthly" },
+  { file: "vykop-bazenu.html", priority: "0.8", changefreq: "monthly" },
+  { file: "vykop-jezirka.html", priority: "0.8", changefreq: "monthly" },
+  { file: "odbahneni-rybniku.html", priority: "0.8", changefreq: "monthly" },
+  { file: "rovnani-terenu.html", priority: "0.8", changefreq: "monthly" },
+];
+
 const writeSitemap = () => {
   const plainEntry = (loc, pair, relFile) => `  <url>
     <loc>${loc}</loc>
@@ -1759,7 +1768,7 @@ const writeSitemap = () => {
   </url>`;
   const entries = pairs.flatMap((pair) => pair.enNoindex
     ? [plainEntry(czUrl(pair.cz), pair, pair.cz || "index.html")]
-    : [sitemapEntry(czUrl(pair.cz), pair, pair.cz || "index.html"), sitemapEntry(enUrl(pair.en), pair, `en/${pair.en || "index.html"}`)]).join("\n");
+    : [sitemapEntry(czUrl(pair.cz), pair, pair.cz || "index.html"), sitemapEntry(enUrl(pair.en), pair, `en/${pair.en || "index.html"}`)]).concat(czOnlyPages.map((p) => plainEntry(`${baseUrl}/${p.file}`, p, p.file))).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries}

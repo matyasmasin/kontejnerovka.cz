@@ -1,6 +1,6 @@
 # Kontejnerovka.cz
 
-> Lokální kontejnerová doprava pro Prahu a Středočeský kraj — přistavení kontejnerů,
+> Lokální kontejnerová doprava a zemní práce pro Prahu a Středočeský kraj — kontejnery,
 > odvoz suti, zeminy a odpadu a dovoz písku, štěrku, kačírku, recyklátu a betonu.
 > Provozuje Matyáš Mašín, IČO 01379178, DIČ CZ9211070033 (plátce DPH).
 
@@ -32,6 +32,16 @@ hmotnosti, přístupu pro auto, doby stání, skládkovného a DPH. Web nemá ve
 v Kč; pro přesné nacenění je potřeba poslat obec nebo adresu, popis nákladu, množství,
 termín, přístup a ideálně fotku.
 
+## Zemní práce (od 2026: nová služba)
+
+- Pásový minibagr 2,5 t, pásový bagr 5 t, pásový dumper 2 t, kloubový nakladač 5 t
+- Výkopy základů pro rodinné domy a přístavby, stavební jámy pro bazény
+- Výkop a tvarování zahradních i přírodních koupacích jezírek
+- Odbahnění menších rybníků a návesních nádrží vč. kamenných záhozů a přelivových hran
+- Rovnání terénu, úprava pozemků, odvoz hlíny dumperem i z míst bez příjezdu
+- 15 let praxe se zemními pracemi
+- Přehled: https://kontejnerovka.cz/zemni-prace.html
+
 ## Důležité stránky
 
 - Úvod: https://kontejnerovka.cz/
@@ -41,6 +51,7 @@ termín, přístup a ideálně fotku.
 - Lokality: https://kontejnerovka.cz/lokality.html
 - Poradna: https://kontejnerovka.cz/poradna.html
 - Technika a přistavení: https://kontejnerovka.cz/technika.html
+- Zemní práce: https://kontejnerovka.cz/zemni-prace.html
 - Reference: https://kontejnerovka.cz/reference.html
 - Kontejner na suť: https://kontejnerovka.cz/kontejner-na-sut.html
 - Kontejner na stavební odpad: https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html

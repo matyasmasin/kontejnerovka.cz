@@ -22,6 +22,12 @@ const MARKER_END = "<!-- mini-inquiry:end -->";
 
 const pages = [
   // služby
+  "zemni-prace.html",
+  "vykop-zakladu.html",
+  "vykop-bazenu.html",
+  "vykop-jezirka.html",
+  "odbahneni-rybniku.html",
+  "rovnani-terenu.html",
   "pristaveni-kontejneru.html",
   "kontejner-na-sut.html",
   "kontejner-na-stavebni-odpad.html",
@@ -44,10 +50,8 @@ const pages = [
   "recyklat-prijezdova-cesta.html",
   // lokality
   "kontejnery-beroun.html",
-  "kontejnery-horovice.html",
   "kontejnery-hostivice.html",
   "kontejnery-kladno.html",
-  "kontejnery-kraluv-dvur.html",
   "kontejnery-nucice.html",
   "kontejnery-praha-13.html",
   "kontejnery-praha-17.html",
@@ -60,7 +64,6 @@ const pages = [
   "kontejnery-rudna.html",
   "kontejnery-slany.html",
   "kontejnery-unhost.html",
-  "kontejnery-zdice.html",
 ];
 
 const escapeHtml = (value) =>

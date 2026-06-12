@@ -257,11 +257,20 @@ textarea:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 12px;
+  padding: 10px 10px;
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   font-weight: 700;
+  white-space: nowrap;
   transition: background 160ms ease, color 160ms ease;
+}
+
+/* 9 položek navigace: mezi hamburgerem a plnou šířkou je potřeba úspornější verze */
+@media (max-width: 1360px) {
+  .site-nav a {
+    padding: 10px 7px;
+    font-size: 0.88rem;
+  }
 }
 
 .site-nav a:hover,
@@ -3008,7 +3017,8 @@ i[data-lucide] {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
+  /* 9 položek navigace se mezi 900 a 1180 px nevejde — hamburger nastupuje dřív */
   .site-header {
     grid-template-columns: 1fr auto;
     min-height: 66px;
