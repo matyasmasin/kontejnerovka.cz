@@ -23,8 +23,8 @@
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260611b">
-    <script src="../script.js?v=20260611b" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260612a">
+    <script src="../script.js?v=20260612a" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@id": "https://kontejnerovka.cz/#localbusiness",
@@ -109,6 +109,24 @@
 }</script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://kontejnerovka.cz/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Kladno",
+      "item": "https://kontejnerovka.cz/en/containers-kladno.html"
+    }
+  ]
+}</script>
+    <script type="application/ld+json" data-visible-faq>{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
@@ -142,24 +160,6 @@
         "@type": "Answer",
         "text": "Often yes, especially for soil, rubble, recycled aggregate, gravel or sand. The route and timing must be confirmed for the specific job."
       }
-    }
-  ]
-}</script>
-    <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://kontejnerovka.cz/en/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Kladno",
-      "item": "https://kontejnerovka.cz/en/containers-kladno.html"
     }
   ]
 }</script>
@@ -271,7 +271,7 @@
           <div class="form-row">
             <label>
               Phone
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="\+?[0-9](?:[\s.()\-]?[0-9]){6,14}" title="Enter a phone number, for example +420 738 505 028 or +44 7700 900123." required>
             </label>
             <label>
               Town / address

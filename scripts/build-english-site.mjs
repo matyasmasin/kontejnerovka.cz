@@ -7,6 +7,8 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const enDir = path.join(rootDir, "en");
 const baseUrl = "https://kontejnerovka.cz";
 const todayDate = new Date().toISOString().slice(0, 10);
+const phonePattern = "\\+?[0-9](?:[\\s.()\\-]?[0-9]){6,14}";
+const phoneTitle = "Enter a phone number, for example +420 738 505 028 or +44 7700 900123.";
 
 // lastmod per soubor: necommitnuté změny = dnešek, jinak datum posledního commitu
 const fileLastmod = (relPath) => {
@@ -429,9 +431,9 @@ const advicePages = [
 
 const locationPages = [
   { cz: "kontejnery-praha.html", name: "Prague", local: "Prague (Praha)", nearby: "Prague 5, Prague 6, Prague 13, Prague 17 and other districts", focus: "flat renovations, rubble removal, clearance waste, soil removal and material delivery", note: "In Prague, access and street placement often decide the practical route. If the container will stand on a street or pavement, check the district rules before ordering." },
-  { cz: "kontejnery-praha-5.html", name: "Prague 5", local: "Stodůlky, Zličín, Řeporyje, Jinonice, Košíře and Smíchov", nearby: "Prague-West, Rudná, Nučice and Hostivice", focus: "rubble containers, bathroom renovation waste, garden work and deliveries of sand, gravel or recycled aggregate", note: "For Prague 5, tell us whether the container can stand in a yard, on a building site or in the street." },
+  { cz: "kontejnery-praha-5.html", name: "Prague 5", local: "Smíchov, Košíře, Motol, Jinonice, Radlice, Hlubočepy and nearby Prague 5 streets", nearby: "Prague 13 / Stodůlky, Prague 17 / Zličín, Prague-West, Rudná, Nučice and Hostivice", focus: "rubble containers, bathroom renovation waste, garden work and deliveries of sand, gravel or recycled aggregate", note: "For Prague 5, tell us whether the container can stand in a yard, on a building site or in the street. If you mean Stodůlky or Zličín, the exact address or map pin helps assign the right Prague district." },
   { cz: "kontejnery-praha-6.html", name: "Prague 6", local: "Ruzyně, Břevnov, Dejvice, Veleslavín and nearby districts", nearby: "Hostivice, Jeneč, Unhošť and Prague-West", focus: "renovation rubble, bulky waste, garden waste and material delivery", note: "Access, parked cars and public street placement are often the main points to clarify in Prague 6." },
-  { cz: "kontejnery-praha-13.html", name: "Prague 13", local: "Stodůlky, Luka, Lužiny and surrounding areas", nearby: "Prague 5, Zličín, Rudná and Nučice", focus: "flat renovation rubble, construction waste, soil removal and delivery of bulk materials", note: "A photo of the standing place helps quickly check access in residential streets and courtyards." },
+  { cz: "kontejnery-praha-13.html", name: "Prague 13", local: "Stodůlky, Luka, Lužiny and surrounding areas", nearby: "Prague 5, Prague 17 / Zličín, Rudná and Nučice", focus: "flat renovation rubble, construction waste, soil removal and delivery of bulk materials", note: "A photo of the standing place helps quickly check access in residential streets and courtyards." },
   { cz: "kontejnery-praha-17.html", name: "Prague 17", local: "Řepy, Zličín and the western edge of Prague", nearby: "Hostivice, Jeneč, Prague 6 and Prague-West", focus: "renovations, garden waste, bulky waste and smaller construction jobs", note: "When the container must stand in a public area, confirm the local rules and exact place first." },
   { cz: "kontejnery-praha-zapad.html", name: "Prague-West", local: "Prague-West, including Unhošť, Hostivice, Rudná, Nučice, Jeneč, Chýně and nearby villages", nearby: "Svárov, Červený Újezd, Ptice, Tachlovice and Loděnice", focus: "rubble, soil, garden waste, recycled aggregate and gravel delivery", note: "This is one of the most practical areas for planning routes between Prague, Kladno and Beroun." },
   { cz: "kontejnery-praha-vychod.html", name: "Prague-East", local: "Prague-East by individual route", nearby: "Prague, Central Bohemia and surrounding municipalities", focus: "container delivery, waste removal and bulk material delivery by agreement", note: "For Prague-East, an exact address and photo of access are especially useful because the route and disposal point can vary." },
@@ -695,10 +697,35 @@ const serviceDefinition = (serviceName, definition, use) => `<section class="sec
         <p>${esc(definition)} ${esc(use)}</p>
       </section>`;
 
+const serviceDefinitionCopy = (data) => {
+  const label = data.serviceType || data.eyebrow;
+  if (/delivery/i.test(label) && !/container/i.test(label)) {
+    return `${label} means arranging bulk material delivery by the exact address, amount, material type, unloading access and route.`;
+  }
+  if (/removal/i.test(label)) {
+    return `${label} means arranging collection by the exact address, material composition, amount, truck access, disposal route and safe loading conditions.`;
+  }
+  if (/container|hire/i.test(label)) {
+    return `${label} means bringing a suitable waste container to the agreed place, collecting it after loading and confirming the practical details before dispatch.`;
+  }
+  return `${label} is quoted by exact address, material, amount, access and route.`;
+};
+
+const faqSection = (title, faq, eyebrow = "FAQ") =>
+  faq?.length
+    ? `<section class="section faq" aria-labelledby="${esc(title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")) || "faq"}-title">
+        <div class="section-head compact"><p class="eyebrow">${esc(eyebrow)}</p><h2 id="${esc(title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")) || "faq"}-title">${esc(title)}</h2></div>
+        <div class="faq-list">
+          ${faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}
+        </div>
+      </section>`
+    : "";
+
 const expatPracticalities = () => `<section class="section content-blocks" aria-labelledby="expat-practicalities-title">
         <article><h2 id="expat-practicalities-title">Czech address details that help</h2><p>For Prague, send the city district if you know it, for example Prague 5, Prague 6, Prague 13 or Prague 17. Outside Prague, send the town or village and the exact address when possible. A map pin is fine if the Czech address is hard to write.</p></article>
         <article><h2>Prague-West is not Prague 5</h2><p>Prague-West and Prague-East are Central Bohemian districts around Prague, not Prague city districts. Prague 5, Prague 6, Prague 13 and Prague 17 are city districts inside Prague. If you are unsure, the exact address or map pin is enough.</p></article>
         <article><h2>Private land vs public street</h2><p>A private yard, driveway or construction site is usually simpler. A street, pavement or other public area may depend on municipality or Prague district rules. We confirm timing after the standing place is clear.</p></article>
+        <article><h2>Skip hire, dumpster rental, container hire</h2><p>English speakers may search for skip hire or dumpster rental. In Czech practice, the useful request is simply the address, material, amount, access and where the container can stand.</p></article>
       </section>`;
 
 const czechBusinessTerms = () => `<section class="section service-note" aria-label="Czech company and VAT terms">
@@ -740,7 +767,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
               <legend>Contact and basic job details</legend>
               <div class="form-row">
                 <label>Name<input type="text" name="name" autocomplete="name" required></label>
-                <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required></label>
+                <label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="${phonePattern}" title="${phoneTitle}" required></label>
               </div>
               <div class="form-row">
                 <label>Email <span class="field-note">optional</span><input type="email" name="email" autocomplete="email" placeholder="Optional"></label>
@@ -982,7 +1009,7 @@ const miniInquiryForm = (page, subjectLabel) => {
           <div class="form-row">
             <label>
               Phone
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="${phonePattern}" title="${phoneTitle}" required>
             </label>
             <label>
               Town / address
@@ -1012,7 +1039,7 @@ const renderServicePage = (data) => {
   };
   const body = `<main class="page-main">
       ${subHero(page, "Call and confirm details", "Send job details", "#inquiry")}
-      ${serviceDefinition(data.eyebrow, `${data.eyebrow} is a local container transport service for Prague and Central Bohemia, operated by Kontejnerovka.cz.`, data.intro)}
+      ${serviceDefinition(data.eyebrow, serviceDefinitionCopy(data), data.intro)}
       <section class="section proof-strip" aria-label="Service essentials">
         <article><i data-lucide="map-pin" aria-hidden="true"></i><strong>Local route</strong><span>Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno and nearby areas</span></article>
         <article><i data-lucide="receipt" aria-hidden="true"></i><strong>Clear quote basis</strong><span>Address, material, amount, access, disposal or delivery route and VAT</span></article>
@@ -1091,9 +1118,7 @@ const renderAdvicePage = (data) => {
         </div>
       </section>
 
-      <section class="section content-blocks">
-        ${data.faq.map(([q, a]) => `<article><h2>${esc(q)}</h2><p>${esc(a)}</p></article>`).join("")}
-      </section>
+      ${faqSection("Questions before ordering", data.faq, "Practical FAQ")}
 
       <section class="section seo-panel">
         <h2>Useful next pages</h2>
@@ -1203,6 +1228,12 @@ const renderLocationPage = (data) => {
 
 const corePages = {
   "": () => {
+    const faq = [
+      ["How quickly can I get a quote?", "The fastest way is to call or send the address, material, amount, access details and a photo. The price is confirmed for the specific job."],
+      ["Do you work outside Prague?", "Yes. We serve Prague and Central Bohemia, with strong focus on Prague-West, Unhošť, Svárov, Nučice, Rudná, Kladno, Hostivice and Beroun."],
+      ["Can I ask in English without knowing Czech waste terms?", "Yes. A plain English description, photos and an exact address or map pin are enough to start the quote."],
+      ["Can I mix rubble, soil, wood and green waste?", "Not without agreement. Different materials can have different disposal routes and mixing can change the price."],
+    ];
     const page = {
       en: "",
       eyebrow: "Container hire, rubble removal and material delivery",
@@ -1214,14 +1245,7 @@ const corePages = {
       schema: [
         localBusinessSchema(),
         websiteSchema,
-        faqSchema({
-          faq: [
-            ["How quickly can I get a quote?", "The fastest way is to call or send the address, material, amount, access details and a photo. The price is confirmed for the specific job."],
-            ["Do you work outside Prague?", "Yes. We serve Prague and Central Bohemia, with strong focus on Prague-West, Unhošť, Svárov, Nučice, Rudná, Kladno, Hostivice and Beroun."],
-            ["Can I ask in English without knowing Czech waste terms?", "Yes. A plain English description, photos and an exact address or map pin are enough to start the quote."],
-            ["Can I mix rubble, soil, wood and green waste?", "Not without agreement. Different materials can have different disposal routes and mixing can change the price."],
-          ],
-        }),
+        faqSchema({ faq }),
       ],
     };
 
@@ -1323,6 +1347,8 @@ const corePages = {
 
       ${englishPriceCalculator()}
 
+      ${faqSection("Common questions before ordering", faq)}
+
       <section class="section split" aria-labelledby="materials-title">
         <picture class="split-image">
           <source srcset="../assets/material-load.webp" type="image/webp">
@@ -1377,6 +1403,12 @@ const corePages = {
     return pageShell(page, body);
   },
   "pricing.html": () => {
+    const faq = [
+      ["Why is there no fixed price list?", "Container transport depends on route, load, amount, disposal or material source, access and timing."],
+      ["What should I send for a fast quote?", "Address or map pin, material, estimated amount, preferred date, standing place and a photo if access is not obvious."],
+      ["Can similar jobs cost differently?", "Yes. The same volume can differ by weight, waste composition, route, permit needs or disposal point."],
+      ["What do IČO, DIČ, DPH and VAT mean?", "IČO is Czech company ID, DIČ is a tax or VAT ID and DPH means VAT. VAT and documents are clarified before the job is confirmed."],
+    ];
     const page = {
       en: "pricing.html",
       eyebrow: "Pricing",
@@ -1384,7 +1416,7 @@ const corePages = {
       metaTitle: "Container Hire Pricing Prague | Kontejnerovka.cz",
       description: "How container hire, rubble removal, soil removal, waste removal and material delivery are priced. Quote by address, material, amount, access, disposal and VAT.",
       intro: "We do not guess a fixed price from the website alone. Send the address, load, amount and access details; we will confirm what is included, VAT and any factor that could change the price.",
-      schema: [localBusinessSchema(), breadcrumb({ en: "pricing.html", title: "Pricing" }), faqSchema({ faq: [["Why is there no fixed price list?", "Container transport depends on route, load, amount, disposal or material source, access and timing."], ["What should I send for a fast quote?", "Address or map pin, material, estimated amount, preferred date, standing place and a photo if access is not obvious."], ["Can similar jobs cost differently?", "Yes. The same volume can differ by weight, waste composition, route, permit needs or disposal point."], ["What do IČO, DIČ, DPH and VAT mean?", "IČO is Czech company ID, DIČ is a tax or VAT ID and DPH means VAT. VAT and documents are clarified before the job is confirmed."]] })],
+      schema: [localBusinessSchema(), breadcrumb({ en: "pricing.html", title: "Pricing" }), faqSchema({ faq })],
     };
     const body = `<main class="page-main">
       ${subHero(page, "Call and confirm price", "Send quote details")}
@@ -1405,6 +1437,7 @@ const corePages = {
       <section class="section service-note"><p class="eyebrow">Transparency</p><h2>We confirm the price basis before dispatch</h2><p>The goal is to avoid surprises. Before sending the truck, we clarify whether the quote includes VAT, transport, disposal fee or delivered material and what would change the price.</p></section>
       <section class="section content-blocks"><article><h2>Closest routes can help planning</h2><p>Svárov, Unhošť, Nučice, Rudná, Hostivice, Kladno and Prague-West are practical areas for route planning, but the final quote still depends on the load and access.</p></article><article><h2>Photos save time</h2><p>A photo can show material composition, volume, entrance width, slope, parked cars and the space needed for safe placement.</p></article><article><h2>VAT and documents</h2><p>Kontejnerovka.cz is operated by Matyáš Mašín, VAT payer. We clarify VAT, invoices and any Czech admin wording before the job is confirmed.</p></article></section>
       ${czechBusinessTerms()}
+      ${faqSection("Pricing questions", faq)}
       <section class="cta-band"><h2>Want a realistic price for your address?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send details for pricing</a></section>
     </main>`;
     return pageShell(page, body);
@@ -1532,6 +1565,12 @@ const corePages = {
     return pageShell(page, body);
   },
   "guide.html": () => {
+    const faq = [
+      ["What is the easiest way to ask for a quote?", "Send the address or map pin, material, approximate amount, access and a photo."],
+      ["Should I sort waste before ordering?", "Yes. Clean rubble, soil, wood and mixed waste can have different routes and prices."],
+      ["Do I need a street permit?", "If the container stands on a public place, local rules may apply. Check the municipality or Prague district."],
+      ["What is a zábor?", "Zábor means temporary use or occupation of public space. It may matter when a container stands on a street, pavement or other public area."],
+    ];
     const page = {
       en: "guide.html",
       eyebrow: "Guide",
@@ -1539,7 +1578,7 @@ const corePages = {
       metaTitle: "Container Guide Prague | Kontejnerovka.cz",
       description: "Practical English guide for ordering a waste container in Prague and Central Bohemia: sorting rubble, soil, mixed waste, permits, photos and quote details.",
       intro: "If you do not know Czech waste terms, start with a simple description and a photo. The guide explains what usually matters before ordering.",
-      schema: [localBusinessSchema(), breadcrumb({ en: "guide.html", title: "Guide" }), faqSchema({ faq: [["What is the easiest way to ask for a quote?", "Send the address or map pin, material, approximate amount, access and a photo."], ["Should I sort waste before ordering?", "Yes. Clean rubble, soil, wood and mixed waste can have different routes and prices."], ["Do I need a street permit?", "If the container stands on a public place, local rules may apply. Check the municipality or Prague district."], ["What is a zábor?", "Zábor means temporary use or occupation of public space. It may matter when a container stands on a street, pavement or other public area."]] })],
+      schema: [localBusinessSchema(), breadcrumb({ en: "guide.html", title: "Guide" }), faqSchema({ faq })],
     };
     const body = `<main class="page-main">
       ${subHero(page, "Call for advice", "Send a photo")}
@@ -1555,6 +1594,7 @@ const corePages = {
         <p><strong>Suť</strong> means rubble from renovation or demolition. <strong>Zemina</strong> means soil or excavation material. <strong>Směsný stavební odpad</strong> means mixed construction waste. <strong>Recyklát</strong> means recycled aggregate, often used for base layers or access roads. <strong>Zábor</strong> means temporary occupation of public space, often relevant for a container on a street or pavement. <strong>Skládka</strong> means landfill or disposal site. <strong>IČO</strong> is Czech company ID, <strong>DIČ</strong> is a tax or VAT ID and <strong>DPH</strong> means VAT.</p>
       </section>
       ${expatPracticalities()}
+      ${faqSection("Guide questions", faq)}
       <section class="section service-detail"><div class="section-head"><p class="eyebrow">High-intent guides</p><h2>Common questions before ordering</h2><p>These pages are written for real situations rather than generic SEO phrases.</p></div><div class="detail-grid">${adviceLinks.map(([label, slug]) => `<article><h3><a href="${hrefForCz(slug)}">${esc(label)}</a></h3><p>Practical notes on what to send, what affects the price and what to check before ordering.</p></article>`).join("")}</div></section>
       <section class="section seo-panel"><h2>Service pages</h2><p>Use these when you already know the service or material.</p>${linkCloud(serviceLinks.slice(0, 12))}</section>
       <section class="cta-band"><h2>Still unsure what category your waste is?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send a photo and short note</a></section>
@@ -1576,7 +1616,7 @@ const utilityPages = {
       intro: "We will reply with the quote or ask for missing details. If you need the container urgently, call +420 738 505 028.",
       schema: [{ "@context": "https://schema.org", "@type": "WebPage", name: "Thank you", url: enUrl("thank-you.html"), isPartOf: { "@id": websiteId }, about: providerRef }],
     };
-    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;738&nbsp;505&nbsp;028.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
+    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;738&nbsp;505&nbsp;028.</p><p>If you have not sent a photo of the waste, standing place or access yet, send it now by SMS, WhatsApp or email. It often speeds up the exact quote.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
     return pageShell(page, body);
   },
   "privacy.html": () => {

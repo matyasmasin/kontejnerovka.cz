@@ -23,8 +23,8 @@
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260611b">
-    <script src="../script.js?v=20260611b" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260612a">
+    <script src="../script.js?v=20260612a" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@id": "https://kontejnerovka.cz/#localbusiness",
@@ -103,7 +103,7 @@
     }
   ]
 }</script>
-    <script type="application/ld+json">{
+    <script type="application/ld+json" data-visible-faq>{
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
@@ -173,8 +173,11 @@
         </div>
       </section>
 
-      <section class="section content-blocks">
-        <article><h2>Does every street placement need a permit?</h2><p>Not every situation is identical. Public space rules depend on the municipality or city district.</p></article><article><h2>Can you quote before the permit is ready?</h2><p>We can discuss the job, but final timing may depend on the allowed standing place and date.</p></article>
+      <section class="section faq" aria-labelledby="questions-before-ordering-title">
+        <div class="section-head compact"><p class="eyebrow">Practical FAQ</p><h2 id="questions-before-ordering-title">Questions before ordering</h2></div>
+        <div class="faq-list">
+          <details><summary>Does every street placement need a permit?</summary><p>Not every situation is identical. Public space rules depend on the municipality or city district.</p></details><details><summary>Can you quote before the permit is ready?</summary><p>We can discuss the job, but final timing may depend on the allowed standing place and date.</p></details>
+        </div>
       </section>
 
       <section class="section seo-panel">
@@ -204,7 +207,7 @@
           <div class="form-row">
             <label>
               Phone
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Enter a Czech phone number, for example 738 505 028 or +420 738 505 028." required>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="\+?[0-9](?:[\s.()\-]?[0-9]){6,14}" title="Enter a phone number, for example +420 738 505 028 or +44 7700 900123." required>
             </label>
             <label>
               Town / address
