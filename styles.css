@@ -3514,3 +3514,19 @@ i[data-lucide] {
     height: 42px;
   }
 }
+
+/* Mobilní LCP: menší hero obrázek (44 kB místo 125 kB) */
+@media (max-width: 780px) {
+  .hero-bg {
+    background:
+      linear-gradient(90deg, rgba(5, 7, 6, 0.98), rgba(11, 15, 13, 0.86) 42%, rgba(11, 15, 13, 0.2)),
+      url("assets/hero-truck-mobile.webp") 68% center / cover;
+  }
+
+  .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.38) 44%, rgba(13, 18, 15, 0.08) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.92), rgba(13, 18, 15, 0.2) 48%, rgba(13, 18, 15, 0.78)),
+      url("assets/hero-truck-mobile.webp") center 64% / cover no-repeat;
+  }
+}
