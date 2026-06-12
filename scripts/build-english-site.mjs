@@ -780,11 +780,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
                   </select>
                 </label>
               </div>
-              <label class="file-input">
-                Photo of the waste or access <span class="field-note">optional</span>
-                <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC or PDF">
-                <span data-file-name>JPG, PNG, WEBP, HEIC or PDF</span>
-              </label>
+              <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420738505028">+420 738 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
               <p class="form-note">A photo of the access, standing place or material usually makes the quote faster. The final price, VAT and any factor that could change it are confirmed after checking the details.</p>
               <label class="consent">
                 <input type="checkbox" name="souhlas" required>
@@ -929,7 +925,9 @@ const englishPriceCalculator = () => `<section class="section price-calculator-s
         </noscript>
       </section>`;
 
-const miniInquiryForm = (page) => `<section class="section mini-inquiry" id="inquiry" aria-labelledby="mini-inquiry-title">
+const miniInquiryForm = (page, subjectLabel) => {
+  if (!subjectLabel) throw new Error(`miniInquiryForm: missing subjectLabel for ${page.en || page.title}`);
+  return `<section class="section mini-inquiry" id="inquiry" aria-labelledby="mini-inquiry-title">
         <div class="section-head compact">
           <p class="eyebrow">Quick quote request</p>
           <h2 id="mini-inquiry-title">Send a quote request from this page</h2>
@@ -937,7 +935,7 @@ const miniInquiryForm = (page) => `<section class="section mini-inquiry" id="inq
         </div>
         <form class="inquiry-form mini-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-mini-form>
           <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
-          <input type="hidden" name="subject" value="Quick quote request from the English Kontejnerovka.cz website">
+          <input type="hidden" name="subject" value="${esc(`Quick quote request — ${subjectLabel} (EN, Kontejnerovka.cz)`)}">
           <input type="hidden" name="from_name" value="Kontejnerovka.cz">
           <input type="hidden" name="redirect" value="https://kontejnerovka.cz/en/thank-you.html">
           <input type="hidden" name="page_url" value="${enUrl(page.en)}">
@@ -956,11 +954,7 @@ const miniInquiryForm = (page) => `<section class="section mini-inquiry" id="inq
             What should be removed or delivered
             <textarea name="message" rows="3" required placeholder="E.g. bathroom rubble, soil from digging, mixed waste after a clear-out..."></textarea>
           </label>
-          <label class="file-input">
-            Photo of the waste or the place <span class="field-note">optional</span>
-            <input type="file" name="attachment" accept=".jpg,.jpeg,.png,.webp,.heic,.pdf,image/jpeg,image/png,image/webp,application/pdf" data-default-file="JPG, PNG, WEBP, HEIC or PDF">
-            <span data-file-name>JPG, PNG, WEBP, HEIC or PDF</span>
-          </label>
+          <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420738505028">+420 738 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Send quote request
@@ -969,6 +963,7 @@ const miniInquiryForm = (page) => `<section class="section mini-inquiry" id="inq
           <p class="form-privacy">By sending the form you share the details needed to quote and arrange the job. See the <a href="privacy.html">privacy policy</a>. In a hurry? Call <a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a>.</p>
         </form>
       </section>`;
+};
 
 const renderServicePage = (data) => {
   const page = {
@@ -1021,7 +1016,7 @@ const renderServicePage = (data) => {
         <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send details for a quote</a>
       </section>
 
-      ${miniInquiryForm(page)}
+      ${miniInquiryForm(page, data.eyebrow)}
     </main>`;
   return pageShell(page, body, { formHref: "#inquiry" });
 };
@@ -1072,7 +1067,7 @@ const renderAdvicePage = (data) => {
         <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send a photo and short note</a>
       </section>
 
-      ${miniInquiryForm(page)}
+      ${miniInquiryForm(page, data.eyebrow)}
     </main>`;
   return pageShell(page, body, { formHref: "#inquiry" });
 };
@@ -1162,7 +1157,7 @@ const renderLocationPage = (data) => {
         <a class="btn btn-primary" href="#inquiry"><i data-lucide="send" aria-hidden="true"></i>Send address and job details</a>
       </section>
 
-      ${miniInquiryForm(page)}
+      ${miniInquiryForm(page, data.name)}
     </main>`;
   return pageShell(page, body, { formHref: "#inquiry" });
 };
