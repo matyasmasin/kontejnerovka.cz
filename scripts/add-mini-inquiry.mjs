@@ -27,6 +27,7 @@ const ZEMNI = new Set([
   "vykop-jezirka.html",
   "odbahneni-rybniku.html",
   "rovnani-terenu.html",
+  "zemni-prace-kladno.html",
 ]);
 
 const pages = [
@@ -37,6 +38,7 @@ const pages = [
   "vykop-jezirka.html",
   "odbahneni-rybniku.html",
   "rovnani-terenu.html",
+  "zemni-prace-kladno.html",
   "pristaveni-kontejneru.html",
   "kontejner-na-sut.html",
   "kontejner-na-stavebni-odpad.html",
@@ -44,10 +46,15 @@ const pages = [
   "velkoobjemovy-kontejner.html",
   "odvoz-suti.html",
   "odvoz-suti-rekonstrukce-koupelny.html",
+  "odvoz-suti-kladno.html",
+  "odvoz-suti-praha-zapad.html",
+  "odvoz-suti-hostivice.html",
   "odvoz-zeminy.html",
+  "odvoz-zeminy-kladno.html",
   "odvoz-odpadu.html",
   "odvoz-dreva-bioodpadu.html",
   "odvoz-betonu.html",
+  "kontejner-na-beton.html",
   "vyklizeni-odpad.html",
   "dovoz-pisku.html",
   "dovoz-sterku.html",
@@ -59,8 +66,14 @@ const pages = [
   "recyklat-prijezdova-cesta.html",
   // lokality
   "kontejnery-beroun.html",
+  "kontejnery-chynava-podkozi.html",
   "kontejnery-hostivice.html",
+  "kontejnery-hostoun-dobroviz-stredokluky.html",
+  "kontejnery-horovice.html",
   "kontejnery-kladno.html",
+  "kontejnery-kraluv-dvur.html",
+  "kontejnery-lodenice-morina-srbsko.html",
+  "kontejnery-nizbor-hyskov-zelezna.html",
   "kontejnery-nucice.html",
   "kontejnery-praha-13.html",
   "kontejnery-praha-17.html",
@@ -73,23 +86,65 @@ const pages = [
   "kontejnery-rudna.html",
   "kontejnery-slany.html",
   "kontejnery-unhost.html",
+  "kontejnery-zdice.html",
 ];
+
+const PAGE_COPY = {
+  "odvoz-suti-kladno.html": {
+    locationPlaceholder: "Např. Kladno, Unhošť, Braškov",
+    messagePlaceholder: "Např. suť z koupelny, beton, cihly, stavební směs...",
+  },
+  "odvoz-suti-praha-zapad.html": {
+    locationPlaceholder: "Např. Rudná, Hostivice, Unhošť",
+    messagePlaceholder: "Např. suť z rekonstrukce, beton, dlažba, stavební směs...",
+  },
+  "odvoz-suti-hostivice.html": {
+    locationPlaceholder: "Např. Hostivice, Jeneč, Dobrovíz",
+    messagePlaceholder: "Např. suť z rekonstrukce, beton, stavební směs...",
+  },
+  "odvoz-zeminy-kladno.html": {
+    locationPlaceholder: "Např. Kladno, Unhošť, Braškov",
+    messagePlaceholder: "Např. zemina z výkopu, mokrá hlína, zemina s kamením...",
+  },
+  "kontejner-na-beton.html": {
+    locationPlaceholder: "Např. Kladno, Rudná, Hostivice",
+    messagePlaceholder: "Např. beton z chodníku, patky, kusový beton s armaturou...",
+  },
+  "zemni-prace-kladno.html": {
+    locationPlaceholder: "Např. Kladno, Unhošť, Velká Dobrá",
+    messagePlaceholder: "Např. výkop základů, přípojka, bazén, rovnání terénu...",
+  },
+  "kontejnery-chynava-podkozi.html": {
+    locationPlaceholder: "Např. Chyňava, Podkozí, Nenačovice",
+  },
+  "kontejnery-lodenice-morina-srbsko.html": {
+    locationPlaceholder: "Např. Loděnice, Mořina, Srbsko",
+  },
+  "kontejnery-nizbor-hyskov-zelezna.html": {
+    locationPlaceholder: "Např. Nižbor, Hýskov, Železná",
+  },
+  "kontejnery-hostoun-dobroviz-stredokluky.html": {
+    locationPlaceholder: "Např. Hostouň, Dobrovíz, Kněževes",
+  },
+};
 
 const escapeHtml = (value) =>
   value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 
 const miniForm = (slug, subjectLabel) => {
   const zemni = ZEMNI.has(slug);
+  const copy = PAGE_COPY[slug] || {};
   const intro = zemni
     ? "Stačí telefon, obec a co se má vykopat nebo upravit. Fotka místa a vjezdu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem."
     : "Stačí telefon, obec a co se má odvézt nebo dovézt. Fotka místa nebo odpadu nacenění urychlí. Ozvu se s cenou nebo krátkým doplňujícím dotazem.";
   const messageLabel = zemni ? "Co se má vykopat nebo upravit" : "Co se poveze";
-  const messagePlaceholder = zemni
+  const locationPlaceholder = copy.locationPlaceholder || "Např. Nučice, Rudná, Unhošť";
+  const messagePlaceholder = copy.messagePlaceholder || (zemni
     ? "Např. základy 10×8 m, jáma pro bazén, srovnání zahrady, odbahnění nádrže..."
-    : "Např. suť z koupelny, zemina z výkopu, směs po vyklízení...";
+    : "Např. suť z koupelny, zemina z výkopu, směs po vyklízení...");
   const photoNote = zemni
-    ? "Fotku místa a vjezdu na pozemek pošlete po odeslání poptávky na"
-    : "Fotku odpadu nebo místa pošlete po odeslání poptávky na";
+    ? "Fotku místa a vjezdu můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na"
+    : "Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na";
   return `      ${MARKER_START}
       <section class="section mini-inquiry" id="poptavka" aria-labelledby="mini-inquiry-title">
         <div class="section-head compact">
@@ -111,14 +166,19 @@ const miniForm = (slug, subjectLabel) => {
             </label>
             <label>
               Obec / adresa
-              <input type="text" name="location" placeholder="Např. Nučice, Rudná, Unhošť" required>
+              <input type="text" name="location" placeholder="${escapeHtml(locationPlaceholder)}" required>
             </label>
           </div>
           <label>
             ${messageLabel}
             <textarea name="message" rows="3" required placeholder="${messagePlaceholder}"></textarea>
           </label>
-          <p class="field-note form-photo-note">${photoNote} <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
+          <label class="file-upload">
+            <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+            <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+            <strong data-file-name>Vybrat fotku nebo PDF</strong>
+          </label>
+          <p class="field-note form-photo-note">${photoNote} <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku

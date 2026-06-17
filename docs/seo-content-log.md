@@ -232,6 +232,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Co sledovat po zmene: mobilni kliknuti na telefon, kliknuti na `Ziskat cenu` / `Get quote`, start a dokonceni formulare, bounce rate z mobilu, Core Web Vitals v GSC a realne poptavky z telefonu.
 - Minimalni doba vyhodnoceni: 14-28 dni pro konverzni signaly a 28+ dni pro stabilnejsi GSC/Core Web Vitals data.
 
+### 2026-06-15 - P1 lokalni SEO landing pages po master auditu
+
+- Co se zmenilo: vytvoreny nove money landing pages `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-suti-hostivice.html`, `odvoz-zeminy-kladno.html`, `kontejner-na-beton.html` a `zemni-prace-kladno.html`; zpresneny title/H1/schema a interni odkazy na `pristaveni-kontejneru.html`, `odvoz-betonu.html`, `kontejnery-kladno.html`, `kontejnery-praha-zapad.html`, `cenik.html`, `index.html`, `sluzby.html` a `lokality.html`; doplnena sitemap, `llms.txt`, README a generator mini formularu.
+- Proc se to zmenilo: audit ukazal chybejici samostatne URL pro nejblizsi komercni dotazy typu `odvoz suti Kladno`, `odvoz suti Praha-zapad`, `odvoz suti Hostivice`, `odvoz zeminy Kladno`, `kontejner na beton`, `zemni prace Kladno` a slabe pokryti `pronajem kontejneru`.
+- Ocekavany dopad: vice vstupnich stranek pro lokalni hledani s vysokym nakupnim zamerem, lepsi rozdeleni zameru mezi obecne a lokalni URL, silnejsi interni prolinkovani na telefon/poptavku.
+- Zdroj dat nebo duvod: manualni master SEO/CRO audit podle zadani na lokalni sluzby, kontejnerovou dopravu, sut, zeminu a zemni prace.
+- Kdo/automatizace zmenu navrhla: manualni master SEO implementace.
+- Nasazeno: pripraveno k nasazeni v tomto commitu.
+- Commit:
+- Co sledovat po zmene: GSC imprese a pozice pro nove URL, kliknuti na telefon, odeslani mini formularu, dotazy s lokalitami Kladno/Praha-zapad/Hostivice a pripadne kanibalizaci s puvodnimi obecnymi strankami.
+- Minimalni doba vyhodnoceni: 28-56 dni pro organicke signaly, 14-28 dni pro prvni konverzni signal z internich prokliku.
+
 ## Sablona dalsiho zapisu
 
 ### RRRR-MM-DD - nazev upravy

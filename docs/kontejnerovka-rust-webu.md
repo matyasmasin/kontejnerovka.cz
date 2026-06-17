@@ -358,3 +358,79 @@ Hodnoceni: `castecna`
 ### Nejlepsi dalsi krok
 
 Do 2026-06-30 pripravit a schvalit prvni trust balicek: 5-10 vlastnich fotek, 2-3 anonymni mini-realizace z prioritnich lokalit a prosbu o prvni 3 Google recenze.
+
+## Strategicky zapis - 2026-06-15 - master SEO kontrola po P1 landing pages
+
+### Stav
+
+Omezeny vystup. Produkcni web je technicky v poradku a hlavni konverzni cesta funguje, ale cerstvy GSC/GA4 import 2026-06-15 selhal na `invalid_grant`, Google leady nejsou rucne vyplnene a 6 novych P1 landing pages z 2026-06-15 jeste neni nasazeno live.
+
+### Shrnuti pro majitele
+
+Web dnes nebrzdi rozbita technika ani chybejici formular. Brzdi ho hlavne to, ze stale neukazuje skutecne dukazy z provozu, a ze cerstva data z Googlu nejdou znovu stahnout. Soucasne plati, ze posledni velky SEO tah je zatim jen lokalne upraveny: na live webu je stale 62 URL a nove stranky `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-suti-hostivice.html`, `odvoz-zeminy-kladno.html`, `kontejner-na-beton.html` a `zemni-prace-kladno.html` vraceji 2026-06-15 na produkci `404`.
+
+### Semafor
+
+- Zelena: homepage, cenik, kontakt, lokalitni stranky, canonical, schema, robots, sitemap a Web3Forms formular jsou live funkcni.
+- Oranzova: pripraveny P1 obsah existuje lokalne a je interlinkovany, ale neni pushnuty ani nasazeny live; bez nasazeni nemuze prinest rust.
+- Cervena: AI a lokalni duvera je stale jen castecna a cerstvy import GSC/GA4 je znovu blokovany OAuth tokenem.
+
+### Fakta
+
+- Overeny web: `https://kontejnerovka.cz`, workspace `/Users/claude/Documents/Claude/parkovani-ruzyne.cz/autoservis1.cz/kontejnery`, branch `main`.
+- `node scripts/fetch-google-data.mjs` 2026-06-15 selhal pro GSC i GA4 na `Google OAuth refresh failed: 400 invalid_grant`; lokalni config pritom vypada spravne a ukazuje `GA4_PROPERTY_ID=538305751`.
+- Posledni dostupny GSC souhrn je z 2026-06-13 za obdobi 2026-05-16 az 2026-06-12: 22 impresi a 0 kliku v query summary; posledni GA4 souhrn je z 2026-06-09 za obdobi 2026-05-12 az 2026-06-08: `form_start` 3, `cta_click` 3, `generate_lead` 1, `click_phone` 0, `lead_form_submit` 0.
+- Live sitemap 2026-06-15 obsahuje 62 URL; lokalni `sitemap.xml` obsahuje 68 URL.
+- Produkce 2026-06-15 vraci `404` pro `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-suti-hostivice.html`, `odvoz-zeminy-kladno.html`, `kontejner-na-beton.html` a `zemni-prace-kladno.html`.
+- Live homepage, `kontejnery-unhost.html`, `cenik.html`, `kontakt.html` a `dekujeme.html` maji title, meta description, canonical, JSON-LD, CTA na telefon a funkcni formular s redirectem na `dekujeme.html`.
+- Live `reference.html` a `o-nas.html` jasne potvrzuji entitu a Google profil, ale zaroven otevrene rikaji, ze recenze a vlastni fotky se teprve doplnuji.
+- `docs/seo-data/kpi-leads-template.csv` je stale prazdny.
+
+### Hypotezy
+
+- Nejvetsi obchodni brzda na live webu je stale trust, ne dalsi technicke SEO drobnosti.
+- Nove P1 landing pages mohou pomoct az po nasazeni, ale pred tim je potreba hlidat kanibalizaci hlavne mezi `kontejnery-kladno.html` vs `odvoz-suti-kladno.html` a `kontejnery-praha-zapad.html` vs `odvoz-suti-praha-zapad.html`, protoze hubove stranky uz dnes nesou velmi podobny intent v title i H1.
+- Bez obnoveneho Google importu a bez lead sheetu by bylo unahlene delat dalsi vlnu lokalnich URL nebo tvrdit, ze posledni obsahova expanze uz funguje.
+
+### Co chybi k jistote
+
+- Cerstvy GSC a GA4 import po 2026-06-15.
+- Rucni evidence telefonatu, formularu a realnych zakazek.
+- GBP detail: recenze, fotky, kategorie, hovory, prokliky a trasy.
+- Potvrzeni, zda chce majitel nejdriv dodat trust dukazy, nebo nejdriv schvalit nasazeni pripravenych P1 landing pages.
+
+### AI a lokalni duvera
+
+Hodnoceni: `castecna`
+
+- Silna cast: entita, NAP, schema, `sameAs`, `hasMap`, lokalni FAQ, crawlability a transparentni provozovatel.
+- Slaba cast: realne recenze, realne fotky, mini-realizace, verejne dukazy provozu a potvrzene GBP metriky.
+- Nelze urcit: jestli Google Business Profile uz prinasi hovory nebo trasy, protoze tento podklad dnes chybi.
+
+### Co doporucuji udelat ted
+
+- Pripravit trust balicek pro homepage, `reference.html` a Google profil: 5-10 vlastnich fotek, 2-3 anonymni mini-realizace a prosbu o prvni 3 Google recenze.
+- Obnovit OAuth credential a znovu spustit `node scripts/fetch-google-data.mjs`, aby dalsi rozhodnuti nestala na tyden starych datech.
+- S dalsi obsahovou expanzi pockat; u pripravenych P1 landing pages nejdriv rozhodnout, zda budou nasazene az po dekonfliktu hubovych title/H1 proti novym service+local URL.
+
+### Co muze pockat
+
+- Dalsi nove CZ nebo EN stranky mimo aktualni P1 balicek.
+- Jemne prepisy canonical, schema nebo formularu; ty dnes nevypadaji jako hlavni brzda.
+
+### Co potrebuji od majitele
+
+- Fotky a souhlas s anonymnimi mini-realizacemi.
+- Kratkou informaci, zda byly ziskany nejake Google recenze nebo pouzitelne fotky mimo repo.
+- Pripadne novy OAuth souhlas, pokud je potreba znovu autorizovat Google import.
+
+### Nejlepsi dalsi krok
+
+Do 2026-06-30 dodat prvni trust balicek z realne zakazky a publikovat ho na homepage, `reference.html` a Google profilu; to ma dnes vyssi potencial nez dalsi nenazeny obsah a resi nejsilnejsi viditelnou brzdu duvery i konverze.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno v tomto behu: `docs/kontejnerovka-rust-webu.md`, `docs/reports/2026-06.md`, `docs/owner-action-list.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: jen z poslednich dostupnych souboru `latest-gsc-summary.md` a `latest-ga4-summary.md`; novy import 2026-06-15 selhal.

@@ -584,7 +584,7 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260612c">
+    <link rel="stylesheet" href="../styles.css?v=20260617d">
     <script src="../script.js?v=20260612c" defer></script>
     ${schema}
   </head>`;

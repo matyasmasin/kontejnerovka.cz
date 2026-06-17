@@ -24,7 +24,7 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260612c">
+    <link rel="stylesheet" href="styles.css?v=20260617d">
     <script src="script.js?v=20260612c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -75,7 +75,36 @@
   "url": "https://kontejnerovka.cz/dovoz-pisku-sterku.html"
 }</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Úvod","item":"https://kontejnerovka.cz/"},{"@type":"ListItem","position":2,"name":"Dovoz písku, štěrku, kačírku a recyklátu","item":"https://kontejnerovka.cz/dovoz-pisku-sterku.html"}]}</script>
-    <script type="application/ld+json" data-visible-faq>{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Jak zjistím, kolik materiálu potřebuji?", "acceptedAnswer": {"@type": "Answer", "text": "Stačí rozměry plochy a přibližná výška vrstvy. Pokud si nejste jistí, napište účel použití a množství dopočítám orientačně."}}, {"@type": "Question", "name": "Vysypete materiál přesně na místo?", "acceptedAnswer": {"@type": "Answer", "text": "Záleží na přístupu, povrchu a prostoru pro auto. Předem si potvrdíme, kde lze bezpečně složit náklad."}}, {"@type": "Question", "name": "Dá se spojit dovoz materiálu s odvozem odpadu?", "acceptedAnswer": {"@type": "Answer", "text": "Ano, pokud to dává smysl podle trasy a času. Uveďte obě potřeby do jedné poptávky."}}]}</script>
+    <script type="application/ld+json" data-visible-faq>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Jak zjistím, kolik materiálu potřebuji?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stačí rozměry plochy a přibližná výška vrstvy. Pokud si nejste jistí, napište účel použití a množství dopočítám orientačně."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vysypete materiál přesně na místo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Záleží na přístupu, povrchu a prostoru pro auto. Předem si potvrdíme, kde lze bezpečně složit náklad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá se spojit dovoz materiálu s odvozem odpadu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, pokud to dává smysl podle trasy a času. Uveďte obě potřeby do jedné poptávky."
+      }
+    }
+  ]
+}</script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
@@ -217,7 +246,12 @@
             Co se poveze
             <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
           </label>
-          <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
+          <label class="file-upload">
+            <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+            <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+            <strong data-file-name>Vybrat fotku nebo PDF</strong>
+          </label>
+          <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku

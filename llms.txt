@@ -8,7 +8,12 @@ Kontejnerovka.cz slouží zákazníkům v Praze a Středočeském kraji, hlavně
 Praha-západ, Praha-východ, Svárov, Unhošť, Nučice, Rudná, Hostivice, Kladno, Beroun,
 Rakovník, Hořovice, Slaný, Zdice a Králův Dvůr, včetně okolních obcí jako Pavlov,
 Kyšice, Nouzov, Malé a Velké Přítočno, Chyňava s Podkozím, Loděnice, Vráž, Bubovice
-a Chrášťany.
+a Chrášťany. Nově jsou cílené také Podkozí, Nenačovice, Úhonice, Ptice, Červený Újezd,
+Malé Kyšice, Braškov, Horní Bezděkov, Velká Dobrá, Doksy, Pletený Újezd, Mořina,
+Trněný Újezd, Kuchař, Tachlovice, Dobříč, Řeporyje, Stodůlky, Jinočany, Chýně,
+Mezouň, Svatý Jan pod Skalou, Železná, Nižbor, Hýskov, Běleč, Družec, Dolany,
+Hostouň, Dobrovíz, Středokluky, Kněževes, Ruzyně, Řepy, Bílá Hora, Petřiny, Dědina,
+Kozolupy, Srbsko a Zbuzany.
 
 ## Kontakt
 
@@ -49,16 +54,29 @@ termín, přístup a ideálně fotku.
 - [Ceník a faktory ceny](https://kontejnerovka.cz/cenik.html)
 - [Kontakt a poptávka](https://kontejnerovka.cz/kontakt.html)
 - [Lokality](https://kontejnerovka.cz/lokality.html)
+- [Kontejnery Chyňava, Podkozí a Nenačovice](https://kontejnerovka.cz/kontejnery-chynava-podkozi.html)
+- [Kontejnery Loděnice, Mořina a Srbsko](https://kontejnerovka.cz/kontejnery-lodenice-morina-srbsko.html)
+- [Kontejnery Nižbor, Hýskov a Železná](https://kontejnerovka.cz/kontejnery-nizbor-hyskov-zelezna.html)
+- [Kontejnery Hostouň, Dobrovíz, Středokluky a Kněževes](https://kontejnerovka.cz/kontejnery-hostoun-dobroviz-stredokluky.html)
+- [Kontejnery Hořovice](https://kontejnerovka.cz/kontejnery-horovice.html)
+- [Kontejnery Zdice](https://kontejnerovka.cz/kontejnery-zdice.html)
+- [Kontejnery Králův Dvůr](https://kontejnerovka.cz/kontejnery-kraluv-dvur.html)
 - [Poradna](https://kontejnerovka.cz/poradna.html)
 - [Technika a přistavení](https://kontejnerovka.cz/technika.html)
 - [Zemní práce](https://kontejnerovka.cz/zemni-prace.html)
+- [Zemní práce Kladno](https://kontejnerovka.cz/zemni-prace-kladno.html)
 - [Reference](https://kontejnerovka.cz/reference.html)
 - [Kontejner na suť](https://kontejnerovka.cz/kontejner-na-sut.html)
 - [Kontejner na stavební odpad](https://kontejnerovka.cz/kontejner-na-stavebni-odpad.html)
+- [Kontejner na beton](https://kontejnerovka.cz/kontejner-na-beton.html)
 - [Kontejner na zeminu](https://kontejnerovka.cz/kontejner-na-zeminu.html)
 - [Velkoobjemový kontejner](https://kontejnerovka.cz/velkoobjemovy-kontejner.html)
 - [Odvoz suti](https://kontejnerovka.cz/odvoz-suti.html)
+- [Odvoz suti Kladno](https://kontejnerovka.cz/odvoz-suti-kladno.html)
+- [Odvoz suti Praha-západ](https://kontejnerovka.cz/odvoz-suti-praha-zapad.html)
+- [Odvoz suti Hostivice](https://kontejnerovka.cz/odvoz-suti-hostivice.html)
 - [Odvoz zeminy](https://kontejnerovka.cz/odvoz-zeminy.html)
+- [Odvoz zeminy Kladno](https://kontejnerovka.cz/odvoz-zeminy-kladno.html)
 - [Odvoz odpadu](https://kontejnerovka.cz/odvoz-odpadu.html)
 - [Dovoz písku a štěrku](https://kontejnerovka.cz/dovoz-pisku-sterku.html)
 

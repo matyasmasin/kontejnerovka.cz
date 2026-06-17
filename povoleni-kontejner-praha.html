@@ -27,7 +27,7 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260612c">
+    <link rel="stylesheet" href="styles.css?v=20260617d">
     <script src="script.js?v=20260612c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -50,7 +50,36 @@
   ]
 }</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Úvod","item":"https://kontejnerovka.cz/"},{"@type":"ListItem","position":2,"name":"Poradna","item":"https://kontejnerovka.cz/poradna.html"},{"@type":"ListItem","position":3,"name":"Povolení na kontejner","item":"https://kontejnerovka.cz/povoleni-kontejner-praha.html"}]}</script>
-    <script type="application/ld+json" data-visible-faq>{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Kdy je potřeba povolení na kontejner?", "acceptedAnswer": {"@type": "Answer", "text": "Když má kontejner stát na ulici, chodníku, parkovacím místě nebo jiném veřejném místě. Přesná pravidla je potřeba ověřit u příslušné obce nebo městské části."}}, {"@type": "Question", "name": "Stačí, když je místo před domem volné?", "acceptedAnswer": {"@type": "Answer", "text": "Nemusí. Pokud jde o veřejné místo, může být potřeba povolení bez ohledu na to, že je místo aktuálně volné."}}, {"@type": "Question", "name": "Co když kontejner bude na vlastním pozemku?", "acceptedAnswer": {"@type": "Answer", "text": "Většinou je to jednodušší, ale i tak je nutný bezpečný příjezd, prostor pro manipulaci a pevný podklad."}}]}</script>
+    <script type="application/ld+json" data-visible-faq>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kdy je potřeba povolení na kontejner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Když má kontejner stát na ulici, chodníku, parkovacím místě nebo jiném veřejném místě. Přesná pravidla je potřeba ověřit u příslušné obce nebo městské části."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Stačí, když je místo před domem volné?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nemusí. Pokud jde o veřejné místo, může být potřeba povolení bez ohledu na to, že je místo aktuálně volné."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co když kontejner bude na vlastním pozemku?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Většinou je to jednodušší, ale i tak je nutný bezpečný příjezd, prostor pro manipulaci a pevný podklad."
+      }
+    }
+  ]
+}</script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
@@ -145,7 +174,12 @@
             Co se poveze
             <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
           </label>
-          <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
+          <label class="file-upload">
+            <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+            <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+            <strong data-file-name>Vybrat fotku nebo PDF</strong>
+          </label>
+          <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku

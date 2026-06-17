@@ -28,7 +28,7 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260612c">
+    <link rel="stylesheet" href="styles.css?v=20260617d">
     <script src="script.js?v=20260612c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -292,8 +292,13 @@
                   </select>
                 </label>
               </div>
-              <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
-              <p class="form-note">Fotka vjezdu, místa přistavení nebo odpadu často urychlí nacenění. Přesnou cenu, DPH a případné věci, které ji mohou změnit, potvrdíme až po kontrole údajů.</p>
+              <label class="file-upload">
+                <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+                <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+                <strong data-file-name>Vybrat fotku nebo PDF</strong>
+              </label>
+              <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
+              <p class="form-note">Fotka vjezdu, místa přistavení nebo odpadu často urychlí nacenění. Přesnou cenu, DPH a případné věci, které ji mohou změnit, potvrdím až po kontrole údajů.</p>
               <label class="consent">
                 <input type="checkbox" name="souhlas" required>
                 <span>Souhlasím se zpracováním osobních údajů pro vyřízení poptávky. <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>.</span>

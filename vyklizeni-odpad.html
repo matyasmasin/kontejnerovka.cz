@@ -24,7 +24,7 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260612c">
+    <link rel="stylesheet" href="styles.css?v=20260617d">
     <script src="script.js?v=20260612c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -79,7 +79,36 @@
   ]
 }</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Úvod","item":"https://kontejnerovka.cz/"},{"@type":"ListItem","position":2,"name":"Služby","item":"https://kontejnerovka.cz/sluzby.html"},{"@type":"ListItem","position":3,"name":"Odvoz odpadu po vyklízení","item":"https://kontejnerovka.cz/vyklizeni-odpad.html"}]}</script>
-    <script type="application/ld+json" data-visible-faq>{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Odvezete odpad po vyklízení bytu?", "acceptedAnswer": {"@type": "Answer", "text": "Ano, po domluvě podle složení, množství a přístupu. U bytového domu je důležité místo pro zastavení a případné stání kontejneru."}}, {"@type": "Question", "name": "Můžu vše naházet do jednoho kontejneru?", "acceptedAnswer": {"@type": "Answer", "text": "Ne vždy. Některé druhy odpadu je lepší oddělit a nebezpečný odpad se musí řešit zvlášť."}}, {"@type": "Question", "name": "Stačí poslat fotku?", "acceptedAnswer": {"@type": "Answer", "text": "Fotka velmi pomůže. Přidejte k ní adresu, termín a informaci, zda lze přijet až k odpadu nebo kontejner přistavit na pozemek."}}]}</script>
+    <script type="application/ld+json" data-visible-faq>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Odvezete odpad po vyklízení bytu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ano, po domluvě podle složení, množství a přístupu. U bytového domu je důležité místo pro zastavení a případné stání kontejneru."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Můžu vše naházet do jednoho kontejneru?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ne vždy. Některé druhy odpadu je lepší oddělit a nebezpečný odpad se musí řešit zvlášť."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Stačí poslat fotku?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fotka velmi pomůže. Přidejte k ní adresu, termín a informaci, zda lze přijet až k odpadu nebo kontejner přistavit na pozemek."
+      }
+    }
+  ]
+}</script>
   </head>
   <body>
     <header class="site-header is-scrolled" data-header>
@@ -189,7 +218,12 @@
             Co se poveze
             <textarea name="message" rows="3" required placeholder="Např. suť z koupelny, zemina z výkopu, směs po vyklízení..."></textarea>
           </label>
-          <p class="field-note form-photo-note">Fotku odpadu nebo místa pošlete po odeslání poptávky na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — urychlí nacenění.</p>
+          <label class="file-upload">
+            <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+            <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+            <strong data-file-name>Vybrat fotku nebo PDF</strong>
+          </label>
+          <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku
