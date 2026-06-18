@@ -12,7 +12,7 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Zdroj dat nebo duvod: navaznost na master SEO/CRO upravy z 2026-06-18 a pozadavek dotahnout podstranky na konzistentni 10/10 standard; soucasne 2026-06-18 znovu probehl uspesny import `node scripts/fetch-google-data.mjs` pro GSC i GA4.
 - Kdo/automatizace zmenu navrhla: manualni master SEO/CRO content polish s hromadnou implementaci.
 - Nasazeno: ano, po commitu/pushi na `main` v tomto behu.
-- Commit:
+- Commit: `70c09a6`
 - Co sledovat po zmene: GSC zobrazeni a kliky lokalnich/service URL, GA4 `click_phone`, `form_start`, `generate_lead`, vstupy na `kontejnery-praha-5.html`, `kontejnery-praha-6.html`, `kontejnery-slany.html`, `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-zeminy-kladno.html`, `kontejner-na-beton.html` a `zemni-prace.html`.
 - Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 4-8 tydnu pro organicky dopad.
 
