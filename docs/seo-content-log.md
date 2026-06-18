@@ -244,6 +244,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Co sledovat po zmene: GSC imprese a pozice pro nove URL, kliknuti na telefon, odeslani mini formularu, dotazy s lokalitami Kladno/Praha-zapad/Hostivice a pripadne kanibalizaci s puvodnimi obecnymi strankami.
 - Minimalni doba vyhodnoceni: 28-56 dni pro organicke signaly, 14-28 dni pro prvni konverzni signal z internich prokliku.
 
+### 2026-06-18 - decision layer a trust bloky na money pages
+
+- Co se zmenilo: doplneny bloky objemu a volby velikosti na homepage, `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `pristaveni-kontejneru.html` a `technika.html`; posilene wordingy k dokladum, orientacni cenove hladiny bez pevneho ceníku, interni prolinkovani a vysvetleni mini-realizaci na `reference.html` a `o-nas.html`.
+- Proc se to zmenilo: konkurencni kontrola ukazala, ze nejvetsi mezera nebyla dalsi lokalitni URL, ale slabsi rozhodovaci vrstva pred telefonatem.
+- Ocekavany dopad: vyssi ochota zavolat nebo poslat formular z money pages, mene nejistoty kolem velikosti kontejneru, ceny a dokladu.
+- Zdroj dat nebo duvod: master SEO/CRO implementace po konkurencnim pruzkumu a po manualni kontrole produkce.
+- Kdo/automatizace zmenu navrhla: manualni master SEO implementace.
+- Nasazeno: ano, po commitu `c95a291`, pushi na `main` a GitHub Pages deploy 2026-06-18.
+- Commit: `c95a291`
+- Co sledovat po zmene: kliknuti na telefon, odeslane formulare, vstupy na `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html` a prvni GSC zmeny u techto URL.
+- Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 28-56 dni pro stabilnejsi organicky signal.
+
 ## Sablona dalsiho zapisu
 
 ### RRRR-MM-DD - nazev upravy

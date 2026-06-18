@@ -573,6 +573,6 @@ Nasadit dnesni lokalni upravy live a do 14-30 dni zkontrolovat, jestli se zvysil
 ### Zapis do dokumentu
 
 - Lokalne upraveno v tomto behu: `index.html`, `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `pristaveni-kontejneru.html`, `technika.html`, `reference.html`, `o-nas.html`, `docs/kontejnerovka-rust-webu.md`, `docs/reports/2026-06.md`, `docs/owner-action-list.md`.
-- Pushnuto: ne.
-- Nasazeno live: ne.
-- Zmereno: ne.
+- Pushnuto: ano, commit `c95a291`.
+- Nasazeno live: ano, overeno na produkci po GitHub Pages deploy 2026-06-18.
+- Zmereno: technicky ano; produkcni crawl `75/75` URL ze `sitemap.xml` bez odchylky ve statusu, title, meta description, canonical, H1, viewport, robots a JSON-LD. Obchodni dopad zatim ne.
