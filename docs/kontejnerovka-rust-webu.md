@@ -683,3 +683,11 @@ Po 14-30 dnech zkontrolovat GSC/GA4 u lokalnich a servisnich podstranek, jestli 
 - Pushnuto: ano, po commitu a pushi na `main` v tomto behu.
 - Nasazeno live: ano, po overeni GitHub Pages deploy v tomto behu.
 - Zmereno: technicky ano; obchodni dopad zatim ne.
+
+## 2026-06-18 - trust proof vrstva na top money pages
+
+Po systematickem polishi se ukazalo, ze dalsi rychly zisk uz nelezi v dalsich novych URL, ale v preneseni overeni firmy primo na nejsilnejsi service pages. Proto byly lokalne doplneny `trust-proof-panel` bloky na `pristaveni-kontejneru.html`, `kontejner-na-zeminu.html`, `odvoz-odpadu.html`, `odvoz-zeminy.html`, `kontejner-na-sut.html` a `odvoz-suti.html`.
+
+Tyto bloky neposouvaji web dalsim SEO balastem, ale zkracuji cestu mezi navstevou a duverou: uzivatel hned vidi, kdo sluzbu provozuje, ze jde o platce DPH a kde si muze otevrit `reference.html` nebo `o-nas.html`. To je realisticky vyssi ROI nez dalsi textove rozsirovani tematu nebo dalsi mikro-lokalitni URL bez signalu.
+
+Soucasne byl 2026-06-18 znovu uspesne spusten `node scripts/fetch-google-data.mjs`, takze dalsi kontrola dopadu uz neni blokovana pristupem k GSC/GA4. Pokud se po nasazeni zvednou `click_phone`, `form_start` a vstupy na techto 6 URL, bude to potvrzeni, ze dalsi rust ma vest pres trust a decision layer, ne pres dalsi expanzi sitemap.

@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-18 - trust proof vrstva na top money pages
+
+- Co se zmenilo: na `pristaveni-kontejneru.html`, `kontejner-na-zeminu.html`, `odvoz-odpadu.html`, `odvoz-zeminy.html`, `kontejner-na-sut.html` a `odvoz-suti.html` byly doplneny bloky `trust-proof-panel` s primym odkazem na `reference.html` a `o-nas.html`.
+- Proc se to zmenilo: obsah uz byl silny, ale na casti top money pages chybela stejna overovaci vrstva jako na homepage; uzivatel mel rychle dostat potvrzeni, kdo sluzbu provozuje a kde si to muze overit.
+- Ocekavany dopad: vyssi duvera pred odeslanim formulare nebo klikem na telefon, lepsi interni prolinkovani na proof URL a mensi zavislost na footer linku.
+- Zdroj dat nebo duvod: manualni master SEO/CRO implementace po nasledne kontrole nejsilnejsich servisnich URL; soucasne 2026-06-18 uspesne probehl `node scripts/fetch-google-data.mjs` pro GSC i GA4.
+- Kdo/automatizace zmenu navrhla: manualni master SEO implementace.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: `click_phone`, `form_start`, `generate_lead` a vstupy na 6 upravenych URL; zvlast zda roste proklik na `reference.html` a `o-nas.html`.
+- Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 28-56 dni pro stabilnejsi organicky signal.
+
 ### 2026-06-18 - posileni intentu "odvoz stavebniho odpadu" na existujici URL
 
 - Co se zmenilo: stranka `kontejner-na-stavebni-odpad.html` byla pretargetovana z uzsiho `kontejner na stavebni odpad` na sirsi a obchodnejsi intent `odvoz stavebniho odpadu a kontejner`; doplneny byly velikostni rozhodovaci bloky, cenove a dokladove rozhodovaci body, nove FAQ a silnejsi interni odkazy z `sluzby.html`, `odvoz-odpadu.html`, `poradna.html` a `cenik.html`.
