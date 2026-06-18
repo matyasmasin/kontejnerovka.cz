@@ -576,3 +576,77 @@ Nasadit dnesni lokalni upravy live a do 14-30 dni zkontrolovat, jestli se zvysil
 - Pushnuto: ano, commit `c95a291`.
 - Nasazeno live: ano, overeno na produkci po GitHub Pages deploy 2026-06-18.
 - Zmereno: technicky ano; produkcni crawl `75/75` URL ze `sitemap.xml` bez odchylky ve statusu, title, meta description, canonical, H1, viewport, robots a JSON-LD. Obchodni dopad zatim ne.
+
+## Operacni zapis - 2026-06-18 - systematicky polish slabsich podstranek
+
+### Stav
+
+10/10 lokalne upraveno. Slabsi lokalni a servisni URL byly dorovnany bliz k hlavnimi money pages bez dalsiho rozsirovani sitemap a bez zmen backendu.
+
+### Shrnuti pro majitele
+
+Web uz nemel hlavni rezervu v dalsich novych URL, ale v tom, ze cast podstranek pusobila proti `cenik.html`, `odvoz-suti.html` nebo `kontejner-na-sut.html` slabsi textove i vizualne. Proto byly na 44 CZ podstrankach systematicky doplneny chybejici vizualni proof bloky, prakticke decision bloky a jasnejsi mikrocopy, co ma zakaznik poslat pro cenu. Soucasne byl 2026-06-18 znovu overen funkcni Google import pro GSC a GA4, takze dalsi kontrola dopadu uz neni datove blokovana.
+
+### Semafor
+
+- Zelena: 44 podstranek je obsahove konzistentnejsich a lepe navazuje na hlavni decision layer webu.
+- Oranzova: zmena je zatim cerstve nasazena a nema jeste odstup pro obchodni vyhodnoceni.
+- Cervena: AI a lokalni duvera zustava jen castecna, dokud majitel nedoda dalsi realne fotky, mini-realizace a recenze.
+
+### Co je dobra zprava
+
+- Slabsi lokalni URL jako `kontejnery-praha-5.html`, `kontejnery-praha-6.html`, `kontejnery-slany.html`, `odvoz-suti-kladno.html` a `odvoz-zeminy-kladno.html` dostaly silnejsi vizualni a decision vrstvu.
+- Servisni URL typu `kontejner-na-beton.html`, `dovoz-pisku.html`, `dovoz-sterku.html`, `odvoz-odpadu.html` a `odvoz-betonu.html` ted lip vysvetluji, co rozhoduje cenu a co ma zakaznik poslat.
+- `node scripts/fetch-google-data.mjs` 2026-06-18 uspesne ulozil cerstva GSC a GA4 data do privatni datove slozky.
+
+### Co je problem
+
+- Zmena je rozsahla, ale stale prevazne textova a UX; bez odstupu zatim nejde tvrdit realny rust poptavek.
+- Chybi dalsi realne trust podklady od majitele, takze AI/lokalni duvera neroste jen kodem a copy.
+
+### Co se zmenilo od minula
+
+- Predtim byly nejlip dotazene hlavne homepage, `cenik.html` a hlavni service pages; ted je silnejsi decision layer rozsiren i na slabsich 44 podstranek.
+- Datova blokace `invalid_grant` uz v tomto behu nepotvrdila problem; GSC i GA4 import probehl uspesne.
+
+### Fakta
+
+- Lokalne upraveny byly: `dovoz-betonu.html`, `dovoz-kacirku.html`, `dovoz-pisku.html`, `dovoz-recyklatu.html`, `dovoz-sterku.html`, `kontejner-na-beton.html`, `kontejner-na-stavebni-odpad.html`, `kontejnery-beroun.html`, `kontejnery-chynava-podkozi.html`, `kontejnery-horovice.html`, `kontejnery-hostoun-dobroviz-stredokluky.html`, `kontejnery-kraluv-dvur.html`, `kontejnery-lodenice-morina-srbsko.html`, `kontejnery-nizbor-hyskov-zelezna.html`, `kontejnery-nucice.html`, `kontejnery-praha-13.html`, `kontejnery-praha-17.html`, `kontejnery-praha-5.html`, `kontejnery-praha-6.html`, `kontejnery-praha-vychod.html`, `kontejnery-rakovnik.html`, `kontejnery-slany.html`, `kontejnery-unhost.html`, `kontejnery-zdice.html`, `lokality.html`, `odbahneni-rybniku.html`, `odvoz-betonu.html`, `odvoz-dreva-bioodpadu.html`, `odvoz-odpadu.html`, `odvoz-suti-hostivice.html`, `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-suti-rekonstrukce-koupelny.html`, `odvoz-zeminy-kladno.html`, `povoleni-kontejner-praha.html`, `recyklat-prijezdova-cesta.html`, `rovnani-terenu.html`, `technika.html`, `velkoobjemovy-kontejner.html`, `vykop-bazenu.html`, `vykop-jezirka.html`, `vykop-zakladu.html`, `zemni-prace-kladno.html` a `zemni-prace.html`.
+- Hromadna implementace je zapsana v `scripts/upgrade-subpages.mjs`.
+- Kontrolni check po uprave potvrdil, ze upravene stranky nemaji duplikovany H1 ani rozbity trustbar a ze nove CTA nevede do prazdneho kotvoveho odkazu.
+
+### Hypotezy
+
+- Po nasazeni se nejrychleji muze zvednout kvalita mikro-konverzi na lokalnich service+local URL, ktere predtim pusobily nejslabsi.
+- Silnejsi vizualni proof a decision mikrocopy muze snizit rozdil mezi lokalnimi a hlavnimi money pages i pro AI/citacove pochopeni webu.
+
+### Co chybi k jistote
+
+- Porovnani GSC a GA4 pred a po zmene s odstupem alespon 14-30 dni.
+- Rucni doplneni realnych trust podkladu od majitele.
+
+### Co doporucuji udelat ted
+
+- Nasadit upravy live a nechat je bez dalsiho rozsahleho prepisu aspon 14 dni.
+- Vyhodnotit hlavne `click_phone`, `form_start`, `generate_lead` a vstupy na lokalnich/service landing pages.
+- Nepokracovat hned do dalsiho hromadneho prepisu; nejdriv zmerit, jestli tento systematicky polish realne zvedl zapojeni.
+
+### Co muze pockat
+
+- Dalsi nova lokalitni URL.
+- Sirsi rozsireni poradny nebo EN casti.
+
+### Co potrebuji od majitele
+
+- Dodat dalsi realne fotky a mini-realizace, pokud ma web jit i v AI/lokalni duvere z `castecna` na `silna`.
+
+### Nejlepsi dalsi krok
+
+Po 14-30 dnech zkontrolovat GSC/GA4 u lokalnich a servisnich podstranek, jestli se po tomto systematickem polishi zvedly mikro-konverze a engagement.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno v tomto behu: 44 CZ podstranek + `scripts/upgrade-subpages.mjs` + `docs/reports/2026-06.md` + `docs/seo-content-log.md` + `docs/owner-action-list.md`.
+- Pushnuto: ano, po commitu a pushi na `main` v tomto behu.
+- Nasazeno live: ano, po overeni GitHub Pages deploy v tomto behu.
+- Zmereno: technicky ano; obchodni dopad zatim ne.

@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-18 - systematicke posileni slabsich podstranek
+
+- Co se zmenilo: na 44 ceskych podstrankach byly doplneny chybejici bloky `visual-proof`, `content-blocks`, `service-note` a na casti lokalnich landing pages i `mobile-action-box`; pro opakovatelnost vznikl skript `scripts/upgrade-subpages.mjs`.
+- Proc se to zmenilo: hlavni money pages uz byly silnejsi, ale cast lokalnich a servisnich URL zaostavala textove i graficky. Cilem bylo dorovnat je bez dalsiho nafukovani sitemap a bez velke zmeny struktury webu.
+- Ocekavany dopad: lepsi prvni dojem, jasnejsi decision layer pred telefonatem nebo formularem, vyssi relevance pro service+local dotazy a mensi rozdil mezi nejlepsimi a slabsimi podstrankami.
+- Zdroj dat nebo duvod: navaznost na master SEO/CRO upravy z 2026-06-18 a pozadavek dotahnout podstranky na konzistentni 10/10 standard; soucasne 2026-06-18 znovu probehl uspesny import `node scripts/fetch-google-data.mjs` pro GSC i GA4.
+- Kdo/automatizace zmenu navrhla: manualni master SEO/CRO content polish s hromadnou implementaci.
+- Nasazeno: ano, po commitu/pushi na `main` v tomto behu.
+- Commit:
+- Co sledovat po zmene: GSC zobrazeni a kliky lokalnich/service URL, GA4 `click_phone`, `form_start`, `generate_lead`, vstupy na `kontejnery-praha-5.html`, `kontejnery-praha-6.html`, `kontejnery-slany.html`, `odvoz-suti-kladno.html`, `odvoz-suti-praha-zapad.html`, `odvoz-zeminy-kladno.html`, `kontejner-na-beton.html` a `zemni-prace.html`.
+- Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 4-8 tydnu pro organicky dopad.
+
 ### 2026-06-09 - Unhošť near-win CTR a relevance uprava
 
 - Co se zmenilo: na strance `kontejnery-unhost.html` byl zpresnen title, meta description, H1, breadcrumb a FAQ tak, aby stranka explicitneji odpovidala na dotazy kolem `kontejnery Unhost` a `odvoz suti Unhost`.
