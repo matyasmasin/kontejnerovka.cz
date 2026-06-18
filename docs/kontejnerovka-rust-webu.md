@@ -434,3 +434,145 @@ Do 2026-06-30 dodat prvni trust balicek z realne zakazky a publikovat ho na home
 - Pushnuto: ne.
 - Nasazeno live: ne.
 - Zmereno: jen z poslednich dostupnych souboru `latest-gsc-summary.md` a `latest-ga4-summary.md`; novy import 2026-06-15 selhal.
+
+## Strategicky zapis - 2026-06-18 - konkurencni pruzkum 20 realnych konkurentu
+
+### Stav
+
+Hotovy rozhodovaci podklad. Probehl webovy pruzkum 20 realnych konkurentu nebo srovnatelnych hracu v oblastech Kladno, Unhost, Rudna, Hostivice, Praha-zapad, Beroun, Kraluv Dvur a Slany. Neslo o mereni jejich vykonu, ale o overeni, co opakovane pouzivaji na webu a co zjevne pomaha rozhodnuti zakaznika.
+
+### Shrnuti pro majitele
+
+Konkurence nevyhrava hlavne lepsim designem ani delsim textem. Nejcasteji vyhrava tim, ze rychle a jednoduse odpovi na prakticke otazky pred zavolanim: jak velky kontejner je k dispozici, jaka je aspon orientacni cena, co se do nej muze dat, jestli je v cene doprava nebo pronajem a jestli umi vystavit potvrzeni o likvidaci odpadu. Nase nejvetsi mezera proti teto casti trhu uz dnes neni dalsi nova lokalita, ale slabsi rozhodovaci vrstva kolem objemu, nosnosti, cenovych prikladu a provoznich dukazu.
+
+### Semafor
+
+- Zelena: Kontejnerovka je technicky cistejsi nez vetsina sledovanych webu, ma lepsi strukturu sluzeb, lokalit, schema i formulare.
+- Oranzova: cast konkurence ma jednodussi, ale obchodne ostrejsi weby, protoze hned ukazuje objemy kontejneru, cenove kotvy a telefon.
+- Cervena: stale jsme slabsi v realnych dukazech a v rychlem rozhodovacim bloku `jaky kontejner / jaka cena / co dostanu / co mohu dolozit`.
+
+### Fakta
+
+- Z 20 kontrolovanych webu mela vetsina viditelnou kombinaci `telefon + kratky popis sluzby + lokalita + materialovy seznam`.
+- Opakovane se objevovaly objemy a velikosti kontejneru: napriklad `3 m3`, `4 m3`, `6 m3`, `7 m3`, `10 m3`, `12 m3`, `15 m3`.
+- Vice konkurentu dava orientacni cenove kotvy nebo cenik primo na homepage nebo na velmi blizke kliknuti: `Bikramka`, `Metrak`, `Kontejnery Šutrák`, `Kontejnery Slaný`, `Kontejnery Protiva`, `TS Rudná`, `kontejnery-tachlovice.cz`.
+- Nekolik konkurentu otevrene pouziva silne proof body, ktere pomahaji i B2B a stavebnim zakazkam: potvrzeni o likvidaci odpadu, roky na trhu, fotogalerii, overeni zakazniky, recenze nebo provozni vozovy park. To je videt u `Bikramka`, `BV Kontejnery`, `Agrio Unhošť`, `Metrak`, `Mansy`, `Protiva`, `ABN trans`.
+- Presne `sluzba + lokalita` nebo `kontejnery + lokalita` v title/H1 pouzivaji nebo dobre naznacuji treba `BV Kontejnery`, `Kontejnery Tachlovice`, `Kontejnery Beroun`, `Kontejnery Protiva`, `Kontejnery Slaný`, `MM Kontejnery`, `odvozodpadu-kontejnery.cz`.
+- Caste jsou i velmi jednoduche UX tahy: `prvni 3 dny zdarma`, `objednat online`, `zobrazit cenik`, `platba kartou`, `pristaveni do 24 hodin`, `nonstop dispecink`.
+- Sitemapy nebo jasne indexovatelne struktury se podarilo overit napr. u `bikramka.cz`, `bvkontejnery.cz`, `mm-kontejnery.cz`, `agriounhost.cz`, `kontejnery-tachlovice.cz`, `metrak.cz`, `mansy.cz`, `kontejnery-sutrak.cz`, `kontejnery-protiva.cz`, `zemnipracestefanek.cz`, `abntrans.cz`.
+
+### Hypotezy
+
+- Kdyby Kontejnerovka pridala silny blok `objemy kontejneru + kdy zvolit jakou velikost + orientacni cenove priklady + potvrzeni o likvidaci odpadu`, muze to zvednout duveru i konverzni ochotu rychleji nez dalsi nova lokalitni stranka.
+- Nase aktualni struktura sluzeb a lokalit je uz dostatecna na to, aby dalsi rust prisel spis ze zlepseni rozhodovaci vrstvy nez z dalsiho nafukovani sitemap.
+- Pokud spojime tuto rozhodovaci vrstvu s realnymi fotkami a mini-realizacemi, budeme proti vetsine lokalni konkurence pusobit nejen obsahove silne, ale i obchodne duveryhodne.
+
+### Co chybi k jistote
+
+- Nejde potvrdit, kterym konkurentum tyto prvky realne vydelavaji vic, protoze nemame jejich interna data.
+- U casti konkurentu nelze bez placenych nebo internich dat overit skutecne GSC vykony, konverze nebo leady.
+- U nekterych webu byl technicky slabsi hosting nebo certifikat; analyza proto bere jejich obsahove a prodejni vzorce, ne technickou kvalitu jako celek.
+
+### Co doporucuji udelat ted
+
+- Dopsat na Kontejnerovku jasny blok objemu a pouziti kontejneru: velikost, typicky material, na co si dat pozor u suti a zeminy, kdy nestaci jen `m3`, ale hraje roli hmotnost.
+- Pridat orientacni cenove kotvy a 2-4 modelove situace z praxe, aby zakaznik rychleji pochopil cenove rozdily bez falesneho pevneho ceniku.
+- Viditelne posilit `potvrzeni o likvidaci odpadu`, telefon a provozni proof body na homepage, `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html` a Kladno / Praha-zapad hubove stranky.
+
+### Co muze pockat
+
+- Dalsi nove lokalitni nebo EN stranky.
+- Rozsireni blogu nebo poradny, pokud nepridava primo lepsi rozhodnuti pred objednavkou.
+
+### Co potrebuji od majitele
+
+- Potvrdit, jestli lze verejne pouzit typicke priklady zakazek a orientacni cenove scenare bez obchodniho problemu.
+- Dodat nebo schvalit realne fotky a potvrdit, zda se bezne vystavuje potvrzeni o likvidaci odpadu.
+
+### Nejlepsi dalsi krok
+
+Na web doplnit jednu silnou rozhodovaci vrstvu `objemy kontejneru + orientacni cenove priklady + potvrzeni o likvidaci odpadu`, protoze to je nejcastejsi a nejpraktictejsi vzorec, ktery konkurenci pomaha uz pred prvnim telefonatem.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno v tomto behu: `docs/automation-prompts.md`, `docs/kontejnerovka-rust-webu.md`, `docs/reports/2026-06.md`, `docs/seo-opportunities.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: ne; jde o konkurencni a obsahovy pruzkum, ne o obchodni dopad.
+
+## Operacni zapis - 2026-06-18 - implementace rozhodovaci vrstvy na webu
+
+### Stav
+
+10/10 lokalne upraveno. Hlavni doporucena zmena z konkurencniho pruzkumu byla prevedena do webu bez velkeho rozsireni sitemap: doplneny byly objemy, volba velikosti, cenove hladiny bez falesne pevne ceny, opatrne formulovane doklady a silnejsi interni prolinkovani na hlavnich money strankach.
+
+### Shrnuti pro majitele
+
+Misto dalsiho nafukovani lokalit web ted lip odpovida na to, co clovek resi tesne pred zavolanim: jak velky kontejner zvolit, kdy je dulezitejsi hmotnost nez objem, co cenu posune do jednodussi nebo narocnejsi hladiny a kdy je potreba rict dopredu, ze chcete firemni doklad nebo podklad k odvozu. To je presne ta vrstva, kterou lokalni konkurence casto prodava rychleji nez samotnym SEO obsahem.
+
+### Semafor
+
+- Zelena: hlavni stranky ted maji silnejsi rozhodovaci bloky a lepsi navaznost mezi sluzbou, cenikem, technikou a referencemi.
+- Oranzova: textove proof body jsou lepsi, ale stale chybi realne mini-realizace, dalsi vlastni fotky a potvrzeny wording kolem `potvrzeni o likvidaci odpadu`.
+- Cervena: zmena jeste neni pushnuta ani nasazena live a bez obnoveneho GSC/GA4 OAuth nejde rychle zmerit dopad.
+
+### Co je dobra zprava
+
+- `index.html` a `cenik.html` nově vysvetluji objemy `3-4 / 5-7 / 9-12 m3` a orientacni cenove hladiny.
+- `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html` a `pristaveni-kontejneru.html` dostaly konkretnejsi rozhodovaci bloky podle materialu, pristupu a hmotnosti.
+- `technika.html`, `reference.html` a `o-nas.html` silneji navazuji na cenu, doklady, overeni a dalsi krok objednavky.
+
+### Co je problem
+
+- Nelze poctive doplnit realne verejne reference ani `potvrzeni o likvidaci odpadu`, dokud majitel neda podklady a neschvali presne tvrzeni.
+- Google import je stale blokovany `invalid_grant`, takze dnes nejde overit, ktere URL si zmenu zaslouzi nejvic podle cerstvych dat.
+
+### Co se zmenilo od minula
+
+- Predtim byl rozhodovaci gap popsany jen v dokumentech; ted je lokalne propsany primo do webu.
+- Web se posunul od obecneho `zavolejte a domluvime` k presnejsimu `jaka velikost / jaka cenova hladina / kdy rict doklad`.
+
+### Fakta
+
+- Lokalne upraveny byly: `index.html`, `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `pristaveni-kontejneru.html`, `technika.html`, `reference.html`, `o-nas.html`.
+- Zmeny jsou obsahove a bezpecne: bez nove JS logiky, bez zmen formularoveho backendu a bez velkeho zasahu do struktury.
+- Reference nejsou vymyslene; misto toho byla posilena vysvetlujici vrstva, jak budou mini-realizace vypadat a co je dnes skutecne overitelne.
+
+### Hypotezy
+
+- Po nasazeni live by se mela zvednout ochota volat nebo poslat formular hlavne z `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html` a `odvoz-zeminy.html`.
+- Silnejsi interní propojeni `cenik -> sluzba -> technika -> reference` muze pomoct i AI a lokalnimu trust cteni bez nutnosti dalsich novych URL.
+
+### Co chybi k jistote
+
+- Cerstva GSC a GA4 data po nasazeni.
+- Potvrzeni, zda lze verejne pouzit wording kolem `potvrzeni o likvidaci odpadu`.
+- Realne foto a mini-realizace z provozu.
+
+### Co doporucuji udelat ted
+
+- Nasadit zmeny live bez dalsiho odkladu.
+- Hned po nasazeni potvrdit, zda lze doplnit i presnejsi wording k dokladum a pripadnemu potvrzeni o likvidaci.
+- Do 14-30 dni po nasazeni vyhodnotit chovani na `cenik.html` a hlavnich service pages.
+
+### Co muze pockat
+
+- Dalsi nova lokalitni URL.
+- Sirsi rozsireni EN casti nebo poradny.
+
+### Co potrebuji od majitele
+
+- Schvalit wording pro doklady a pripadne `potvrzeni o likvidaci odpadu`.
+- Dodat prvni realne fotky nebo souhlas s anonymni mini-realizaci.
+- Dokoncit novy OAuth souhlas pro Google import.
+
+### Nejlepsi dalsi krok
+
+Nasadit dnesni lokalni upravy live a do 14-30 dni zkontrolovat, jestli se zvysily kliky na telefon a formulare na `cenik.html` a hlavnich service pages.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno v tomto behu: `index.html`, `cenik.html`, `kontejner-na-sut.html`, `odvoz-suti.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `pristaveni-kontejneru.html`, `technika.html`, `reference.html`, `o-nas.html`, `docs/kontejnerovka-rust-webu.md`, `docs/reports/2026-06.md`, `docs/owner-action-list.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: ne.

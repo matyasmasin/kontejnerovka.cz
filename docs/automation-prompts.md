@@ -157,3 +157,88 @@ Vystup musi byt jednoduchy, cesky a urceny pro majitele.
 Zapis:
 - hlavni zapis do docs/kontejnerovka-rust-webu.md
 - kratky souhrn do docs/reports/YYYY-MM.md
+
+## 6. Konkurenčni pruzkum 20 realnych konkurentu
+
+- ID: `kontejnerovka-konkurecni-pruzkum-20`
+- Frekvence: ad hoc / 1x za kvartal
+- Typ: hodnotici, bez zasahu do webu
+
+### Prompt
+
+Pro web Kontejnerovka.cz proved master konkurencni pruzkum 20 realnych konkurentu z nejblizsi obsluhovane oblasti. Cilem neni napsat dlouhy obecny audit, ale pochopit, co realne funguje konkurenci v okoli a co z toho ma smysl prevzit na nas web.
+
+Nejdriv over:
+- web je `https://kontejnerovka.cz`
+- workspace je `/Users/claude/Documents/Claude/parkovani-ruzyne.cz/autoservis1.cz/kontejnery`
+- branch je spravna
+
+Pak precti:
+- `docs/automation-master-standard.md`
+- `docs/automation-plan.md`
+- `docs/kontejnerovka-rust-webu.md`
+- `docs/seo-opportunities.md`
+- `docs/seo-scorecard.md`
+- `docs/ai-search-external-trust-plan.md`
+- posledni relevantni zapis v `docs/reports/`
+- pokud existuje, posledni konkurencni nebo SEO audit v `docs/`
+
+Zamereni konkurentu:
+- hledej 20 realnych konkurentu nebo srovnatelnych lokalnich hracu v oblastech Svarov u Unhoste, Unhost, Nucice u Rudne, Rudna, Kladno, Hostivice, Praha-zapad, Beroun, Rakovnik, Slany, Zdice, Kraluv Dvur a nejblizsi prakticky obsluhovane okoli
+- ber jen konkurenty, kteri realne nabizeji aspon cast sluzeb jako: pristaveni kontejneru, odvoz suti, odvoz zeminy, odvoz odpadu, dovoz materialu nebo zemni prace
+- preferuj vlastni firemni weby; katalogy nebo mapove profily pouzij jen jako doplnkovy signal pro lokalni duveru a viditelnost
+
+U kazdeho konkurenta over pokud mozno:
+- hlavni web a hlavni lokalni/sluzbove URL
+- sitemapu nebo indexovatelnou strukturu webu
+- title/H1 a jestli cili presne na `sluzba + lokalita`
+- navigaci, interni prolinkovani a jestli maji jasne money stranky
+- cenik, orientacni cenu, objemy, nosnost, pronajem, dobu pristaveni, FAQ
+- formular, telefon, CTA, fotky, reference, recenze, Google profil, NAP a dalsi trust prvky
+- schema, FAQ, lokalni landing pages, blog/poradnu, techniku, vozovy park, povoleni, realizace
+- jestli maji slabiny, ktere nechceme kopirovat: spam lokalit, duplicitni texty, doorway pages, slaby UX, nejasne sliby, fake trust
+
+Konkretne zkus odpovedet na otazky:
+1. Co dela 20 realnych konkurentu lepe nez Kontejnerovka.cz?
+2. Co maji konkurenti slabsi a je to nase prilezitost?
+3. Ktere prvky se opakuji u vice konkurentu a pravdepodobne fungují obchodne nebo SEO?
+4. Co z toho ma smysl prevzit na nas web bez kopirovani a bez SEO spamu?
+5. Co naopak neprebirat, i kdyz to konkurence dela casto?
+
+Pravidla:
+- pouzij internet a pracuj jen s realne overenymi strankami
+- u kazdeho tvrzeni se opirej o konkretni URL, screenshot, sitemapu, title, CTA, trust signal nebo lokalni stranku
+- kdyz neco nejde overit, napis `nelze overit`
+- nevymyslej data o recenzich, vykonu nebo obchodnim dopadu
+- nesmis doporucit slepe kopirovani textu nebo struktury konkurence
+- zohledni i riziko kanibalizace a doorway pages
+- AI search a lokalni duvera ber jako soucast SEO: všímej si recenzi, fotek, Google Business Profile, referenci, techniky, FAQ, lokalnich proof bodu a jasne entity
+- neprovadej zmeny na webu; jde o rozhodovaci podklad
+
+Vystup strukturovat pro majitele:
+- Stav
+- Shrnutí
+- Semafor
+- 20 konkurentu v kratke tabulce: konkurent / lokalita / co ma silne / co ma slabe / co stoji za prevzeti
+- Opakujici se vzorce, ktere konkurenci zjevne fungují
+- Co funguje jim a chybi nam
+- Co funguje nam a jim chybi
+- Co bychom meli prevzit ted
+- Co neprebirat
+- Fakta
+- Hypotezy
+- Co chybi k jistote
+- Doporuceni: maximalne 3 body
+- Nejlepsi dalsi krok: presne 1 akce
+- Zapis do dokumentu
+
+Ocekavany format zaveru:
+- rozlis `lokalne upraveno / pushnuto / nasazeno live / zmereno`
+- maximalne 3 doporuceni
+- presne 1 nejlepsi dalsi krok
+- jednoduse cesky, srozumitelne pro majitele bez IT
+
+Zapis:
+- pokud jde o novy strategicky smer nebo konkurencni mezeru, zapis do `docs/kontejnerovka-rust-webu.md`
+- kratky souhrn zapis do `docs/reports/YYYY-MM.md`
+- pokud vznikne vetsi backlog, zapis do `docs/seo-opportunities.md`
