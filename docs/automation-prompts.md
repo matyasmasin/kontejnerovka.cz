@@ -39,13 +39,28 @@ Tento dokument je pripraveny jako zdroj pravdy pro nastaveni automatizaci v Code
 
 Pro web Kontejnerovka.cz proved master SEO kontrolu. Nejde o denni monitoring ani o dlouhy audit. Cilem je podivat se na web, dostupne dokumenty a historii a rozhodnout, jaka je ted jedna nejlepsi dalsi akce pro rust webu.
 
-Nejdriv over: web je https://kontejnerovka.cz, workspace je /Users/claude/Documents/Claude/parkovani-ruzyne.cz/autoservis1.cz/kontejnery a branch je spravna. Precti docs/automation-plan.md, docs/kontejnerovka-rust-webu.md, docs/seo-content-log.md, docs/seo-opportunities.md, docs/seo-scorecard.md a posledni relevantni report v docs/reports/.
+Nejdriv over: web je https://kontejnerovka.cz, workspace je /Users/claude/Documents/Claude/parkovani-ruzyne.cz/autoservis1.cz/kontejnery a branch je spravna. Precti docs/automation-master-standard.md, docs/ai-search-external-trust-plan.md, docs/automation-plan.md, docs/kontejnerovka-rust-webu.md, docs/seo-content-log.md, docs/seo-opportunities.md, docs/seo-scorecard.md, docs/measurement-plan.md, docs/automation-prompts.md, docs/owner-action-list.md a posledni relevantni report v docs/reports/.
 
 Pokud jde o SEO nebo mereni, nejdriv zkus spustit node scripts/fetch-google-data.mjs. Kdyz data nejsou, otevrene to napis a nic si nedomyslej.
 
-Zkontroluj hlavni stranky, prioritni lokality, interni prolinkovani, canonical, title/meta, schema, formulare a hlavni konverzni cestu. Navaz na posledni zmeny a doporuceni. Neprovadej zadne zmeny na webu.
+Zkontroluj hlavni stranky, prioritni lokality, interni prolinkovani, canonical, title/meta, schema, formulare, hlavni konverzni cestu, AI/lokalni duveru, GBP stav podle dostupnych podkladu a riziko kanibalizace. Navaz na posledni zmeny a doporuceni.
 
-Vystup strukturovat: Stav, Shrnuti pro majitele, Semafor, Fakta, Hypotezy, Co chybi k jistote, Co doporucuji udelat ted, Co muze pockat, Co potrebuji od majitele, Nejlepsi dalsi krok, Zapis do dokumentu.
+Hledej jen zmeny s vysokou navratnosti. Nepridavej nove URL jen proto, ze existuje dalsi cast mesta nebo dalsi podobny keyword. Novou stranku doporuc jen kdyz:
+- existuje samostatny intent,
+- nekrizi se s existujici URL,
+- je opora v datech nebo silnem konkurencnim signalu,
+- a nejde stejnou potrebu lepe vyresit posilenim uz existujici stranky.
+
+Nevytvarej doorway pages, AI-vatu ani mikro-lokality bez dukazu. Kdyz jsou data slaba, preferuj:
+- posileni existujici money page,
+- zpresneni title/H1/meta,
+- lepsi interni prolinkovani,
+- rozhodovaci bloky pro cenu/objem/postup,
+- FAQ a trust vrstvu.
+
+Neprovadej velke zmeny na webu. Malou bezpecnou zmenu proved jen pokud je jasne oduvodnena daty nebo silnym technickym nedostatkem, a zapsat ji do docs/owner-action-list.md vcetne kontroly dopadu.
+
+Vystup strukturovat: Stav, Shrnuti, Semafor, Fakta, Hypotezy, Co chybi k jistote, AI/lokalni duvera silna/castecna/slaba/nelze urcit, Co doporucuji udelat ted, Co muze pockat, Co potrebuji od majitele, Nejlepsi dalsi krok, Zapis do dokumentu.
 
 Zapis:
 - pokud jde o zmenu smeru nebo dulezite zjisteni, zapis do docs/kontejnerovka-rust-webu.md

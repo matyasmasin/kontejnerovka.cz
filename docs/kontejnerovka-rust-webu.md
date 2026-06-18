@@ -238,28 +238,61 @@ Web je po technicke strance pripraveny lepe, nez byvalo u podobnych lokalnich we
 - Realna GSC data pro dotazy, kliky a zobrazeni podle stranek a lokalit.
 - Realna GA4 data pro telefon, formular a kalkulacku.
 - Overitelny stav poctu recenzi v Google Business Profile.
-- Potvrzeni, kolik pouzitelnych vlastnich fotek a realizaci ma majitel uz ted k dispozici.
+
+## Operacni zapis - 2026-06-18 - neexpandovat dalsi mikro-lokality, posilit stavebni odpad
+
+### Stav
+
+Castecne odblokovano a lokalne upraveno. Google import 2026-06-18 uspesne probehl, ale data za obdobi `2026-05-21` az `2026-06-17` jsou stale velmi tenka. Master rozhodnuti proto nebylo tvorit dalsi sublokality Praha, ale posilit existujici money page pro stavebni odpad.
+
+### Shrnutí pro majitele
+
+Na webu uz existuji stranky, ktere pokryvaji Praha 6, Praha 13 a Praha 17 vcetne Ruzyne, Stodulek, Rep a Zlicina. Cerstva data zatim nedavaji oporu pro dalsi drobeni techto lokalit do novych URL. Silnejsi dalsi tah je lepe vysvetlit zakaznikovi, jak resit stavebni odpad, jakou velikost zvolit, co ovlivni cenu a kdy rict, ze potrebuje doklad. To je ted i lokalne upraveno na existujici URL `kontejner-na-stavebni-odpad.html`.
+
+### Semafor
+
+- Zelena: `node scripts/fetch-google-data.mjs` 2026-06-18 uspesne ulozil GSC a GA4 data; hlavni smer je ted podlozeny realnymi daty, ne jen dojmem.
+- Oranzova: GSC summary za `2026-05-21` az `2026-06-17` je stale velmi rany a GA4 ukazuje `form_start 3`, `cta_click 3`, ale `click_phone 0` a `lead_form_submit 0`.
+- Cervena: bez recenzi, vlastnich fotek a silnejsich trust dukazu nelze tvrdit obchodni dopad ani lokalni autoritu.
+
+### Fakta
+
+- GSC summary pro `2026-05-21` az `2026-06-17` uvadi 20 query rows, 17 page rows a 73 impressions.
+- Detailni CSV ukazuji, ze se zobrazuji hlavne homepage, `kontejnery-unhost.html`, `kontejnery-rudna.html`, `kontejnery-nucice.html`, `dovoz-kacirku.html` a `cenik.html`.
+- V query datech neni potvrzeny signal pro `zlicin`, `repy`, `stodulky`, `ruzyne`, `praha 5`, `praha 6` ani `praha 13`.
+- Existujici URL uz kryji sublokality: `kontejnery-praha-17.html` resi Repy a Zlicin, `kontejnery-praha-13.html` resi Stodulky a `kontejnery-praha-6.html` resi Ruzyne.
+- Konkurencni signal z realnych webu casteji opakuje `velikost kontejneru`, `orientacni cena`, `doklad o likvidaci` a jasny CTA flow nez dalsi mikro-lokality.
+
+### Hypotezy
+
+- Posileni intentu `odvoz stavebniho odpadu` na jedne existujici money page prinese vyssi sanci na klik nebo poptavku nez dalsi nova lokalitni URL bez signalu.
+- Pokud se pozdeji v GSC objevi realne dotazy pro Repy, Zlicin, Stodulky nebo Ruzyne, pujde to lepe resit jako samostatny follow-up s mensim rizikem kanibalizace.
+
+### Co chybi k jistote
+
+- Vetsi objem GSC dat alespon po 4-8 tydnech od poslednich nasazeni.
+- GA4 eventy s realnymi leady misto jen QA a mezikrokovych signalu.
+- GBP detail, recenze, fotky a realne obchodni leady.
 
 ### Co doporucuji udelat ted
 
-- Pripravit prvni balicek 5-10 vlastnich fotek auta, kontejneru, pristaveni a hotove zakazky z okoli Svarova, Unhoste, Nucic, Rudne nebo Kladenska.
-- Ke 2-3 fotkam dopsat kratky anonymni kontext: lokalita, typ odpadu nebo materialu a co ovlivnilo cenu nebo pristup.
-- Soubzne dokoncit API pristup pro GSC a GA4, aby dalsi master kontrola uz nebyla slepa na data.
+- Nasadit lokalne upravenou stranku `kontejner-na-stavebni-odpad.html` a navazane interni odkazy.
+- Nedelat dalsi mikro-lokalitni URL pro Praha sublokality bez noveho datoveho signalu.
+- Dale tlacit trust balicek: fotky, mini-realizace, recenze.
 
 ### Co muze pockat
 
-- Dalsi nove lokalitni nebo obsahove stranky bez datoveho duvodu.
-- Jemne prepisy title a meta na strankach, ktere uz dnes maji zakladni SEO prvky vyresene.
+- Samostatne URL pro Zlicin, Repy, Stodulky a Ruzyne.
+- Dalsi sireni sitemap jen podle brainstormu keywordu.
 
 ### Co potrebuji od majitele
 
-- 5-10 realnych fotek z provozu, idealne z prioritnich lokalit.
-- Informaci, zda lze pouzit anonymni popis 2-3 hotovych zakazek bez adresy a bez osobnich udaju.
-- Aktualni Google credential mimo git je pripraveny a overeny; ciselne `GA4_PROPERTY_ID=538305751` je lokalne nastavene.
+- Schvalit nasazeni teto male upravy.
+- Dodat nebo potvrdit prvni realne fotky a mini-realizace, aby dalsi rust nesel jen pres text.
 
 ### Nejlepsi dalsi krok
 
-Misto dalsi SEO stranky ted pripravit prvni sadu realnych fotek a 2-3 kratkych anonymnich realizaci z prioritnich lokalit; to je momentalne nejpravdepodobnejsi dalsi rustovy krok pro duveru i konverze.
+Nasadit posilenou stranku `kontejner-na-stavebni-odpad.html` a po 14-30 dnech zkontrolovat, jestli prinesla prvni kliky nebo formularovy signal.
 
 ## Kvartalni strategicky audit - 2026-06-11
 

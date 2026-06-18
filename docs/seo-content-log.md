@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-06-18 - posileni intentu "odvoz stavebniho odpadu" na existujici URL
+
+- Co se zmenilo: stranka `kontejner-na-stavebni-odpad.html` byla pretargetovana z uzsiho `kontejner na stavebni odpad` na sirsi a obchodnejsi intent `odvoz stavebniho odpadu a kontejner`; doplneny byly velikostni rozhodovaci bloky, cenove a dokladove rozhodovaci body, nove FAQ a silnejsi interni odkazy z `sluzby.html`, `odvoz-odpadu.html`, `poradna.html` a `cenik.html`.
+- Proc se to zmenilo: cerstvy import GSC a GA4 z 2026-06-18 ukazuje, ze web ma stale velmi malo dat a nema signal pro dalsi mikro-lokality Praha 5/6/13/17 pod uroven existujicich hubu. Soucasne konkurence casto ziskava poptavky rychlejsim rozhodnutim pres velikosti, cenove kotvy a doklady, ne dalsimi doorway URL.
+- Ocekavany dopad: lepsi relevance pro dotazy kolem stavebniho odpadu, rychlejsi rozhodnuti pred zavolanim nebo formularem a silnejsi vnitrni cluster mezi cenikem, poradnou, odvozem odpadu a service money page.
+- Zdroj dat nebo duvod: `node scripts/fetch-google-data.mjs` uspesne probehl 2026-06-18; GSC summary pracuje s obdobim `2026-05-21` az `2026-06-17`, GA4 summary se stejnym obdobim ukazuje `form_start 3`, `cta_click 3`, ale stale `click_phone 0` a `lead_form_submit 0`; konkurencni signal ukazuje opakovane motivy `velikost kontejneru`, `cena predem` a `doklad o likvidaci`.
+- Kdo/automatizace zmenu navrhla: manualni master SEO kontrola s malou bezpecnou implementaci.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: GSC dotazy a imprese pro `kontejner-na-stavebni-odpad.html`, GA4 `click_phone`, `form_start`, `lead_form_submit`, `generate_lead` a pruchod z `cenik.html`, `odvoz-odpadu.html` a `poradna.html` na tuto URL.
+- Minimalni doba vyhodnoceni: 14-30 dni pro prvni signal, 4-8 tydnu pro organicky dopad.
+
 ### 2026-06-18 - systematicke posileni slabsich podstranek
 
 - Co se zmenilo: na 44 ceskych podstrankach byly doplneny chybejici bloky `visual-proof`, `content-blocks`, `service-note` a na casti lokalnich landing pages i `mobile-action-box`; pro opakovatelnost vznikl skript `scripts/upgrade-subpages.mjs`.
