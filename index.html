@@ -33,8 +33,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="preload" as="image" href="assets/hero-truck-mobile.webp" media="(max-width: 780px)" fetchpriority="high">
     <link rel="preload" as="image" href="assets/hero-truck.webp" media="(min-width: 781px)" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260617d">
-    <script src="script.js?v=20260612c" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260618a">
+    <script src="script.js?v=20260618a" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -385,15 +385,15 @@
         <div class="hero-overlay"></div>
         <div class="hero-inner">
           <p class="eyebrow">Kontejner na suť, zeminu a odpad · Praha a Středočeský kraj</p>
-          <h1 id="hero-title">Kontejnerová doprava a zemní práce pro suť, zeminu i materiál</h1>
+          <h1 id="hero-title">Kontejner, odvoz suti a zemní práce bez zbytečného dohadování</h1>
           <p class="hero-lead">
-            Zavolejte nebo pošlete adresu, co se poveze, množství a fotku místa.
-            Řekneme vhodný kontejner, volný termín a co je v ceně. Když neznáte přesný název odpadu, stačí ho popsat lidsky.
+            Pošlete adresu, typ odpadu nebo materiálu a fotku místa. Řeknu vhodný postup,
+            termín a co bude v ceně. Bez odborných názvů a bez slibů naslepo.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="tel:+420738505028">
               <i data-lucide="phone-call" aria-hidden="true"></i>
-              Zavolat pro rychlou cenu
+              Zavolat a domluvit cenu
             </a>
             <a class="btn btn-secondary" href="#orientacni-kalkulacka">
               <i data-lucide="clipboard-list" aria-hidden="true"></i>
@@ -422,7 +422,7 @@
             </div>
             <div>
               <dt>Jistota</dt>
-              <dd>Co si domluvíme, to platí — cena předem</dd>
+              <dd>Ověřitelný provozovatel a cena předem</dd>
             </div>
           </dl>
         </div>
@@ -473,19 +473,26 @@
         </article>
       </section>
 
-      <section class="section content-blocks" aria-labelledby="customer-decision-title">
-        <article>
-          <h2 id="customer-decision-title">Proč by zákazník měl vybrat právě Kontejnerovka.cz</h2>
-          <p>Protože tu nejde o anonymní katalog ani o cenu vycucanou z tabulky. Mluvíte přímo s člověkem, který přijede — nejdřív si potvrdíme, co vezete a kudy se k vám dostanu, a pak řeknu cenu, která platí.</p>
-        </article>
-        <article>
-          <h2>Rychlá odpověď bez odborných slov</h2>
-          <p>Nemusíte vědět, jestli je to přesně suť, směsný stavební odpad nebo zemina. Stačí popsat, co vyhazujete, odkud to je a přidat fotku. Doladíme to podle toho, co u vás reálně leží na hromadě.</p>
-        </article>
-        <article>
-          <h2>Lokální trasy dávají smysl</h2>
-          <p>Nejsilnější oblast je Svárov, Unhošť, Nučice, Rudná, Hostivice, Kladno a Praha-západ. Blízkost sama negarantuje nejnižší cenu, ale pomáhá plánování termínu, trasy a případné kombinace odvozu s dovozem materiálu.</p>
-        </article>
+      <section class="section trust-proof-panel" aria-labelledby="customer-decision-title">
+        <div>
+          <p class="eyebrow">Proč mi lidé volají</p>
+          <h2 id="customer-decision-title">Mluvíte s konkrétním provozovatelem, ne s anonymním katalogem</h2>
+          <p>
+            Za webem stojí Matyáš Mašín, IČO 01379178, plátce DPH. Jezdím hlavně Praha-západ,
+            Kladensko, Unhošť, Rudná, Hostivice a okolí. Firmu si můžete ověřit přes Google profil,
+            ARES i veřejné firemní údaje.
+          </p>
+          <div class="proof-actions">
+            <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat a ověřit termín</a>
+            <a class="btn btn-secondary" href="reference.html"><i data-lucide="badge-check" aria-hidden="true"></i>Ověření a reference</a>
+          </div>
+        </div>
+        <div class="trust-proof-facts" aria-label="Ověřitelné údaje">
+          <article><span>Provozovatel</span><strong>Matyáš Mašín</strong></article>
+          <article><span>IČO / DIČ</span><strong>01379178 / CZ9211070033</strong></article>
+          <article><span>Kontakt</span><strong>738 505 028</strong></article>
+          <article><span>Oblast</span><strong>Praha-západ, Unhošť, Kladensko</strong></article>
+        </div>
       </section>
 
       <section class="section service-note geo-summary" aria-label="Stručné shrnutí služby pro vyhledávače a AI">
@@ -1274,7 +1281,7 @@
         </div>
       </section>
 
-      <section class="section trust" aria-labelledby="trust-title">
+      <section class="section trust" id="duvera" aria-labelledby="trust-title">
         <div class="section-head compact">
           <p class="eyebrow">Důvěra</p>
           <h2 id="trust-title">Férová domluva, fakturace a jasné informace před výjezdem</h2>
@@ -1292,8 +1299,8 @@
           </article>
           <article>
             <i data-lucide="camera" aria-hidden="true"></i>
-            <h3>Fotky realizací</h3>
-            <p>Na webu je připravená stránka pro reálné fotky zakázek, auta, kontejnerů a materiálů.</p>
+            <h3>Fotky nepředstírám</h3>
+            <p>Na web přidám jen vlastní fotky zakázek a techniky. Žádné cizí realizace vydávané za moje.</p>
           </article>
         </div>
         <a class="section-link" href="reference.html">Realizace a reference</a>
@@ -1313,10 +1320,10 @@
         <div class="contact-content">
           <div class="contact-copy">
             <p class="eyebrow">Kontakt</p>
-            <h2 id="contact-title">Získejte cenu bez dlouhého dopisování</h2>
+            <h2 id="contact-title">Pošlete údaje, cenu potvrdím konkrétně</h2>
             <p>
-              Nejrychlejší je telefon. Formulář je nejlepší, když můžete přidat obec, co se poveze,
-              odhad množství, přístup a fotku místa.
+              Nejrychlejší je telefon. Ve formuláři stačí obec, co se poveze, množství,
+              přístup a fotka místa. Když něco chybí, ozvu se.
             </p>
             <div class="contact-cards">
               <a href="tel:+420738505028">
@@ -1336,7 +1343,7 @@
             </div>
           </div>
 
-          <form class="inquiry-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-inquiry-form>
+          <form class="inquiry-form" id="formular" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" data-inquiry-form>
             <input type="hidden" name="access_key" value="a631aa36-18b8-499a-b6e9-16990f180fd2">
             <input type="hidden" name="subject" value="Poptávka z webu Kontejnerovka.cz">
             <input type="hidden" name="from_name" value="Kontejnerovka.cz">
@@ -1346,7 +1353,7 @@
             <input type="hidden" name="photo" value="">
             <div class="form-intro">
               <strong>3 krátké kroky. Bez odborných názvů.</strong>
-              <span>Napište obec, co se má odvézt nebo dovézt, množství a přístup. Fotka místa často nahradí několik doplňujících otázek.</span>
+              <span>Obec, náklad, množství a přístup. Fotka často nahradí několik doplňujících otázek.</span>
             </div>
 
             <div class="form-progress" aria-label="Postup poptávky">
@@ -1589,7 +1596,7 @@
 
     <div class="mobile-cta">
       <a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a>
-      <a href="#kontakt"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a>
+              <a href="#kontakt"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a>
     </div>
   </body>
 </html>

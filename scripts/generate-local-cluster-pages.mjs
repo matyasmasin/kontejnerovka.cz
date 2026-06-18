@@ -112,7 +112,7 @@ const pageHtml = (page) => {
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css?v=${CACHE}">
-    <script src="script.js?v=20260612c" defer></script>
+    <script src="script.js?v=20260618a" defer></script>
     <script type="application/ld+json">${JSON.stringify(serviceSchema, null, 2)}</script>
     <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
     <script type="application/ld+json" data-visible-faq>${JSON.stringify(faq, null, 2)}</script>

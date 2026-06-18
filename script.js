@@ -1198,12 +1198,47 @@ const setupRevealAnimations = () => {
       });
     },
     {
-      rootMargin: "0px 0px -8% 0px",
-      threshold: 0.12,
+      rootMargin: "0px 0px -2% 0px",
+      threshold: 0.04,
     },
   );
 
   revealTargets.forEach((target) => observer.observe(target));
+
+  window.setTimeout(() => {
+    revealTargets.forEach((target) => {
+      const rect = target.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        target.classList.add("is-visible");
+      }
+    });
+  }, 900);
+};
+
+const setupMobileCtaFormGuard = () => {
+  const zones = document.querySelectorAll(".contact-section");
+  if (!zones.length || !("IntersectionObserver" in window)) return;
+
+  const visibleZones = new Set();
+  const sync = () => {
+    document.body.classList.toggle("is-in-form-zone", visibleZones.size > 0);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) visibleZones.add(entry.target);
+        else visibleZones.delete(entry.target);
+      });
+      sync();
+    },
+    {
+      rootMargin: "-10% 0px -18% 0px",
+      threshold: 0.08,
+    },
+  );
+
+  zones.forEach((zone) => observer.observe(zone));
 };
 
 const hideCookieBanner = () => {
@@ -1275,6 +1310,7 @@ window.addEventListener("DOMContentLoaded", () => {
   setupSubpagePolish();
   scheduleIconLoad();
   setupRevealAnimations();
+  setupMobileCtaFormGuard();
   setupPriceCalculator();
   ensurePageUrlField();
   applyPendingCalculatorInquiry();
