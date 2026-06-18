@@ -11,8 +11,8 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 - Ocekavany dopad: vyssi duvera pred odeslanim formulare nebo klikem na telefon, lepsi interni prolinkovani na proof URL a mensi zavislost na footer linku.
 - Zdroj dat nebo duvod: manualni master SEO/CRO implementace po nasledne kontrole nejsilnejsich servisnich URL; soucasne 2026-06-18 uspesne probehl `node scripts/fetch-google-data.mjs` pro GSC i GA4.
 - Kdo/automatizace zmenu navrhla: manualni master SEO implementace.
-- Nasazeno: lokalne upraveno.
-- Commit:
+- Nasazeno: ano, po commitu/pushi na `main` a po uspesnem GitHub Pages deploy v tomto behu.
+- Commit: `ff30971`
 - Co sledovat po zmene: `click_phone`, `form_start`, `generate_lead` a vstupy na 6 upravenych URL; zvlast zda roste proklik na `reference.html` a `o-nas.html`.
 - Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 28-56 dni pro stabilnejsi organicky signal.
 
