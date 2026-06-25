@@ -8,6 +8,7 @@ const copyInquiryButton = document.querySelector("[data-copy-inquiry]");
 const GA_MEASUREMENT_ID = "G-BCXFMBWZJ4";
 const ANALYTICS_CONSENT_KEY = "kontejnerovka_analytics_consent";
 const ANALYTICS_COOKIE_MAX_AGE = 60 * 60 * 24 * 180;
+const COOKIE_DISMISS_KEY = "kontejnerovka_cookie_banner_dismissed";
 const CALCULATOR_STORAGE_KEY = "kontejnerovka_calculator_inquiry";
 const pageLocale = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "cs";
 const siteScript = document.querySelector('script[src*="script.js"]');
@@ -51,6 +52,7 @@ const copy = {
     cookieText: "Pomáhají měřit poptávky a zlepšovat web. Bez souhlasu běží jen nezbytné funkce.",
     cookieDecline: "Pouze nezbytné",
     cookieAccept: "Povolit měření",
+    cookieClose: "Zavřít lištu cookies",
     calculatorBandMiddleTitle: "Orientačně: střední cenová hladina",
     calculatorBandMiddleText: "Nejde o závaznou nabídku. Přesnou cenu potvrdíme podle adresy, druhu odpadu, množství, přístupu a termínu.",
     calculatorBandLowerTitle: "Orientačně: nižší až střední cenová hladina",
@@ -114,6 +116,7 @@ const copy = {
     cookieText: "They help measure enquiries and improve the website. Without consent, only essential functions run.",
     cookieDecline: "Essential only",
     cookieAccept: "Allow analytics",
+    cookieClose: "Close cookie bar",
     calculatorBandMiddleTitle: "Indicative level: standard quote complexity",
     calculatorBandMiddleText: "This is not a binding quote. We confirm the exact price after checking the address, material, amount, access and timing.",
     calculatorBandLowerTitle: "Indicative level: lower to standard complexity",
@@ -158,6 +161,31 @@ const getAnalyticsConsent = () => {
     return window.localStorage.getItem(ANALYTICS_CONSENT_KEY) || getCookieConsent();
   } catch {
     return getCookieConsent();
+  }
+};
+
+const isCookieBannerDismissed = () => {
+  try {
+    return window.sessionStorage.getItem(COOKIE_DISMISS_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+
+const dismissCookieBannerForSession = () => {
+  try {
+    window.sessionStorage.setItem(COOKIE_DISMISS_KEY, "1");
+  } catch {
+    // Session-only dismissal is a convenience; consent state is not changed.
+  }
+  hideCookieBanner();
+};
+
+const resetCookieBannerDismissal = () => {
+  try {
+    window.sessionStorage.removeItem(COOKIE_DISMISS_KEY);
+  } catch {
+    // If session storage is unavailable, the banner can still be recreated normally.
   }
 };
 
@@ -1246,13 +1274,14 @@ const hideCookieBanner = () => {
 };
 
 const createCookieBanner = () => {
-  if (getAnalyticsConsent()) return;
+  if (getAnalyticsConsent() || isCookieBannerDismissed()) return;
 
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
   banner.setAttribute("data-cookie-banner", "");
   banner.setAttribute("aria-label", t("cookieLabel"));
   banner.innerHTML = `
+    <button class="cookie-close" type="button" data-cookie-close aria-label="${t("cookieClose")}">×</button>
     <div>
       <strong>${t("cookieTitle")}</strong>
       <p>${t("cookieText")}</p>
@@ -1265,6 +1294,8 @@ const createCookieBanner = () => {
   `;
 
   document.body.appendChild(banner);
+
+  banner.querySelector("[data-cookie-close]")?.addEventListener("click", dismissCookieBannerForSession);
 
   banner.querySelector("[data-cookie-accept]")?.addEventListener("click", () => {
     setAnalyticsConsent("granted");
@@ -1298,6 +1329,7 @@ const addPrivacyControls = () => {
   settingsButton.textContent = t("cookieSettings");
   settingsButton.addEventListener("click", () => {
     clearAnalyticsConsent();
+    resetCookieBannerDismissal();
     hideCookieBanner();
     createCookieBanner();
   });
