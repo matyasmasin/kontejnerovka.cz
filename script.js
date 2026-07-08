@@ -1182,18 +1182,18 @@ const setupSubpagePolish = () => {
   if (!document.querySelector(".subpage-trustbar")) {
     const trustbar = document.createElement("div");
     trustbar.className = "subpage-trustbar";
-    trustbar.setAttribute("aria-label", pageLocale === "en" ? "Quote advantages" : "Výhody rychlé poptávky");
+    trustbar.setAttribute("aria-label", pageLocale === "en" ? "What I need for an accurate quote" : "Co potřebuji pro přesnou cenu");
     trustbar.innerHTML =
       pageLocale === "en"
         ? `
-          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Fast quote</strong><span>Town, load, amount and date are enough.</span></span></div>
-          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Photo helps</strong><span>Access and waste type are clearer immediately.</span></span></div>
-          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Confirmed before dispatch</strong><span>Price, VAT and route are agreed first.</span></span></div>
+          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Quote needs</strong><span>address, material, estimated amount and date.</span></span></div>
+          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Truck with crane</strong><span>best where precise handling and safe unloading matter.</span></span></div>
+          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Up to 8 t payload</strong><span>rubble, concrete and soil are judged mainly by weight.</span></span></div>
         `
         : `
-          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Rychlé nacenění</strong><span>Stačí obec, náklad, množství a termín.</span></span></div>
-          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Fotka pomůže</strong><span>Přístup i odpad se rozhodnou rychleji.</span></span></div>
-          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Potvrzení před výjezdem</strong><span>Cena, DPH i trasa jsou domluvené předem.</span></span></div>
+          <div><i data-lucide="timer-reset" aria-hidden="true"></i><span><strong>Pro cenu potřebuji</strong><span>adresu, materiál, odhad množství a termín.</span></span></div>
+          <div><i data-lucide="camera" aria-hidden="true"></i><span><strong>Auto s rukou</strong><span>hodí se tam, kde rozhoduje přesná manipulace a bezpečné složení.</span></span></div>
+          <div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Až 8 t nákladu</strong><span>u suti, betonu a zeminy řeším hlavně váhu, ne jen objem.</span></span></div>
         `;
     hero.insertAdjacentElement("afterend", trustbar);
   }

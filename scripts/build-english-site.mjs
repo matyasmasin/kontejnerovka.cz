@@ -657,8 +657,8 @@ const subpageShowcase = () => `<section class="section visual-proof subpage-show
           <a class="section-link light" href="contact.html#form">Send details for pricing</a>
         </div>
         <div class="visual-proof-grid">
-          <article class="visual-proof-card image-card"><picture><source srcset="../assets/hero-truck.webp" type="image/webp"><img src="../assets/hero-truck.jpg" alt="Container truck on a construction site" width="1200" height="800" loading="lazy"></picture><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
-          <article class="visual-proof-card image-card"><picture><source srcset="../assets/material-load.webp" type="image/webp"><img src="../assets/material-load.jpg" alt="Bulk material loaded for site delivery" width="1200" height="800" loading="lazy"></picture><div><span>Material and waste</span><strong>Rubble, soil and aggregates are priced by type, amount and route.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="../assets/truck-crane-extended.jpg" alt="Kontejnerovka.cz truck with crane during real unloading" width="1800" height="1442" loading="lazy"><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="../assets/container-tilt.jpg" alt="Kontejnerovka.cz container body tipping during real operation" width="1800" height="1350" loading="lazy"><div><span>Container in use</span><strong>This is the real container body during tipping, collection and on-site handling.</strong></div></article>
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 details</span><h3>Town, load and photo usually shorten the quote.</h3><p>If access is narrow, the container stands in a street or the waste is mixed, a photo prevents back-and-forth and helps confirm the right option.</p></article>
         </div>
       </section>`;
@@ -856,8 +856,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
 
 const contactSection = (page) => `<section class="contact-section" id="form" aria-labelledby="contact-title">
         <picture class="contact-media">
-          <source srcset="../assets/site-machine.webp" type="image/webp">
-          <img src="../assets/site-machine.jpg" alt="Construction machinery and access area for container delivery" width="1200" height="704" loading="lazy">
+          <img src="../assets/truck-profile.jpg" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
         </picture>
         <div class="contact-content">
           <div class="contact-copy">
@@ -1341,8 +1340,7 @@ const corePages = {
 
       <section class="section split" aria-labelledby="materials-title">
         <picture class="split-image">
-          <source srcset="../assets/material-load.webp" type="image/webp">
-          <img src="../assets/material-load.jpg" alt="Loading bulk building material" width="1200" height="901" loading="lazy">
+          <img src="../assets/truck-profile.jpg" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
         </picture>
         <div class="split-content">
           <p class="eyebrow">Waste out, material in</p>
@@ -1525,7 +1523,7 @@ const corePages = {
         text: "Container delivery depends on truck access, safe placement spot, material weight and whether the container can stand on private land or a public place. A photo of the access usually makes the quote faster.",
         facts: ["Heavy materials: rubble, concrete and wet soil", "Access issues: narrow driveways, slope, parked cars, branches, cables and soft ground", "Public street placement may require local permission"],
       })}
-      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><source srcset="../assets/site-machine.webp" type="image/webp"><img src="../assets/site-machine.jpg" alt="Construction machinery and container access area" width="1200" height="704" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the placement spot", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
+      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><img src="../assets/truck-crane-extended.jpg" alt="Kontejnerovka.cz truck with crane during real handling" width="1800" height="1442" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the placement spot", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
       <section class="section service-detail"><div class="section-head"><p class="eyebrow">Weight and volume</p><h2>Container size is chosen by material, not just volume</h2><p>Light bulky material is different from heavy rubble, concrete or wet soil. The safe solution depends on both volume and weight.</p></div><div class="detail-grid"><article><h3>Rubble and concrete</h3><p>Heavy material where clean sorting and safe weight matter.</p></article><article><h3>Soil</h3><p>Moisture, stones, roots and volume can change the job quickly.</p></article><article><h3>Wood and green waste</h3><p>Usually more volume-sensitive, but mixed material must be described.</p></article></div></section>
       <section class="section seo-panel"><h2>Related practical pages</h2><p>These pages help with access, permit and material decisions.</p>${linkCloud([["Container delivery", "pristaveni-kontejneru.html"], ["Permit in Prague", "povoleni-kontejner-praha.html"], ["Rubble container", "kontejner-na-sut.html"], ["Soil container", "kontejner-na-zeminu.html"]])}</section>
       <section class="cta-band"><h2>Unsure whether the truck can access the place?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send a photo of the access</a></section>
