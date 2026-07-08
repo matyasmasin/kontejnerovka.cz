@@ -1,9 +1,13 @@
 :root {
   --ink: #101412;
   --ink-soft: #414a45;
+  --muted: #5d665f;
   --paper: #f6f3ea;
   --paper-strong: #ebe5d7;
+  --surface: #fcfaf4;
   --line: #d8d0c1;
+  --line-strong: #c9bfad;
+  --black: #0b0f0d;
   --carbon: #0b0f0d;
   --steel: #141a17;
   --steel-soft: #202823;
@@ -860,6 +864,7 @@ textarea:focus-visible {
   border: 1px solid rgba(255, 106, 0, 0.2);
   border-radius: 8px;
   color: var(--white);
+  background-color: var(--black);
   background:
     linear-gradient(135deg, rgba(11, 15, 13, 0.94), rgba(29, 36, 32, 0.9)),
     var(--black);
