@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-07-09 - trust ověřovací vrstva na homepage a 3 near-win lokalitách
+
+- Co se zmenilo: na `index.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html` a `kontejnery-rudna.html` byly doplneny bloky `trust-proof-panel` s primymi odkazy na `reference.html`, `o-nas.html` a `technika.html`.
+- Proc se to zmenilo: rucni GSC kontrola v Search Console 2026-07-08 ukazala, ze web ma funkcni sitemapu, ale jen `22` indexovanych stranek, `60` neindexovanych a nejvic vykonu dnes drzi homepage, Rudna, Nučice a Unhošť. Master rozhodnuti proto nebylo tvorit dalsi URL, ale posilit duveru na par viditelnych CZ strankach, ktere uz sbiraji imprese.
+- Ocekavany dopad: vyssi duvera pred klikem na telefon nebo formular, vic prokliku na `reference.html`, `o-nas.html` a `technika.html` a silnejsi signal, ze za sluzbou stoji konkretni provozovatel s overitelnou technikou a firemnimi udaji.
+- Zdroj dat nebo duvod: Search Console live kontrola `2026-07-08` ve property `sc-domain:kontejnerovka.cz`; ve vykonu za posledni 3 mesice vedly `/`, `kontejnery-rudna.html`, `kontejnery-nucice.html` a `kontejnery-unhost.html`.
+- Kdo/automatizace zmenu navrhla: manualni master SEO/CRO implementace po GSC kontrole.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: GSC pro homepage, `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html`; v GA4 `click_phone`, `form_start`, `generate_lead` a chovani uzivatelu, kteri se prokliknou na `reference.html`, `o-nas.html` a `technika.html`.
+- Minimalni doba vyhodnoceni: 14-30 dni pro prvni konverzni signal, 4-8 tydnu pro organicky dopad.
+
 ### 2026-06-18 - trust proof vrstva na top money pages
 
 - Co se zmenilo: na `pristaveni-kontejneru.html`, `kontejner-na-zeminu.html`, `odvoz-odpadu.html`, `odvoz-zeminy.html`, `kontejner-na-sut.html` a `odvoz-suti.html` byly doplneny bloky `trust-proof-panel` s primym odkazem na `reference.html` a `o-nas.html`.
