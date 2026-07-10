@@ -162,7 +162,7 @@ const miniForm = (slug, subjectLabel) => {
           <div class="form-row">
             <label>
               Telefon
-              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 738 505 028 nebo +420 738 505 028." required>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\\+420\\s*)?[0-9](?:[\\s.\\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 728 505 028 nebo +420 728 505 028." required>
             </label>
             <label>
               Obec / adresa
@@ -178,13 +178,13 @@ const miniForm = (slug, subjectLabel) => {
             <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
             <strong data-file-name>Vybrat fotku nebo PDF</strong>
           </label>
-          <p class="field-note form-photo-note">${photoNote} <a href="tel:+420738505028">738 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
+          <p class="field-note form-photo-note">${photoNote} <a href="tel:+420728505028">728 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Odeslat poptávku
           </button>
           <p class="form-note" data-mini-form-note></p>
-          <p class="form-privacy">Vaše údaje použiju jen k odpovědi na poptávku. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420738505028">738&nbsp;505&nbsp;028</a>.</p>
+          <p class="form-privacy">Vaše údaje použiju jen k odpovědi na poptávku. Podrobnosti jsou v části <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>. Spěcháte? Zavolejte <a href="tel:+420728505028">728&nbsp;505&nbsp;028</a>.</p>
         </form>
       </section>
       ${MARKER_END}

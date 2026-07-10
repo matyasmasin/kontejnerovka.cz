@@ -1149,8 +1149,8 @@ const setupSubpagePolish = () => {
     actions.className = "hero-actions";
     actions.innerHTML =
       pageLocale === "en"
-        ? `<a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quote</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Send job details</a>`
-        : `<a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat kvůli ceně</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a>`;
+        ? `<a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quote</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Send job details</a>`
+        : `<a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat kvůli ceně</a><a class="btn btn-dark" href="${inquiryTarget}"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a>`;
     hero.appendChild(actions);
     actions.querySelectorAll("a[href]").forEach((link) => {
       link.addEventListener("click", () => {

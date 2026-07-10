@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 const RECIPIENT_EMAIL = 'info@kontejnerovka.cz';
 const SITE_EMAIL = 'no-reply@kontejnerovka.cz';
-const PHONE_DISPLAY = '738 505 028';
-const PHONE_HREF = '+420738505028';
+const PHONE_DISPLAY = '728 505 028';
+const PHONE_HREF = '+420728505028';
 const MAX_ATTACHMENT_SIZE = 8388608; // 8 MB
 const RATE_LIMIT_WINDOW = 900; // 15 minutes
 const RATE_LIMIT_MAX_SUBMISSIONS = 5;

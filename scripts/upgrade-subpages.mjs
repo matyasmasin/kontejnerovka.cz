@@ -213,7 +213,7 @@ const renderMobileAction = (copy) => `
       <section class="section mobile-action-box" data-master-upgrade="mobile-action-box">
         <h2>${copy.mobileTitle}</h2>
         <p>${copy.mobileText}</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat poptávku</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat poptávku</a></div>
       </section>
 `;
 

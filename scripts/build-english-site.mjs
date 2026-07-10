@@ -8,7 +8,7 @@ const enDir = path.join(rootDir, "en");
 const baseUrl = "https://kontejnerovka.cz";
 const todayDate = new Date().toISOString().slice(0, 10);
 const phonePattern = "\\+?[0-9](?:[\\s.()\\-]?[0-9]){6,14}";
-const phoneTitle = "Enter a phone number, for example +420 738 505 028 or +44 7700 900123.";
+const phoneTitle = "Enter a phone number, for example +420 728 505 028 or +44 7700 900123.";
 
 // lastmod per soubor: necommitnuté změny = dnešek, jinak datum posledního commitu
 const fileLastmod = (relPath) => {
@@ -466,7 +466,7 @@ const provider = {
   name: "Kontejnerovka.cz",
   legalName: "Matyáš Mašín",
   url: `${baseUrl}/`,
-  telephone: "+420738505028",
+  telephone: "+420728505028",
   email: "info@kontejnerovka.cz",
   taxID: "01379178",
   vatID: "CZ9211070033",
@@ -506,7 +506,7 @@ const localBusinessSchema = (language = "en") => ({
   areaServed: areaNames,
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+420738505028",
+    telephone: "+420728505028",
     email: "info@kontejnerovka.cz",
     contactType: "customer service",
     areaServed: "CZ",
@@ -602,7 +602,7 @@ const header = (page, home = false) => {
       <div class="header-actions">
         <div class="language-switcher" aria-label="Website language"><a href="${czHref}" hreflang="cs" lang="cs">CZ</a><a class="is-active" href="${enHref}" lang="en" aria-current="page">EN</a></div>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Open menu</span></button>
-        <a class="header-call" href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>+420&nbsp;738&nbsp;505&nbsp;028</a>
+        <a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>+420&nbsp;728&nbsp;505&nbsp;028</a>
       </div>
     </header>`;
 };
@@ -610,10 +610,10 @@ const header = (page, home = false) => {
 const footer = (formHref = "contact.html#form") => `<footer class="site-footer">
       <div><strong>Kontejnerovka.cz</strong><p>Waste container hire, waste removal and building material delivery.</p></div>
       <div><p>Operator: Matyáš Mašín</p><p>Company ID (IČO): 01379178 · VAT ID (DIČ): CZ9211070033 · VAT payer</p><p>Holýšovská 2923/4, Stodůlky, 155 00 Prague 5</p></div>
-      <div><a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profile</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a></div>
+      <div><a href="tel:+420728505028">+420&nbsp;728&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profile</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a></div>
     </footer>
 
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="${formHref}"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>`;
+    <div class="mobile-cta"><a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="${formHref}"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>`;
 
 const pageShell = (page, body, options = {}) => `${head(page)}
   <body>
@@ -625,7 +625,7 @@ ${body}
 `;
 
 const btns = (primaryText = "Call for a quote", secondaryText = "Send a request", secondaryHref = "contact.html#form") => `<div class="hero-actions">
-          <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>${primaryText}</a>
+          <a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>${primaryText}</a>
           <a class="btn btn-dark" href="${secondaryHref}"><i data-lucide="send" aria-hidden="true"></i>${secondaryText}</a>
         </div>`;
 
@@ -836,7 +836,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
                   </select>
                 </label>
               </div>
-              <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420738505028">+420 738 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
+              <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420728505028">+420 728 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
               <p class="form-note">A photo of the access, placement spot or material usually makes the quote faster. The final price, VAT and any factor that could change it are confirmed after checking the details.</p>
               <label class="consent">
                 <input type="checkbox" name="souhlas" required>
@@ -864,7 +864,7 @@ const contactSection = (page) => `<section class="contact-section" id="form" ari
             <h2 id="contact-title">Get a quote without learning Czech waste terms</h2>
             <p>The request goes to info@kontejnerovka.cz. Simple English is fine: address or map pin, material, amount, access and photo. For urgent jobs, calling is usually fastest.</p>
             <div class="contact-cards">
-              <a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i><span><strong>Phone</strong>+420&nbsp;738&nbsp;505&nbsp;028</span></a>
+              <a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i><span><strong>Phone</strong>+420&nbsp;728&nbsp;505&nbsp;028</span></a>
               <a href="mailto:info@kontejnerovka.cz"><i data-lucide="mail" aria-hidden="true"></i><span><strong>Email</strong>info@kontejnerovka.cz</span></a>
             </div>
           </div>
@@ -965,16 +965,16 @@ const englishPriceCalculator = () => `<section class="section price-calculator-s
               Request: rubble removal. Area: Svárov / Unhošť. Size: Medium container. Access: Good access. Timing: This week.
             </div>
             <div class="calculator-actions">
-              <a class="btn btn-primary" href="tel:+420738505028" data-calculator-call><i data-lucide="phone-call" aria-hidden="true"></i>Call and confirm</a>
+              <a class="btn btn-primary" href="tel:+420728505028" data-calculator-call><i data-lucide="phone-call" aria-hidden="true"></i>Call and confirm</a>
               <button class="btn btn-secondary" type="button" data-calculator-use><i data-lucide="send" aria-hidden="true"></i>Use this in the request</button>
-              <a class="calculator-help-link" href="tel:+420738505028" data-calculator-advice>Not sure about size or access? Call first.</a>
+              <a class="calculator-help-link" href="tel:+420728505028" data-calculator-advice>Not sure about size or access? Call first.</a>
             </div>
           </aside>
         </div>
 
         <noscript>
           <div class="calculator-noscript">
-            For an indicative quote, call +420 738 505 028 or send the town, material, amount and a photo.
+            For an indicative quote, call +420 728 505 028 or send the town, material, amount and a photo.
             The final price is confirmed for the specific job.
           </div>
         </noscript>
@@ -1009,13 +1009,13 @@ const miniInquiryForm = (page, subjectLabel) => {
             What should be removed or delivered
             <textarea name="message" rows="3" required placeholder="E.g. bathroom rubble, soil from digging, mixed waste after a clear-out..."></textarea>
           </label>
-          <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420738505028">+420 738 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
+          <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420728505028">+420 728 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
           <button class="btn btn-primary" type="submit">
             <i data-lucide="send" aria-hidden="true"></i>
             Send quote request
           </button>
           <p class="form-note" data-mini-form-note></p>
-          <p class="form-privacy">By sending the form you share the details needed to quote and arrange the job. See the <a href="privacy.html">privacy policy</a>. In a hurry? Call <a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a>.</p>
+          <p class="form-privacy">By sending the form you share the details needed to quote and arrange the job. See the <a href="privacy.html">privacy policy</a>. In a hurry? Call <a href="tel:+420728505028">+420&nbsp;728&nbsp;505&nbsp;028</a>.</p>
         </form>
       </section>`;
 };
@@ -1087,7 +1087,7 @@ const renderAdvicePage = (data) => {
       ${geoSummary({
         heading: `${data.title}: short answer`,
         text: `${data.title} is handled by Kontejnerovka.cz as a practical local container job in Prague and Central Bohemia. The quote starts with the address, material, amount, access and a photo when useful.`,
-        facts: ["Operator: Matyáš Mašín", "Phone: +420 738 505 028", "Main areas: Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno and Hostivice"],
+        facts: ["Operator: Matyáš Mašín", "Phone: +420 728 505 028", "Main areas: Prague, Prague-West, Unhošť, Nučice, Rudná, Kladno and Hostivice"],
       })}
       <section class="section content-blocks">
         <article><h2>What matters most</h2><p>${esc(data.problem)}</p></article>
@@ -1229,7 +1229,7 @@ const corePages = {
       title: "Waste container hire in Prague and Central Bohemia",
       metaTitle: "Container & Skip Hire Prague | Kontejnerovka.cz",
       description: "Container hire (skip hire / dumpster rental), rubble and soil removal and bulk material delivery in Prague, Prague-West, Unhošť, Rudná and Kladno.",
-      intro: "Call or send the address, material, approximate amount and a photo of the place. We will confirm the sensible container, timing, VAT and what is included before dispatch. We speak English — call or WhatsApp +420 738 505 028. Looking for skip hire (UK) or a dumpster rental (US)? That is exactly what we do.",
+      intro: "Call or send the address, material, approximate amount and a photo of the place. We will confirm the sensible container, timing, VAT and what is included before dispatch. We speak English — call or WhatsApp +420 728 505 028. Looking for skip hire (UK) or a dumpster rental (US)? That is exactly what we do.",
       hasForm: true,
       schema: [
         localBusinessSchema(),
@@ -1245,9 +1245,9 @@ const corePages = {
         <div class="hero-inner">
           <p class="eyebrow">${esc(page.eyebrow)}</p>
           <h1 id="hero-title">Container hire with the quote confirmed before dispatch</h1>
-          <p class="hero-lead">For rubble, soil, construction waste, wood, green waste or bulk material delivery, send the location, load, amount and access details. <strong>We speak English</strong> — call or WhatsApp +420 738 505 028. Looking for skip hire or a dumpster rental? That is exactly what we do.</p>
+          <p class="hero-lead">For rubble, soil, construction waste, wood, green waste or bulk material delivery, send the location, load, amount and access details. <strong>We speak English</strong> — call or WhatsApp +420 728 505 028. Looking for skip hire or a dumpster rental? That is exactly what we do.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quick quote</a>
+            <a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quick quote</a>
             <a class="btn btn-secondary" href="#quote-estimator"><i data-lucide="clipboard-list" aria-hidden="true"></i>Estimate the job</a>
           </div>
           <div class="hero-command" aria-label="What to send for a quick quote">
@@ -1265,7 +1265,7 @@ const corePages = {
 
       <section class="quick-contact" aria-label="Quick contact">
         <div class="quick-contact-inner">
-          <a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i><span>+420&nbsp;738&nbsp;505&nbsp;028</span></a>
+          <a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i><span>+420&nbsp;728&nbsp;505&nbsp;028</span></a>
           <a href="mailto:info@kontejnerovka.cz"><i data-lucide="mail" aria-hidden="true"></i><span>info@kontejnerovka.cz</span></a>
           <span><i data-lucide="map-pin" aria-hidden="true"></i>Prague and nearby areas · Svárov, Unhošť, Nučice</span>
         </div>
@@ -1289,7 +1289,7 @@ const corePages = {
       ${geoSummary({
         heading: "Kontejnerovka.cz in one answer",
         text: "Kontejnerovka.cz is a local container transport service operated by Matyáš Mašín. It arranges container delivery, rubble removal, soil removal, waste removal and bulk material delivery in Prague and Central Bohemia.",
-        facts: ["Phone: +420 738 505 028", "Main areas: Prague, Prague-West, Unhošť, Svárov, Nučice, Rudná, Kladno, Hostivice and Beroun", "Quotes are confirmed by address, material, amount, access, route and VAT"],
+        facts: ["Phone: +420 728 505 028", "Main areas: Prague, Prague-West, Unhošť, Svárov, Nučice, Rudná, Kladno, Hostivice and Beroun", "Quotes are confirmed by address, material, amount, access, route and VAT"],
       })}
 
       <section class="section services" aria-labelledby="services-title">
@@ -1471,7 +1471,7 @@ const corePages = {
       ${geoSummary({
         heading: "Company facts",
         text: "Kontejnerovka.cz is operated by Matyáš Mašín, company ID 01379178, VAT ID CZ9211070033. The service focuses on container transport, waste removal and material delivery in Prague and Central Bohemia.",
-        facts: ["Public contact: +420 738 505 028 and info@kontejnerovka.cz", "Address: Holýšovská 2923/4, Stodůlky, 155 00 Prague 5", "Google Business Profile is linked for verification"],
+        facts: ["Public contact: +420 728 505 028 and info@kontejnerovka.cz", "Address: Holýšovská 2923/4, Stodůlky, 155 00 Prague 5", "Google Business Profile is linked for verification"],
       })}
       <section class="section proof-strip" aria-label="Company details"><article><i data-lucide="user-check" aria-hidden="true"></i><strong>Operator</strong><span>Matyáš Mašín</span></article><article><i data-lucide="receipt" aria-hidden="true"></i><strong>Company and VAT</strong><span>ID 01379178, VAT ID CZ9211070033</span></article><article><i data-lucide="map-pin" aria-hidden="true"></i><strong>Local focus</strong><span>Svárov, Unhošť, Nučice, Rudná, Kladno, Hostivice and Prague-West</span></article></section>
       <section class="section content-blocks"><article><h2>What we do most often</h2><p>Container delivery, rubble removal, soil removal, wood and green waste removal, mixed waste by agreement and delivery of sand, gravel, pea gravel, recycled aggregate, soil and concrete.</p></article><article><h2>How we communicate</h2><p>We ask for the address or map pin, material, amount, access and photo when useful. The aim is a clear arrangement before dispatch, not a vague promise.</p></article><article><h2>Why the details are public</h2><p>A local service should be verifiable. The website shows the operator, company ID, VAT ID, address, phone, email and Google Business Profile.</p></article></section>
@@ -1542,8 +1542,8 @@ const corePages = {
       schema: [localBusinessSchema(), { "@context": "https://schema.org", "@type": "ContactPage", name: "Contact Kontejnerovka.cz", url: enUrl("contact.html"), about: providerRef, isPartOf: { "@id": websiteId } }, breadcrumb({ en: "contact.html", title: "Contact" })],
     };
     const body = `<main class="page-main">
-      ${subHero(page, "Call +420 738 505 028", "Send a quote request")}
-      <section class="section proof-strip" aria-label="Contact details"><article><i data-lucide="phone" aria-hidden="true"></i><strong>Phone</strong><span>+420 738 505 028</span></article><article><i data-lucide="mail" aria-hidden="true"></i><strong>Email</strong><span>info@kontejnerovka.cz</span></article><article><i data-lucide="receipt" aria-hidden="true"></i><strong>VAT payer</strong><span>ID 01379178, VAT ID CZ9211070033</span></article><article><i data-lucide="map" aria-hidden="true"></i><strong>Google profile</strong><span><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Verify the business</a></span></article></section>
+      ${subHero(page, "Call +420 728 505 028", "Send a quote request")}
+      <section class="section proof-strip" aria-label="Contact details"><article><i data-lucide="phone" aria-hidden="true"></i><strong>Phone</strong><span>+420 728 505 028</span></article><article><i data-lucide="mail" aria-hidden="true"></i><strong>Email</strong><span>info@kontejnerovka.cz</span></article><article><i data-lucide="receipt" aria-hidden="true"></i><strong>VAT payer</strong><span>ID 01379178, VAT ID CZ9211070033</span></article><article><i data-lucide="map" aria-hidden="true"></i><strong>Google profile</strong><span><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Verify the business</a></span></article></section>
       <section class="section content-blocks"><article><h2>What to say by phone</h2><p>Town or map pin, material, approximate amount, date and access. If you do not know the container size, describe the job and we will discuss it.</p></article><article><h2>What to send in the form</h2><p>Address or map pin, material, amount, access, placement spot and a photo. In Prague, add the city district and whether the container must stand in the street or on the pavement.</p></article><article><h2>Closest areas</h2><p>Svárov, Unhošť, Nučice, Rudná, Hostivice, Prague-West and Kladno are strong route areas. Prague and wider Central Bohemia are quoted by job.</p></article></section>
       ${expatPracticalities()}
       ${contactSection(page)}
@@ -1601,10 +1601,10 @@ const utilityPages = {
       title: "Thank you, your request has been sent",
       metaTitle: "Thank you | Kontejnerovka.cz",
       description: "Thank you for sending your quote request. We will get back with the price, timing or a request for missing details.",
-      intro: "We will reply with the quote or ask for missing details. If you need the container urgently, call +420 738 505 028.",
+      intro: "We will reply with the quote or ask for missing details. If you need the container urgently, call +420 728 505 028.",
       schema: [{ "@context": "https://schema.org", "@type": "WebPage", name: "Thank you", url: enUrl("thank-you.html"), isPartOf: { "@id": websiteId }, about: providerRef }],
     };
-    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;738&nbsp;505&nbsp;028.</p><p>If you have not sent a photo of the waste, placement spot or access yet, send it now by SMS, WhatsApp or email. It often speeds up the exact quote.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
+    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">Quote request</p><h1>Thank you, your request has been sent</h1><p>We will get back with the price or missing details. If you need the container quickly, call +420&nbsp;728&nbsp;505&nbsp;028.</p><p>If you have not sent a photo of the waste, placement spot or access yet, send it now by SMS, WhatsApp or email. It often speeds up the exact quote.</p><div class="hero-actions"><a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a><a class="btn btn-dark" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Back to the website</a></div></section></main>`;
     return pageShell(page, body);
   },
   "privacy.html": () => {
@@ -1622,7 +1622,7 @@ const utilityPages = {
     const body = `<main class="page-main">
       <section class="subpage-hero"><p class="eyebrow">Privacy</p><h1>Privacy policy and cookies</h1><p>Personal data is used mainly to handle quote requests. Optional analytics cookies run only with consent.</p></section>
       <section class="section content-blocks">
-        <article><h2>Data controller</h2><p>The controller is Matyáš Mašín, company ID 01379178, VAT ID CZ9211070033, Holýšovská 2923/4, Stodůlky, 155 00 Prague 5. Contact: <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>, <a href="tel:+420738505028">+420&nbsp;738&nbsp;505&nbsp;028</a>.</p></article>
+        <article><h2>Data controller</h2><p>The controller is Matyáš Mašín, company ID 01379178, VAT ID CZ9211070033, Holýšovská 2923/4, Stodůlky, 155 00 Prague 5. Contact: <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>, <a href="tel:+420728505028">+420&nbsp;728&nbsp;505&nbsp;028</a>.</p></article>
         <article><h2>What data we process</h2><p>When you send a request, we process the details you provide: name, phone, email, location, preferred date, service description, amount, access and notes.</p></article>
         <article><h2>Form and email</h2><p>The website form uses Web3Forms to deliver the request to info@kontejnerovka.cz. You can also call or send an email directly.</p></article>
         <article><h2>Analytics and cookies</h2><p>The website may use Google Analytics 4 to measure visits and interactions such as phone clicks, email clicks, main CTA clicks, form starts and form submissions. We do not send names, phone numbers, emails or exact form locations to analytics.</p></article>
@@ -1644,7 +1644,7 @@ const utilityPages = {
       intro: "The address may have changed. Continue to the homepage, services, pricing or call directly.",
       schema: [{ "@context": "https://schema.org", "@type": "WebPage", name: "Page not found", url: enUrl("404.html"), isPartOf: { "@id": websiteId }, about: providerRef }],
     };
-    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">404</p><h1>Page not found</h1><p>The address may have changed. Continue to the homepage, services, pricing or call directly.</p><div class="hero-actions"><a class="btn btn-primary" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Homepage</a><a class="btn btn-dark" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a></div></section></main>`;
+    const body = `<main class="page-main"><section class="subpage-hero"><p class="eyebrow">404</p><h1>Page not found</h1><p>The address may have changed. Continue to the homepage, services, pricing or call directly.</p><div class="hero-actions"><a class="btn btn-primary" href="/en/"><i data-lucide="home" aria-hidden="true"></i>Homepage</a><a class="btn btn-dark" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call</a></div></section></main>`;
     return pageShell(page, body);
   },
 };

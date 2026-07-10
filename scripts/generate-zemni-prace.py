@@ -13,7 +13,7 @@ PROVIDER = {
     "name": "Kontejnerovka.cz",
     "legalName": "Matyáš Mašín",
     "url": "https://kontejnerovka.cz/",
-    "telephone": "+420738505028",
+    "telephone": "+420728505028",
     "email": "info@kontejnerovka.cz",
     "taxID": "01379178",
     "vatID": "CZ9211070033",
@@ -84,14 +84,14 @@ def page_html(p):
     <header class="site-header is-scrolled" data-header>
       <a class="brand" href="/"><span class="brand-mark">K</span><span><strong>Kontejnerovka.cz</strong><small>Praha a Středočeský kraj</small></span></a>
       <nav class="site-nav" id="site-nav" data-nav><a href="sluzby.html">Služby</a><a href="zemni-prace.html">Zemní práce</a><a href="cenik.html">Ceník</a><a href="lokality.html">Lokality</a><a href="reference.html">Realizace</a><a href="technika.html">Technika</a><a href="o-nas.html">O nás</a><a href="poradna.html">Poradna</a><a href="kontakt.html">Kontakt</a></nav>
-      <div class="header-actions"><div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/{p["file"]}" lang="cs" aria-current="page">CZ</a><a href="/en/" hreflang="en" lang="en">EN</a></div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Otevřít menu</span></button><a class="header-call" href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>738&nbsp;505&nbsp;028</a></div>
+      <div class="header-actions"><div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/{p["file"]}" lang="cs" aria-current="page">CZ</a><a href="/en/" hreflang="en" lang="en">EN</a></div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Otevřít menu</span></button><a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>728&nbsp;505&nbsp;028</a></div>
     </header>
     <main class="page-main">
       <section class="subpage-hero">
         <p class="eyebrow">{p["eyebrow"]}</p>
         <h1>{p["h1"]}</h1>
         <p>{p["lead"]}</p>
-      <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat kvůli ceně</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div></section>
+      <div class="hero-actions"><a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat kvůli ceně</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div></section>
       {TRUSTBAR}
       <section class="section detail-grid">
         {detail}
@@ -108,7 +108,7 @@ def page_html(p):
       <section class="section mobile-action-box">
         <h2>Rychlá poptávka z mobilu</h2>
         <p>Pošlete obec, co potřebujete vykopat nebo upravit, a fotku místa včetně vjezdu na pozemek.</p>
-        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420738505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat</a><a class="btn btn-dark" href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Poslat údaje</a></div>
       </section>
       <section class="section faq">
         <div class="section-head compact"><p class="eyebrow">Dotazy</p><h2>{p["faq_h2"]}</h2></div>
@@ -128,10 +128,10 @@ def page_html(p):
     <footer class="site-footer">
       <div><strong>Kontejnerovka.cz</strong><p>Kontejnerová doprava, zemní práce, odvoz odpadu a dovoz stavebních materiálů.</p></div>
       <div><p>Provozovatel: Matyáš Mašín</p><p>IČO: 01379178 · DIČ: CZ9211070033 · Plátce DPH</p><p>Holýšovská 2923/4, Stodůlky, 155 00 Praha 5</p></div>
-      <div><a href="tel:+420738505028">738&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profil</a><a href="sluzby.html">Služby</a><a href="cenik.html">Ceník</a></div>
+      <div><a href="tel:+420728505028">728&nbsp;505&nbsp;028</a><a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a><a href="https://share.google/3gRahFm7A2awhEeJJ" target="_blank" rel="noopener">Google profil</a><a href="sluzby.html">Služby</a><a href="cenik.html">Ceník</a></div>
     </footer>
 
-    <div class="mobile-cta"><a href="tel:+420738505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
+    <div class="mobile-cta"><a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>Zavolat</a><a href="#poptavka"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a></div>
   </body>
 </html>
 '''
