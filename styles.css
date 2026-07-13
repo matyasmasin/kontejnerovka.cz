@@ -47,6 +47,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -90,6 +91,12 @@ textarea:focus-visible {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Author styles on .btn use display:inline-flex, which otherwise overrides
+   the browser's default [hidden] rule on step-form controls. */
+[hidden] {
+  display: none !important;
 }
 
 .cookie-banner {
@@ -346,6 +353,7 @@ textarea:focus-visible {
 }
 
 .header-call,
+.header-quote,
 .btn,
 .quick-contact a,
 .contact-cards a,
@@ -365,6 +373,26 @@ textarea:focus-visible {
   font-weight: 900;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.header-quote {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 900;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.header-quote:hover,
+.header-quote:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 106, 0, 0.72);
+  background: rgba(255, 106, 0, 0.16);
 }
 
 .header-call:hover,
@@ -1488,6 +1516,30 @@ textarea:focus-visible {
   padding: 24px;
 }
 
+.service-card.has-photo {
+  overflow: hidden;
+  padding: 0;
+}
+
+.service-card.has-photo img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-card.has-photo .service-card-body {
+  display: grid;
+  align-content: start;
+  min-height: 250px;
+  padding: 22px;
+}
+
+.service-card.has-photo .service-card-body .text-link {
+  align-self: end;
+  margin-top: 18px;
+}
+
 .icon-box {
   display: grid;
   width: 48px;
@@ -2352,6 +2404,10 @@ textarea.is-invalid {
   cursor: pointer;
 }
 
+.file-upload.is-promoted {
+  margin-top: 2px;
+}
+
 .file-upload span {
   display: flex;
   align-items: baseline;
@@ -2559,6 +2615,50 @@ textarea.is-invalid {
   filter: saturate(0.95) contrast(1.08);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+}
+
+body[data-page-identity="pricing"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.38) 44%, rgba(13, 18, 15, 0.08) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.12) 48%, rgba(13, 18, 15, 0.78)),
+    url("assets/material-load.webp") center / cover no-repeat;
+}
+
+body[data-page-identity="references"] .subpage-hero::after,
+body[data-page-identity="about"] .subpage-hero::after,
+body[data-page-identity="contact"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 44%, rgba(13, 18, 15, 0.08) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.12) 48%, rgba(13, 18, 15, 0.8)),
+    url("assets/truck-profile.jpg") center 58% / cover no-repeat;
+}
+
+body[data-page-identity="equipment"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.32) 44%, rgba(13, 18, 15, 0.06) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.88), rgba(13, 18, 15, 0.08) 48%, rgba(13, 18, 15, 0.8)),
+    url("assets/crane-detail.jpg") center / cover no-repeat;
+}
+
+body[data-page-identity="delivery"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 44%, rgba(13, 18, 15, 0.06) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.1) 48%, rgba(13, 18, 15, 0.78)),
+    url("assets/material-load.webp") center / cover no-repeat;
+}
+
+body[data-page-identity="earthworks"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 44%, rgba(13, 18, 15, 0.06) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.88), rgba(13, 18, 15, 0.1) 48%, rgba(13, 18, 15, 0.78)),
+    url("assets/site-machine.webp") center / cover no-repeat;
+}
+
+body[data-page-identity="waste"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 44%, rgba(13, 18, 15, 0.06) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.1) 48%, rgba(13, 18, 15, 0.78)),
+    url("assets/container-tilt.jpg") center / cover no-repeat;
 }
 
 .subpage-hero .eyebrow {
@@ -3337,6 +3437,10 @@ i[data-lucide] {
     gap: 8px;
   }
 
+  .header-quote {
+    display: none;
+  }
+
   .language-switcher {
     grid-template-columns: repeat(2, minmax(34px, 1fr));
   }
@@ -3594,11 +3698,11 @@ i[data-lucide] {
   }
 
   .hero-facts dt {
-    font-size: 0.68rem;
+    font-size: 0.78rem;
   }
 
   .hero-facts dd {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     line-height: 1.28;
   }
 
@@ -3622,7 +3726,7 @@ i[data-lucide] {
   }
 
   .section {
-    padding: 58px 0;
+    padding: 52px 0;
   }
 
   .operation-flow,
@@ -3696,9 +3800,9 @@ i[data-lucide] {
   }
 
   .subpage-hero .eyebrow {
-    min-height: 32px;
+    min-height: 36px;
     padding: 6px 9px;
-    font-size: 0.76rem;
+    font-size: 0.82rem;
   }
 
   .subpage-hero p:not(.eyebrow) {
@@ -3870,7 +3974,7 @@ i[data-lucide] {
     grid-template-columns: 1fr;
     width: auto;
     gap: 4px;
-    max-height: 82px;
+    max-height: 132px;
     overflow: hidden;
     padding: 8px 38px 8px 8px;
   }
@@ -3890,7 +3994,7 @@ i[data-lucide] {
     min-height: 18px;
     align-items: center;
     margin-top: 0;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
   }
 
   .cookie-actions {
@@ -3900,9 +4004,9 @@ i[data-lucide] {
   }
 
   .cookie-actions .btn {
-    min-height: 30px;
-    padding: 0 6px;
-    font-size: 0.74rem;
+    min-height: 40px;
+    padding: 0 8px;
+    font-size: 0.82rem;
   }
 
   .cookie-close {
@@ -3927,6 +4031,44 @@ i[data-lucide] {
     width: fit-content;
     min-height: 40px;
     align-items: center;
+  }
+
+  body[data-page-identity="pricing"] .subpage-hero::after,
+  body[data-page-identity="delivery"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.48) 58%, rgba(13, 18, 15, 0.14) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/material-load.webp") center / cover no-repeat;
+  }
+
+  body[data-page-identity="references"] .subpage-hero::after,
+  body[data-page-identity="about"] .subpage-hero::after,
+  body[data-page-identity="contact"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.45) 58%, rgba(13, 18, 15, 0.12) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/truck-profile.jpg") center / cover no-repeat;
+  }
+
+  body[data-page-identity="equipment"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.4) 58%, rgba(13, 18, 15, 0.1) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/crane-detail.jpg") center / cover no-repeat;
+  }
+
+  body[data-page-identity="earthworks"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.42) 58%, rgba(13, 18, 15, 0.1) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/site-machine.webp") center / cover no-repeat;
+  }
+
+  body[data-page-identity="waste"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.42) 58%, rgba(13, 18, 15, 0.1) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/container-tilt.jpg") center / cover no-repeat;
   }
 }
 
@@ -3994,6 +4136,56 @@ i[data-lucide] {
 
 /* Mobilní LCP: menší hero obrázek (44 kB místo 125 kB) */
 @media (max-width: 780px) {
+  .service-card.has-photo {
+    display: grid;
+    grid-template-columns: clamp(112px, 34vw, 240px) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .service-card.has-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    aspect-ratio: auto;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+  }
+
+  .service-card.has-photo .service-card-body {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .service-card.has-photo .service-card-body .text-link {
+    margin-top: 12px;
+  }
+
+  .area-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .area-tags li {
+    min-height: 64px;
+    padding: 8px;
+  }
+
+  .steps article {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 20px;
+  }
+
+  .steps span {
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .steps h3,
+  .steps p {
+    grid-column: 2;
+  }
+
   .hero-bg {
     background:
       linear-gradient(90deg, rgba(5, 7, 6, 0.98), rgba(11, 15, 13, 0.86) 42%, rgba(11, 15, 13, 0.2)),

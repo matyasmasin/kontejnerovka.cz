@@ -24,8 +24,8 @@
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260708c">
-    <script src="../script.js?v=20260708c" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260713c">
+    <script src="../script.js?v=20260713c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@id": "https://kontejnerovka.cz/#localbusiness",
@@ -176,8 +176,8 @@
 
             <div class="form-progress" aria-label="Quote request progress">
               <span class="is-active">Contact</span>
-              <span>Job</span>
-              <span>Date</span>
+              <span>Details</span>
+              <span>Send</span>
             </div>
 
             <fieldset class="form-step is-active" data-step="0">
@@ -212,7 +212,7 @@
             <fieldset class="form-step" data-step="1" hidden>
               <legend>Material, amount and access</legend>
               <div class="form-row">
-                <label>Estimated amount<input type="text" name="amount" placeholder="e.g. 3 m³, 5 tonnes, 1 container or not sure" required></label>
+                <label>Estimated amount <span class="field-note">if known</span><input type="text" name="amount" placeholder="e.g. 3 m³, 5 tonnes, 1 container or not sure"></label>
                 <label>
                   Container size <span class="field-note">if known</span>
                   <select name="container_size">
@@ -224,7 +224,7 @@
                 </label>
               </div>
               <div class="form-row">
-                <label>Where the container or truck can stand<input type="text" name="access" placeholder="Yard, street, site, narrow access" required></label>
+                <label>Where the container or truck can stand <span class="field-note">if known</span><input type="text" name="access" placeholder="Yard, street, site, narrow access"></label>
                 <label>
                   Standing place
                   <select name="standing">
@@ -250,7 +250,7 @@
             </fieldset>
 
             <fieldset class="form-step" data-step="2" hidden>
-              <legend>Date, photo and submission</legend>
+              <legend>Date and submission</legend>
               <div class="form-row">
                 <label>Preferred date<input type="text" name="date" placeholder="e.g. this week"></label>
                 <label>
@@ -263,6 +263,11 @@
                   </select>
                 </label>
               </div>
+              <label class="file-upload">
+                <span>Photo of the spot or material <small>optional</small></span>
+                <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Choose a photo or PDF">
+                <strong data-file-name>Choose a photo or PDF</strong>
+              </label>
               <p class="field-note form-photo-note">After sending the request, you can send a photo of the waste or the spot to <a href="tel:+420728505028">+420 728 505 028</a> (SMS/WhatsApp) or <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a> — it speeds up the quote.</p>
               <p class="form-note">A photo of the access, placement spot or material usually makes the quote faster. The final price, VAT and any factor that could change it are confirmed after checking the details.</p>
               <label class="consent">

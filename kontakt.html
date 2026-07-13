@@ -28,8 +28,8 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="styles.css?v=20260708c">
-    <script src="script.js?v=20260708c" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260713c">
+    <script src="script.js?v=20260713c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -182,8 +182,8 @@
 
             <div class="form-progress" aria-label="Postup poptávky">
               <span class="is-active">Kontakt</span>
-              <span>Zakázka</span>
-              <span>Termín</span>
+              <span>Detaily</span>
+              <span>Odeslání</span>
             </div>
 
             <fieldset class="form-step is-active" data-step="0">
@@ -232,8 +232,8 @@
               <legend>Odpad, množství a přístup</legend>
               <div class="form-row">
                 <label>
-                  Množství odhadem
-                  <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner nebo nevím" required>
+                  Množství odhadem <span class="field-note">pokud víte</span>
+                  <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner nebo nevím">
                 </label>
                 <label>
                   Velikost kontejneru <span class="field-note">pokud víte</span>
@@ -247,8 +247,8 @@
               </div>
               <div class="form-row">
                 <label>
-                  Kde může stát kontejner nebo auto
-                  <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd" required>
+                  Kde může stát kontejner nebo auto <span class="field-note">pokud víte</span>
+                  <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd">
                 </label>
                 <label>
                   Stání
@@ -275,7 +275,7 @@
             </fieldset>
 
             <fieldset class="form-step" data-step="2" hidden>
-              <legend>Termín, fotka a odeslání</legend>
+              <legend>Termín a odeslání</legend>
               <div class="form-row">
                 <label>
                   Termín

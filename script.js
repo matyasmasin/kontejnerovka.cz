@@ -309,6 +309,79 @@ const getPageType = () => {
   return "other";
 };
 
+const getPageIdentity = () => {
+  const slug = getPageSlug();
+  if (slug === "index.html") return "home";
+  if (["cenik.html", "pricing.html"].includes(slug)) return "pricing";
+  if (["reference.html", "references.html"].includes(slug)) return "references";
+  if (["o-nas.html", "about.html"].includes(slug)) return "about";
+  if (["technika.html", "equipment.html"].includes(slug)) return "equipment";
+  if (["kontakt.html", "contact.html"].includes(slug)) return "contact";
+  if (["poradna.html", "guide.html"].includes(slug)) return "guide";
+  if (["lokality.html", "areas.html"].includes(slug) || getPageType() === "local_landing") return "areas";
+  if (slug.includes("zemni-prace") || slug.includes("vykop") || slug.includes("rovnani") || slug.includes("odbahneni")) return "earthworks";
+  if (slug.includes("dovoz") || slug.includes("delivery")) return "delivery";
+  if (slug.includes("odvoz") || slug.includes("rubble") || slug.includes("waste") || slug.includes("sut") || slug.includes("zemin")) return "waste";
+  return getPageType().replaceAll("_", "-");
+};
+
+const setupPageIdentity = () => {
+  document.body.dataset.pageIdentity = getPageIdentity();
+  document.body.classList.add(`page-type-${getPageType().replaceAll("_", "-")}`);
+};
+
+const setupPrimaryNavigation = () => {
+  if (!nav) return;
+
+  const items =
+    pageLocale === "en"
+      ? [
+          ["services.html", "Services", "service_landing"],
+          ["pricing.html", "Pricing", "pricing"],
+          ["areas.html", "Areas", "local_landing"],
+          ["references.html", "References", "references"],
+          ["about.html", "About", "about"],
+        ]
+      : [
+          ["sluzby.html", "Služby", "service_landing"],
+          ["cenik.html", "Ceník", "pricing"],
+          ["lokality.html", "Lokality", "local_landing"],
+          ["reference.html", "Realizace", "references"],
+          ["o-nas.html", "O firmě", "about"],
+        ];
+
+  const pageType = getPageType();
+  const identity = getPageIdentity();
+  nav.innerHTML = items
+    .map(([href, label, group]) => {
+      const isCurrent =
+        getPageSlug() === href ||
+        (group === "service_landing" && pageType === "service_landing") ||
+        (group === "local_landing" && pageType === "local_landing") ||
+        group === identity;
+      return `<a href="${href}"${isCurrent ? ' aria-current="page"' : ""}>${label}</a>`;
+    })
+    .join("");
+
+  const actions = header?.querySelector(".header-actions");
+  const call = actions?.querySelector(".header-call");
+  if (!actions || !call || actions.querySelector(".header-quote")) return;
+
+  const quote = document.createElement("a");
+  quote.className = "header-quote";
+  quote.href = pageLocale === "en" ? "/en/contact.html#form" : "/kontakt.html#formular";
+  quote.innerHTML = `<i data-lucide="send" aria-hidden="true"></i>${pageLocale === "en" ? "Get a quote" : "Získat cenu"}`;
+  actions.insertBefore(quote, call);
+};
+
+const promotePricingCalculator = () => {
+  if (!["cenik.html", "pricing.html"].includes(getPageSlug())) return;
+  const calculator = document.querySelector(".price-calculator-section");
+  const firstSection = document.querySelector(".page-main > .section");
+  if (!calculator || !firstSection || calculator.previousElementSibling === firstSection) return;
+  firstSection.insertAdjacentElement("afterend", calculator);
+};
+
 const cleanAnalyticsValue = (value, maxLength = 90) =>
   String(value || "")
     .replace(/\s+/g, " ")
@@ -347,18 +420,33 @@ const setHeaderState = () => {
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
+const setNavigationOpen = (isOpen) => {
+  nav?.classList.toggle("is-open", isOpen);
+  header?.classList.toggle("is-open", isOpen);
+  navToggle?.setAttribute("aria-expanded", String(isOpen));
+  const label = navToggle?.querySelector(".sr-only");
+  if (label) label.textContent = pageLocale === "en" ? (isOpen ? "Close menu" : "Open menu") : isOpen ? "Zavřít menu" : "Otevřít menu";
+};
+
 navToggle?.addEventListener("click", () => {
-  const isOpen = nav?.classList.toggle("is-open");
-  navToggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
-  header?.classList.toggle("is-open", Boolean(isOpen));
+  setNavigationOpen(!nav?.classList.contains("is-open"));
 });
 
 nav?.addEventListener("click", (event) => {
   if (event.target instanceof HTMLAnchorElement) {
-    nav.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    header?.classList.remove("is-open");
+    setNavigationOpen(false);
   }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !nav?.classList.contains("is-open")) return;
+  setNavigationOpen(false);
+  navToggle?.focus();
+});
+
+document.addEventListener("click", (event) => {
+  if (!nav?.classList.contains("is-open") || !(event.target instanceof Node) || header?.contains(event.target)) return;
+  setNavigationOpen(false);
 });
 
 const getInquiryText = () => {
@@ -417,6 +505,21 @@ const copyTextToClipboard = async (text) => {
 
 let validateInquiryForm = () => form?.reportValidity() ?? false;
 
+const promotePhotoField = () => {
+  if (!form) return;
+  const firstStep = form.querySelector('.form-step[data-step="0"]');
+  const upload = form.querySelector(".file-upload");
+  const photoNote = form.querySelector(".form-photo-note");
+  const firstHint = firstStep?.querySelector(".form-example");
+  if (!firstStep || !upload || !firstHint || upload.closest('[data-step="0"]')) return;
+
+  firstStep.insertBefore(upload, firstHint);
+  if (photoNote) firstStep.insertBefore(photoNote, firstHint);
+  upload.classList.add("is-promoted");
+};
+
+promotePhotoField();
+
 const setupInquiryFormSteps = () => {
   if (!form) return;
 
@@ -431,6 +534,9 @@ const setupInquiryFormSteps = () => {
   const fileName = form.querySelector("[data-file-name]");
   let currentStep = 0;
 
+  formNote?.setAttribute("role", "status");
+  formNote?.setAttribute("aria-live", "polite");
+
   const canValidate = (field, { includeConsent = true } = {}) => {
     if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return false;
     if (field.disabled) return false;
@@ -440,21 +546,24 @@ const setupInquiryFormSteps = () => {
     return true;
   };
 
-  const setStep = (index, shouldTrack = true) => {
+  const setStep = (index, shouldTrack = true, shouldFocus = false) => {
     currentStep = Math.max(0, Math.min(index, steps.length - 1));
 
     steps.forEach((step, stepIndex) => {
       const isActive = stepIndex === currentStep;
       step.classList.toggle("is-active", isActive);
       step.hidden = !isActive;
+      step.setAttribute("aria-hidden", String(!isActive));
     });
 
     progress.forEach((item, itemIndex) => {
       item.classList.toggle("is-active", itemIndex <= currentStep);
       if (itemIndex === currentStep) {
         item.setAttribute("aria-current", "step");
+        item.setAttribute("aria-label", `${item.textContent?.trim() || ""}, ${currentStep + 1} / ${steps.length}`);
       } else {
         item.removeAttribute("aria-current");
+        item.removeAttribute("aria-label");
       }
     });
 
@@ -463,6 +572,15 @@ const setupInquiryFormSteps = () => {
     if (submitButton instanceof HTMLElement) submitButton.hidden = currentStep !== steps.length - 1;
     if (copyInquiryButton instanceof HTMLElement) copyInquiryButton.hidden = currentStep !== steps.length - 1;
     if (formNote) formNote.textContent = "";
+
+    if (shouldFocus) {
+      const legend = steps[currentStep].querySelector("legend");
+      if (legend instanceof HTMLElement) {
+        legend.tabIndex = -1;
+        legend.focus({ preventScroll: true });
+        steps[currentStep].scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
 
     if (shouldTrack) {
       track("form_step_view", {
@@ -511,11 +629,11 @@ const setupInquiryFormSteps = () => {
       });
       return;
     }
-    setStep(currentStep + 1);
+    setStep(currentStep + 1, true, true);
   });
 
   prevButton?.addEventListener("click", () => {
-    setStep(currentStep - 1);
+    setStep(currentStep - 1, true, true);
   });
 
   const clearInvalid = (event) => {
@@ -1339,6 +1457,9 @@ const addPrivacyControls = () => {
 loadAnalytics();
 
 window.addEventListener("DOMContentLoaded", () => {
+  setupPageIdentity();
+  setupPrimaryNavigation();
+  promotePricingCalculator();
   setupSubpagePolish();
   scheduleIconLoad();
   setupRevealAnimations();
