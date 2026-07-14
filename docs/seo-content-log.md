@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-07-14 - lokalni near-win odpovedni vrstva na `lokality.html`
+
+- Co se zmenilo: na `lokality.html` byl zpresnen title, meta description, OG/Twitter snippet, H1, CollectionPage/Breadcrumb pojmenovani a byla doplnena kratka viditelna FAQ vrstva se schema odpovidajici na otazky kam se nejcasteji jezdi, jak rychle zjistit obsluhu obce a co poslat pro cenu.
+- Proc se to zmenilo: posledni pouzitelny GSC export za obdobi `2026-05-25` az `2026-06-21` ukazuje pro `https://kontejnerovka.cz/lokality.html` `46` impresi, `0` kliku a prumernou pozici `6.09`. Jde o existujici lokalni hub s near-win potencialem pro CTR, lokalni duveru i AI answerability bez tvorby nove URL.
+- Ocekavany dopad: jasnejsi snippet pro dotazy kolem obsluhovanych oblasti, rychlejsi pochopeni servisniho radiusu na strance a vic prokliku z lokalitniho hubu do detailnich landing pages nebo na telefon/formular.
+- Zdroj dat nebo duvod: `/Users/claude/Documents/Claude/kontejnerovka-private-growth/data/gsc/gsc-pages-last-28-days.csv`, stav dat k `2026-06-21`; rozhodnuti je omezeno stari dat, ale opira se o konkretni URL se slusnou pozici a nulovym CTR.
+- Kdo/automatizace zmenu navrhla: automatizace `Kontejnerovka obsahovy SEO tah`.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: GSC pro `https://kontejnerovka.cz/lokality.html`, hlavne kliky, CTR a dotazy na lokalitni kombinace jako `kontejnery unhost`, `kontejnery nucice`, `kontejnery rudna`, `kontejnery kladno`, `praha-zapad`; v GA4 pak `click_phone`, `form_start`, `cta_click` a prokliky z hubu na detailni lokalitni URL.
+- Minimalni doba vyhodnoceni: 14-28 dni po nasazeni.
+
 ### 2026-07-09 - trust ověřovací vrstva na homepage a 3 near-win lokalitách
 
 - Co se zmenilo: na `index.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html` a `kontejnery-rudna.html` byly doplneny bloky `trust-proof-panel` s primymi odkazy na `reference.html`, `o-nas.html` a `technika.html`.
