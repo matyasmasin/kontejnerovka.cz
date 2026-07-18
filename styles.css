@@ -2624,7 +2624,13 @@ body[data-page-identity="pricing"] .subpage-hero::after {
     url("assets/material-load.webp") center / cover no-repeat;
 }
 
-body[data-page-identity="references"] .subpage-hero::after,
+body[data-page-identity="references"] .subpage-hero::after {
+  background:
+    linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.34) 44%, rgba(13, 18, 15, 0.08) 100%),
+    linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.12) 48%, rgba(13, 18, 15, 0.8)),
+    url("assets/realizace-kontejner-rodinny-dum-01.webp") center 56% / cover no-repeat;
+}
+
 body[data-page-identity="about"] .subpage-hero::after,
 body[data-page-identity="contact"] .subpage-hero::after {
   background:
@@ -4041,7 +4047,13 @@ i[data-lucide] {
       url("assets/material-load.webp") center / cover no-repeat;
   }
 
-  body[data-page-identity="references"] .subpage-hero::after,
+  body[data-page-identity="references"] .subpage-hero::after {
+    background:
+      linear-gradient(90deg, rgba(13, 18, 15, 0.98) 0%, rgba(13, 18, 15, 0.45) 58%, rgba(13, 18, 15, 0.12) 100%),
+      linear-gradient(0deg, rgba(13, 18, 15, 0.9), rgba(13, 18, 15, 0.16) 50%, rgba(13, 18, 15, 0.78)),
+      url("assets/realizace-kontejner-rodinny-dum-01.webp") 64% center / cover no-repeat;
+  }
+
   body[data-page-identity="about"] .subpage-hero::after,
   body[data-page-identity="contact"] .subpage-hero::after {
     background:
