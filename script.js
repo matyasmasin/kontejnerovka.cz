@@ -12,7 +12,12 @@ const COOKIE_DISMISS_KEY = "kontejnerovka_cookie_banner_dismissed";
 const CALCULATOR_STORAGE_KEY = "kontejnerovka_calculator_inquiry";
 const pageLocale = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "cs";
 const siteScript = document.querySelector('script[src*="script.js"]');
-const assetUrl = (assetPath) => new URL(assetPath, siteScript?.src || `${window.location.origin}/`).href;
+const assetVersion = siteScript?.src ? new URL(siteScript.src).searchParams.get("v") : "";
+const assetUrl = (assetPath) => {
+  const url = new URL(assetPath, siteScript?.src || `${window.location.origin}/`);
+  if (assetVersion) url.searchParams.set("v", assetVersion);
+  return url.href;
+};
 const copy = {
   cs: {
     invalidField: "Zkontrolujte prosím zvýrazněné pole.",
@@ -302,6 +307,7 @@ const getPageSlug = () => {
 const getPageType = () => {
   const slug = getPageSlug();
   if (slug === "index.html") return "home";
+  if (["sluzby.html", "services.html"].includes(slug)) return "service_landing";
   if (slug.startsWith("kontejnery-") || slug.startsWith("containers-")) return "local_landing";
   if (servicePages.has(slug)) return "service_landing";
   if (["cenik.html", "poradna.html", "lokality.html", "reference.html", "o-nas.html", "pricing.html", "guide.html", "areas.html", "references.html", "about.html", "equipment.html"].includes(slug)) return "support";
@@ -327,7 +333,24 @@ const getPageIdentity = () => {
 
 const setupPageIdentity = () => {
   document.body.dataset.pageIdentity = getPageIdentity();
-  document.body.classList.add(`page-type-${getPageType().replaceAll("_", "-")}`);
+  document.body.classList.add("site-v3", `page-type-${getPageType().replaceAll("_", "-")}`);
+};
+
+const setupAccessibilityBaseline = () => {
+  const main = document.querySelector("main");
+  if (main && !main.id) main.id = "main-content";
+
+  if (main && !document.querySelector(".skip-link")) {
+    const skipLink = document.createElement("a");
+    skipLink.className = "skip-link";
+    skipLink.href = `#${main.id}`;
+    skipLink.textContent = pageLocale === "en" ? "Skip to main content" : "Přeskočit na hlavní obsah";
+    document.body.prepend(skipLink);
+  }
+
+  if (nav && !nav.hasAttribute("aria-label")) {
+    nav.setAttribute("aria-label", pageLocale === "en" ? "Main navigation" : "Hlavní navigace");
+  }
 };
 
 const setupPrimaryNavigation = () => {
@@ -536,6 +559,7 @@ const setupInquiryFormSteps = () => {
 
   formNote?.setAttribute("role", "status");
   formNote?.setAttribute("aria-live", "polite");
+  if (formNote && !formNote.id) formNote.id = "inquiry-form-status";
 
   const canValidate = (field, { includeConsent = true } = {}) => {
     if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return false;
@@ -598,10 +622,15 @@ const setupInquiryFormSteps = () => {
     candidates.forEach((field) => field.classList.remove("is-invalid"));
     const invalid = candidates.find((field) => !field.checkValidity());
 
-    if (!invalid) return true;
+    if (!invalid) {
+      candidates.forEach((field) => field.removeAttribute("aria-invalid"));
+      return true;
+    }
 
     setStep(targetStep, false);
     invalid.classList.add("is-invalid");
+    invalid.setAttribute("aria-invalid", "true");
+    if (formNote?.id) invalid.setAttribute("aria-describedby", formNote.id);
     if (formNote) formNote.textContent = t("invalidField");
     invalid.reportValidity();
     return false;
@@ -640,6 +669,7 @@ const setupInquiryFormSteps = () => {
     const field = event.target;
     if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
     field.classList.remove("is-invalid");
+    field.removeAttribute("aria-invalid");
     if (formNote && !form.querySelector(".is-invalid")) formNote.textContent = "";
   };
 
@@ -715,6 +745,9 @@ form?.addEventListener("submit", (event) => {
   });
 
   if (form.action.includes("api.web3forms.com")) {
+    form.setAttribute("aria-busy", "true");
+    const submitControl = form.querySelector("[data-submit]");
+    if (submitControl instanceof HTMLButtonElement) submitControl.disabled = true;
     if (formNote) {
       formNote.textContent = t("submitting");
     }
@@ -1457,6 +1490,7 @@ const addPrivacyControls = () => {
 loadAnalytics();
 
 window.addEventListener("DOMContentLoaded", () => {
+  setupAccessibilityBaseline();
   setupPageIdentity();
   setupPrimaryNavigation();
   promotePricingCalculator();

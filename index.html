@@ -31,10 +31,10 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" as="image" href="assets/hero-truck-mobile.webp" media="(max-width: 780px)" fetchpriority="high">
-    <link rel="preload" as="image" href="assets/hero-truck.webp" media="(min-width: 781px)" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260713c">
-    <script src="script.js?v=20260713c" defer></script>
+    <link rel="preload" as="image" href="assets/hero-real-mobile.webp" media="(max-width: 780px)" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/hero-real-desktop.webp" media="(min-width: 781px)" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=20260720c">
+    <script src="script.js?v=20260720c" defer></script>
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -310,7 +310,7 @@
   ]
 }</script>
   </head>
-  <body>
+  <body class="home-v2 site-v3">
     <header class="site-header" data-header>
       <a class="brand" href="#top">
         <span class="brand-mark">K</span>
@@ -322,71 +322,90 @@
 
       <nav class="site-nav" id="site-nav" data-nav>
         <a href="sluzby.html">Služby</a>
-        <a href="zemni-prace.html">Zemní práce</a>
         <a href="cenik.html">Ceník</a>
         <a href="lokality.html">Lokality</a>
         <a href="reference.html">Realizace</a>
-        <a href="technika.html">Technika</a>
-        <a href="o-nas.html">O nás</a>
-        <a href="poradna.html">Poradna</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="o-nas.html">O firmě</a>
       </nav>
 
-      <div class="header-actions"><div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/" lang="cs" aria-current="page">CZ</a><a href="/en/" hreflang="en" lang="en">EN</a></div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-        <i data-lucide="menu" aria-hidden="true"></i>
-        <span class="sr-only">Otevřít menu</span>
-      </button><a class="header-call" href="tel:+420728505028">
-        <i data-lucide="phone" aria-hidden="true"></i>
-        728&nbsp;505&nbsp;028
-      </a></div>
+      <div class="header-actions">
+        <div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/" lang="cs" aria-current="page">CZ</a><a href="/en/" hreflang="en" lang="en">EN</a></div>
+        <a class="header-quote" href="#formular"><i data-lucide="send" aria-hidden="true"></i>Získat cenu</a>
+        <a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>728&nbsp;505&nbsp;028</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+          <i data-lucide="menu" aria-hidden="true"></i>
+          <span class="sr-only">Otevřít menu</span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" role="img" aria-label="Kontejnerová doprava pro suť, zeminu a dovoz materiálu"></div>
+        <div class="hero-bg" role="img" aria-label="Vlastní kontejnerové auto při skutečné zakázce u rodinného domu"></div>
         <div class="hero-overlay"></div>
         <div class="hero-inner">
-          <p class="eyebrow">Kontejnerová doprava přímo od provozovatele</p>
-          <h1 id="hero-title">Kontejner přistavím, naložený odvezu. Praha-západ, Kladensko a okolí.</h1>
+          <p class="eyebrow">Přímá domluva · cena předem</p>
+          <h1 id="hero-title">Kontejnerová doprava bez zbytečné nejistoty</h1>
           <p class="hero-lead">
-            Pošlete adresu, fotku a co se veze. Matyáš Mašín vám před výjezdem potvrdí cenu,
-            termín i to, co je v ceně. Přijedu vlastním autem s rukou a nosností až 8 t.
+            Pošlete adresu a fotku. Řeknu vám správný postup, cenu i termín.
           </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#formular">
-              <i data-lucide="send" aria-hidden="true"></i>
-              Poslat fotku a získat cenu
+        </div>
+      </section>
+
+      <section class="home-chooser" aria-labelledby="chooser-title">
+        <div class="home-chooser-inner">
+          <h2 id="chooser-title">Co potřebujete?</h2>
+          <nav class="task-list" aria-label="Vyberte typ zakázky">
+            <a href="odvoz-suti.html">
+              <span class="task-icon"><i data-lucide="trash-2" aria-hidden="true"></i></span>
+              <span><strong>Odvézt suť nebo odpad</strong><small>Suť, beton, zemina i směsný odpad</small></span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
-            <a class="btn btn-secondary" href="tel:+420728505028">
-              <i data-lucide="phone-call" aria-hidden="true"></i>
-              Zavolat 728 505 028
+            <a href="pristaveni-kontejneru.html">
+              <span class="task-icon"><i data-lucide="truck" aria-hidden="true"></i></span>
+              <span><strong>Přistavit kontejner</strong><small>Na stavbu, dvůr nebo k domu</small></span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
             </a>
+            <a href="dovoz-pisku-sterku.html">
+              <span class="task-icon"><i data-lucide="mountain" aria-hidden="true"></i></span>
+              <span><strong>Dovézt písek nebo štěrk</strong><small>Také kačírek, recyklát, zeminu a beton</small></span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="zemni-prace.html">
+              <span class="task-icon"><i data-lucide="shovel" aria-hidden="true"></i></span>
+              <span><strong>Zemní práce</strong><small>Výkopy, rovnání terénu a odbahnění</small></span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
+          </nav>
+          <div class="chooser-actions">
+            <a class="btn btn-primary" href="#formular"><i data-lucide="send" aria-hidden="true"></i>Chci cenu podle své zakázky</a>
+            <a class="btn chooser-call" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Zavolat 728 505 028</a>
           </div>
-          <div class="hero-command" aria-label="Co poslat pro rychlé nacenění">
-            <i data-lucide="timer-reset" aria-hidden="true"></i>
-            <div>
-              <strong>Pro přesnou cenu potřebuji 4 věci</strong>
-              <span>adresa · materiál · odhad množství · místo pro auto</span>
-            </div>
-          </div>
-          <dl class="hero-facts">
-            <div>
-              <dt>Technika</dt>
-              <dd>Vlastní auto s rukou, žádný dispečink</dd>
-            </div>
-            <div>
-              <dt>Nosnost</dt>
-              <dd>Až 8 t nákladu podle typu zakázky</dd>
-            </div>
-            <div>
-              <dt>Oblast</dt>
-              <dd>Praha-západ, Unhošť, Nučice, Kladensko</dd>
-            </div>
-            <div>
-              <dt>Jistota</dt>
-              <dd>Ověřitelný provozovatel a cena předem</dd>
-            </div>
-          </dl>
+          <p class="operator-proof"><i data-lucide="badge-check" aria-hidden="true"></i>Matyáš Mašín · přímá domluva · vlastní auto</p>
+        </div>
+      </section>
+
+      <section class="section process home-process" aria-labelledby="process-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Jak to probíhá</p>
+          <h2 id="process-title">Tři kroky. Bez odborných názvů.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <div><h3>Napište, co potřebujete</h3><p>Adresa, fotka a krátký popis stačí.</p></div>
+            <i data-lucide="clipboard-list" aria-hidden="true"></i>
+          </article>
+          <article>
+            <span>2</span>
+            <div><h3>Navrhnu postup a cenu</h3><p>Řeknu vám, co dává smysl a co je v ceně.</p></div>
+            <i data-lucide="scale" aria-hidden="true"></i>
+          </article>
+          <article>
+            <span>3</span>
+            <div><h3>Přijedu po jasné domluvě</h3><p>Termín, náklad i podmínky si potvrdíme předem.</p></div>
+            <i data-lucide="truck" aria-hidden="true"></i>
+          </article>
         </div>
       </section>
 
@@ -416,7 +435,7 @@
       <section class="section services" id="sluzby" aria-labelledby="services-title">
         <div class="section-head">
           <p class="eyebrow">Služby</p>
-          <h2 id="services-title">Kontejner přistavím, naložený odvezu. Materiál přivezu na místo.</h2>
+          <h2 id="services-title">Vše, co vyřeší jeden telefon</h2>
           <p>
             Řeším rekonstrukce, výkopy, vyklízení, zahrady i dovoz materiálu. U lehkého odpadu rozhoduje objem,
             u suti, betonu a zeminy hlavně hmotnost. Proto doporučuju službu i velikost kontejneru podle reálné zakázky,
@@ -434,7 +453,7 @@
             </div>
           </article>
           <article class="service-card has-photo">
-            <img src="assets/container-tilt.jpg" alt="Skutečný kontejner Kontejnerovka.cz při sklápění" width="1800" height="1350" loading="lazy">
+            <img src="assets/hero-container-tilt.webp" alt="Skutečný kontejner Kontejnerovka.cz při sklápění" width="1800" height="1350" loading="lazy">
             <div class="service-card-body">
               <h3>Odvoz suti, zeminy a odpadu</h3>
               <p>Čistá suť, beton, zemina, dřevo, bioodpad i směsný stavební odpad po předchozí domluvě.</p>
@@ -527,38 +546,10 @@
         </div>
       </section>
 
-      <section class="section process" aria-labelledby="process-title">
-        <div class="section-head">
-          <p class="eyebrow">Postup</p>
-          <h2 id="process-title">Objednávka bez nejistoty: nejdřív si potvrdíme cenu, termín a podmínky</h2>
-          <p>
-            U kontejneru je nejhorší nejasná domluva. Proto před výjezdem řeším adresu, přístup,
-            náklad, DPH, doklad a případné omezení stání.
-          </p>
-        </div>
-        <div class="steps">
-          <article>
-            <span>1</span>
-            <h3>Zavoláte nebo pošlete poptávku</h3>
-            <p>Řeknete lokalitu, odpad nebo materiál, přibližné množství, termín a jestli jde o dvůr, ulici nebo stavbu.</p>
-          </article>
-          <article>
-            <span>2</span>
-            <h3>Upřesníme cenu, DPH a co je v ní</h3>
-            <p>Potvrdíme dopravu, skládkovné nebo materiál, dobu přistavení, doklad a případné věci, které mohou cenu změnit.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h3>Přijedu po jasné domluvě</h3>
-            <p>Přistavím kontejner, odvezu náklad nebo dovezu objednaný materiál — přesně podle toho, co jsme si potvrdili.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
         <picture class="contact-media">
           <img
-            src="assets/truck-profile.jpg"
+            src="assets/hero-truck-profile.webp"
             alt="Vlastní Iveco Kontejnerovka.cz s rukou a kontejnerovou nástavbou"
             width="1800"
             height="1350"

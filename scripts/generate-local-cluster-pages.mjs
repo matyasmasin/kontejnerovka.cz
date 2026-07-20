@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 
-const CACHE = "20260617a";
+const CACHE = "20260720c";
 const GOOGLE_PROFILE = "https://share.google/3gRahFm7A2awhEeJJ";
 
 const provider = {
@@ -112,7 +112,7 @@ const pageHtml = (page) => {
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css?v=${CACHE}">
-    <script src="script.js?v=20260708c" defer></script>
+    <script src="script.js?v=${CACHE}" defer></script>
     <script type="application/ld+json">${JSON.stringify(serviceSchema, null, 2)}</script>
     <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
     <script type="application/ld+json" data-visible-faq>${JSON.stringify(faq, null, 2)}</script>
@@ -137,7 +137,7 @@ const pageHtml = (page) => {
         </div>
         <div class="visual-proof-grid">
           <article class="visual-proof-card image-card"><img src="assets/truck-crane-extended.jpg" alt="Vlastní kontejnerové auto s rukou Kontejnerovka.cz při vysunuté manipulaci" width="1800" height="1442" loading="lazy"><div><span>Kontejnerová doprava</span><strong>Přistavení i odvoz se plánují podle reálného přístupu.</strong></div></article>
-          <article class="visual-proof-card image-card"><img src="assets/container-tilt.jpg" alt="Vlastní kontejner Kontejnerovka.cz při sklápění v provozu" width="1800" height="1350" loading="lazy"><div><span>Kontejner v provozu</span><strong>Na fotce je skutečný kontejner při sklápění, ne ilustrační vizuál.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="assets/hero-container-tilt.webp" alt="Vlastní kontejner Kontejnerovka.cz při sklápění v provozu" width="1800" height="1350" loading="lazy"><div><span>Kontejner v provozu</span><strong>Na fotce je skutečný kontejner při sklápění, ne ilustrační vizuál.</strong></div></article>
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">Až 8 t</span><h3>Vlastní auto s rukou, ne obecná dopravní fráze.</h3><p>Pro cenu rozhoduji podle materiálu, odhadované váhy, přístupu na místo a toho, jestli se auto s rukou bezpečně dostane ke složení nebo nakládce.</p></article>
         </div>
       </section>

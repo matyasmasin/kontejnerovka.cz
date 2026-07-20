@@ -584,8 +584,9 @@ const head = (page) => {
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    <link rel="stylesheet" href="../styles.css?v=20260708c">
-    <script src="../script.js?v=20260708c" defer></script>
+    ${page.en === "index.html" ? '<link rel="preload" as="image" href="../assets/hero-real-mobile.webp" media="(max-width: 780px)" fetchpriority="high">\n    <link rel="preload" as="image" href="../assets/hero-real-desktop.webp" media="(min-width: 781px)" fetchpriority="high">' : ""}
+    <link rel="stylesheet" href="../styles.css?v=20260720c">
+    <script src="../script.js?v=20260720c" defer></script>
     ${schema}
   </head>`;
 };
@@ -594,6 +595,7 @@ const header = (page, home = false) => {
   const pair = currentPairForEn(page.en);
   const czHref = page.cz ? czPath(page.cz) : pair ? czPath(pair.cz) : "/";
   const enHref = enPath(page.en);
+  const quoteHref = home ? "#form" : "contact.html#form";
   return `<header class="site-header${home ? "" : " is-scrolled"}" data-header>
       <a class="brand" href="/en/"><span class="brand-mark">K</span><span><strong>Kontejnerovka.cz</strong><small>Prague and Central Bohemia</small></span></a>
       <nav class="site-nav" id="site-nav" data-nav>
@@ -601,8 +603,9 @@ const header = (page, home = false) => {
       </nav>
       <div class="header-actions">
         <div class="language-switcher" aria-label="Website language"><a href="${czHref}" hreflang="cs" lang="cs">CZ</a><a class="is-active" href="${enHref}" lang="en" aria-current="page">EN</a></div>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Open menu</span></button>
+        <a class="header-quote" href="${quoteHref}"><i data-lucide="send" aria-hidden="true"></i>Get a quote</a>
         <a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>+420&nbsp;728&nbsp;505&nbsp;028</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Open menu</span></button>
       </div>
     </header>`;
 };
@@ -616,7 +619,7 @@ const footer = (formHref = "contact.html#form") => `<footer class="site-footer">
     <div class="mobile-cta"><a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>Call</a><a href="${formHref}"><i data-lucide="send" aria-hidden="true"></i>Get quote</a></div>`;
 
 const pageShell = (page, body, options = {}) => `${head(page)}
-  <body>
+  <body class="${options.home ? "home-v2 site-v3" : "site-v3"}">
     ${header(page, options.home)}
 ${body}
     ${footer(options.formHref)}
@@ -658,7 +661,7 @@ const subpageShowcase = () => `<section class="section visual-proof subpage-show
         </div>
         <div class="visual-proof-grid">
           <article class="visual-proof-card image-card"><img src="../assets/truck-crane-extended.jpg" alt="Kontejnerovka.cz truck with crane during real unloading" width="1800" height="1442" loading="lazy"><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
-          <article class="visual-proof-card image-card"><img src="../assets/container-tilt.jpg" alt="Kontejnerovka.cz container body tipping during real operation" width="1800" height="1350" loading="lazy"><div><span>Container in use</span><strong>This is the real container body during tipping, collection and on-site handling.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="../assets/hero-container-tilt.webp" alt="Kontejnerovka.cz container body tipping during real operation" width="1800" height="1350" loading="lazy"><div><span>Container in use</span><strong>This is the real container body during tipping, collection and on-site handling.</strong></div></article>
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 details</span><h3>Town, load and photo usually shorten the quote.</h3><p>If access is narrow, the container stands in a street or the waste is mixed, a photo prevents back-and-forth and helps confirm the right option.</p></article>
         </div>
       </section>`;
@@ -856,7 +859,7 @@ const inquiryForm = (pageUrl) => `<form class="inquiry-form" action="https://api
 
 const contactSection = (page) => `<section class="contact-section" id="form" aria-labelledby="contact-title">
         <picture class="contact-media">
-          <img src="../assets/truck-profile.jpg" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
+          <img src="../assets/hero-truck-profile.webp" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
         </picture>
         <div class="contact-content">
           <div class="contact-copy">
@@ -1240,34 +1243,38 @@ const corePages = {
 
     const body = `<main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" role="img" aria-label="Truck carrying material on a construction site"></div>
+        <div class="hero-bg" role="img" aria-label="Kontejnerovka.cz container truck during a real job at a family house"></div>
         <div class="hero-overlay"></div>
         <div class="hero-inner">
-          <p class="eyebrow">${esc(page.eyebrow)}</p>
-          <h1 id="hero-title">Container hire with the quote confirmed before dispatch</h1>
-          <p class="hero-lead">For rubble, soil, construction waste, wood, green waste or bulk material delivery, send the location, load, amount and access details. <strong>We speak English</strong> — call or WhatsApp +420 728 505 028. Looking for skip hire or a dumpster rental? That is exactly what we do.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call for a quick quote</a>
-            <a class="btn btn-secondary" href="#quote-estimator"><i data-lucide="clipboard-list" aria-hidden="true"></i>Estimate the job</a>
-          </div>
-          <div class="hero-command" aria-label="What to send for a quick quote">
-            <i data-lucide="timer-reset" aria-hidden="true"></i>
-            <div><strong>For a quick quote, send 4 things</strong><span>address · material · amount · access</span></div>
-          </div>
-          <dl class="hero-facts">
-            <div><dt>Price</dt><dd>VAT and inclusions clarified before dispatch</dd></div>
-            <div><dt>Area</dt><dd>Prague-West, Unhošť, Nučice, Kladno</dd></div>
-            <div><dt>Plain English</dt><dd>No Czech waste terms needed</dd></div>
-            <div><dt>Photos</dt><dd>Usually speed up the quote</dd></div>
-          </dl>
+          <p class="eyebrow">English-speaking service · price confirmed</p>
+          <h1 id="hero-title">Container hire without the guesswork</h1>
+          <p class="hero-lead">Send the address and a photo. We will confirm the right service, price and timing.</p>
         </div>
       </section>
 
-      <section class="quick-contact" aria-label="Quick contact">
-        <div class="quick-contact-inner">
-          <a href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i><span>+420&nbsp;728&nbsp;505&nbsp;028</span></a>
-          <a href="mailto:info@kontejnerovka.cz"><i data-lucide="mail" aria-hidden="true"></i><span>info@kontejnerovka.cz</span></a>
-          <span><i data-lucide="map-pin" aria-hidden="true"></i>Prague and nearby areas · Svárov, Unhošť, Nučice</span>
+      <section class="home-chooser" aria-labelledby="chooser-title">
+        <div class="home-chooser-inner">
+          <h2 id="chooser-title">What do you need?</h2>
+          <nav class="task-list" aria-label="Choose the type of job">
+            <a href="rubble-removal.html"><span class="task-icon"><i data-lucide="trash-2" aria-hidden="true"></i></span><span><strong>Remove rubble or waste</strong><small>Rubble, concrete, soil and mixed waste by agreement</small></span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="container-delivery.html"><span class="task-icon"><i data-lucide="truck" aria-hidden="true"></i></span><span><strong>Hire a container</strong><small>For a renovation, construction site, yard or house</small></span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="sand-gravel-delivery.html"><span class="task-icon"><i data-lucide="mountain" aria-hidden="true"></i></span><span><strong>Deliver sand or gravel</strong><small>Also pea gravel, recycled aggregate, soil and concrete</small></span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="soil-removal.html"><span class="task-icon"><i data-lucide="shovel" aria-hidden="true"></i></span><span><strong>Remove excavation soil</strong><small>Heavy soil, clean excavation material and site clearance</small></span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          </nav>
+          <div class="chooser-actions">
+            <a class="btn btn-primary" href="#form"><i data-lucide="send" aria-hidden="true"></i>Get a quote for my job</a>
+            <a class="btn chooser-call" href="tel:+420728505028"><i data-lucide="phone-call" aria-hidden="true"></i>Call +420 728 505 028</a>
+          </div>
+          <p class="operator-proof"><i data-lucide="badge-check" aria-hidden="true"></i>Matyáš Mašín · direct contact · own truck</p>
+        </div>
+      </section>
+
+      <section class="section process home-process" aria-labelledby="process-title">
+        <div class="section-head compact"><p class="eyebrow">How it works</p><h2 id="process-title">Three steps. No Czech waste terms.</h2></div>
+        <div class="steps">
+          <article><span>1</span><div><h3>Tell us what you need</h3><p>An address, photo and short description are enough.</p></div><i data-lucide="clipboard-list" aria-hidden="true"></i></article>
+          <article><span>2</span><div><h3>Get the plan and price</h3><p>We confirm what makes sense and what is included.</p></div><i data-lucide="scale" aria-hidden="true"></i></article>
+          <article><span>3</span><div><h3>Dispatch after agreement</h3><p>Timing, load and conditions are confirmed first.</p></div><i data-lucide="truck" aria-hidden="true"></i></article>
         </div>
       </section>
 
@@ -1340,7 +1347,7 @@ const corePages = {
 
       <section class="section split" aria-labelledby="materials-title">
         <picture class="split-image">
-          <img src="../assets/truck-profile.jpg" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
+          <img src="../assets/hero-truck-profile.webp" alt="Kontejnerovka.cz Iveco truck with crane and container body" width="1800" height="1350" loading="lazy">
         </picture>
         <div class="split-content">
           <p class="eyebrow">Waste out, material in</p>
