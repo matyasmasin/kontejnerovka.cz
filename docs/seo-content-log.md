@@ -4,6 +4,18 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-07-28 - doplneni novych vlastnich fotek techniky a nakladky materialu
+
+- Co se zmenilo: na `index.html`, `reference.html` a `technika.html` byly doplneny dve nove vlastni fotografie auta pri realne nakladce materialu; soubory byly pripraveny jako `assets/realizace-nakladka-materialu-01.webp` a `assets/realizace-nakladka-materialu-02.webp`.
+- Proc se to zmenilo: web dlouhodobe stoji na overitelnosti vlastni techniky a realnych podkladech. Nove fotky jsou silnejsi nez starsi obecnejsi vizualy, protoze ukazuji konkretni auto pri skutecne praci.
+- Ocekavany dopad: vyssi duvera u navstevniku, silnejsi proof pro sekce `Dovoz materialu`, `Reference` a `Technika` a mensi zavislost na obecnich ilustacnich zaberech.
+- Zdroj dat nebo duvod: nove podklady od majitele ze dne `2026-07-28`.
+- Kdo/automatizace zmenu navrhla: manualni obsahova uprava podle novych fotek od majitele.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: po nasazeni zkontrolovat vizualni kvalitu na homepage, `reference.html` a `technika.html`; pri dalsim vyhodnoceni sledovat prokliky na `dovoz-pisku-sterku.html`, `reference.html`, `technika.html`, `click_phone` a `form_start`.
+- Minimalni doba vyhodnoceni: 14-30 dni po nasazeni pro prvni konverzni signal.
+
 ### 2026-07-14 - lokalni near-win odpovedni vrstva na `lokality.html`
 
 - Co se zmenilo: na `lokality.html` byl zpresnen title, meta description, OG/Twitter snippet, H1, CollectionPage/Breadcrumb pojmenovani a byla doplnena kratka viditelna FAQ vrstva se schema odpovidajici na otazky kam se nejcasteji jezdi, jak rychle zjistit obsluhu obce a co poslat pro cenu.
