@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 
-const CACHE = "20260720c";
+const CACHE = "20260728b";
 const GOOGLE_PROFILE = "https://share.google/3gRahFm7A2awhEeJJ";
 
 const provider = {

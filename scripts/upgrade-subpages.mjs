@@ -177,6 +177,22 @@ const getCtaHref = (html) => (html.includes('id="poptavka"') ? "#poptavka" : "ko
 
 const renderVisualSection = (file, context, copy, ctaHref) => {
   const id = `field-proof-${file.replace(/[^a-z0-9]+/gi, "-")}`;
+  const earthworkFiles = new Set([
+    "zemni-prace.html",
+    "zemni-prace-kladno.html",
+    "vykop-zakladu.html",
+    "vykop-bazenu.html",
+    "vykop-jezirka.html",
+    "rovnani-terenu.html",
+    "odbahneni-rybniku.html",
+  ]);
+  const isEarthworks = context.type === "soil" && earthworkFiles.has(file);
+  const firstVisualCard = isEarthworks
+    ? '<article class="visual-proof-card image-card"><img src="assets/site-machine.webp" alt="Stavební terén vhodný pro zemní a výkopové práce" width="900" height="528" loading="lazy"><div><span>Výkopový terén</span><strong>Menší pásová technika se hodí k domům, na zahrady a do míst s omezeným přístupem.</strong></div></article>'
+    : '<article class="visual-proof-card image-card"><img src="assets/truck-crane-extended.jpg" alt="Vlastní kontejnerové auto s rukou Kontejnerovka.cz při vysunuté manipulaci" width="1800" height="1442" loading="lazy"><div><span>Reálný výjezd</span><strong>Přístup, trasa a stání se řeší předem, ne až na místě.</strong></div></article>';
+  const secondVisualCard = isEarthworks
+    ? '<article class="visual-proof-card proof-card-dark"><span class="proof-number">2,5 t · 5 t · 2 t</span><h3>Minibagr, bagr a dumper podle přístupu a rozsahu práce.</h3><p>Techniku vybírám podle šířky vjezdu, povrchu, hloubky výkopu a místa pro odvoz zeminy.</p></article>'
+    : '<article class="visual-proof-card image-card"><img src="assets/hero-container-tilt.webp" alt="Vlastní kontejner Kontejnerovka.cz při sklápění v provozu" width="1800" height="1350" loading="lazy"><div><span>Kontejner v provozu</span><strong>Na fotce je skutečný kontejner při sklápění, odvozu a manipulaci na místě.</strong></div></article>';
   return `
       <section class="section visual-proof subpage-showcase" aria-labelledby="${id}" data-master-upgrade="visual-proof">
         <div class="visual-proof-copy">
@@ -186,8 +202,8 @@ const renderVisualSection = (file, context, copy, ctaHref) => {
           <a class="section-link light" href="${ctaHref}">Chci cenu</a>
         </div>
         <div class="visual-proof-grid">
-          <article class="visual-proof-card image-card"><img src="assets/truck-crane-extended.jpg" alt="Vlastní kontejnerové auto s rukou Kontejnerovka.cz při vysunuté manipulaci" width="1800" height="1442" loading="lazy"><div><span>Reálný výjezd</span><strong>Přístup, trasa a stání se řeší předem, ne až na místě.</strong></div></article>
-          <article class="visual-proof-card image-card"><img src="assets/hero-container-tilt.webp" alt="Vlastní kontejner Kontejnerovka.cz při sklápění v provozu" width="1800" height="1350" loading="lazy"><div><span>Kontejner v provozu</span><strong>Na fotce je skutečný kontejner při sklápění, odvozu a manipulaci na místě.</strong></div></article>
+          ${firstVisualCard}
+          ${secondVisualCard}
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 údaje</span><h3>${copy.proofTitle}</h3><p>${copy.proofText}</p></article>
         </div>
       </section>

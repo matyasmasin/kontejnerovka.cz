@@ -3,7 +3,7 @@
 # Vygenerované soubory dál žijí jako statické HTML; skript je tu pro dohledatelnost.
 import json
 
-CACHE = "20260720c"
+CACHE = "20260728b"
 AREA = ["Svárov", "Unhošť", "Nučice", "Rudná", "Hostivice", "Kladno", "Beroun",
         "Praha-západ", "Praha", "Středočeský kraj"]
 
@@ -24,7 +24,7 @@ PROVIDER = {
     "hasMap": "https://share.google/3gRahFm7A2awhEeJJ",
 }
 
-TRUSTBAR = '''<div class="subpage-trustbar" aria-label="Proč zemní práce s námi"><div><i data-lucide="badge-check" aria-hidden="true"></i><span><strong>15 let praxe</strong><span>Zemní práce děláme od roku 2011.</span></span></div><div><i data-lucide="shovel" aria-hidden="true"></i><span><strong>Technika do 5 t</strong><span>Projede i tam, kam se velký stroj nedostane.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Výkop, odvoz i dovoz</strong><span>Jedna parta, jedna domluva, cena předem.</span></span></div></div>'''
+TRUSTBAR = '''<div class="subpage-trustbar" aria-label="Proč zemní práce s námi"><div><i data-lucide="badge-check" aria-hidden="true"></i><span><strong>15 let praxe</strong><span>Zemní práce děláme od roku 2011.</span></span></div><div><i data-lucide="shovel" aria-hidden="true"></i><span><strong>Minibagr, bagr a dumper</strong><span>2,5 t · 5 t · 2 t pro hůře přístupná místa.</span></span></div><div><i data-lucide="shield-check" aria-hidden="true"></i><span><strong>Výkop, odvoz i materiál</strong><span>Vykopu, odvezu a přivezu štěrk nebo recyklát.</span></span></div></div>'''
 
 def faq_html(faq):
     return "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in faq)

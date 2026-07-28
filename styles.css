@@ -4673,6 +4673,34 @@ body.site-v3[data-page-identity="waste"] .subpage-hero::after {
   background: #fffdf8;
 }
 
+.equipment-proof {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(45, 95, 82, 0.22);
+  border-radius: 10px;
+  color: var(--green);
+  background: rgba(45, 95, 82, 0.055);
+  font-size: 0.9rem;
+  font-weight: 690;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.equipment-proof strong {
+  font-weight: 850;
+}
+
+.equipment-proof svg,
+.equipment-proof i {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
 .operator-proof {
   display: flex;
   gap: 10px;
@@ -4946,6 +4974,20 @@ body.site-v3[data-page-identity="waste"] .subpage-hero::after {
     grid-template-columns: 1fr;
     gap: 8px;
     margin-top: 10px;
+  }
+
+  .equipment-proof {
+    justify-content: flex-start;
+    margin-top: 8px;
+    padding: 8px 10px;
+    font-size: 0.76rem;
+    text-align: left;
+  }
+
+  .equipment-proof svg,
+  .equipment-proof i {
+    width: 18px;
+    height: 18px;
   }
 
   .chooser-actions .btn {

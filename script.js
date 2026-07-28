@@ -367,6 +367,7 @@ const setupPrimaryNavigation = () => {
         ]
       : [
           ["sluzby.html", "Služby", "service_landing"],
+          ["zemni-prace.html", "Zemní práce", "earthworks"],
           ["cenik.html", "Ceník", "pricing"],
           ["lokality.html", "Lokality", "local_landing"],
           ["reference.html", "Realizace", "references"],
