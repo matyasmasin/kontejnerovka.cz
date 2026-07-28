@@ -2116,7 +2116,7 @@ textarea:focus-visible {
 
 .contact-section {
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
+  grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1.32fr);
   gap: 0;
   overflow: hidden;
   margin-bottom: clamp(64px, 9vw, 110px);
@@ -2128,15 +2128,21 @@ textarea:focus-visible {
 .contact-media {
   display: block;
   min-height: 650px;
+  background: #0f1412;
 }
 
 .contact-content {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
-  gap: 30px;
-  align-items: center;
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1fr);
+  gap: clamp(22px, 2.5vw, 34px);
+  align-items: start;
   padding: clamp(28px, 5vw, 54px);
   color: var(--white);
+}
+
+.contact-copy {
+  align-self: center;
+  max-width: 420px;
 }
 
 .contact-copy h2,
@@ -2176,6 +2182,16 @@ textarea:focus-visible {
   color: var(--safety);
   font-size: 0.78rem;
   text-transform: uppercase;
+}
+
+@media (max-width: 1280px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-copy {
+    max-width: none;
+  }
 }
 
 .inquiry-form {
