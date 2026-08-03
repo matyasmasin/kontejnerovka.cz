@@ -477,24 +477,26 @@ const getInquiryText = () => {
   const data = new FormData(form);
   const attachment = data.get("attachment");
   const attachmentName = typeof File !== "undefined" && attachment instanceof File && attachment.name ? attachment.name : "";
+  const detailLines = [
+    [t("name"), data.get("name")],
+    [t("phone"), data.get("phone")],
+    [t("location"), data.get("location")],
+    [t("service"), data.get("service")],
+    [t("amount"), data.get("amount")],
+    [t("date"), data.get("date")],
+    [t("access"), data.get("access")],
+    [t("email"), data.get("email")],
+    [t("attachment"), attachmentName || data.get("photo")],
+  ]
+    .filter(([, value]) => String(value || "").trim())
+    .map(([label, value]) => `${label}: ${value}`);
+
   const lines = [
     t("inquiryGreeting"),
     "",
     t("inquiryIntro"),
     "",
-    `${t("name")}: ${data.get("name") || ""}`,
-    `${t("phone")}: ${data.get("phone") || ""}`,
-    `${t("email")}: ${data.get("email") || ""}`,
-    `${t("location")}: ${data.get("location") || ""}`,
-    `${t("date")}: ${data.get("date") || ""}`,
-    `${t("urgency")}: ${data.get("urgency") || ""}`,
-    `${t("service")}: ${data.get("service") || ""}`,
-    `${t("amount")}: ${data.get("amount") || ""}`,
-    `${t("containerSize")}: ${data.get("container_size") || ""}`,
-    `${t("access")}: ${data.get("access") || ""}`,
-    `${t("standing")}: ${data.get("standing") || ""}`,
-    `${t("wasteType")}: ${data.get("waste_type") || ""}`,
-    `${t("attachment")}: ${attachmentName || data.get("photo") || ""}`,
+    ...detailLines,
     "",
     t("note"),
     `${data.get("message") || ""}`,
@@ -1423,6 +1425,7 @@ const setupMobileCtaFormGuard = () => {
 
 const hideCookieBanner = () => {
   document.querySelector("[data-cookie-banner]")?.remove();
+  document.body.classList.remove("has-cookie-banner");
 };
 
 const createCookieBanner = () => {
@@ -1434,7 +1437,7 @@ const createCookieBanner = () => {
   banner.setAttribute("aria-label", t("cookieLabel"));
   banner.innerHTML = `
     <button class="cookie-close" type="button" data-cookie-close aria-label="${t("cookieClose")}">×</button>
-    <div>
+    <div class="cookie-copy">
       <strong>${t("cookieTitle")}</strong>
       <p>${t("cookieText")}</p>
       <a href="${t("privacyHref")}">${t("privacyLink")}</a>
@@ -1446,6 +1449,7 @@ const createCookieBanner = () => {
   `;
 
   document.body.appendChild(banner);
+  document.body.classList.add("has-cookie-banner");
 
   banner.querySelector("[data-cookie-close]")?.addEventListener("click", dismissCookieBannerForSession);
 

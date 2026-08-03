@@ -178,128 +178,69 @@
             <input type="checkbox" name="botcheck" tabindex="-1" style="display: none;">
             <input type="hidden" name="photo" value="">
             <div class="form-intro">
-              <strong>3 krátké kroky. Bez odborných názvů.</strong>
-              <span>Adresa, materiál, odhad množství a místo pro auto. Fotka často nahradí několik doplňujících otázek.</span>
+              <strong>Pošlete jen to podstatné.</strong>
+              <span>Kam přijet, co potřebujete a na jaké číslo zavolat zpět.</span>
             </div>
-
-            <div class="form-progress" aria-label="Postup poptávky">
-              <span class="is-active">Kontakt</span>
-              <span>Detaily</span>
-              <span>Odeslání</span>
-            </div>
-
             <fieldset class="form-step is-active" data-step="0">
-              <legend>Kontakt a základ zakázky</legend>
-              <div class="form-row">
-                <label>
-                  Jméno
-                  <input type="text" name="name" autocomplete="name" required>
-                </label>
-                <label>
-                  Telefon
-                  <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 728 505 028 nebo +420 728 505 028." required>
-                </label>
-              </div>
-              <div class="form-row">
-                <label>
-                  E-mail <span class="field-note">volitelné</span>
-                  <input type="email" name="email" autocomplete="email" placeholder="Volitelné">
-                </label>
-                <label>
-                  Obec / adresa
-                  <input type="text" name="location" placeholder="Např. Svárov, Unhošť, Nučice, Rudná" required>
-                </label>
-              </div>
+              <legend>Rychlá poptávka</legend>
               <label>
-                Služba / materiál
+                Telefon
+                <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="(?:\+420\s*)?[0-9](?:[\s.\-]?[0-9]){8}" title="Zadejte české telefonní číslo, například 728 505 028 nebo +420 728 505 028." placeholder="Např. 728 505 028" required>
+              </label>
+              <label>
+                Obec / adresa
+                <input type="text" name="location" placeholder="Např. Nučice nebo Praha 6" required>
+              </label>
+              <label>
+                Co potřebujete
                 <select name="service" required>
-                  <option value="">Vyberte službu</option>
-                  <option>Odvoz suti / odpadu</option>
+                  <option value="">Vyberte nejbližší možnost</option>
+                  <option>Odvoz suti nebo odpadu</option>
                   <option>Odvoz zeminy</option>
-                  <option>Zemní práce / výkop bagrem</option>
-                  <option>Odvoz dřeva / bioodpadu</option>
-                  <option>Dovoz písku, štěrku, kačírku</option>
-                  <option>Dovoz recyklátu, zeminy nebo betonu</option>
+                  <option>Zemní práce nebo výkop</option>
+                  <option>Dovoz materiálu</option>
+                  <option>Kontejner a doporučení velikosti</option>
                   <option>Jiná domluva</option>
                 </select>
               </label>
               <label>
-                Stručný popis
-                <textarea name="message" rows="4" required placeholder="Např. čistá suť z koupelny, zemina z výkopu, směs po vyklízení, kontejner může stát na dvoře..."></textarea>
+                Stručně popište zakázku
+                <textarea name="message" rows="4" required placeholder="Např. odvoz suti ze dvora, ideálně tento týden."></textarea>
               </label>
-              <p class="form-example">Nemusíte znát přesný název odpadu. Napište jednoduše, co se má odvézt nebo dovézt, odkud to je a jestli jde přijet nákladním autem až k místu.</p>
-            </fieldset>
-
-            <fieldset class="form-step" data-step="1" hidden>
-              <legend>Odpad, množství a přístup</legend>
-              <div class="form-row">
-                <label>
-                  Množství odhadem <span class="field-note">pokud víte</span>
-                  <input type="text" name="amount" placeholder="Např. 3 m³, 5 tun, 1 kontejner nebo nevím">
-                </label>
-                <label>
-                  Velikost kontejneru <span class="field-note">pokud víte</span>
-                  <select name="container_size">
-                    <option>Nevím, doporučit</option>
-                    <option>Malý kontejner</option>
-                    <option>Střední kontejner</option>
-                    <option>Velký kontejner</option>
-                  </select>
-                </label>
-              </div>
-              <div class="form-row">
-                <label>
-                  Kde může stát kontejner nebo auto <span class="field-note">pokud víte</span>
-                  <input type="text" name="access" placeholder="Dvůr, ulice, stavba, horší příjezd">
-                </label>
-                <label>
-                  Stání
-                  <select name="standing">
-                    <option>Vlastní pozemek / dvůr</option>
-                    <option>Ulice nebo veřejné místo</option>
-                    <option>Stavba / areál</option>
-                    <option>Nevím, potřebuji poradit</option>
-                  </select>
-                </label>
-              </div>
-              <label>
-                Čistota odpadu
-                <select name="waste_type">
-                  <option>Nevím, potřebuji poradit</option>
-                  <option>Čistá suť</option>
-                  <option>Zemina / výkop</option>
-                  <option>Směsný stavební odpad</option>
-                  <option>Dřevo / bioodpad</option>
-                  <option>Dovoz materiálu</option>
-                </select>
-              </label>
-              <p class="form-example">Čistá suť, zemina a směsný stavební odpad se naceňují jinak. Když si nejste jistí, stačí napsat „nevím“.</p>
-            </fieldset>
-
-            <fieldset class="form-step" data-step="2" hidden>
-              <legend>Termín a odeslání</legend>
-              <div class="form-row">
-                <label>
-                  Termín
-                  <input type="text" name="date" placeholder="Např. tento týden">
-                </label>
-                <label>
-                  Naléhavost
-                  <select name="urgency">
-                    <option>Běžná domluva</option>
-                    <option>Co nejdříve</option>
-                    <option>Tento týden</option>
-                    <option>Jen orientační cena</option>
-                  </select>
-                </label>
-              </div>
-              <label class="file-upload">
-                <span>Fotka místa nebo odpadu <small>volitelné</small></span>
-                <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
-                <strong data-file-name>Vybrat fotku nebo PDF</strong>
-              </label>
-              <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420728505028">728 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
-              <p class="form-note">Fotka vjezdu, místa přistavení nebo odpadu často urychlí nacenění. Přesnou cenu, DPH a případné věci, které ji mohou změnit, potvrdím až po kontrole údajů.</p>
+              <details class="form-optional">
+                <summary>Doplnit detaily pro přesnější cenu <span>volitelné</span></summary>
+                <div class="form-optional-body">
+                  <div class="form-row">
+                    <label>
+                      Kolik toho je zhruba
+                      <input type="text" name="amount" placeholder="Např. 1 kontejner, 3 m³ nebo nevím">
+                    </label>
+                    <label>
+                      Termín
+                      <input type="text" name="date" placeholder="Např. tento týden">
+                    </label>
+                  </div>
+                  <label>
+                    Kam se auto dostane
+                    <input type="text" name="access" placeholder="Např. dvůr, ulice nebo horší vjezd">
+                  </label>
+                  <label>
+                    Jméno
+                    <input type="text" name="name" autocomplete="name" placeholder="Ať vím, komu volám zpět">
+                  </label>
+                  <label>
+                    E-mail
+                    <input type="email" name="email" autocomplete="email" placeholder="Jen pokud chcete odpověď i mailem">
+                  </label>
+                  <label class="file-upload">
+                    <span>Fotka místa nebo odpadu <small>volitelné</small></span>
+                    <input type="file" name="attachment" accept="image/*,.pdf" data-default-file="Vybrat fotku nebo PDF">
+                    <strong data-file-name>Vybrat fotku nebo PDF</strong>
+                  </label>
+                  <p class="field-note form-photo-note">Fotku odpadu nebo místa můžete přiložit rovnou tady. Když to nepůjde, pošlete ji po odeslání na <a href="tel:+420728505028">728 505 028</a> (SMS/WhatsApp) nebo na <a href="mailto:info@kontejnerovka.cz">info@kontejnerovka.cz</a>.</p>
+                </div>
+              </details>
+              <p class="form-example">Když si nejste jistí, napište to jednoduše. Správné řešení doplním já.</p>
               <label class="consent">
                 <input type="checkbox" name="souhlas" required>
                 <span>Souhlasím se zpracováním osobních údajů pro vyřízení poptávky. <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>.</span>
@@ -307,9 +248,7 @@
             </fieldset>
 
             <div class="form-actions">
-              <button class="btn btn-secondary" type="button" data-prev hidden>Zpět</button>
-              <button class="btn btn-primary" type="button" data-next>Pokračovat</button>
-              <button class="btn btn-primary" type="submit" data-submit hidden>
+              <button class="btn btn-primary" type="submit" data-submit>
                 <i data-lucide="send" aria-hidden="true"></i>
                 Odeslat poptávku
               </button>
@@ -318,9 +257,7 @@
               <i data-lucide="copy" aria-hidden="true"></i>
               Zkopírovat pro SMS/e-mail
             </button>
-            <p class="form-note" data-form-note>
-              Pokud potřebujete rychlý termín, zavolejte. Formulář je nejlepší, když můžete doplnit obec, množství, popis přístupu a ideálně fotku.
-            </p>
+            <p class="form-note" data-form-note>Pokud potřebujete rychlý termín, zavolejte. Když bude v poptávce něco chybět, ozvu se krátce zpět.</p>
             <p class="form-privacy">
               Vaše údaje použiju jen k odpovědi na poptávku. Podrobnosti jsou v části
               <a href="ochrana-osobnich-udaju.html">ochrana osobních údajů</a>.
