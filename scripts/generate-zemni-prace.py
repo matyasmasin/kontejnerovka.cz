@@ -3,7 +3,7 @@
 # Vygenerované soubory dál žijí jako statické HTML; skript je tu pro dohledatelnost.
 import json
 
-CACHE = "20260804b"
+CACHE = "20260804c"
 AREA = ["Svárov", "Unhošť", "Nučice", "Rudná", "Hostivice", "Kladno", "Beroun",
         "Praha-západ", "Praha", "Středočeský kraj"]
 

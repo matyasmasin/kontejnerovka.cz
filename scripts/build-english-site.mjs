@@ -585,8 +585,8 @@ const head = (page) => {
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     ${page.en === "index.html" ? '<link rel="preload" as="image" href="../assets/hero-real-mobile.webp" media="(max-width: 780px)" fetchpriority="high">\n    <link rel="preload" as="image" href="../assets/hero-real-desktop.webp" media="(min-width: 781px)" fetchpriority="high">' : ""}
-    <link rel="stylesheet" href="../styles.css?v=20260804b">
-    <script src="../script.js?v=20260804b" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=20260804c">
+    <script src="../script.js?v=20260804c" defer></script>
     ${schema}
   </head>`;
 };

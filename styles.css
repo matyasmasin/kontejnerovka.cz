@@ -6962,6 +6962,17 @@ li {
     line-height: 1.28;
     overflow-wrap: anywhere;
   }
+
+  .chooser-meta {
+    align-items: stretch;
+  }
+
+  .equipment-proof,
+  .operator-proof {
+    flex: 0 0 auto;
+    min-height: 0;
+    height: auto;
+  }
 }
 
 @media (max-width: 350px) {
