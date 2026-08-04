@@ -1,9 +1,21 @@
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const nav = document.querySelector("[data-nav]");
+let navScrim = document.querySelector("[data-nav-scrim]");
 const form = document.querySelector("[data-inquiry-form]");
 const formNote = document.querySelector("[data-form-note]");
 const copyInquiryButton = document.querySelector("[data-copy-inquiry]");
+
+// Most content pages share the navigation markup but predate the dedicated
+// scrim used on the homepage. Add it progressively so the mobile menu behaves
+// consistently without duplicating markup across every static page.
+if (!navScrim && header) {
+  navScrim = document.createElement("div");
+  navScrim.className = "nav-scrim";
+  navScrim.dataset.navScrim = "";
+  navScrim.hidden = true;
+  header.insertAdjacentElement("afterend", navScrim);
+}
 
 const GA_MEASUREMENT_ID = "G-BCXFMBWZJ4";
 const ANALYTICS_CONSENT_KEY = "kontejnerovka_analytics_consent";
@@ -447,7 +459,9 @@ window.addEventListener("scroll", setHeaderState, { passive: true });
 const setNavigationOpen = (isOpen) => {
   nav?.classList.toggle("is-open", isOpen);
   header?.classList.toggle("is-open", isOpen);
+  document.body.classList.toggle("has-open-nav", isOpen);
   navToggle?.setAttribute("aria-expanded", String(isOpen));
+  if (navScrim) navScrim.hidden = !isOpen;
   const label = navToggle?.querySelector(".sr-only");
   if (label) label.textContent = pageLocale === "en" ? (isOpen ? "Close menu" : "Open menu") : isOpen ? "Zavřít menu" : "Otevřít menu";
 };
@@ -462,15 +476,26 @@ nav?.addEventListener("click", (event) => {
   }
 });
 
+navScrim?.addEventListener("click", () => {
+  setNavigationOpen(false);
+});
+
+document.addEventListener("click", (event) => {
+  if (!nav?.classList.contains("is-open")) return;
+  if (event.target instanceof Node && (nav.contains(event.target) || navToggle?.contains(event.target))) return;
+  setNavigationOpen(false);
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape" || !nav?.classList.contains("is-open")) return;
   setNavigationOpen(false);
   navToggle?.focus();
 });
 
-document.addEventListener("click", (event) => {
-  if (!nav?.classList.contains("is-open") || !(event.target instanceof Node) || header?.contains(event.target)) return;
-  setNavigationOpen(false);
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1180 && nav?.classList.contains("is-open")) {
+    setNavigationOpen(false);
+  }
 });
 
 const getInquiryText = () => {
@@ -1390,7 +1415,7 @@ const setupRevealAnimations = () => {
 };
 
 const setupMobileCtaFormGuard = () => {
-  const zones = document.querySelectorAll(".contact-section");
+  const zones = document.querySelectorAll(".contact-section, .mini-inquiry");
   if (!zones.length || !("IntersectionObserver" in window)) return;
 
   const visibleZones = new Set();
@@ -1413,6 +1438,28 @@ const setupMobileCtaFormGuard = () => {
   );
 
   zones.forEach((zone) => observer.observe(zone));
+};
+
+const setupMobileCtaVisibility = () => {
+  const mobileCta = document.querySelector(".mobile-cta");
+  const hero = document.querySelector(".hero, .subpage-hero");
+  if (!mobileCta || !hero || !("IntersectionObserver" in window)) return;
+
+  document.body.classList.add("has-mobile-cta-guard");
+  document.body.classList.remove("is-past-hero");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const [entry] = entries;
+      document.body.classList.toggle("is-past-hero", !entry?.isIntersecting);
+    },
+    {
+      rootMargin: "-18% 0px -56% 0px",
+      threshold: 0.18,
+    },
+  );
+
+  observer.observe(hero);
 };
 
 const hideCookieBanner = () => {
@@ -1495,6 +1542,7 @@ window.addEventListener("DOMContentLoaded", () => {
   scheduleIconLoad();
   setupRevealAnimations();
   setupMobileCtaFormGuard();
+  setupMobileCtaVisibility();
   setupPriceCalculator();
   ensurePageUrlField();
   applyPendingCalculatorInquiry();
