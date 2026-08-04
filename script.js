@@ -1258,20 +1258,12 @@ const loadLucideIcons = () => {
 };
 
 const scheduleIconLoad = () => {
-  const start = () => {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(loadLucideIcons, { timeout: 1800 });
-      return;
-    }
-
-    window.setTimeout(loadLucideIcons, 800);
-  };
-
-  if (document.readyState === "complete") {
-    start();
-  } else {
-    window.addEventListener("load", start, { once: true });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadLucideIcons, { once: true });
+    return;
   }
+
+  loadLucideIcons();
 };
 
 const setupSubpagePolish = () => {
