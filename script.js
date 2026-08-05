@@ -6,6 +6,19 @@ const form = document.querySelector("[data-inquiry-form]");
 const formNote = document.querySelector("[data-form-note]");
 const copyInquiryButton = document.querySelector("[data-copy-inquiry]");
 
+// On the homepage, keep the short conversion path before the longer service,
+// pricing and locality detail. Without JavaScript the form remains fully usable
+// in its original source position.
+const prioritizeHomepageInquiry = () => {
+  if (!document.body.classList.contains("home-v2")) return;
+  const processSection = document.querySelector(".home-process");
+  const contactSection = document.querySelector(".contact-section-premium");
+  if (!processSection || !contactSection || processSection.nextElementSibling === contactSection) return;
+  processSection.insertAdjacentElement("afterend", contactSection);
+};
+
+prioritizeHomepageInquiry();
+
 // Most content pages share the navigation markup but predate the dedicated
 // scrim used on the homepage. Add it progressively so the mobile menu behaves
 // consistently without duplicating markup across every static page.
@@ -558,6 +571,7 @@ let validateInquiryForm = () => form?.reportValidity() ?? false;
 
 const promotePhotoField = () => {
   if (!form) return;
+  if (form.querySelectorAll(".form-step").length > 1) return;
   const firstStep = form.querySelector('.form-step[data-step="0"]');
   const upload = form.querySelector(".file-upload");
   const photoNote = form.querySelector(".form-photo-note");
@@ -723,6 +737,54 @@ const setupInquiryFormSteps = () => {
 };
 
 setupInquiryFormSteps();
+
+const setupHomeServiceChooser = () => {
+  const chooser = document.querySelector("[data-service-chooser]");
+  const choices = chooser ? Array.from(chooser.querySelectorAll("[data-service-choice]")) : [];
+  const serviceField = form?.querySelector('select[name="service"]');
+  if (!chooser || !choices.length || !(serviceField instanceof HTMLSelectElement)) return;
+
+  const selectChoice = (choice, shouldTrack = true) => {
+    const serviceValue = choice.getAttribute("data-service-choice") || "";
+    choices.forEach((item) => {
+      const isSelected = item === choice;
+      item.classList.toggle("is-selected", isSelected);
+      item.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    if (
+      serviceValue &&
+      serviceField.value !== serviceValue &&
+      Array.from(serviceField.options).some((option) => option.value === serviceValue)
+    ) {
+      serviceField.value = serviceValue;
+      serviceField.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+
+    if (shouldTrack) {
+      track("service_choice", {
+        form_name: "main_inquiry",
+        selected_service: cleanAnalyticsValue(serviceValue),
+        page_type: getPageType(),
+        page_path: window.location.pathname,
+      });
+    }
+  };
+
+  choices.forEach((choice) => {
+    choice.addEventListener("click", () => selectChoice(choice));
+  });
+
+  serviceField.addEventListener("change", () => {
+    const matchingChoice = choices.find((choice) => choice.getAttribute("data-service-choice") === serviceField.value);
+    if (matchingChoice) selectChoice(matchingChoice, false);
+  });
+
+  const initialChoice = choices.find((choice) => choice.getAttribute("aria-pressed") === "true") || choices[0];
+  if (!serviceField.value && initialChoice) selectChoice(initialChoice, false);
+};
+
+setupHomeServiceChooser();
 
 form?.addEventListener("submit", (event) => {
   ensurePageUrlField();
@@ -1026,7 +1088,7 @@ const fillInquiryFormFromCalculator = (payload) => {
   if (!form) return false;
 
   setFormValue('input[name="location"]', payload.fields.location?.label || "");
-  setFormValue('input[name="date"]', payload.fields.term?.label || "");
+  setFormValue('[name="date"]', payload.fields.term?.label || "");
   setFormValue('input[name="amount"]', payload.fields.size?.label || "");
   setFormValue('input[name="access"]', payload.fields.access?.label || "");
   setFormValue('input[name="photo"]', t("photoPlaceholder"));
