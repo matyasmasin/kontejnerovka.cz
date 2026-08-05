@@ -52,6 +52,50 @@ final result: passed
 
 ---
 
+# Design QA — homepage v4.1, finální 10/10 polish pass
+
+Datum: 2026-08-05
+Rozsah: hlavička, hero, kontrast kontaktní sekce, sticky mobilní CTA, karty služeb, FAQ a patička
+
+## Vizuální pravda a společné vstupy
+
+- Výchozí browser rendery před opravou: `audits/2026-08-05-live-design-audit-final/13-tablet-1024-hero.png`, `12-tablet-hero.png`, `14-mobile-320-hero.png`, `03-desktop-form-step1.png`, `16-desktop-services.png` a `18-desktop-faq-footer.png`.
+- Finální browser rendery: `audits/2026-08-05-10of10-polish-pass/01-1024-header-after.png` až `08-1440-form-step2-after.png`.
+- Normalizovaná responzivní porovnání: `compare-1024-header.png`, `compare-768-hero.png` a `compare-320-sticky.png` ve stejné auditní složce.
+- Zaměřená porovnání kontrastu a rytmu: `compare-form-contrast.png`, `compare-services-rhythm.png` a `compare-faq-rhythm.png`.
+- Viewporty: 320 × 568, 390 × 844, 768 × 1024, 1024 × 768 a 1440 × 1024 CSS px, DPR 1. Stav nahoře, otevřené menu, vybraná služba, sticky CTA po opuštění hero, formulář v kroku 1 i 2 a formulářová zóna byly kontrolovány samostatně.
+
+## Povinné fidelity oblasti
+
+- Typografie a copy: Inter, těžká display hierarchie, krátké řádkování a osobní první osoba zůstaly beze změny. Tabletové hero nyní využívá dostupnou šířku a drží čitelný dvouřádkový nadpis.
+- Rozestupy a layout: při 1024 px se jazyk, telefon a menu nepřekrývají; 768px hero má dvě stejně široká CTA; karty služeb mají srovnané odkazy; FAQ navazuje přímo na patičku bez prázdného pásu.
+- Barvy a kontrast: oranžový eyebrow text byl ztmaven pouze tam, kde leží na světlém povrchu. Naměřené poměry jsou 6,24–6,80 : 1. Checklist v kontaktní sekci dosahuje 11,86 : 1, label kontaktní karty 4,71 : 1 a privacy odkaz 7,21 : 1.
+- Obrazové podklady: zachované skutečné fotografie techniky a realizací, beze změn cropu a `object-fit`; žádné placeholdery. Ikony zůstávají v existující Lucide sadě.
+- Mobilní ergonomie: primární i sekundární hero CTA zůstávají v prvním viewportu. Sticky panel je při načtení skrytý, po odscrollování ovladatelný a ve formulářové zóně i při otevřeném menu znovu skrytý.
+
+## Porovnávací historie P0/P1/P2
+
+1. P1 — hlavička při 1024 px: text telefonního CTA přetékal do přepínače jazyka. Oprava převádí telefon mezi 781–1180 px na jednoznačné 46px ikonové tlačítko. Po opravě `clientWidth = scrollWidth = 44 px`; mezery mezi jazykem, telefonem a menu jsou kladné.
+2. P2 — 768px hero: copy využívala přibližně 350 z 768 px a ponechávala velkou prázdnou pravou polovinu. Oprava rozšiřuje copy na 760 px, nadpis na 640 px a CTA na dva sloupce; společný vstup `compare-768-hero.png` potvrzuje odstranění prázdné plochy.
+3. P2 — 320px sticky CTA: panel byl viditelný už při `scrollY = 0` a zakrýval sekundární telefonní akci. Observer nyní používá nulový threshold; nahoře je opacity 0, po opuštění hero opacity 1 a ve formulářové zóně opět opacity 0. Důkaz: `compare-320-sticky.png`.
+4. P2 — kontrast: původní eyebrow text měl 2,67–2,91 : 1, checklist 2,13 : 1 a label kontaktní karty 1,09 : 1. Po opravě všechny uvedené hodnoty splňují alespoň WCAG AA pro běžný text.
+5. P3 — vertikální rytmus: velké prázdné plochy v kartách služeb a mezi FAQ a patičkou byly zkráceny; informační hustota se zvýšila bez změny obsahu nebo pořadí konverzního toku.
+
+## Funkční a technická kontrola
+
+- Všech pět viewportů: horizontální overflow 0 px, rozbité obrázky 0, duplicitní ID 0, právě jeden `h1` a 0 browser warningů/errorů.
+- Mobilní menu: otevření, `aria-expanded=true`, skrytí sticky CTA, zavření přes Escape a návrat focusu na trigger ověřeny.
+- Výběr služby: karta „Odvoz suti nebo odpadu“ nastaví právě jeden aktivní stav a synchronizuje `select[name="service"]`.
+- Formulář: hodnoty obce a termínu přetrvají při přechodu 1 → 2 → 1; správně se střídají tlačítka Zpět, Pokračovat a Odeslat. Externí testovací lead nebyl odeslán.
+- `node --check script.js`: passed.
+- `node scripts/site-quality-gate.mjs`: passed, 117 HTML souborů, žádné rozbité lokální reference.
+- `git diff --check -- styles.css script.js design-qa.md`: passed.
+- Finální findings: P0 0, P1 0, P2 0. Zůstávají pouze záměrné produkční odlišnosti popsané v předchozím QA.
+
+final result: passed
+
+---
+
 # Design QA — produkční homepage v4, desktop + mobil
 
 Datum: 2026-08-05

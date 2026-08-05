@@ -9641,3 +9641,96 @@ body.site-v3 .page-main .trust-proof-facts article {
     padding-left: 11px;
   }
 }
+
+/* Homepage v4.1 — final responsive, contrast and rhythm polish */
+.home-v2.site-v3 .home-authority-hero .eyebrow,
+.home-v2.site-v3 .home-chooser .eyebrow,
+.home-v2.site-v3 .home-proof-copy .eyebrow,
+.home-v2.site-v3 .services .eyebrow,
+.home-v2.site-v3 .pricing-preview .eyebrow,
+.home-v2.site-v3 .faq .eyebrow {
+  color: #9a3d00;
+}
+
+.home-v2.site-v3 .contact-section-premium .contact-checklist li {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.home-v2.site-v3 .contact-section-premium .contact-cards strong {
+  color: #5c2300;
+}
+
+.home-v2.site-v3 .services,
+.home-v2.site-v3 .pricing-preview,
+.home-v2.site-v3 .faq {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.home-v2.site-v3 .service-card.has-photo .service-card-body {
+  display: flex;
+  min-height: 184px;
+  flex-direction: column;
+}
+
+.home-v2.site-v3 .service-card.has-photo .service-card-body .text-link {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.home-v2.site-v3 .site-footer {
+  margin-top: 0;
+}
+
+@media (min-width: 781px) and (max-width: 1180px) {
+  .site-v3 .header-call {
+    width: 46px;
+    min-width: 46px;
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
+    font-size: 0;
+    white-space: nowrap;
+  }
+
+  .site-v3 .header-call svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 780px) {
+  .home-v2.site-v3 .home-authority-hero .hero-copy {
+    padding: 44px clamp(34px, 7vw, 56px) 38px;
+  }
+
+  .home-v2.site-v3 .home-authority-hero h1 {
+    max-width: 640px;
+    font-size: clamp(3.45rem, 8vw, 4.1rem);
+  }
+
+  .home-v2.site-v3 .home-authority-hero .hero-lead {
+    max-width: 580px;
+  }
+
+  .home-v2.site-v3 .home-authority-hero .hero-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-v2.site-v3 .hero-visual {
+    height: 320px;
+  }
+}
+
+@media (max-width: 780px) {
+  .home-v2.site-v3 .services,
+  .home-v2.site-v3 .pricing-preview,
+  .home-v2.site-v3 .faq {
+    padding-top: 58px;
+    padding-bottom: 58px;
+  }
+
+  .home-v2.site-v3 .service-card.has-photo .service-card-body {
+    min-height: 0;
+  }
+}

@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
-const cacheVersion = "20260805a";
+const cacheVersion = "20260805b";
 const ignoredDirs = new Set([".git", "audits", "node_modules"]);
 const failures = [];
 

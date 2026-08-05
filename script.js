@@ -1517,7 +1517,7 @@ const setupMobileCtaVisibility = () => {
     },
     {
       rootMargin: "-18% 0px -56% 0px",
-      threshold: 0.18,
+      threshold: 0,
     },
   );
 
