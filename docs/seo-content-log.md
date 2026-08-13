@@ -4,6 +4,30 @@ Kazda vetsi obsahova, SEO nebo konverzni uprava musi mit zapis. Diky tomu lze po
 
 ## Zaznamy
 
+### 2026-08-13 - GSC mesicni follow-up a trust interlink z `odvoz-zeminy.html` na `technika.html`
+
+- Co se zmenilo: na `odvoz-zeminy.html` byl do trust bloku doplnen primy interni odkaz `Technika a pristup` vedouci na `technika.html`.
+- Proc se to zmenilo: live GSC kontrola `2026-08-13` potvrdila, ze `odvoz-zeminy.html` uz sbira viditelnost (`3` kliky, `100` impresi za posledni 3 mesice) a ze dalsi rust ma smysl tahat z existujicich CZ URL, ne z dalsi tvorby novych stranek. Soucasne index summary stale ukazuje velky bucket `Objeveno - momentalne neindexovano`, kde se mezi ukazkovymi URL objevuje i `technika.html`, ale rucni URL inspection u vice prioritnich URL z tohoto bucketu uz vratila stav `na Googlu`; proto je bezpecnejsi posilit crawl a trust signal z viditelne service page na relevantni proof URL.
+- Ocekavany dopad: lepsi interni signal na `technika.html`, silnejsi duvera pred poptavkou u tezkeho materialu a vic prokliku na proof URL z existujici service page.
+- Zdroj dat nebo duvod: live Search Console property `sc-domain:kontejnerovka.cz` otevrena `2026-08-13`; rolling compare `2026-07-15` az `2026-08-11` vs. `2026-06-17` az `2026-07-14`; page snapshot pro `odvoz-zeminy.html`; index summary a rucni URL inspection priority URL.
+- Kdo/automatizace zmenu navrhla: mesicni GSC kontrola v Codexu.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: GSC pro `https://kontejnerovka.cz/odvoz-zeminy.html`, hlavne kliky, CTR a query mix kolem `odvoz zeminy`; sekundarne prokliky nebo vstupy na `technika.html` a jestli se tato trust URL cisteji propise do indexu.
+- Minimalni doba vyhodnoceni: 14-28 dni po nasazeni.
+
+### 2026-08-04 - live GSC follow-up a CTR dotazeni `kontejnery-unhost.html`
+
+- Co se zmenilo: na `kontejnery-unhost.html` byl zpresnen title, meta description, OG/Twitter snippet, H1, uvodni odstavec a SEO panel tak, aby stranka explicitneji pokryvala formulace `kontejner Unhost`, `kontejner v Unhosti` a `odvoz suti Unhost`; soucasne byl doplnen primy interni odkaz na `pristaveni-kontejneru.html`.
+- Proc se to zmenilo: live GSC kontrola v Codexu `2026-08-04` potvrdila, ze vsechny 4 priority money pages odeslane `2026-07-28` uz jsou indexovane. Dalsi nejsilnejsi near-win se proto presunul na `https://kontejnerovka.cz/kontejnery-unhost.html`, ktera za posledni 3 mesice ukazuje `150` impresi, jen `1` klik, CTR `0,7 %` a prumernou pozici `7,8`.
+- Ocekavany dopad: vyssi CTR na lokalitni URL s existujici prvni strankou, lepsi shoda mezi query intencemi a snippetem a silnejsi vnitrni podpora pro `pristaveni-kontejneru.html`.
+- Zdroj dat nebo duvod: live Search Console property `sc-domain:kontejnerovka.cz`, page filter pro `https://kontejnerovka.cz/kontejnery-unhost.html`, stav dat zhruba `pred 5 hodinami`.
+- Kdo/automatizace zmenu navrhla: manualni live GSC follow-up a mala bezpecna SEO uprava v Codexu.
+- Nasazeno: lokalne upraveno.
+- Commit:
+- Co sledovat po zmene: GSC pro `https://kontejnerovka.cz/kontejnery-unhost.html`, hlavne kliky, CTR, query mix a jestli se vedle `odvoz suti unhost` zacnou objevovat i varianty kolem `kontejner unhost`; sekundarne prokliky na `pristaveni-kontejneru.html`.
+- Minimalni doba vyhodnoceni: 14-28 dni po nasazeni.
+
 ### 2026-07-28 - doplneni novych vlastnich fotek techniky a nakladky materialu
 
 - Co se zmenilo: na `index.html`, `reference.html` a `technika.html` byly doplneny dve nove vlastni fotografie auta pri realne nakladce materialu; soubory byly pripraveny jako `assets/realizace-nakladka-materialu-01.webp` a `assets/realizace-nakladka-materialu-02.webp`.

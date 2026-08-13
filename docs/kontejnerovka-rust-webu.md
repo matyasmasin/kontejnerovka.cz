@@ -109,6 +109,91 @@ Drzet novy rytmus aspon 4-8 tydnu a sledovat, jestli kazdy mesic vznika jasny se
 
 Od teto zmeny se ma kratky vystup kazde automatizace zapisovat take do centralniho mesicniho reportu v `docs/reports/YYYY-MM.md`, aby slo po case vyhodnotit, co system doporucoval a co se opravdu menilo.
 
+## Strategicky zapis - 2026-08-03 - data a indexace jsou stale vyssi priorita nez dalsi obsah
+
+### Stav
+
+Omezeny vystup. Dnesni master kontrola nepotvrdila novou kritickou chybu v HTML, canonicalech, schema, formularich ani interni navigaci. Hlavni priorita se proto neposouva k dalsi editaci webu, ale zustava u odblokovani Google dat a potvrzeni indexacniho follow-upu po zasahu z `2026-07-28`.
+
+### Shrnutí pro majitele
+
+Web dnes nevypada jako rozbity. Homepage, `lokality.html`, `kontakt.html`, `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html`, `odvoz-zeminy.html`, `kontejner-na-zeminu.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html` i `kontejnery-rudna.html` drzi title, canonical, schema, telefon `728 505 028`, CTA a formularovou cestu. Verejny snapshot uz u kontrolovanych prioritnich URL ukazuje aktualni telefon a novy obsah, takze telefonni incident uz dnes nevypada jako hlavni live blocker. Nejvetsi brzda je stale stejna: `node scripts/fetch-google-data.mjs` 2026-08-03 znovu spadl na `invalid_grant`, lead sheet je prazdny a bez GSC/GA4 exportu nejde potvrdit, jestli se po rucnim odeslani 4 money pages opravdu zveda indexace a jestli cervencove live upravy nesou signal rustu.
+
+### Semafor
+
+- Zelena: live web je technicky konzistentni, formularova cesta funguje, `robots.txt` je otevrene pro hlavni AI crawlery a live sitemapa drzi `62` URL.
+- Oranzova: aktualni verejny snapshot uz ukazuje spravne telefonni cislo a aktualni text na prioritnich URL, ale bez GSC nelze potvrdit, jestli jde i o skutecny posun v Google indexaci a vykonu.
+- Cervena: GSC/GA4 import je stale blokovany `invalid_grant`, GBP recenze / fotky / metriky stale nelze overit a `docs/seo-data/kpi-leads-template.csv` zustava prazdny.
+
+### Co je dobra zprava
+
+- Live HTML i repo drzi spravne `728 505 028`; dnesni kontrola `en/areas.html` a `vykop-bazenu.html` nepotvrdila stary telefon v aktualnim live kodu.
+- Hlavni money pages i prioritni lokality maji FAQ/Service/Breadcrumb nebo Collection schema, canonicaly a funkcni mini-formulare.
+- Interne prolinkovani je silne: homepage, `sluzby.html`, `cenik.html` a `lokality.html` posilaji uzivatele i crawl na prioritni service a lokalitni URL.
+
+### Co je problem
+
+- `node scripts/fetch-google-data.mjs` 2026-08-03 znovu selhal pro GSC i GA4 na `invalid_grant`.
+- `docs/seo-data/kpi-leads-template.csv` je stale prazdny, takze obchodni dopad nejde potvrdit ani rucne.
+- Stav Google Business Profile nelze z dostupnych podkladu overit v recenzich, fotkach ani metrikach, proto AI / lokalni duvera zustava jen `castecna`.
+
+### Co se zmenilo od minula
+
+- Proti zapisu z `2026-07-20` se dnes nepodarilo zopakovat domnenku, ze live HTML jeste nekde drzi stare cislo `738 505 028`; kontrolovane live URL uz nesou spravny telefon a aktualni obsah.
+- Nezmenil se datovy blocker: import GSC/GA4 je stale nefunkcni a bez nej nejde navazat na GSC odeslani z `2026-07-28`.
+- Priorita se proto jemne posouva od `snippet cleanup` k presnejsimu `data + indexation follow-up`, protoze cista live chyba uz dnes neni reprodukovana.
+
+### Fakta
+
+- Workspace a branch souhlasi: `/Users/claude/Documents/Claude/parkovani-ruzyne.cz/autoservis1.cz/kontejnery`, branch `main`.
+- `node scripts/fetch-google-data.mjs` 2026-08-03 selhal pro GSC i GA4 na `invalid_grant`.
+- Live `robots.txt` povoluje `GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `ClaudeBot`, `anthropic-ai`, `PerplexityBot`, `Google-Extended`, `CCBot` i `*`; `Disallow` je jen `/docs/`.
+- Live `sitemap.xml` dnes obsahuje `62` URL.
+- `docs/seo-data/kpi-leads-template.csv` obsahuje jen hlavicku a zadny lead.
+- Title/H1/canonical jsou na prioritnich dvojicich rozlisene: `odvoz-suti.html` vs. `kontejner-na-sut.html`, `odvoz-zeminy.html` vs. `kontejner-na-zeminu.html`, `kontejnery-rudna.html` vs. `kontejnery-nucice.html`.
+
+### Hypotezy
+
+- Hlavni technicky bug s telefonem uz muze byt pro Google vyreseny a zbyvajici nesoulady byly spis dosluhujici snippet nebo starsi index, ne aktualni live chyba.
+- Pokud se obnovi pristup do GSC a GA4, dalsi kontrola uz bude umet rozhodnout, jestli dalsi tah ma jit do indexace CZ money pages, do `lokality.html`, nebo do verejneho trust baliku.
+- Riziko kanibalizace mezi podobnymi service a lokalitnimi URL existuje, ale dnes nema vetsi dopad nez nejasna indexace a chybejici data.
+
+### Co chybi k jistote
+
+- Cerstvy GSC export nebo live GSC follow-up po `2026-07-28`, hlavne stav `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html`.
+- Cerstvy GA4 export bez QA sumu.
+- Screenshot nebo export GBP: recenze, fotky, hovory, prokliky a trasy.
+- Rucni evidence telefonatu a poptavek v `docs/seo-data/kpi-leads-template.csv`.
+
+### Co doporucuji udelat ted
+
+- Obnovit Google pristup pro Search Console a GA4 nebo dodat cerstve exporty.
+- Hned po obnoveni pristupu overit indexaci 4 priority URL odeslanych v GSC `2026-07-28`.
+- Nepridavat dalsi obsah, dokud nebude jasne, jestli se hnou stavajici CZ money pages a `lokality.html`.
+
+### Co muze pockat
+
+- Dalsi nova lokalitni URL.
+- Dalsi jemne on-page upravy na service page dvojicich.
+- Sirsi reseni kanibalizace, dokud nebude jasny indexacni a datovy obraz.
+
+### Co potrebuji od majitele
+
+- Potvrdit novy OAuth souhlas nebo dodat rucni exporty GSC a GA4.
+- Dodat stav GBP: recenze, fotky a screenshot zakladnich metrik.
+- Zacit plnit lead sheet, aspon 1x tydne.
+
+### Nejlepsi dalsi krok
+
+Obnovit Google pristup pro Search Console a GA4 a hned potom overit indexaci `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html`.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: jen dokumentace `docs/reports/2026-08.md`, `docs/kontejnerovka-rust-webu.md` a `docs/owner-action-list.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: jen technicky/live snapshot; obchodni dopad ani GSC/GA4 follow-up dnes zmerit neslo.
+
 ## Operacni zapis - 2026-05-28 - Google napojeni a lokalni duvera
 
 ### Stav
@@ -293,6 +378,160 @@ Na webu uz existuji stranky, ktere pokryvaji Praha 6, Praha 13 a Praha 17 vcetne
 ### Nejlepsi dalsi krok
 
 Nasadit posilenou stranku `kontejner-na-stavebni-odpad.html` a po 14-30 dnech zkontrolovat, jestli prinesla prvni kliky nebo formularovy signal.
+
+## Strategicky zapis - 2026-07-06 - technika drzi, ale dalsi rust stale brzdi trust a necerstva data
+
+### Stav
+
+Omezeny vystup.
+
+- Analyzovane obdobi dat: posledni ulozene GSC `2026-05-25` az `2026-06-21`, posledni ulozene GA4 `2026-05-21` az `2026-06-17`.
+- Cerstvost produkce: live web overen 2026-07-06, homepage, `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html`, `cenik.html`, `reference.html`, `o-nas.html`, `kontakt.html` a `dekujeme.html` vraceji HTTP 200.
+- Omezeni dat: `node scripts/fetch-google-data.mjs` 2026-07-06 znovu selhal pro GSC i GA4 na `invalid_grant`; GBP detail, recenze a fotky nelze z dostupnych podkladu cerstve potvrdit.
+
+### Shrnuti pro majitele
+
+Web dnes nebrzdi rozbita technika. Hlavni stranky, prioritni lokality, formulare, canonical i schema jsou live funkcni a interni prolinkovani mezi homepage, lokality, cenikem a prioritnimi URL dava smysl. Soucasne ale porad chybi nejsilnejsi verejny dukaz, ze sluzba opravdu jezdi v deklarovanych lokalitach: skutecne fotky, aspon prvni recenze a kratka mini-realizace. Dokud chybi i cerstva Google data, neni duvod otevirat dalsi SEO zmeny nebo nove URL.
+
+### Semafor
+
+- Zelena: live technika drzi, hlavni konverzni cesta funguje a priority URL jsou indexovatelne.
+- Oranzova: posledni pouzitelna GSC a GA4 data jsou stare k `2026-06-21` a `2026-06-17`; cerstvy import je znovu blokovany.
+- Cervena: AI a lokalni duvera zustava jen castecna, protoze chybi potvrzene GBP podklady, recenze a vlastni fotky z realnych zakazek.
+
+### Fakta
+
+- `node scripts/fetch-google-data.mjs` 2026-07-06 selhal pro GSC i GA4 na `Google OAuth refresh failed: 400 invalid_grant`.
+- Live homepage 2026-07-06 vraci `robots: index, follow`, canonical `https://kontejnerovka.cz/`, title `Kontejnery a odvoz suti | Unhošť, Rudná, Nučice, Kladno` a funkcni Web3Forms formular s redirectem na `dekujeme.html`.
+- `index.html`, `sluzby.html`, `cenik.html` a `lokality.html` odkazuji na prioritni URL `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html` a trust URL `reference.html`, `o-nas.html`.
+- Posledni ulozeny GSC page export ukazuje 6 kliku a 726 zobrazeni; nejvice se zobrazuji homepage, `dovoz-kacirku.html`, `kontejnery-rudna.html`, `kontejnery-nucice.html` a `kontejnery-unhost.html`.
+- U `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html`, `sluzby.html` a `lokality.html` jsou stale videt near-win pozice zhruba mezi 5 az 7, ale s velmi slabym CTR.
+- Search dotazy dostupne pres web i ulozena data ukazuji, ze pri lokalnich dotazech Kontejnerovku casto prekryvaji katalogy typu Firmy.cz nebo konkurencni weby; z vlastnich URL se v aktualnim snapshotu ukazala hlavne homepage a `kontejnery-nucice.html`.
+- Produkcni `www` host jde 301 na non-`www`; `https://kontejnerovka.cz/index.html` ale zustava dostupne jako 200 s canonical na root URL.
+
+### Hypotezy
+
+- Nejvyssi sance na dalsi rust ted neni v dalsim copy nebo nove URL, ale v prvnim verejnem trust baliku propojenem mezi homepage, `reference.html` a Google Business Profile.
+- Jakmile pribude aspon jedna realna recenze a prvni vlastni fotky z prioritnich lokalit, muze to zvednout duveru uzivatele i lokalni signal rychleji nez dalsi on-page ladeni.
+- Dalsi SEO uprava bez cerstvych GSC/GA4 dat by ted mela nizsi navratnost a vyssi riziko, ze budeme ladit spatnou vec.
+
+### Co chybi k jistote
+
+- Cerstvy GSC a GA4 import po `2026-07-06`.
+- Aktualni GBP detail: kategorie, recenze, fotky, hovory, prokliky a trasy.
+- Rucni evidence telefonatu, formularu a realnych zakazek.
+
+### AI a lokalni duvera
+
+Hodnoceni: `castecna`
+
+- Silne: entita, NAP, schema `LocalBusiness`, `sameAs`, `hasMap`, canonical, FAQ a funkcni konverzni cesta.
+- Slabe: chybi cerstve a verejne overitelne recenze, fotky a mini-realizace.
+- Nelze urcit: realny vykon GBP a realny obchodni dopad cervnovych live zmen.
+
+### Co doporucuji udelat ted
+
+- Dodat prvni verejny trust balik z realne zakazky: 1 Google recenzi, 3-5 vlastnich fotek a 1 kratkou anonymni mini-realizaci z Unhoste, Nucic, Rudne nebo Kladna.
+- Obnovit OAuth pro GSC a GA4, aby dalsi kontrola nepracovala se starymi daty.
+- Nepoustet zadne nove URL ani dalsi vetsi SEO upravy, dokud nebude hotovy trust balik a cerstvy import.
+
+### Co muze pockat
+
+- Dalsi mikro-lokality nebo nova servisni URL.
+- Dalsi copy polish na title, canonical nebo schema, protoze dnes nevypadaji jako hlavni brzda.
+
+### Co potrebuji od majitele
+
+- Kratce potvrdit, z jake posledni zakazky lze zverejnit fotky a anonymni mini-realizaci.
+- Poslat aspon jednu recenzi nebo potvrdit, komu ma byt po zakazce odeslana prosba o recenzi.
+
+### Nejlepsi dalsi krok
+
+Do 2026-07-20 dodat prvni verejny trust balik z realne zakazky a nasadit ho na homepage, `reference.html` a Google Business Profile; to ma dnes vyssi potencial nez dalsi SEO upravy.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: `docs/kontejnerovka-rust-webu.md`, `docs/owner-action-list.md`, `docs/reports/2026-07.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: jen z live kontroly 2026-07-06 a z poslednich ulozenych GSC/GA4 exportu; novy import 2026-07-06 selhal.
+
+## Strategicky zapis - 2026-07-20 - nejdriv obnovit Google pristup a docistit snippet telefonu
+
+### Stav
+
+Omezeny vystup.
+
+- Analyzovane obdobi dat: posledni ulozene GSC `2026-05-25` az `2026-06-21`, posledni ulozene GA4 `2026-05-21` az `2026-06-17`.
+- Cerstvost produkce: live web, `robots.txt`, `sitemap.xml`, homepage, `lokality.html`, `cenik.html`, `kontakt.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html` a `en/contact.html` overeny `2026-07-20`; vsechny vratily HTTP `200`.
+- Omezeni dat: `node scripts/fetch-google-data.mjs` 2026-07-20 znovu selhal pro GSC i GA4 na `invalid_grant`; GBP detail, recenze, fotky a cerstve metriky nelze z dostupnych podkladu potvrdit.
+
+### Shrnuti pro majitele
+
+Technika uz dnes nevypada jako hlavni brzda rustu. Hlavni CZ i EN stranky maji title, meta, canonical, schema, formular i funkcni interni prolinkovani a `www` korektne presmerovava na non-`www`. Dnesni nejvetsi problem je jiny: Google stale ve verejnych snippetech u vice URL ukazuje stare cislo `738 505 028`, i kdyz live web uz ma vsude spravne `728 505 028`, a soucasne se znovu nepodarilo stahnout cerstva GSC a GA4 data. Proto ma dnes nejvyssi navratnost nejdriv obnovit Google pristup a nechat hlavni URL znovu precist.
+
+### Semafor
+
+- Zelena: live hlavni stranky, prioritni lokality, canonicaly, schema i formular funguji; sitemap ma `62` live URL a `www` host jde `301` na hlavni domenu.
+- Oranzova: posledni pouzitelna GSC a GA4 data jsou stale cervnova a nove mereni je blokovane `invalid_grant`.
+- Cervena: verejny Google snapshot stale u vice URL ukazuje stare telefonni cislo, coz muze brzdit CTR, duveru i primy kontakt.
+
+### Fakta
+
+- `node scripts/fetch-google-data.mjs` 2026-07-20 selhal pro GSC i GA4 na `Google OAuth refresh failed: 400 invalid_grant`.
+- Live homepage, `lokality.html`, `cenik.html`, `kontakt.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html`, `kontejnery-rudna.html` a `en/contact.html` maji `200`, canonical na vlastni URL, relevantni title/H1 a schema typu `LocalBusiness`, `FAQPage`, `BreadcrumbList`, `CollectionPage`, `ContactPage` nebo `WebSite` podle typu stranky.
+- `robots.txt` je dostupny a odkazuje na `https://kontejnerovka.cz/sitemap.xml`; live sitemap obsahuje `62` URL.
+- `https://www.kontejnerovka.cz/` i `http://kontejnerovka.cz/` jdou `301` na `https://kontejnerovka.cz/`, takze `www` split v poslednim GSC exportu vypada spis jako historicky otisk nez aktualni redirect problem.
+- Posledni ulozeny GSC page export ukazuje jako hlavni CZ URL homepage (`2` kliky / `138` impresi), `dovoz-kacirku.html` (`2` / `31`), `kontejnery-nucice.html` (`1` / `35`), `kontejnery-rudna.html` (`1` / `52`), zatimco `kontejnery-unhost.html` ma `66` impresi a `0` kliku a `lokality.html` `46` impresi a `0` kliku.
+- Ve verejnem Google snapshotu 2026-07-20 se stale ukazuje stare `738 505 028` u vice URL, mimo jine u `/en/`, `cenik.html`, `lokality.html`, `kontejnery-unhost.html`, `kontejnery-nucice.html` a `kontejnery-rudna.html`, i kdyz otevrene stranky uz nesou `728 505 028`.
+- V repozitari zustavaly stare cislo jen v internich podkladech `docs/citace-a-recenze-texty.md` a `docs/hlas-znacky.md`; ty byly dnes lokalne sjednoceny na `728 505 028`.
+
+### Hypotezy
+
+- Nejvetsi okamzity blocker uz neni chybejici trust balik, ale stale chybny telefon ve verejnem Google snapshotu spojeny s nefunkcnim pristupem do Search Console a GA4.
+- Jakmile se obnovi Google pristup a probehne recrawl hlavnich URL, muze se zlepsit jak snippet konzistence, tak schopnost rozumne merit dalsi rozhodnuti.
+- Trust balik zustava dulezity, ale az jako dalsi krok po vycisteni verejnych kontaktu a obnove dat.
+
+### Co chybi k jistote
+
+- Cerstvy GSC a GA4 import po `2026-07-20`.
+- Potvrzeny stav Google Business Profile: kategorie, recenze, fotky, hovory, prokliky a trasy.
+- Rucni evidence telefonatu, formularu a realnych zakazek.
+
+### AI a lokalni duvera
+
+Hodnoceni: `castecna`
+
+- Silne: entita, NAP, schema, canonicaly, lokalitni hub, priorizovane lokality a funkcni formular.
+- Slabe: verejny snippet stale nese cast historicky spatneho kontaktu a chybi cerstve trust signaly z GBP.
+- Nelze urcit: realny vykon GBP a dopad cervencovych uprav bez novych dat.
+
+### Co doporucuji udelat ted
+
+- Obnovit Google pristup pro Search Console a GA4 a hned potom znovu nechat precist homepage, `/en/`, `kontejnery-unhost.html`, `kontejnery-nucice.html` a `kontejnery-rudna.html`.
+- Po uspesnem recrawlu overit, jestli verejne snippety vsude ukazuji `728 505 028`.
+- Trust balik s recenzi a fotkami nechat jako dalsi krok, ne jako prvni.
+
+### Co muze pockat
+
+- Dalsi mala on-page SEO uprava na `lokality.html`, `cenik.html` nebo prioritnich lokalitach.
+- Dalsi nova URL nebo dalsi rozsireni EN sekce.
+
+### Co potrebuji od majitele
+
+- Potvrdit nebo obnovit pristup, pres ktery pujde znovu fungovat Search Console a GA4 import.
+- Pokud je pristup v jinem uctu, dodat jen potrebny login flow nebo export; neni potreba zadne nove SEO zadani.
+
+### Nejlepsi dalsi krok
+
+Obnovit Google pristup a po oprave telefonu znovu nechat precist hlavni CZ/EN URL, aby zmizelo stare cislo ze snippetů a dalsi kontrola uz bezela na cerstvych datech.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: `docs/citace-a-recenze-texty.md`, `docs/hlas-znacky.md`, `docs/kontejnerovka-rust-webu.md`, `docs/owner-action-list.md`, `docs/reports/2026-07.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: omezeně; live kontrola probehla 2026-07-20, posledni ulozena GSC data konci `2026-06-21` a GA4 `2026-06-17`.
 
 ## Kvartalni strategicky audit - 2026-06-11
 
@@ -690,4 +929,152 @@ Po systematickem polishi se ukazalo, ze dalsi rychly zisk uz nelezi v dalsich no
 
 Tyto bloky neposouvaji web dalsim SEO balastem, ale zkracuji cestu mezi navstevou a duverou: uzivatel hned vidi, kdo sluzbu provozuje, ze jde o platce DPH a kde si muze otevrit `reference.html` nebo `o-nas.html`. To je realisticky vyssi ROI nez dalsi textove rozsirovani tematu nebo dalsi mikro-lokalitni URL bez signalu.
 
+## Strategicky zapis - 2026-08-13 - web roste, ale dalsi tah ma byt maly a oprety o existujici URL
+
+### Stav
+
+Lokalne upraveno, ale datove stale omezeno. Live GSC kontrola `2026-08-13` uz umoznuje rict, ze web roste, jen stale ne poctive pres API import a bez GA4 / GBP kompletace.
+
+### Shrnuti pro majitele
+
+Nejdulezitejsi zmena proti minulemu mesici je jednoducha: web uz neroste jen v dojmu, ale i v GSC. Neni tedy potreba otevirat dalsi nove stranky. Rozumnejsi je dotahovat male near-win kroky na existujicich CZ URL, ktere uz sbiraji imprese, a pritom poctive priznat, ze `node scripts/fetch-google-data.mjs` stale pada na `invalid_grant`, GBP stav recenzi / fotek nemame a lead sheet je prazdny.
+
+### Fakta
+
+- Live GSC property `sc-domain:kontejnerovka.cz` otevrena `2026-08-13` ukazuje za posledni 3 mesice `65` kliku, `3 142` impresi, CTR `2,1 %` a prumernou pozici `18,1`.
+- Denni rozpad dostupny do `2026-08-11` dava rolling compare `2026-07-15` az `2026-08-11` = `42` kliku / `1 920` impresi / CTR `2,19 %` proti `18` klikum / `936` impresim / CTR `1,92 %` v `2026-06-17` az `2026-07-14`.
+- Plny mesic `2026-07-01` az `2026-07-31` drzi `33` kliku a `1 476` impresi proti `10` klikum a `714` impresim v `2026-06-01` az `2026-06-30`.
+- Top viditelne CZ URL v live GSC drzi hlavne homepage, `kontejnery-rudna.html`, `kontejnery-nucice.html`, `kontejnery-unhost.html`, `odvoz-zeminy.html` a `pristaveni-kontejneru.html`.
+- Index summary `2026-08-13` ukazuje `28` indexovanych a `43` neindexovanych URL; hlavni bucket `Objeveno - momentalne neindexovano` stale uvadi `36` URL.
+- Rucni URL inspection u vice prioritnich URL z tohoto bucketu uz vratila stav `na Googlu`, takze bucket vypada jako smiseny nebo castecne zpozdeny signal, ne jako cista fronta pro dalsi hromadne zasahy.
+- `node scripts/fetch-google-data.mjs` znovu selhal `2026-08-13` pro GSC i GA4 na `invalid_grant`.
+
+### Hypotezy
+
+- Dalsi rust spis zrychli CTR a trust dotahovani na existujicich URL nez dalsi nova obsahova expanze.
+- V bucketu `Objeveno - momentalne neindexovano` nema smysl slepe delat dalsi hromadne zmeny, dokud se jednotlive priority neoveruji inspekci.
+- `technika.html` je rozumna proof URL pro dalsi posilovani, protoze pomaha jak duvere, tak odpovedi na praktickou otazku pristupu a vahy.
+
+### AI a lokalni duvera
+
+Hodnoceni: `castecna`
+
+- Silne: jasna entita, schema, canonicaly, lokalitni a service struktura, realne fotky vlastniho auta, FAQ a funkcni konverzni cesta.
+- Slabe: chybi dolozeny GBP stav recenzi / fotek / metrik a chybi rucni evidence leadu.
+- Nelze urcit: obchodni dopad rustu bez GA4 a lead sheetu.
+
+### Co doporucuji udelat ted
+
+- Nasadit lokalni zmenu `odvoz-zeminy.html` -> `technika.html` a po 14 az 28 dnech zmerit, jestli se zveda proklik a duvera na teto service page.
+- Nepridavat dalsi nove URL.
+- Po majiteli chtit jen obnoveni Google pristupu, GBP snapshot a prvni vyplneni lead sheetu.
+
+### Nejlepsi dalsi krok
+
+Nasadit maly trust interlink z `odvoz-zeminy.html` na `technika.html` a pri dalsi kontrole zmerit, jestli existujici viditelna service page lepe posila uzivatele i crawl na proof URL.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: `odvoz-zeminy.html`, `docs/seo-content-log.md`, `docs/owner-action-list.md`, `docs/reports/2026-08.md`, `docs/kontejnerovka-rust-webu.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: ano, live GSC monthly compare a index summary; GA4, GBP a obchodni dopad ne.
+
 Soucasne byl 2026-06-18 znovu uspesne spusten `node scripts/fetch-google-data.mjs`, takze dalsi kontrola dopadu uz neni blokovana pristupem k GSC/GA4. Pokud se po nasazeni zvednou `click_phone`, `form_start` a vstupy na techto 6 URL, bude to potvrzeni, ze dalsi rust ma vest pres trust a decision layer, ne pres dalsi expanzi sitemap.
+
+## Strategicky zapis - 2026-08-04 - cervencovy GSC rust je potvrzen, dalsi tah ma byt indexace
+
+### Stav
+
+Omezeny, ale tentokrat silnejsi vystup. Live Search Console v Codexu uz umoznila poctive srovnat `2026-07-01` az `2026-07-31` proti `2026-06-01` az `2026-06-30`, i kdyz API import GSC/GA4 stale pada na `invalid_grant`.
+
+### Shrnuti pro majitele
+
+Web se v cervenci v Google opravdu pohnul. Cervenec prinesl `33` kliku a `1 476` impresi proti `10` klikum a `714` impresim v cervnu, CTR se zvedlo z `1,40 %` na `2,24 %`. To je dost silny signal, ze cervencove live upravy a dosavadni rustovy smer nebyly mimo. Z toho ale neplyne, ze je ted spravny dalsi krok pridavat dalsi obsah. Silnejsi logika je overit, jestli uz se do indexu dostavaji hlavni CZ money pages, protoze prave tam muze byt dalsi rust rychlejsi nez v dalsim rozsirovani sitemap.
+
+### Semafor
+
+- Zelena: GSC uz potvrzuje realny mesicni rust, ne jen dojem nebo rolling snapshot.
+- Oranzova: GA4 compare, lead sheet a GBP detail stale chybi, takze obchodni dopad a lokalni autoritu nelze potvrdit.
+- Cervena: API import stale pada na `invalid_grant` a posledni dolozeny indexacni obraz zustava slaby.
+
+### Fakta
+
+- Live GSC `2026-08-04` ukazuje za posledni 3 mesice `45` kliku, `2 360` impresi, CTR `1,9 %` a prumernou pozici `19,1`; data byla aktualizovana zhruba `pred 5 hodinami`.
+- Rucne sesbirana denni GSC data davaji presny compare: `2026-07-01` az `2026-07-31` = `33` kliku, `1 476` impresi, CTR `2,24 %`; `2026-06-01` az `2026-06-30` = `10` kliku, `714` impresi, CTR `1,40 %`.
+- Viditelne query mix v poslednich 3 mesicich stale obsahuje slabe nebo mimo-zamerne dotazy jako `container czech republic`, `container brno` a `rent tank prague`, zatimco CZ service dotazy typu `odvoz suti` uz ziskavaji prvni kliky.
+- `node scripts/fetch-google-data.mjs` dnes stale selhal pro GSC i GA4 na `invalid_grant`.
+- Posledni dolozeny indexacni follow-up z `2026-07-28` mel `21` indexovanych URL, `50` neindexovanych URL a `43` URL ve stavu `Objeveno – momentalne neindexovano`.
+
+### Hypotezy
+
+- Cervenec pravdepodobne rostl diky kombinaci cervencovych live uprav a tomu, ze Google zacina lepe chapat hlavni CZ sluzby a lokality.
+- Dalsi nejrychlejsi rust uz nemusi lezet v dalsi editaci homepage nebo `lokality.html`, ale v tom, jestli se do indexu dostanou priority `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html`.
+- Cast impresi stale odteka do dotazu s horsim obchodnim zamerem, takze dalsi obsahova expanze by mohla rust rozmelnit misto toho, aby ho zrychlila.
+
+### Co chybi k jistote
+
+- Aktualni indexacni stav 4 priority URL po GSC odeslani z `2026-07-28`.
+- GA4 compare za stejne mesice bez `invalid_grant`.
+- GBP recenze, fotky a metriky.
+- Rucni evidence leadu v `docs/seo-data/kpi-leads-template.csv`.
+
+### Co doporucuji udelat ted
+
+- V Search Console zkontrolovat indexacni stav `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html`.
+- Pokud jsou stale mimo index, zopakovat recrawl / URL inspection a teprve potom rozhodnout o dalsi on-page uprave.
+- Nepridavat dalsi nove URL ani vetsi obsahovy tah, dokud nebude jasne, jak se chovaji stavajici CZ money pages.
+
+### Co muze pockat
+
+- Dalsi rozsirovani `lokality.html`.
+- Nove EN nebo mikro-lokalitni URL.
+- Sirsi kanibalizacni cleanup, pokud se priority nejdriv nepropisuji do indexu.
+
+### Co potrebuji od majitele
+
+- Pokud pujde AI jen pres API a ne pres live GSC v prohlizeci, je stale potreba obnovit OAuth nebo dodat exporty.
+- Dodat GBP snapshot a zacit plnit lead sheet, jinak nepujde potvrdit obchodni dopad.
+
+### Nejlepsi dalsi krok
+
+V Search Console potvrdit, jestli se `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html` po odeslani z `2026-07-28` uz pohnuly do indexu.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: `docs/reports/2026-08.md`, `docs/kontejnerovka-rust-webu.md`, `docs/owner-action-list.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: ano, live GSC compare za `2026-07` vs. `2026-06`; obchodni dopad a GA4 ne.
+
+## Strategicky zapis - 2026-08-04 - 4 priority money pages uz jsou indexovane, dalsi near-win je Unhošť
+
+### Stav
+
+Lokalne upraveno, datove silnejsi nez predchozi odhad. Live Search Console dnes potvrdila, ze `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html` uz jsou na Googlu a indexovane.
+
+### Shrnuti pro majitele
+
+Indexace 4 prioritnich money pages uz dnes neni hlavni blocker. Tim se rozhodnuti posunulo: dalsi rozumny tah nebylo delat dalsi kontrolu toho sameho, ale vyuzit nejblizsi lokalni near-win. Ten dnes vychazi na `kontejnery-unhost.html`, ktera uz ma slusnou viditelnost na prvni strance, ale slaby proklik. Proto byla lokalne zpresnena tato stranka tak, aby lepe odpovidala formulacim `kontejner Unhost` a `odvoz suti Unhost` a soucasne posilala silnejsi interni signal na `pristaveni-kontejneru.html`.
+
+### Fakta
+
+- `pristaveni-kontejneru.html`, `odvoz-suti.html`, `odvoz-odpadu.html` a `kontejner-na-zeminu.html` dnes v live URL Inspection hlasi `Adresa URL je na Googlu` a `Stránka je indexována`.
+- `kontejnery-unhost.html` ve live GSC page filtru ukazuje za posledni 3 mesice `150` impresi, `1` klik, CTR `0,7 %` a prumernou pozici `7,8`.
+- Na `kontejnery-unhost.html` byl lokalne upraven title, meta description, OG/Twitter snippet, H1, uvodni odstavec a doplnen interni odkaz na `pristaveni-kontejneru.html`.
+
+### Hypotezy
+
+- Rust uz ted vic brzdi klikatelnost a query-to-snippet match na nekterych lokalnich URL nez samotna indexace priority pages.
+- Pokud se po nasazeni pohne CTR `kontejnery-unhost.html`, bude lepsi pokracovat stejnou logikou i na dalsich lokalitnich near-win URL, ne otvirat dalsi obsah.
+
+### Nejlepsi dalsi krok
+
+Nasadit upravu `kontejnery-unhost.html` a za 14 az 28 dni zkontrolovat CTR a query mix teto URL plus proklik na `pristaveni-kontejneru.html`.
+
+### Zapis do dokumentu
+
+- Lokalne upraveno: `kontejnery-unhost.html`, `docs/seo-content-log.md`, `docs/owner-action-list.md`, `docs/reports/2026-08.md`, `docs/kontejnerovka-rust-webu.md`.
+- Pushnuto: ne.
+- Nasazeno live: ne.
+- Zmereno: ano, live GSC URL Inspection + page filter pro Unhošť; GA4 ne.
