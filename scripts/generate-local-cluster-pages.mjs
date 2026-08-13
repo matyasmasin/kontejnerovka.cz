@@ -37,10 +37,10 @@ const escapeHtml = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
-const header = (file) => `<header class="site-header is-scrolled" data-header>
+const header = (file, enFile = "areas.html") => `<header class="site-header is-scrolled" data-header>
       <a class="brand" href="/"><span class="brand-mark">K</span><span><strong>Kontejnerovka.cz</strong><small>Praha a Středočeský kraj</small></span></a>
       <nav class="site-nav" id="site-nav" data-nav><a href="sluzby.html">Služby</a><a href="zemni-prace.html">Zemní práce</a><a href="cenik.html">Ceník</a><a href="lokality.html">Lokality</a><a href="reference.html">Realizace</a><a href="technika.html">Technika</a><a href="o-nas.html">O nás</a><a href="poradna.html">Poradna</a><a href="kontakt.html">Kontakt</a></nav>
-      <div class="header-actions"><div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/${file}" lang="cs" aria-current="page">CZ</a><a href="/en/areas.html" hreflang="en" lang="en">EN</a></div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Otevřít menu</span></button><a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>728&nbsp;505&nbsp;028</a></div>
+      <div class="header-actions"><div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="/${file}" lang="cs" aria-current="page">CZ</a><a href="/en/${enFile}" hreflang="en" lang="en">EN</a></div><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><i data-lucide="menu" aria-hidden="true"></i><span class="sr-only">Otevřít menu</span></button><a class="header-call" href="tel:+420728505028"><i data-lucide="phone" aria-hidden="true"></i>728&nbsp;505&nbsp;028</a></div>
     </header>`;
 
 const footer = (footerText, secondaryLinks = []) => `<footer class="site-footer">
@@ -118,7 +118,7 @@ const pageHtml = (page) => {
     <script type="application/ld+json" data-visible-faq>${JSON.stringify(faq, null, 2)}</script>
   </head>
   <body>
-    ${header(page.file)}
+    ${header(page.file, page.enFile)}
     <main class="page-main">
       <section class="subpage-hero">
         <p class="eyebrow">${page.eyebrow}</p>
@@ -288,6 +288,7 @@ const pages = [
   },
   {
     file: "kontejnery-horovice.html",
+    enFile: "containers-horovice.html",
     title: "Kontejnery Hořovice | Odvoz suti, zeminy a odpadu",
     description: "Kontejnerová doprava Hořovice a okolí. Odvoz suti, zeminy, stavebního odpadu a dovoz písku, štěrku nebo recyklátu podle trasy.",
     eyebrow: "Hořovice",
@@ -315,6 +316,7 @@ const pages = [
   },
   {
     file: "kontejnery-zdice.html",
+    enFile: "containers-zdice.html",
     title: "Kontejnery Zdice | Odvoz suti, zeminy a stavebního odpadu",
     description: "Kontejnerová doprava Zdice, Beroun a okolí. Odvoz suti, zeminy, betonu a stavebního odpadu, dovoz recyklátu, písku a štěrku.",
     eyebrow: "Zdice",
@@ -342,6 +344,7 @@ const pages = [
   },
   {
     file: "kontejnery-kraluv-dvur.html",
+    enFile: "containers-kraluv-dvur.html",
     title: "Kontejnery Králův Dvůr | Odvoz suti a zeminy",
     description: "Kontejnerová doprava Králův Dvůr, Beroun a okolí. Odvoz suti, zeminy, stavebního odpadu a dovoz recyklátu, písku nebo štěrku.",
     eyebrow: "Králův Dvůr",

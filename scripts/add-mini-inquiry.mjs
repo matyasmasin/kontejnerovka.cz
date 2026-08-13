@@ -126,6 +126,24 @@ const PAGE_COPY = {
   "kontejnery-hostoun-dobroviz-stredokluky.html": {
     locationPlaceholder: "Např. Hostouň, Dobrovíz, Kněževes",
   },
+  "kontejnery-beroun.html": {
+    locationPlaceholder: "Např. Beroun, Loděnice, Vráž",
+  },
+  "kontejnery-zdice.html": {
+    locationPlaceholder: "Např. Zdice, Bavoryně, Chodouň",
+  },
+  "kontejnery-kraluv-dvur.html": {
+    locationPlaceholder: "Např. Králův Dvůr, Beroun, Popovice",
+  },
+  "kontejnery-horovice.html": {
+    locationPlaceholder: "Např. Hořovice, Žebrák, Cerhovice",
+  },
+  "kontejnery-rakovnik.html": {
+    locationPlaceholder: "Např. Rakovník, Lubná, Senomaty",
+  },
+  "kontejnery-slany.html": {
+    locationPlaceholder: "Např. Slaný, Velvary, Zlonice",
+  },
 };
 
 const escapeHtml = (value) =>

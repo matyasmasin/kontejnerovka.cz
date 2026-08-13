@@ -48,7 +48,9 @@ const pairs = [
   { cz: "kontejner-na-sut.html", en: "rubble-container.html", priority: "0.8", changefreq: "monthly" },
   { cz: "kontejnery-beroun.html", en: "containers-beroun.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-hostivice.html", en: "containers-hostivice.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
+  { cz: "kontejnery-horovice.html", en: "containers-horovice.html", priority: "0.76", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-kladno.html", en: "containers-kladno.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
+  { cz: "kontejnery-kraluv-dvur.html", en: "containers-kraluv-dvur.html", priority: "0.76", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-praha-13.html", en: "containers-prague-13.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-praha-17.html", en: "containers-prague-17.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-praha-5.html", en: "containers-prague-5.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
@@ -61,6 +63,7 @@ const pairs = [
   { cz: "kontejnery-nucice.html", en: "containers-nucice.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-slany.html", en: "containers-slany.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "kontejnery-unhost.html", en: "containers-unhost.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
+  { cz: "kontejnery-zdice.html", en: "containers-zdice.html", priority: "0.76", changefreq: "monthly", enNoindex: true },
   { cz: "odvoz-betonu.html", en: "concrete-removal.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "odvoz-dreva-bioodpadu.html", en: "wood-green-waste-removal.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
   { cz: "odvoz-odpadu.html", en: "waste-removal.html", priority: "0.8", changefreq: "monthly", enNoindex: true },
@@ -437,8 +440,11 @@ const locationPages = [
   { cz: "kontejnery-hostivice.html", name: "Hostivice", local: "Hostivice, Jeneč, Dobrovíz, Chýně and the area around Prague airport", nearby: "Prague 5, Prague 6, Unhošť and Prague-West", focus: "waste removal for homes and businesses, rubble containers and material delivery", note: "Hostivice is practical for routes between Prague, Unhošť and Kladno. Tell us if the job is near a narrow street, yard or business site." },
   { cz: "kontejnery-kladno.html", name: "Kladno", local: "Kladno, Unhošť, Braškov, Velká Dobrá, Kyšice, Doksy and nearby towns", nearby: "Svárov, Prague-West and Slaný direction", focus: "construction waste, rubble, soil, wood, green waste and delivery of aggregates", note: "For Kladno and nearby towns, the quote depends on the exact route, amount, access and disposal or material source." },
   { cz: "kontejnery-beroun.html", name: "Beroun", local: "Beroun, Loděnice, Vráž, Bubovice, Chyňava and surrounding municipalities", nearby: "Králův Dvůr, Zdice, Loděnice, Chrustenice and Rudná direction", focus: "soil removal, rubble removal, recycled aggregate, gravel and sand delivery", note: "Around Beroun it often makes sense to combine removal with delivery of material for base layers, paths or landscaping." },
+  { cz: "kontejnery-horovice.html", name: "Hořovice", local: "Hořovice, Žebrák, Cerhovice and nearby Beroun district routes", nearby: "Zdice, Králův Dvůr and Beroun direction", focus: "rubble containers, soil removal, concrete removal and delivery of recycled aggregate or gravel", note: "For Hořovice, the route matters more than the district name alone. Send the exact address and say whether the truck can stand in a yard or only in the street." },
+  { cz: "kontejnery-kraluv-dvur.html", name: "Králův Dvůr", local: "Králův Dvůr, Popovice, Levín and nearby Beroun-side addresses", nearby: "Beroun, Zdice and Loděnice direction", focus: "rubble, soil, concrete and mixed construction waste plus recycled aggregate and gravel delivery", note: "Králův Dvůr is usually planned together with Beroun and Zdice routes, so the exact address and access conditions help confirm the right price quickly." },
   { cz: "kontejnery-slany.html", name: "Slaný", local: "Slaný and nearby towns", nearby: "Kladno, Velvary direction and Central Bohemia routes by agreement", focus: "rubble, soil, wood, green waste and delivery of bulk materials", note: "For Slaný, exact address and amount are important because the route is a major part of the quote." },
   { cz: "kontejnery-rakovnik.html", name: "Rakovník", local: "Rakovník and surrounding areas by route", nearby: "Kladno direction, Beroun direction and Central Bohemia routes by agreement", focus: "waste containers, soil removal, rubble and material delivery", note: "For more distant locations such as Rakovník, send the exact address, photos and amount so the route can be planned properly." },
+  { cz: "kontejnery-zdice.html", name: "Zdice", local: "Zdice, Chodouň, Bavoryně and nearby Beroun district routes", nearby: "Beroun, Králův Dvůr and Hořovice direction", focus: "rubble, concrete, soil and mixed construction waste plus recycled aggregate or gravel delivery", note: "Around Zdice, customers often combine removal and follow-up material delivery. A photo of the load and the placement spot is the fastest way to confirm the route." },
 ];
 
 const esc = (value) =>
@@ -1687,8 +1693,12 @@ const hreflangBlock = (pair) => `<link rel="alternate" hreflang="cs" href="${czU
     <link rel="alternate" hreflang="en" href="${enUrl(pair.en)}">
     <link rel="alternate" hreflang="x-default" href="${czUrl(pair.cz)}">`;
 
-const czechLanguageSwitcher = (enSlug, czSlug = pairByEn.get(enSlug)?.cz || "") =>
-  `<div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="${czPath(czSlug)}" lang="cs" aria-current="page">CZ</a><a href="${enPath(enSlug)}" hreflang="en" lang="en">EN</a></div>`;
+const czechLanguageSwitcher = (enSlug, czSlug = pairByEn.get(enSlug)?.cz || "") => {
+  const enControl = enSlug
+    ? `<a href="${enPath(enSlug)}" hreflang="en" lang="en">EN</a>`
+    : `<span class="is-disabled" lang="en" aria-disabled="true" title="Anglická verze této stránky zatím není dostupná.">EN</span>`;
+  return `<div class="language-switcher" aria-label="Jazyk webu"><a class="is-active" href="${czPath(czSlug)}" lang="cs" aria-current="page">CZ</a>${enControl}</div>`;
+};
 
 const applyCzechHeaderSwitcher = (html, enSlug, czSlug) => {
   const switcher = czechLanguageSwitcher(enSlug, czSlug);
@@ -1743,6 +1753,12 @@ const injectCzechHreflangAndNav = () => {
     const html = applyCzechHeaderSwitcher(readFileSync(file, "utf8"), enSlug, czFile);
     writeFileSync(file, html, "utf8");
   }
+
+  for (const page of czOnlyPages) {
+    const file = path.join(rootDir, page.file);
+    const html = applyCzechHeaderSwitcher(readFileSync(file, "utf8"), "", page.file);
+    writeFileSync(file, html, "utf8");
+  }
 };
 
 const sitemapEntry = (loc, pair, relFile) => `  <url>
@@ -1756,7 +1772,17 @@ const sitemapEntry = (loc, pair, relFile) => `  <url>
   </url>`;
 
 const czOnlyPages = [
+  { file: "kontejner-na-beton.html", priority: "0.78", changefreq: "monthly" },
+  { file: "kontejnery-chynava-podkozi.html", priority: "0.72", changefreq: "monthly" },
+  { file: "kontejnery-hostoun-dobroviz-stredokluky.html", priority: "0.72", changefreq: "monthly" },
+  { file: "kontejnery-lodenice-morina-srbsko.html", priority: "0.72", changefreq: "monthly" },
+  { file: "kontejnery-nizbor-hyskov-zelezna.html", priority: "0.72", changefreq: "monthly" },
+  { file: "odvoz-suti-hostivice.html", priority: "0.78", changefreq: "monthly" },
+  { file: "odvoz-suti-kladno.html", priority: "0.8", changefreq: "monthly" },
+  { file: "odvoz-suti-praha-zapad.html", priority: "0.8", changefreq: "monthly" },
+  { file: "odvoz-zeminy-kladno.html", priority: "0.78", changefreq: "monthly" },
   { file: "zemni-prace.html", priority: "0.85", changefreq: "weekly" },
+  { file: "zemni-prace-kladno.html", priority: "0.8", changefreq: "monthly" },
   { file: "vykop-zakladu.html", priority: "0.8", changefreq: "monthly" },
   { file: "vykop-bazenu.html", priority: "0.8", changefreq: "monthly" },
   { file: "vykop-jezirka.html", priority: "0.8", changefreq: "monthly" },

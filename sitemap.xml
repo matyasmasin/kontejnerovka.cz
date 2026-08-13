@@ -5,7 +5,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/" />
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,7 +32,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/sluzby.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/services.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/sluzby.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -41,7 +41,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/cenik.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/pricing.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/cenik.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -50,7 +50,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/cenik.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/pricing.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/cenik.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -68,7 +68,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/lokality.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/areas.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/lokality.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -104,7 +104,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontakt.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/contact.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontakt.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.82</priority>
   </url>
@@ -122,7 +122,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/poradna.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/guide.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/poradna.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -152,7 +152,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/povoleni-kontejner-praha.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/container-permit-prague.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/povoleni-kontejner-praha.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
   </url>
@@ -224,13 +224,13 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejner-na-sut.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/rubble-container.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejner-na-sut.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-beroun.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -241,10 +241,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kontejnerovka.cz/kontejnery-horovice.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+  <url>
     <loc>https://kontejnerovka.cz/kontejnery-kladno.html</loc>
     <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-kraluv-dvur.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-praha-13.html</loc>
@@ -290,7 +302,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha-zapad.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague-west.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha-zapad.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -308,13 +320,13 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/kontejnery-praha.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/containers-prague.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/kontejnery-praha.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-rakovnik.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -332,7 +344,7 @@
   </url>
   <url>
     <loc>https://kontejnerovka.cz/kontejnery-slany.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -341,6 +353,12 @@
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-zdice.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odvoz-betonu.html</loc>
@@ -365,7 +383,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-suti.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/rubble-removal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-suti.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -374,7 +392,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-suti.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/rubble-removal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-suti.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -383,7 +401,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-zeminy.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/soil-removal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-zeminy.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -392,7 +410,7 @@
     <xhtml:link rel="alternate" hreflang="cs" href="https://kontejnerovka.cz/odvoz-zeminy.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://kontejnerovka.cz/en/soil-removal.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kontejnerovka.cz/odvoz-zeminy.html" />
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -409,38 +427,98 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kontejnerovka.cz/kontejner-na-beton.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-chynava-podkozi.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-hostoun-dobroviz-stredokluky.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-lodenice-morina-srbsko.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/kontejnery-nizbor-hyskov-zelezna.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/odvoz-suti-hostivice.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/odvoz-suti-kladno.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/odvoz-suti-praha-zapad.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kontejnerovka.cz/odvoz-zeminy-kladno.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+  <url>
     <loc>https://kontejnerovka.cz/zemni-prace.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://kontejnerovka.cz/zemni-prace-kladno.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kontejnerovka.cz/vykop-zakladu.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/vykop-bazenu.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/vykop-jezirka.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/odbahneni-rybniku.html</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://kontejnerovka.cz/rovnani-terenu.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
