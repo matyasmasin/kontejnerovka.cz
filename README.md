@@ -23,6 +23,13 @@ python3 -m http.server 4173
 
 Potom otevřít `http://127.0.0.1:4173/`.
 
+Po změně `styles.css`, `script.js` nebo `assets/icons.js` synchronizujte obsahový cache hash do všech HTML souborů:
+
+```sh
+node scripts/sync-asset-version.mjs
+node scripts/site-quality-gate.mjs
+```
+
 Měření je připravené přes event hooky v `script.js`. Po vytvoření Google Analytics stačí doplnit standardní `gtag.js` snippet do hlavičky.
 
 Automaticky import dat z Google Search Console a GA4 je připravený přes skripty v `scripts/`. Nastavení přístupů je popsané v `docs/seo-data/google-api-setup.md`; surová analytická data se ukládají mimo veřejný web do privátní složky. Lokální konfiguraci lze ověřit příkazem `node scripts/check-google-config.mjs`.

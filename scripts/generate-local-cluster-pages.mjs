@@ -1,6 +1,7 @@
 import { writeFileSync } from "node:fs";
+import { getAssetVersion } from "./asset-version.mjs";
 
-const CACHE = "20260804c";
+const CACHE = getAssetVersion();
 const GOOGLE_PROFILE = "https://share.google/3gRahFm7A2awhEeJJ";
 
 const provider = {
@@ -136,7 +137,7 @@ const pageHtml = (page) => {
           <a class="section-link light" href="#poptavka">Chci cenu</a>
         </div>
         <div class="visual-proof-grid">
-          <article class="visual-proof-card image-card"><img src="assets/truck-crane-extended.jpg" alt="Vlastní kontejnerové auto s rukou Kontejnerovka.cz při vysunuté manipulaci" width="1800" height="1442" loading="lazy"><div><span>Kontejnerová doprava</span><strong>Přistavení i odvoz se plánují podle reálného přístupu.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="assets/truck-crane-extended-1200.webp" alt="Vlastní kontejnerové auto s rukou Kontejnerovka.cz při vysunuté manipulaci" width="1200" height="962" loading="lazy"><div><span>Kontejnerová doprava</span><strong>Přistavení i odvoz se plánují podle reálného přístupu.</strong></div></article>
           <article class="visual-proof-card image-card"><img src="assets/hero-container-tilt.webp" alt="Vlastní kontejner Kontejnerovka.cz při sklápění v provozu" width="1800" height="1350" loading="lazy"><div><span>Kontejner v provozu</span><strong>Na fotce je skutečný kontejner při sklápění, ne ilustrační vizuál.</strong></div></article>
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">Až 8 t</span><h3>Vlastní auto s rukou, ne obecná dopravní fráze.</h3><p>Pro cenu rozhoduji podle materiálu, odhadované váhy, přístupu na místo a toho, jestli se auto s rukou bezpečně dostane ke složení nebo nakládce.</p></article>
         </div>

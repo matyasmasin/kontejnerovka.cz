@@ -291,6 +291,24 @@ const track = (eventName, eventParams = {}) => {
   return false;
 };
 
+const scheduleAnalyticsLoad = () => {
+  const loadWhenIdle = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+      return;
+    }
+
+    window.setTimeout(loadAnalytics, 1200);
+  };
+
+  if (document.readyState === "complete") {
+    loadWhenIdle();
+    return;
+  }
+
+  window.addEventListener("load", loadWhenIdle, { once: true });
+};
+
 const servicePages = new Set([
   "pristaveni-kontejneru.html",
   "kontejner-na-sut.html",
@@ -1593,7 +1611,7 @@ const addPrivacyControls = () => {
   footerLinks.appendChild(settingsButton);
 };
 
-loadAnalytics();
+scheduleAnalyticsLoad();
 
 window.addEventListener("DOMContentLoaded", () => {
   setupAccessibilityBaseline();

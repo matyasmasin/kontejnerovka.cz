@@ -1,8 +1,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { getAssetVersion } from "./asset-version.mjs";
 
 const root = process.cwd();
-const cacheVersion = "20260805b";
+const cacheVersion = getAssetVersion(root);
 const ignoredDirs = new Set([".git", "audits", "node_modules"]);
 const failures = [];
 

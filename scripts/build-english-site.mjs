@@ -2,10 +2,12 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getAssetVersion } from "./asset-version.mjs";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const enDir = path.join(rootDir, "en");
 const baseUrl = "https://kontejnerovka.cz";
+const cacheVersion = getAssetVersion(rootDir);
 const todayDate = new Date().toISOString().slice(0, 10);
 const phonePattern = "\\+?[0-9](?:[\\s.()\\-]?[0-9]){6,14}";
 const phoneTitle = "Enter a phone number, for example +420 728 505 028 or +44 7700 900123.";
@@ -591,8 +593,8 @@ const head = (page) => {
     <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     ${page.en === "index.html" ? '<link rel="preload" as="image" href="../assets/hero-real-mobile.webp" media="(max-width: 780px)" fetchpriority="high">\n    <link rel="preload" as="image" href="../assets/hero-real-desktop.webp" media="(min-width: 781px)" fetchpriority="high">' : ""}
-    <link rel="stylesheet" href="../styles.css?v=20260804c">
-    <script src="../script.js?v=20260804c" defer></script>
+    <link rel="stylesheet" href="../styles.css?v=${cacheVersion}">
+    <script src="../script.js?v=${cacheVersion}" defer></script>
     ${schema}
   </head>`;
 };
@@ -666,7 +668,7 @@ const subpageShowcase = () => `<section class="section visual-proof subpage-show
           <a class="section-link light" href="contact.html#form">Send details for pricing</a>
         </div>
         <div class="visual-proof-grid">
-          <article class="visual-proof-card image-card"><img src="../assets/truck-crane-extended.jpg" alt="Kontejnerovka.cz truck with crane during real unloading" width="1800" height="1442" loading="lazy"><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
+          <article class="visual-proof-card image-card"><img src="../assets/truck-crane-extended-1200.webp" alt="Kontejnerovka.cz truck with crane during real unloading" width="1200" height="962" loading="lazy"><div><span>Container transport</span><strong>Delivery and collection are planned around real access.</strong></div></article>
           <article class="visual-proof-card image-card"><img src="../assets/hero-container-tilt.webp" alt="Kontejnerovka.cz container body tipping during real operation" width="1800" height="1350" loading="lazy"><div><span>Container in use</span><strong>This is the real container body during tipping, collection and on-site handling.</strong></div></article>
           <article class="visual-proof-card proof-card-dark"><span class="proof-number">3 details</span><h3>Town, load and photo usually shorten the quote.</h3><p>If access is narrow, the container stands in a street or the waste is mixed, a photo prevents back-and-forth and helps confirm the right option.</p></article>
         </div>
@@ -1536,7 +1538,7 @@ const corePages = {
         text: "Container delivery depends on truck access, safe placement spot, material weight and whether the container can stand on private land or a public place. A photo of the access usually makes the quote faster.",
         facts: ["Heavy materials: rubble, concrete and wet soil", "Access issues: narrow driveways, slope, parked cars, branches, cables and soft ground", "Public street placement may require local permission"],
       })}
-      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><img src="../assets/truck-crane-extended.jpg" alt="Kontejnerovka.cz truck with crane during real handling" width="1800" height="1442" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the placement spot", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
+      <section class="section split" aria-labelledby="equipment-title"><picture class="split-image"><img src="../assets/truck-crane-extended-1200.webp" alt="Kontejnerovka.cz truck with crane during real handling" width="1200" height="962" loading="lazy"></picture><div class="split-copy"><p class="eyebrow">Practical check</p><h2 id="equipment-title">First we check whether the container can be placed safely</h2><p>Access width, slope, parked cars, branches, cables, soft ground and space for manoeuvring can all matter. If the container stands on a public place, local rules may also apply.</p>${checkList(["address and town", "photo of the placement spot", "what will be removed or delivered", "estimated amount and preferred date"])}<a class="section-link" href="contact.html#form">Send access details</a></div></section>
       <section class="section service-detail"><div class="section-head"><p class="eyebrow">Weight and volume</p><h2>Container size is chosen by material, not just volume</h2><p>Light bulky material is different from heavy rubble, concrete or wet soil. The safe solution depends on both volume and weight.</p></div><div class="detail-grid"><article><h3>Rubble and concrete</h3><p>Heavy material where clean sorting and safe weight matter.</p></article><article><h3>Soil</h3><p>Moisture, stones, roots and volume can change the job quickly.</p></article><article><h3>Wood and green waste</h3><p>Usually more volume-sensitive, but mixed material must be described.</p></article></div></section>
       <section class="section seo-panel"><h2>Related practical pages</h2><p>These pages help with access, permit and material decisions.</p>${linkCloud([["Container delivery", "pristaveni-kontejneru.html"], ["Permit in Prague", "povoleni-kontejner-praha.html"], ["Rubble container", "kontejner-na-sut.html"], ["Soil container", "kontejner-na-zeminu.html"]])}</section>
       <section class="cta-band"><h2>Unsure whether the truck can access the place?</h2><a class="btn btn-primary" href="contact.html#form"><i data-lucide="send" aria-hidden="true"></i>Send a photo of the access</a></section>

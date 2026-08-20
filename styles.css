@@ -7947,7 +7947,7 @@ body.site-v3 {
   grid-column: 2;
   grid-row: 1 / 5;
   border-radius: 8px;
-  background-image: url("assets/realizace-kontejner-rodinny-dum-03.webp");
+  background-image: url("assets/hero-real-desktop.webp");
   background-position: center;
   background-size: cover;
   opacity: 1;
@@ -10179,7 +10179,7 @@ body.site-v3 .page-main .trust-proof-facts article {
   }
 
   .home-v2.site-v3 .home-task-card:nth-child(1)::before {
-    background-image: url("assets/realizace-kontejner-rodinny-dum-03.webp");
+    background-image: url("assets/hero-real-desktop.webp");
   }
 
   .home-v2.site-v3 .home-task-card:nth-child(2)::before {
@@ -10187,7 +10187,7 @@ body.site-v3 .page-main .trust-proof-facts article {
   }
 
   .home-v2.site-v3 .home-task-card:nth-child(3)::before {
-    background-image: url("assets/hero-truck-profile-portrait-fixed.webp?v=20260728d");
+    background-image: url("assets/hero-truck-profile-portrait-900.webp");
     background-position: 56% center;
   }
 
@@ -10567,5 +10567,86 @@ body.site-v3 .page-main .trust-proof-facts article {
 
   .home-v2.site-v3 .home-proof-contact strong {
     font-size: 1.72rem;
+  }
+}
+
+/* SEO performance pass — readable brand accents and stronger mobile hero contrast. */
+.site-v3 .eyebrow {
+  color: #913900;
+}
+
+.site-v3 .subpage-hero .eyebrow {
+  color: #913900;
+}
+
+.site-v3 .visual-proof-copy .eyebrow,
+.site-v3 .area-panel .eyebrow,
+.site-v3 .site-footer .eyebrow {
+  color: #ffad5c;
+}
+
+.home-v2.site-v3 .home-proof-contact strong {
+  color: #913900;
+}
+
+body.site-v3 .page-main .subpage-hero::after {
+  background-image: url("assets/subpage-hero-1000.webp");
+}
+
+.home-v2.site-v3 .home-task-card:nth-child(1)::before {
+  background-image: url("assets/task-kontejner-480.webp");
+}
+
+.home-v2.site-v3 .home-task-card:nth-child(2)::before {
+  background-image: url("assets/task-minibagr-480.webp");
+}
+
+.home-v2.site-v3 .home-task-card:nth-child(3)::before {
+  background-image: url("assets/task-doprava-480.webp");
+}
+
+@media (max-width: 780px) {
+  body.site-v3 .page-main .subpage-hero::after {
+    background-image: url("assets/subpage-hero-600.webp");
+  }
+
+  .home-v2.site-v3 .hero-visual {
+    background: #050608;
+  }
+
+  .home-v2.site-v3 .hero-visual::after {
+    background:
+      linear-gradient(180deg, rgba(5, 6, 8, 0.72) 0%, rgba(5, 6, 8, 0.38) 24%, rgba(5, 6, 8, 0.62) 56%, rgba(5, 6, 8, 0.96) 100%),
+      linear-gradient(90deg, rgba(5, 6, 8, 0.9) 0%, rgba(5, 6, 8, 0.8) 42%, rgba(5, 6, 8, 0.32) 82%);
+  }
+
+  .home-v2.site-v3 .home-authority-hero .eyebrow {
+    color: #ffb76f;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.72);
+  }
+
+  .home-v2.site-v3 .home-authority-hero .hero-lead {
+    color: rgba(255, 255, 255, 0.94);
+  }
+
+  .home-v2.site-v3 .home-authority-hero .hero-call {
+    color: #fff;
+    background: #15191a;
+  }
+
+  .home-v2.site-v3 .hero-direct-contact {
+    background: #15191a;
+  }
+
+  .home-v2.site-v3 .hero-contact-person small {
+    color: #f2f2f1;
+  }
+
+  .home-v2.site-v3 .hero-direct-contact > a strong {
+    color: #ffb76f;
+  }
+
+  .home-v2.site-v3 .home-proof-contact strong {
+    color: #ffb76f;
   }
 }

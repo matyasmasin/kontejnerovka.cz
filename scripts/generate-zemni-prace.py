@@ -2,8 +2,14 @@
 # Jednorázový generátor stránek sekce Zemní práce (spuštěno 2026-06-12).
 # Vygenerované soubory dál žijí jako statické HTML; skript je tu pro dohledatelnost.
 import json
+import hashlib
+from pathlib import Path
 
-CACHE = "20260804c"
+ROOT = Path(__file__).resolve().parent.parent
+asset_hash = hashlib.sha256()
+for asset_name in ("styles.css", "script.js", "assets/icons.js"):
+    asset_hash.update((ROOT / asset_name).read_bytes())
+CACHE = asset_hash.hexdigest()[:10]
 AREA = ["Svárov", "Unhošť", "Nučice", "Rudná", "Hostivice", "Kladno", "Beroun",
         "Praha-západ", "Praha", "Středočeský kraj"]
 

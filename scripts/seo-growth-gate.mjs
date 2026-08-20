@@ -28,6 +28,17 @@ const ctrPages = [
   "vykop-bazenu.html",
 ];
 
+const gscOpportunityPages = [
+  "lokality.html",
+  "kontejnery-unhost.html",
+  "odvoz-zeminy-kladno.html",
+  "kontejner-na-zeminu.html",
+  "vyklizeni-odpad.html",
+  "rovnani-terenu.html",
+  "vykop-jezirka.html",
+  "vykop-bazenu.html",
+];
+
 function fail(message) {
   failures.push(message);
 }
@@ -70,6 +81,14 @@ for (const file of ctrPages) {
   if ((html?.match(/<h1\b/gi) || []).length !== 1) fail(`${file}: expected exactly one h1`);
 }
 
+for (const file of gscOpportunityPages) {
+  const inboundPattern = new RegExp(`href=["'](?:/)?${escapeRegex(file)}(?:[?#][^"']*)?["']`, "i");
+  const inboundFiles = [...htmlByFile.entries()]
+    .filter(([source, html]) => source !== file && inboundPattern.test(html))
+    .map(([source]) => source);
+  if (inboundFiles.length < 7) fail(`${file}: only ${inboundFiles.length} distinct internal-link sources; expected at least 7`);
+}
+
 for (const eventName of ["click_phone", "click_email", "lead_form_submit", "generate_lead"]) {
   if (!script.includes(`"${eventName}"`)) fail(`script.js: missing analytics event ${eventName}`);
 }
@@ -80,4 +99,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`SEO growth gate passed: ${priorityIndexPages.length} priority index pages, ${ctrPages.length} CTR pages, ${locs.length} sitemap URLs, conversion events present.`);
+console.log(`SEO growth gate passed: ${priorityIndexPages.length} priority index pages, ${ctrPages.length} CTR pages, ${gscOpportunityPages.length} GSC opportunity pages, ${locs.length} sitemap URLs, conversion events present.`);
